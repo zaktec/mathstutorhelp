@@ -28,12 +28,12 @@ export const headerData = {
       ],
     },
     {
-      text: 'Student Portal',
+      text: 'Online Courses',
       href: 'https://hai-bl.com/onboarding/interest-form',
     },
     {
       text: 'Prices',
-      href: getPermalink('/#prices'),
+      href: getPermalink('/pricing'),
     },
     {
       text: 'About',
@@ -44,7 +44,7 @@ export const headerData = {
       href: getPermalink('/contact'),
     },
   ],
-  actions: [{ text: 'Book Free Consultation', href: getPermalink('/contact') }],
+  actions: [{ text: 'Login/Register', href: 'https://hai-bl.com/onboarding/interest-form' }],
 };
 
 export const footerData = {
@@ -78,7 +78,7 @@ export const footerData = {
         { text: 'Online Tutoring – £25/hr', href: getPermalink('/online-tuitions') },
         { text: 'In-Person Tutoring – £30/hr', href: getPermalink('/maths-tuition') },
         { text: 'Group Session – £20', href: getPermalink('/gcse-revision-class-higher-manchester') },
-        { text: 'Book a Free Consultation', href: getPermalink('/contact') },
+        { text: 'Book a Free Consultation', href: 'https://calendar.app.google/VJ6tgEKfsUZAncDe9' },
         { text: 'Contact', href: getPermalink('/contact') },
       ],
     },

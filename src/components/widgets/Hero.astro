@@ -1,6 +1,8 @@
 ---
 import Image from '~/components/common/Image.astro';
 import Button from '~/components/ui/Button.astro';
+import { SITE } from 'astrowind:config';
+import { trimSlash } from '~/utils/permalinks';
 
 import type { Hero as Props } from '~/types';
 
@@ -16,6 +18,11 @@ const {
   id,
   bg = await Astro.slots.render('bg'),
 } = Astro.props;
+
+const basePath = `/${trimSlash(SITE.base || '')}`;
+const pathname = new URL(Astro.url).pathname;
+const normalizedPath = `/${trimSlash(pathname)}`;
+const isHomepage = normalizedPath === '/' || normalizedPath === basePath;
 ---
 
 <section class="relative md:-mt-[76px] not-prose" {...id ? { id } : {}}>
@@ -26,8 +33,8 @@ const {
   </div>
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
     <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
-    <div class="py-12 md:py-20">
-      <div class="text-center pb-10 md:pb-16 max-w-5xl mx-auto">
+    <div class:list={[isHomepage ? 'py-12 md:py-20' : 'py-8 md:py-12']}>
+      <div class:list={['text-center max-w-5xl mx-auto', isHomepage ? 'pb-10 md:pb-16' : 'pb-6 md:pb-8']}>
         {
           tagline && (
             <p
@@ -39,7 +46,10 @@ const {
         {
           title && (
             <h1
-              class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+              class:list={[
+                'font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade',
+                isHomepage ? 'text-5xl md:text-6xl' : 'text-4xl md:text-5xl',
+              ]}
               set:html={title}
             />
           )
@@ -76,12 +86,12 @@ const {
       >
         {
           image && (
-            <div class="relative m-auto max-w-5xl">
+            <div class:list={['relative m-auto', isHomepage ? 'max-w-5xl' : 'max-w-4xl']}>
               {typeof image === 'string' ? (
                 <Fragment set:html={image} />
               ) : (
                 <Image
-                  class="mx-auto rounded-md w-full"
+                  class:list={['mx-auto w-full', isHomepage ? 'rounded-md' : 'rounded-lg max-h-[360px] object-cover']}
                   widths={[400, 768, 1024, 2040]}
                   sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
                   loading="eager"

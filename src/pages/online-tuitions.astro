@@ -11,6 +11,8 @@ const metadata = {
   description:
     'Online maths tuition for GCSE, IGCSE, A-Level and Functional Skills students with clear explanations and exam practice.',
 };
+
+const consultationBookingUrl = 'https://calendar.app.google/VJ6tgEKfsUZAncDe9';
 ---
 
 <Layout metadata={metadata}>
@@ -19,7 +21,7 @@ const metadata = {
     title="Online Maths Tuition with Clear Teaching and Regular Practice"
     subtitle="Flexible online lessons for students who want structured maths support from home, without losing the personal feedback of one-to-one tuition."
     actions={[
-      { variant: 'primary', text: 'Book Online Tuition', href: '/contact', icon: 'tabler:video' },
+      { variant: 'primary', text: 'Book Online Tuition', href: consultationBookingUrl, icon: 'tabler:video' },
       { text: 'See Maths Levels', href: '/maths-level' },
     ]}
     image={{
@@ -121,6 +123,6 @@ const metadata = {
   <CallToAction
     title="Book Online Maths Tuition"
     subtitle="Share the student level, topic concerns and preferred lesson times, and we will help you choose the next step."
-    actions={[{ variant: 'primary', text: 'Request a Free Consultation', href: '/contact', icon: 'tabler:calendar-check' }]}
+    actions={[{ variant: 'primary', text: 'Request a Free Consultation', href: consultationBookingUrl, icon: 'tabler:calendar-check' }]}
   />
 </Layout>

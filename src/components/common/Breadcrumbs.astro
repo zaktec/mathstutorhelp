@@ -1,0 +1,106 @@
+---
+import { Icon } from 'astro-icon/components';
+import { SITE } from 'astrowind:config';
+import { getHomePermalink, getPermalink, trimSlash } from '~/utils/permalinks';
+
+const basePath = `/${trimSlash(SITE.base || '')}`;
+const pathname = new URL(Astro.url).pathname;
+const pathWithoutBase =
+  basePath !== '/' && pathname === basePath
+    ? '/'
+    : basePath !== '/' && pathname.startsWith(`${basePath}/`)
+      ? pathname.slice(basePath.length)
+      : pathname;
+
+const cleanPath = trimSlash(pathWithoutBase);
+const shouldShow = cleanPath !== '' && cleanPath !== '404';
+
+const labelMap: Record<string, string> = {
+  about: 'About',
+  contact: 'Contact',
+  pricing: 'Prices',
+  'maths-tuition': 'Maths Tuition',
+  'online-tuitions': 'Online Tuition',
+  'maths-level': 'Maths Level',
+  'gcse-revision-class-higher-manchester': 'GCSE Higher Maths Classes',
+  'gcse-foundation-maths-tutoring-club-2025': 'GCSE Foundation Maths Classes',
+  manchestersummercodingclub: 'Summer Coding Course',
+  safeguarding: 'Safeguarding',
+  privacy: 'Privacy Policy',
+  terms: 'Terms',
+  blog: 'Blog',
+};
+
+const toTitle = (slug: string) =>
+  labelMap[slug] ||
+  slug
+    .split('-')
+    .filter(Boolean)
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+
+const segments = cleanPath.split('/').filter(Boolean);
+const crumbs = segments.map((segment, index) => {
+  const href = getPermalink(`/${segments.slice(0, index + 1).join('/')}`);
+  return {
+    label: toTitle(segment),
+    href,
+    isCurrent: index === segments.length - 1,
+  };
+});
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: new URL(getHomePermalink(), SITE.site).toString(),
+    },
+    ...crumbs.map((crumb, index) => ({
+      '@type': 'ListItem',
+      position: index + 2,
+      name: crumb.label,
+      item: new URL(crumb.href, SITE.site).toString(),
+    })),
+  ],
+};
+---
+
+{
+  shouldShow && (
+    <nav class="relative z-10 mx-auto max-w-7xl px-4 pt-4 sm:px-6" aria-label="Breadcrumb">
+      <ol class="flex flex-wrap items-center gap-1 text-sm text-muted dark:text-slate-300">
+        <li>
+          <a
+            class="inline-flex items-center gap-1 rounded-md px-2 py-1 transition hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+            href={getHomePermalink()}
+          >
+            <Icon name="tabler:home" class="h-4 w-4" />
+            <span>Home</span>
+          </a>
+        </li>
+        {crumbs.map((crumb) => (
+          <li class="flex items-center gap-1">
+            <Icon name="tabler:chevron-right" class="h-4 w-4 text-gray-400" />
+            {crumb.isCurrent ? (
+              <span class="rounded-md px-2 py-1 font-medium text-gray-900 dark:text-white" aria-current="page">
+                {crumb.label}
+              </span>
+            ) : (
+              <a
+                class="rounded-md px-2 py-1 transition hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                href={crumb.href}
+              >
+                {crumb.label}
+              </a>
+            )}
+          </li>
+        ))}
+      </ol>
+      <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    </nav>
+  )
+}

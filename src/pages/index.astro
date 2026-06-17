@@ -14,6 +14,8 @@ const metadata = {
     'Online and in-person maths tuition in Manchester for GCSE, IGCSE, A-Level and Functional Skills students.',
   ignoreTitleTemplate: true,
 };
+
+const consultationBookingUrl = 'https://calendar.app.google/VJ6tgEKfsUZAncDe9';
 ---
 
 <Layout metadata={metadata}>
@@ -23,7 +25,7 @@ const metadata = {
       {
         variant: 'primary',
         text: 'Book a Free Consultation',
-        href: '/contact',
+        href: consultationBookingUrl,
         icon: 'tabler:calendar-check',
       },
       { text: 'View Tuition Options', href: '#tuition-options' },
@@ -42,6 +44,60 @@ const metadata = {
       experienced, DBS-checked teacher.
     </Fragment>
   </Hero>
+
+  <Content
+    id="group-classes"
+    tagline="Group Classes"
+    title="Group Maths Classes in Levenshulme, Manchester"
+    callToAction={{
+      text: 'Ask About Group Classes',
+      href: '/contact',
+      icon: 'tabler:chevron-right',
+    }}
+    items={[
+      {
+        title: 'GCSE Higher Maths Classes',
+        description:
+          'Manchester group classes for GCSE higher students aiming for grades 6-9, with focused topic revision and exam-style practice.',
+        icon: 'tabler:chart-line',
+        callToAction: {
+          text: 'View Higher class',
+          href: '/gcse-revision-class-higher-manchester/',
+        },
+      },
+      {
+        title: 'GCSE Foundation Tutoring',
+        description:
+          'Supportive GCSE foundation maths tutoring for students working towards grades 4-5, with clear methods and regular practice.',
+        icon: 'tabler:certificate',
+        callToAction: {
+          text: 'View Foundation class',
+          href: '/gcse-foundation-maths-tutoring-club-2025/',
+        },
+      },
+      {
+        title: 'Summer Coding Course',
+        description:
+          'Python coding course in Manchester for ages 13-17, designed for students who want practical programming skills.',
+        icon: 'tabler:code',
+        callToAction: {
+          text: 'View Python course',
+          href: '/manchestersummercodingclub/',
+        },
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1400&q=80',
+      alt: 'Students learning together in a classroom',
+    }}
+  >
+    <Fragment slot="content">
+      <p>
+        Group classes are available in Levenshulme, Manchester for GCSE maths students and young coders who want
+        structured teaching in a focused, supportive setting. Places can be discussed during a free consultation.
+      </p>
+    </Fragment>
+  </Content>
 
   <Features
     id="trust"
@@ -133,60 +189,6 @@ const metadata = {
   </Features>
 
   <Content
-    id="group-classes"
-    tagline="Group Classes"
-    title="Group Maths Classes in Levenshulme, Manchester"
-    callToAction={{
-      text: 'Ask About Group Classes',
-      href: '/contact',
-      icon: 'tabler:chevron-right',
-    }}
-    items={[
-      {
-        title: 'GCSE Higher Maths Classes',
-        description:
-          'Manchester group classes for GCSE higher students aiming for grades 6-9, with focused topic revision and exam-style practice.',
-        icon: 'tabler:chart-line',
-        callToAction: {
-          text: 'View Higher class',
-          href: '/gcse-revision-class-higher-manchester/',
-        },
-      },
-      {
-        title: 'GCSE Foundation Tutoring',
-        description:
-          'Supportive GCSE foundation maths tutoring for students working towards grades 4-5, with clear methods and regular practice.',
-        icon: 'tabler:certificate',
-        callToAction: {
-          text: 'View Foundation class',
-          href: '/gcse-foundation-maths-tutoring-club-2025/',
-        },
-      },
-      {
-        title: 'Summer Coding Course',
-        description:
-          'Python coding course in Manchester for ages 13-17, designed for students who want practical programming skills.',
-        icon: 'tabler:code',
-        callToAction: {
-          text: 'View Python course',
-          href: '/manchestersummercodingclub/',
-        },
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1400&q=80',
-      alt: 'Students learning together in a classroom',
-    }}
-  >
-    <Fragment slot="content">
-      <p>
-        Group classes are available in Levenshulme, Manchester for GCSE maths students and young coders who want
-        structured teaching in a focused, supportive setting. Places can be discussed during a free consultation.
-      </p>
-    </Fragment>
-  </Content>
-
-  <Content
     isReversed
     tagline="How Lessons Work"
     title="Clear Explanations, Regular Practice and Steady Progress"
@@ -247,7 +249,7 @@ const metadata = {
         description:
           'Flexible online maths tuition with the same clear teaching, guided examples and exam question practice.',
         icon: 'tabler:device-desktop',
-        callToAction: { text: 'Book a consultation', href: '/contact' },
+        callToAction: { text: 'Book a consultation', href: consultationBookingUrl },
       },
     ]}
   />
@@ -320,7 +322,7 @@ const metadata = {
       {
         variant: 'primary',
         text: 'Book a Free Consultation',
-        href: '/contact',
+        href: consultationBookingUrl,
         icon: 'tabler:calendar-check',
       },
       { text: 'View Tuition Options', href: '#tuition-options' },

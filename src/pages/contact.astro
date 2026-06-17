@@ -2,77 +2,192 @@
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
 import ContactUs from '~/components/widgets/Contact.astro';
-import Features2 from '~/components/widgets/Features2.astro';
+import Features from '~/components/widgets/Features.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
-  title: 'Contact',
+  title: 'Contact Maths Tutor Help',
+  description:
+    'Contact Maths Tutor Help by phone, WhatsApp or online form for GCSE, IGCSE, Functional Skills, A-Level and group maths tuition in Manchester.',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- HeroText Widget ******************* -->
+  <HeroText
+    tagline="Contact Us"
+    title="Contact Maths Tutor Help"
+    subtitle="We love to hear from parents and students. Get in touch to ask about tuition, group classes, prices or booking a free consultation."
+    callToAction={{
+      variant: 'primary',
+      text: 'Call 07860 248 525',
+      href: 'tel:+447860248525',
+      icon: 'tabler:phone',
+    }}
+    callToAction2={{
+      text: 'Send a WhatsApp',
+      href: 'https://wa.me/447860248525',
+      icon: 'tabler:brand-whatsapp',
+    }}
+  />
 
-  <HeroText tagline="Contact" title="Let's Connect!" />
+  <Features
+    title="Speak to MathsTutorHelp"
+    subtitle="Phone and WhatsApp support is available Monday to Friday, 8:30am-5:30pm."
+    columns={3}
+    items={[
+      {
+        title: 'Phone',
+        description: '07860 248 525<br />8:30am-5:30pm, Monday to Friday.',
+        icon: 'tabler:phone',
+        callToAction: {
+          text: 'Call now',
+          href: 'tel:+447860248525',
+        },
+      },
+      {
+        title: 'WhatsApp',
+        description: 'You can now get in touch via WhatsApp for tuition questions and booking enquiries.',
+        icon: 'tabler:brand-whatsapp',
+        callToAction: {
+          text: 'Message on WhatsApp',
+          href: 'https://wa.me/447860248525',
+        },
+      },
+      {
+        title: 'Website',
+        description: 'Use the contact form below if you prefer to send your enquiry online.',
+        icon: 'tabler:world',
+        callToAction: {
+          text: 'Go to form',
+          href: '#form',
+        },
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features>
 
   <ContactUs
     id="form"
-    title="Drop us a message today!"
-    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking  for right there! If not, our support team is delighted to help you."
+    title="Send a Message Online"
+    subtitle="Fill in the boxes below and include the student's year group, exam board if known, and whether you prefer online, in-person or group tuition."
     inputs={[
       {
         type: 'text',
         name: 'name',
-        label: 'Name',
+        label: 'Your Name (required)',
+        autocomplete: 'name',
       },
       {
         type: 'email',
         name: 'email',
-        label: 'Email',
+        label: 'Your Email (required)',
+        autocomplete: 'email',
+      },
+      {
+        type: 'text',
+        name: 'subject',
+        label: 'Subject',
+      },
+      {
+        type: 'text',
+        name: 'maths-answer',
+        label: 'Answer the Maths Question below: 1 + 4 = ?',
       },
     ]}
     textarea={{
-      label: 'Message',
+      name: 'message',
+      label: 'Your Message',
+      rows: 6,
+      placeholder: 'Tell us what help you need, the student level and your preferred lesson option.',
     }}
     disclaimer={{
       label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
+        'By submitting this contact form, you agree for MathsTutorHelp to use your details to respond to your enquiry.',
     }}
-    description="Our support team typically responds within 24 business hours."
+    button="Send Message"
+    description="For urgent enquiries, please call or WhatsApp during opening hours."
   />
 
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="We are here to help!"
+  <Features
+    title="MathsTutorHelp Services"
+    subtitle="Affordable, easy-to-access and effective maths support with personalised lessons matched to each learner's needs."
+    columns={3}
     items={[
       {
-        title: 'General support',
-        description: `Chat with us for inquiries related to account management, website navigation, payment issues, accessing purchased templates or general questions about the website's functionality.`,
+        title: 'Online Tutoring',
+        description: 'Online maths tuition for GCSE, IGCSE, Functional Skills and A-Level students.',
+        icon: 'tabler:device-laptop',
+        callToAction: {
+          text: 'View online tuition',
+          href: getPermalink('/online-tuitions'),
+        },
       },
       {
-        title: 'Contact sales',
-        description:
-          'Chat with us for questions about purchases, customization options, licensing for commercial use, inquiries about specific template, etc.',
+        title: 'In-Person Tuition',
+        description: 'Manchester-based one-to-one maths tuition for students who prefer face-to-face support.',
+        icon: 'tabler:school',
+        callToAction: {
+          text: 'View maths tuition',
+          href: getPermalink('/maths-tuition'),
+        },
       },
       {
-        title: 'Technical support',
-        description:
-          'Chat with us when facing issues like template installation, problems editing difficulties, compatibility issues with software or download errors, or other technical challenges related to using the templates.',
+        title: 'Group Classes',
+        description: 'Small group GCSE maths classes in Levenshulme, Manchester from £20 per session.',
+        icon: 'tabler:users-group',
+        callToAction: {
+          text: 'View group classes',
+          href: getPermalink('/gcse-revision-class-higher-manchester'),
+        },
+      },
+    ]}
+  />
+
+  <Features
+    title="Our Prices"
+    subtitle="Simple lesson options for online tuition, in-person tuition and small group support."
+    columns={3}
+    items={[
+      {
+        title: 'Online Tutoring',
+        description: '£25 per hour.',
+        icon: 'tabler:video',
       },
       {
-        title: 'Phone',
-        description: '+1 (234) 567-890',
-        icon: 'tabler:headset',
-      },
-      {
-        title: 'Email',
-        description: 'contact@support.com',
-        icon: 'tabler:mail',
-      },
-      {
-        title: 'Location',
-        description: '1234 Lorem Ipsum St, 12345, Miami, EEUU',
+        title: 'In-Person Tutoring',
+        description: '£30 per hour.',
         icon: 'tabler:map-pin',
+      },
+      {
+        title: 'Group Session',
+        description: '£20 per session.',
+        icon: 'tabler:users',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features>
+
+  <CallToAction
+    title="Ready to Ask About Tuition?"
+    subtitle="Call, WhatsApp or send the form and we will help you choose the right MathsTutorHelp option."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Call 07860 248 525',
+        href: 'tel:+447860248525',
+        icon: 'tabler:phone',
+      },
+      {
+        text: 'WhatsApp MathsTutorHelp',
+        href: 'https://wa.me/447860248525',
+        icon: 'tabler:brand-whatsapp',
       },
     ]}
   />
