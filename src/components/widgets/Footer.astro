@@ -24,7 +24,14 @@ export interface Props {
   theme?: string;
 }
 
-const { socialLinks = [], secondaryLinks = [], links = [], description = '', footNote = '', theme = 'light' } = Astro.props;
+const {
+  socialLinks = [],
+  secondaryLinks = [],
+  links = [],
+  description = '',
+  footNote = '',
+  theme = 'light',
+} = Astro.props;
 ---
 
 <footer
@@ -35,12 +42,10 @@ const { socialLinks = [], secondaryLinks = [], links = [], description = '', foo
   ]}
 >
   <div
-    class:list={[
-      'absolute inset-0 pointer-events-none',
-      theme === 'dark' ? 'bg-[#00387D]' : 'dark:bg-dark',
-    ]}
+    class:list={['absolute inset-0 pointer-events-none', theme === 'dark' ? 'bg-[#00387D]' : 'dark:bg-dark']}
     aria-hidden="true"
-  ></div>
+  >
+  </div>
   <div
     class:list={[
       'relative max-w-7xl mx-auto px-4 sm:px-6 intersect-once intersect-quarter intersect-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade',
@@ -57,7 +62,9 @@ const { socialLinks = [], secondaryLinks = [], links = [], description = '', foo
       {
         links.map(({ title, links }) => (
           <div class="col-span-6 md:col-span-3 lg:col-span-2">
-            <div class:list={['font-semibold mb-3', theme === 'dark' ? 'text-white' : 'dark:text-gray-300']}>{title}</div>
+            <div class:list={['font-semibold mb-3', theme === 'dark' ? 'text-white' : 'dark:text-gray-300']}>
+              {title}
+            </div>
             {links && Array.isArray(links) && links.length > 0 && (
               <ul class="text-sm leading-6">
                 {links.map(({ text, href, ariaLabel }) => (

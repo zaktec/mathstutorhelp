@@ -19,15 +19,15 @@ Core message:
 
 Use a simple, consistent palette.
 
-| Purpose | Colour | Hex |
-| --- | --- | --- |
-| Primary brand | Navy | `#00387D` |
-| Secondary brand | Bright blue | `#007ACC` |
-| Main accent | Warm yellow | `#F7B200` |
-| Text | Dark grey | `#222222` |
-| Muted text | Grey | `#727272` |
+| Purpose                  | Colour         | Hex       |
+| ------------------------ | -------------- | --------- |
+| Primary brand            | Navy           | `#00387D` |
+| Secondary brand          | Bright blue    | `#007ACC` |
+| Main accent              | Warm yellow    | `#F7B200` |
+| Text                     | Dark grey      | `#222222` |
+| Muted text               | Grey           | `#727272` |
 | Light section background | Pale blue grey | `#F5F8FB` |
-| Page background | White | `#FFFFFF` |
+| Page background          | White          | `#FFFFFF` |
 
 ## Colour Usage
 
