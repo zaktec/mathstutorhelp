@@ -1,0 +1,146 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import Content from '~/components/widgets/Content.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Summer Coding Course Manchester | Python Ages 13-17',
+  description:
+    'Small-group summer Python coding course in Manchester for ages 13-17. Learn Python, build projects and develop problem-solving skills.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Summer Coding Course"
+    title="Python Coding Course in Manchester for Ages 13-17"
+    subtitle="A beginner-friendly summer course where students learn Python, build real projects and strengthen logical problem-solving."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Register Interest',
+        href: 'https://hai-bl.com/onboarding/interest-form',
+        target: '_blank',
+        icon: 'tabler:code',
+      },
+      { text: 'Ask a Question', href: '/contact' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1800&q=80',
+      alt: 'Student learning Python coding',
+    }}
+  />
+
+  <Features
+    title="Course Details"
+    subtitle="A practical six-week course for beginners who want to learn coding in a calm small-group environment."
+    columns={3}
+    items={[
+      {
+        title: 'Ages 13-17',
+        description: 'Suitable for complete beginners and students interested in coding, maths or technology.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Sundays 11:00am-12:00pm',
+        description: 'Six sessions from 26 July to 30 August at Levenshulme High School.',
+        icon: 'tabler:clock',
+      },
+      {
+        title: '£100 for 6 sessions',
+        description: 'Approximately £17 per session, with no payment required to register interest.',
+        icon: 'tabler:coin-pound',
+      },
+      {
+        title: 'Max 7 students',
+        description: 'Small-group teaching gives students focused support while they build projects.',
+        icon: 'tabler:users-group',
+      },
+      {
+        title: 'Laptop required',
+        description: 'Students use free Python software, with setup completed before the course starts.',
+        icon: 'tabler:device-laptop',
+      },
+      {
+        title: 'Final project',
+        description: 'Students build a complete Python program and receive a certificate.',
+        icon: 'tabler:award',
+      },
+    ]}
+  />
+
+  <Content
+    isReversed
+    title="What Students Will Learn"
+    items={[
+      {
+        title: 'Python from scratch',
+        description: 'Students learn the basics step by step and build real programs each week.',
+      },
+      {
+        title: 'Apps and mini tools',
+        description: 'Projects include quizzes, small apps and practical tools that make coding feel real.',
+      },
+      {
+        title: 'Maths through coding',
+        description: 'The course includes formulas, substitution, sequences, averages, percentages and logic.',
+      },
+      {
+        title: 'Next steps',
+        description: 'Students can progress to advanced coding, web development or GCSE Computer Science support.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80',
+      alt: 'Python coding lesson on a laptop',
+    }}
+  >
+    <Fragment slot="content">
+      <p>
+        This course combines coding and maths thinking so students can improve problem-solving while building something
+        practical and confidence-boosting.
+      </p>
+    </Fragment>
+  </Content>
+
+  <FAQs
+    title="Coding Course FAQs"
+    columns={2}
+    items={[
+      {
+        title: 'Do students need coding experience?',
+        description: 'No. The course is beginner-friendly and starts from the basics.',
+      },
+      {
+        title: 'Do students need internet in lessons?',
+        description: 'No. The course uses offline Python software once everything is set up.',
+      },
+      {
+        title: 'What software is used?',
+        description: 'Students use Thonny, a free Python editor that is suitable for beginners.',
+      },
+      {
+        title: 'Is an online option available?',
+        description: 'An online version is planned and will be announced separately.',
+      },
+    ]}
+  />
+
+  <CallToAction
+    title="Only 7 Spaces Available"
+    subtitle="Register interest now for the Manchester summer Python course. No payment is required to register interest."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Register Interest',
+        href: 'https://hai-bl.com/onboarding/interest-form',
+        target: '_blank',
+        icon: 'tabler:send',
+      },
+      { text: 'Contact Us', href: '/contact' },
+    ]}
+  />
+</Layout>

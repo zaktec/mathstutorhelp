@@ -1,182 +1,113 @@
-import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
+import { getPermalink } from './utils/permalinks';
 
 export const headerData = {
   links: [
     {
-      text: 'Homes',
+      text: 'Home',
+      href: getPermalink('/'),
+    },
+    {
+      text: 'Tuition',
+      href: getPermalink('/maths-tuition'),
+    },
+    {
+      text: 'Group Classes',
       links: [
         {
-          text: 'SaaS',
-          href: getPermalink('/homes/saas'),
+          text: 'GCSE Higher Maths',
+          href: getPermalink('/gcse-revision-class-higher-manchester'),
         },
         {
-          text: 'Startup',
-          href: getPermalink('/homes/startup'),
+          text: 'GCSE Foundation Maths',
+          href: getPermalink('/gcse-foundation-maths-tutoring-club-2025'),
         },
         {
-          text: 'Mobile App',
-          href: getPermalink('/homes/mobile-app'),
-        },
-        {
-          text: 'Personal',
-          href: getPermalink('/homes/personal'),
+          text: 'Summer Coding Course',
+          href: getPermalink('/manchestersummercodingclub'),
         },
       ],
     },
     {
-      text: 'Pages',
-      links: [
-        {
-          text: 'Features (Anchor Link)',
-          href: getPermalink('/#features'),
-        },
-        {
-          text: 'Services',
-          href: getPermalink('/services'),
-        },
-        {
-          text: 'Pricing',
-          href: getPermalink('/pricing'),
-        },
-        {
-          text: 'About us',
-          href: getPermalink('/about'),
-        },
-        {
-          text: 'Contact',
-          href: getPermalink('/contact'),
-        },
-        {
-          text: 'Terms',
-          href: getPermalink('/terms'),
-        },
-        {
-          text: 'Privacy policy',
-          href: getPermalink('/privacy'),
-        },
-      ],
+      text: 'Student Portal',
+      href: 'https://hai-bl.com/onboarding/interest-form',
     },
     {
-      text: 'Landing',
-      links: [
-        {
-          text: 'Lead Generation',
-          href: getPermalink('/landing/lead-generation'),
-        },
-        {
-          text: 'Long-form Sales',
-          href: getPermalink('/landing/sales'),
-        },
-        {
-          text: 'Click-Through',
-          href: getPermalink('/landing/click-through'),
-        },
-        {
-          text: 'Product Details (or Services)',
-          href: getPermalink('/landing/product'),
-        },
-        {
-          text: 'Coming Soon or Pre-Launch',
-          href: getPermalink('/landing/pre-launch'),
-        },
-        {
-          text: 'Subscription',
-          href: getPermalink('/landing/subscription'),
-        },
-      ],
+      text: 'Prices',
+      href: getPermalink('/#prices'),
     },
     {
-      text: 'Blog',
-      links: [
-        {
-          text: 'Blog List',
-          href: getBlogPermalink(),
-        },
-        {
-          text: 'Article',
-          href: getPermalink('get-started-website-with-astro-tailwind-css', 'post'),
-        },
-        {
-          text: 'Article (with MDX)',
-          href: getPermalink('markdown-elements-demo-post', 'post'),
-        },
-        {
-          text: 'Category Page',
-          href: getPermalink('tutorials', 'category'),
-        },
-        {
-          text: 'Tag Page',
-          href: getPermalink('astro', 'tag'),
-        },
-      ],
+      text: 'About',
+      href: getPermalink('/about'),
     },
     {
-      text: 'Widgets',
-      href: '#',
+      text: 'Contact',
+      href: getPermalink('/contact'),
     },
   ],
-  actions: [{ text: 'Download', href: 'https://github.com/arthelokyo/astrowind', target: '_blank' }],
+  actions: [{ text: 'Book Free Consultation', href: getPermalink('/contact') }],
 };
 
 export const footerData = {
+  description:
+    'Personalised maths tuition for KS3, GCSE, IGCSE, Functional Skills and A-Level, available online or in person in Manchester.',
   links: [
     {
-      title: 'Product',
+      title: 'Tuition',
       links: [
-        { text: 'Features', href: '#' },
-        { text: 'Security', href: '#' },
-        { text: 'Team', href: '#' },
-        { text: 'Enterprise', href: '#' },
-        { text: 'Customer stories', href: '#' },
-        { text: 'Pricing', href: '#' },
-        { text: 'Resources', href: '#' },
+        { text: 'GCSE Maths Tuition', href: getPermalink('/maths-tuition') },
+        { text: 'IGCSE Maths Tuition', href: getPermalink('/maths-level') },
+        { text: 'A-Level Maths Tuition', href: getPermalink('/maths-level') },
+        { text: 'Functional Skills Maths', href: getPermalink('/maths-level') },
+        { text: 'Online Tuition', href: getPermalink('/online-tuitions') },
+        { text: 'In-Person Tuition', href: getPermalink('/maths-tuition') },
       ],
     },
     {
-      title: 'Platform',
+      title: 'Classes & Portal',
       links: [
-        { text: 'Developer API', href: '#' },
-        { text: 'Partners', href: '#' },
-        { text: 'Atom', href: '#' },
-        { text: 'Electron', href: '#' },
-        { text: 'AstroWind Desktop', href: '#' },
+        { text: 'GCSE Higher Group Classes', href: getPermalink('/gcse-revision-class-higher-manchester') },
+        { text: 'GCSE Foundation Group Classes', href: getPermalink('/gcse-foundation-maths-tutoring-club-2025') },
+        { text: 'Summer Coding Course', href: getPermalink('/manchestersummercodingclub') },
+        { text: 'Student Portal', href: 'https://hai-bl.com/onboarding/interest-form' },
+        { text: 'Portal Login', href: 'https://hai-bl.com/onboarding/interest-form' },
       ],
     },
     {
-      title: 'Support',
+      title: 'Prices & Contact',
       links: [
-        { text: 'Docs', href: '#' },
-        { text: 'Community Forum', href: '#' },
-        { text: 'Professional Services', href: '#' },
-        { text: 'Skills', href: '#' },
-        { text: 'Status', href: '#' },
+        { text: 'Online Tutoring – £25/hr', href: getPermalink('/online-tuitions') },
+        { text: 'In-Person Tutoring – £30/hr', href: getPermalink('/maths-tuition') },
+        { text: 'Group Session – £20', href: getPermalink('/gcse-revision-class-higher-manchester') },
+        { text: 'Book a Free Consultation', href: getPermalink('/contact') },
+        { text: 'Contact', href: getPermalink('/contact') },
       ],
     },
     {
-      title: 'Company',
+      title: 'Useful Links',
       links: [
-        { text: 'About', href: '#' },
-        { text: 'Blog', href: '#' },
-        { text: 'Careers', href: '#' },
-        { text: 'Press', href: '#' },
-        { text: 'Inclusion', href: '#' },
-        { text: 'Social Impact', href: '#' },
-        { text: 'Shop', href: '#' },
+        { text: 'BBC Bitesize Maths', href: 'https://www.bbc.co.uk/bitesize/subjects/z38pycw' },
+        { text: 'Corbettmaths', href: 'https://corbettmaths.com/' },
+        { text: 'Maths Genie', href: 'https://www.mathsgenie.co.uk/' },
+        { text: 'MME GCSE Maths Revision', href: 'https://mmerevise.co.uk/gcse-maths-revision/' },
       ],
     },
   ],
   secondaryLinks: [
+    { text: 'Home', href: getPermalink('/') },
+    { text: 'About', href: getPermalink('/about') },
+    { text: 'Contact', href: getPermalink('/contact') },
     { text: 'Terms', href: getPermalink('/terms') },
     { text: 'Privacy Policy', href: getPermalink('/privacy') },
+    { text: 'Safeguarding', href: getPermalink('/safeguarding') },
   ],
   socialLinks: [
-    { ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },
-    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
-    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
-    { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
-    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/arthelokyo/astrowind' },
+    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://www.facebook.com/mathstutorhelp' },
+    { ariaLabel: 'X', icon: 'tabler:brand-x', href: 'http://twitter.com' },
+    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/company/mathstutorhelp' },
+    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://www.instagram.com/mathstutorhelp/' },
   ],
   footNote: `
-    Made by <a class="text-blue-600 underline dark:text-muted" href="https://github.com/arthelokyo"> Arthelokyo</a> · All rights reserved.
+    Copyright &copy; 2026 <a class="text-[#F7B200] underline" href="/">MathsTutorHelp</a>. All rights reserved.<br />Powered by ZakTec Solutions.
   `,
+  theme: 'dark',
 };

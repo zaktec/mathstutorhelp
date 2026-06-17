@@ -1,0 +1,131 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import Content from '~/components/widgets/Content.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Maths Tuition Services',
+  description:
+    'Personalised maths tuition in Manchester and online for GCSE, IGCSE, A-Level and Functional Skills students.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Maths Tuition Services"
+    title="Personalised Maths Tuition for Confidence and Exam Progress"
+    subtitle="Clear, structured support for students who need help understanding topics, preparing for exams or building stronger maths confidence."
+    actions={[
+      { variant: 'primary', text: 'Book a Free Consultation', href: '/contact', icon: 'tabler:calendar-check' },
+      { text: 'View Maths Levels', href: '/maths-level' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1596495577886-d920f1fb7238?auto=format&fit=crop&w=1800&q=80',
+      alt: 'Student working through maths problems with a tutor',
+    }}
+  />
+
+  <Features
+    title="Maths Support That Fits the Student"
+    subtitle="Lessons are planned around the student's current level, school topics and exam goals."
+    columns={3}
+    items={[
+      {
+        title: 'One-to-one tuition',
+        description: 'Focused individual support for students who need targeted explanations and regular feedback.',
+        icon: 'tabler:user',
+      },
+      {
+        title: 'Exam preparation',
+        description: 'Past papers, mark schemes and exam-style questions to improve method, timing and confidence.',
+        icon: 'tabler:file-check',
+      },
+      {
+        title: 'Topic catch-up',
+        description: 'Step-by-step help with algebra, graphs, geometry, trigonometry, statistics and problem solving.',
+        icon: 'tabler:math-function',
+      },
+      {
+        title: 'Confidence building',
+        description: 'Calm explanations and guided practice for students who feel anxious or behind in maths.',
+        icon: 'tabler:heart-handshake',
+      },
+      {
+        title: 'Homework support',
+        description: 'Help with maths homework while making sure students understand the method, not just the answer.',
+        icon: 'tabler:book',
+      },
+      {
+        title: 'Parent updates',
+        description: 'Clear communication about progress, focus areas and what to practise between lessons.',
+        icon: 'tabler:message-circle',
+      },
+    ]}
+  />
+
+  <Content
+    isReversed
+    title="How the Tuition Works"
+    items={[
+      {
+        title: 'Assess current understanding',
+        description: "We identify weak topics, confidence gaps and the student's target grade or learning goal.",
+      },
+      {
+        title: 'Teach clearly',
+        description: 'Methods are broken down into manageable steps with examples that students can repeat.',
+      },
+      {
+        title: 'Practise regularly',
+        description: 'Students apply each method to exam-style questions and receive feedback on working out.',
+      },
+      {
+        title: 'Review and adjust',
+        description: 'Lessons adapt as the student improves, with revision focused on the areas that matter most.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1400&q=80',
+      alt: 'Maths notes and formulas',
+    }}
+  >
+    <Fragment slot="content">
+      <p>
+        Good tuition should feel practical and reassuring. The aim is to help students understand the maths, show clear
+        working and feel more prepared when they sit assessments or exams.
+      </p>
+    </Fragment>
+  </Content>
+
+  <FAQs
+    title="Maths Tuition FAQs"
+    columns={2}
+    items={[
+      {
+        title: 'Is tuition available in person?',
+        description: 'Yes. In-person tuition is available in Manchester, with online lessons also available.',
+      },
+      {
+        title: 'Can you help with a specific exam board?',
+        description: 'Yes. Lessons can be matched to the student’s exam board, topics and mark scheme style.',
+      },
+      {
+        title: 'Do you teach foundation and higher GCSE?',
+        description: 'Yes. Support is available for both foundation and higher tier GCSE maths.',
+      },
+      {
+        title: 'How do we start?',
+        description: 'Use the contact page to request a free consultation and share the student level and goals.',
+      },
+    ]}
+  />
+
+  <CallToAction
+    title="Start with a Free Consultation"
+    subtitle="Tell us what your child is studying, what feels difficult and whether you prefer online or in-person tuition."
+    actions={[{ variant: 'primary', text: 'Contact Maths Tutor Help', href: '/contact', icon: 'tabler:send' }]}
+  />
+</Layout>

@@ -1,0 +1,145 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import Content from '~/components/widgets/Content.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'GCSE Maths Foundation Tutoring Manchester | Grades 4-5',
+  description:
+    'GCSE Foundation Maths tutoring club in Levenshulme, Manchester for Year 10 and 11 students working towards grades 4-5.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Group Classes"
+    title="GCSE Maths Foundation Tutoring"
+    subtitle="Small group GCSE Foundation Maths classes in Levenshulme for students working towards grades 4-5."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Book a Place',
+        href: 'https://hai-bl.com/onboarding/interest-form',
+        target: '_blank',
+        icon: 'tabler:calendar-check',
+      },
+      { text: 'Ask a Question', href: '/contact' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1800&q=80',
+      alt: 'GCSE foundation maths small group class',
+    }}
+  />
+
+  <Features
+    title="Foundation Class Details"
+    subtitle="A calm, structured class for students who need confidence, clear methods and regular GCSE practice."
+    columns={3}
+    items={[
+      {
+        title: 'Grades 4-5 focus',
+        description: 'Designed for Foundation Tier students who need a secure pass and stronger core skills.',
+        icon: 'tabler:certificate',
+      },
+      {
+        title: 'Sundays 10:00am-11:00am',
+        description: 'Weekly sessions from 13 September 2026 through the 2027 exam preparation period.',
+        icon: 'tabler:clock',
+      },
+      {
+        title: 'Levenshulme High School',
+        description: 'In-person tutoring club at Levenshulme High School, Manchester, M19 1FS.',
+        icon: 'tabler:map-pin',
+      },
+      {
+        title: 'Maximum 7 students',
+        description: 'Small groups keep lessons focused and allow students to ask questions.',
+        icon: 'tabler:users-group',
+      },
+      {
+        title: 'Simple pricing',
+        description: '£20 per session pay-as-you-go, or £16 per session with block booking.',
+        icon: 'tabler:coin-pound',
+      },
+      {
+        title: 'No-screen lessons',
+        description: 'Paper-based practice helps students focus and prepare for real exam conditions.',
+        icon: 'tabler:file-pencil',
+      },
+    ]}
+  />
+
+  <Content
+    title="What Students Work On"
+    items={[
+      {
+        title: 'Foundation topics',
+        description: 'Number, algebra, ratio, geometry and the common topics needed for grades 4-5.',
+      },
+      {
+        title: 'Exam-style practice',
+        description: 'Students practise real question styles and learn how to show working clearly.',
+      },
+      {
+        title: 'Diagnostic support',
+        description: 'Lessons respond to weak areas so students spend time on the topics that matter most.',
+      },
+      {
+        title: 'Confidence and independence',
+        description: 'Students learn to work through problems with support where needed.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1596495577886-d920f1fb7238?auto=format&fit=crop&w=1400&q=80',
+      alt: 'Student practising GCSE maths',
+    }}
+  >
+    <Fragment slot="content">
+      <p>
+        This class is for Year 10 and Year 11 Foundation Tier students who need structured weekly support, exam practice
+        and a clear route towards grades 4-5.
+      </p>
+    </Fragment>
+  </Content>
+
+  <FAQs
+    title="Foundation Class FAQs"
+    columns={2}
+    items={[
+      {
+        title: 'Can my child bring schoolwork?',
+        description: 'Yes. Students can bring schoolwork or use tutor-provided worksheets and practice questions.',
+      },
+      {
+        title: 'How is progress tracked?',
+        description: 'Progress is tracked through diagnostic tasks, mock-style practice and tutor feedback.',
+      },
+      {
+        title: 'Which exam boards are covered?',
+        description: 'AQA, Edexcel and OCR can be supported, with tasks adapted to the student specification.',
+      },
+      {
+        title: 'Is there a free trial?',
+        description: 'If you are not happy after the first session, you do not have to pay.',
+      },
+    ]}
+  />
+
+  <CallToAction
+    title="Reserve a Foundation Class Place"
+    subtitle="Spaces are limited to keep the group focused and supportive."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Book Now',
+        href: 'https://hai-bl.com/onboarding/interest-form',
+        target: '_blank',
+        icon: 'tabler:calendar-check',
+      },
+      { text: 'Contact Us', href: '/contact' },
+    ]}
+  />
+</Layout>

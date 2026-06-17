@@ -2,397 +2,335 @@
 import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
-import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
-import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'AstroWind — Free template for creating websites with Astro + Tailwind CSS',
+  title: 'Maths Tutor in Manchester for GCSE, IGCSE and A-Level',
+  description:
+    'Online and in-person maths tuition in Manchester for GCSE, IGCSE, A-Level and Functional Skills students.',
   ignoreTitleTemplate: true,
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
-
   <Hero
+    tagline="Maths Tutor Help"
     actions={[
       {
         variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/arthelokyo/astrowind',
-        target: '_blank',
-        icon: 'tabler:download',
+        text: 'Book a Free Consultation',
+        href: '/contact',
+        icon: 'tabler:calendar-check',
       },
-      { text: 'Learn more', href: '#features' },
+      { text: 'View Tuition Options', href: '#tuition-options' },
     ]}
-    image={{ src: '~/assets/images/hero-image.png', alt: 'AstroWind Hero Image' }}
+    image={{
+      src: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1800&q=80',
+      alt: 'Student receiving maths support during a lesson',
+    }}
   >
     <Fragment slot="title">
-      Free template for <span class="hidden xl:inline">creating websites with</span>
-      <span class="text-accent dark:text-white"> Astro v6</span> + Tailwind CSS
+      Maths Tutor in Manchester for <span class="text-accent dark:text-white">GCSE, IGCSE and A-Level</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
-        <span class="font-semibold">AstroWind</span> is a free, customizable and production-ready template for Astro v6 +
-        Tailwind CSS v4.</span
-      >
-      <span class="block mb-1 sm:hidden font-bold text-blue-600">AstroWind: Production-ready.</span>
-      Suitable for Startups, Small Business, SaaS websites, Professional Portfolios, Marketing websites, Landing Pages & Blogs.
+      Online and in-person maths tuition with clear explanations, exam practice and personalised support from an
+      experienced, DBS-checked teacher.
     </Fragment>
   </Hero>
 
-  <!-- Note Widget ******************* -->
-
-  <Note title="Philosophy:" description="Simplicity, Best Practices and High Performance" />
-
-  <!-- Features Widget *************** -->
-
   <Features
-    id="features"
-    tagline="Features"
-    title="What you get with AstroWind"
-    subtitle="One of the most professional and comprehensive templates currently on the market. Most starred & forked Astro theme in 2022, 2023, 2024 and 2025."
+    id="trust"
+    title="Trusted Maths Support for Manchester Families"
+    subtitle="Calm, structured tuition for students who need stronger understanding, better exam technique and more confidence."
+    columns={3}
     items={[
       {
-        title: 'Astro + Tailwind CSS Integration',
-        description:
-          'A seamless integration between two great frameworks that offer high productivity, performance and versatility. Now powered by Tailwind CSS v4.',
-        icon: 'tabler:brand-tailwind',
+        title: 'Qualified teacher',
+        description: 'Lessons are led by an experienced teacher who understands the UK maths curriculum.',
+        icon: 'tabler:school',
       },
       {
-        title: 'Ready-to-use Components',
-        description:
-          'Widgets made with Tailwind CSS v4 ready to be used in Marketing Websites, SaaS, Blogs, Personal Profiles, Small Business...',
-        icon: 'tabler:components',
+        title: 'DBS checked',
+        description: 'Professional, parent-focused support with safeguarding and reliability at the centre.',
+        icon: 'tabler:shield-check',
       },
       {
-        title: 'Best Practices',
-        description:
-          'Creating secure, efficient, and user-friendly websites that deliver exceptional experiences and lasting value.',
-        icon: 'tabler:list-check',
+        title: "15+ years' experience",
+        description: 'Clear guidance built from years of helping students prepare for exams and close knowledge gaps.',
+        icon: 'tabler:award',
       },
       {
-        title: 'Excellent Page Speed',
-        description:
-          'Having a good page speed impacts organic search ranking, improves user experience (UI/UX) and increase conversion rates.',
-        icon: 'tabler:rocket',
+        title: 'Online and in person',
+        description: 'Flexible lesson options for Manchester families and students who prefer online tuition.',
+        icon: 'tabler:device-laptop',
       },
       {
-        title: 'Search Engine Optimization (SEO)',
-        description:
-          "SEO lies in its ability to enhance a website's visibility, driving organic traffic and enabling it to reach a wider audience.",
-        icon: 'tabler:arrows-right-left',
+        title: 'Exam-focused practice',
+        description: 'Past paper work, topic revision and step-by-step methods for GCSE, IGCSE and A-Level.',
+        icon: 'tabler:file-check',
       },
       {
-        title: 'Open to new ideas and contributions',
-        description:
-          'Embracing a culture that is open to new ideas and contributions is integral fostering innovation, collaboration, and a dynamic user experience.',
-        icon: 'tabler:bulb',
+        title: 'Personalised lessons',
+        description: 'Tuition is adapted to the student, from confidence building to higher-grade preparation.',
+        icon: 'tabler:user-check',
       },
     ]}
   />
 
-  <!-- Content Widget **************** -->
-
-  <Content
-    isReversed
-    tagline="Inside template"
-    title="AstroWind's Blueprint: Fun Meets Functionality!"
+  <Features
+    id="tuition-options"
+    tagline="Maths Tuition Services"
+    title="Tuition for the Stage Your Child Is At"
+    subtitle="Support is available for school students, exam candidates and learners who need practical maths confidence."
+    columns={3}
     items={[
       {
-        title: 'Built on top of Astro v6',
+        title: 'GCSE Maths Support',
         description:
-          'Benefiting from the performance and developer-friendly features of this modern static site generator.',
+          'Topic-by-topic revision, exam question practice and clear methods for foundation and higher tier GCSE maths.',
+        icon: 'tabler:math-function',
       },
       {
-        title: 'Styled using Tailwind CSS v4',
+        title: 'IGCSE Maths Tuition',
         description:
-          'Facilitating rapid design and consistent styling with this highly popular utility-first CSS framework.',
+          'Structured support for IGCSE students, including algebra, geometry, graphs, statistics and exam technique.',
+        icon: 'tabler:calculator',
       },
       {
-        title: 'Cross-browser compatibility',
+        title: 'A-Level Maths Tuition',
         description:
-          'Ensure your website looks and functions consistently across various web browsers, delivering a seamless experience to all users.',
+          'Focused help with pure maths, mechanics and statistics, with careful attention to reasoning and problem solving.',
+        icon: 'tabler:chart-line',
+      },
+      {
+        title: 'Functional Skills Maths',
+        description:
+          'Practical maths support for learners who need clearer methods and confidence with everyday numeracy.',
+        icon: 'tabler:clipboard-check',
+      },
+      {
+        title: 'Online Maths Tuition',
+        description:
+          'Interactive online lessons with worked examples, shared resources and regular exam-style practice.',
+        icon: 'tabler:video',
+      },
+      {
+        title: 'Group Classes in Manchester',
+        description:
+          'Small group maths classes for students who benefit from structured teaching and regular guided practice.',
+        icon: 'tabler:users-group',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features>
+
+  <Content
+    id="group-classes"
+    tagline="Group Classes"
+    title="Group Maths Classes in Levenshulme, Manchester"
+    callToAction={{
+      text: 'Ask About Group Classes',
+      href: '/contact',
+      icon: 'tabler:chevron-right',
+    }}
+    items={[
+      {
+        title: 'GCSE Higher Maths Classes',
+        description:
+          'Manchester group classes for GCSE higher students aiming for grades 6-9, with focused topic revision and exam-style practice.',
+        icon: 'tabler:chart-line',
+        callToAction: {
+          text: 'View Higher class',
+          href: '/gcse-revision-class-higher-manchester/',
+        },
+      },
+      {
+        title: 'GCSE Foundation Tutoring',
+        description:
+          'Supportive GCSE foundation maths tutoring for students working towards grades 4-5, with clear methods and regular practice.',
+        icon: 'tabler:certificate',
+        callToAction: {
+          text: 'View Foundation class',
+          href: '/gcse-foundation-maths-tutoring-club-2025/',
+        },
+      },
+      {
+        title: 'Summer Coding Course',
+        description:
+          'Python coding course in Manchester for ages 13-17, designed for students who want practical programming skills.',
+        icon: 'tabler:code',
+        callToAction: {
+          text: 'View Python course',
+          href: '/manchestersummercodingclub/',
+        },
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Colorful Image',
+      src: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1400&q=80',
+      alt: 'Students learning together in a classroom',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Building on modern foundations</h3>
-      Gain a competitive advantage by incorporating industry leading practices
-    </Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      <p>
+        Group classes are available in Levenshulme, Manchester for GCSE maths students and young coders who want
+        structured teaching in a focused, supportive setting. Places can be discussed during a free consultation.
+      </p>
     </Fragment>
   </Content>
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    isAfterContent
-    items={[
-      {
-        title: 'High level of customization',
-        description: `Tailor the template effortlessly to match your brand's identity and requirements, making your website distinct and saving you time.`,
-      },
-      {
-        title: 'Multiple layout possibilities',
-        description:
-          'Explore various layout options to find the structure that best presents your content, enhancing user engagement and navigation.',
-      },
-      {
-        title: 'Fully responsive design',
-        description:
-          "Ensure your website's optimal performance on various devices and screen sizes, providing a consistent and enjoyable user experience.",
-      },
-      {
-        title: 'Integration of media',
-        description:
-          'Seamlessly incorporate images, videos, and multimedia elements that enhance your content and engage visitors effectively.',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2194&q=80',
-      alt: 'Blueprint Image',
-    }}
-  >
-    <Fragment slot="content">Ensure your online presence truly represents you.</Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Content Widget **************** -->
 
   <Content
     isReversed
-    isAfterContent
+    tagline="How Lessons Work"
+    title="Clear Explanations, Regular Practice and Steady Progress"
     items={[
       {
-        title: 'Enhanced user engagement',
-        description:
-          'Captivate your audience with interactive elements, intuitive navigation, and visually appealing layouts, encouraging longer visits.',
+        title: 'Find the gaps',
+        description: 'The first sessions identify weak topics, confidence issues and the exam board requirements.',
       },
       {
-        title: 'Continuous improvement',
-        description:
-          'Ensure your website stays aligned with the latest trends and technologies through regular updates and enhancements.',
+        title: 'Build understanding',
+        description: 'Each topic is taught step by step, with examples that make the method easier to remember.',
       },
       {
-        title: 'Time and resource efficiency',
-        description:
-          'Skip the time-consuming process of building a website from scratch and launch your online presence sooner with AstroWind.',
+        title: 'Practise exam questions',
+        description: 'Students work through exam-style questions so they can apply methods under real conditions.',
       },
       {
-        title: 'Community support',
-        description: `Join the growing AstroWind community for insights, resources, and assistance, ensuring you're never alone on your web development journey.`,
+        title: 'Review progress',
+        description: 'Parents get a clear sense of what has improved and what the student should practise next.',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1611462985358-60d3498e0364?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Astronauts Image',
+      src: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1400&q=80',
+      alt: 'Maths working and formulas on a study desk',
     }}
   >
-    <Fragment slot="content">Designed to foster growth and success.</Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    <Fragment slot="content">
+      <p>
+        The aim is not just to get through homework. Students learn why a method works, when to use it and how to show
+        working clearly in exams.
+      </p>
     </Fragment>
   </Content>
 
-  <!-- Steps Widget ****************** -->
-
-  <Steps
-    title="Get your dream website up and running in no time with AstroWind."
+  <Features
+    id="prices"
+    tagline="Prices"
+    title="Simple Tuition Options"
+    subtitle="Choose the lesson format that best fits your child, timetable and goals."
+    columns={3}
     items={[
       {
-        title: 'Step 1: <span class="font-medium">Download</span>',
+        title: 'One-to-one tuition',
         description:
-          "Kickstart with GitHub! Either fork the AstroWind template or simply click 'Use this template'. Your canvas awaits, ready for your digital masterpiece. In just a few clicks, you've already set the foundation.",
-        icon: 'tabler:package',
+          'Personalised GCSE, IGCSE, A-Level or Functional Skills support. Best for targeted help and faster feedback.',
+        icon: 'tabler:user',
+        callToAction: { text: 'Ask about availability', href: '/contact' },
       },
       {
-        title: 'Step 2: <span class="font-medium">Add content</span>',
+        title: 'Small group classes',
         description:
-          "Pour your vision into it. Add images, text, and all that jazz to breathe life into your digital space. Remember, it's the content that tells your story, so make it captivating.",
-        icon: 'tabler:letter-case',
+          'Structured Manchester-based group lessons for students who like learning with others and regular practice.',
+        icon: 'tabler:users',
+        callToAction: { text: 'View group options', href: '/contact' },
       },
       {
-        title: 'Step 3: <span class="font-medium">Customize styles</span>',
+        title: 'Online lessons',
         description:
-          'Give it your personal touch. Tailor colors, fonts, and layouts until it feels just right. Your unique flair, amplified by AstroWind! Precision in design ensures a seamless user experience.',
-        icon: 'tabler:paint',
-      },
-      {
-        title: 'Ready!',
-        icon: 'tabler:check',
+          'Flexible online maths tuition with the same clear teaching, guided examples and exam question practice.',
+        icon: 'tabler:device-desktop',
+        callToAction: { text: 'Book a consultation', href: '/contact' },
       },
     ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-      alt: 'Steps image',
-    }}
   />
 
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Most used widgets"
-    subtitle="Provides frequently used components for building websites using Tailwind CSS v4"
-    tagline="Components"
-    items={[
+  <Testimonials
+    tagline="What Parents Say"
+    title="Support That Feels Clear and Reassuring"
+    subtitle="Real testimonials can be added here when you are ready. These placeholders show the right tone for the section."
+    testimonials={[
       {
-        title: 'Headers',
-        description: "Ever tried driving without GPS? Boom! That's why websites need headers for direction.",
-        icon: 'flat-color-icons:template',
+        title: 'Confidence improved',
+        testimonial:
+          'My child finally understands topics that used to feel impossible. The explanations are calm, clear and easy to follow.',
+        name: 'Parent of GCSE student',
+        job: 'Manchester',
       },
       {
-        title: 'Heros',
-        description:
-          "Picture a superhero landing – epic, right? That's the job of a Hero section, making grand entrances!",
-        icon: 'flat-color-icons:gallery',
+        title: 'Excellent exam preparation',
+        testimonial:
+          'The lessons focused on the exact areas that needed work, with lots of exam-style practice and helpful feedback.',
+        name: 'Parent of A-Level student',
+        job: 'Online tuition',
       },
       {
-        title: 'Features',
-        description:
-          'Where websites strut their stuff and show off superpowers. No holding back on the bragging rights here!',
-        icon: 'flat-color-icons:approval',
-      },
-      {
-        title: 'Content',
-        description:
-          "Dive into the meat and potatoes of a site; without it, you'd just be window shopping. Content is king.",
-        icon: 'flat-color-icons:document',
-      },
-      {
-        title: 'Call-to-Action',
-        description:
-          'That enthusiastic friend who\'s always urging, "Do it! Do it!"? Yeah, that\'s this button nudging you towards adventure.',
-        icon: 'flat-color-icons:advertising',
-      },
-      {
-        title: 'Pricing',
-        description: 'Behold the dessert menu of the website world. Tempting choices await, can you resist?',
-        icon: 'flat-color-icons:currency-exchange',
-      },
-      {
-        title: 'Testimonial',
-        description: 'Step into the gossip corner! Here, other visitors spill the beans and share the juicy details.',
-        icon: 'flat-color-icons:voice-presentation',
-      },
-      {
-        title: 'Contact',
-        description:
-          'Like a digital mailbox, but faster! Drop a line, ask a question, or send a virtual high-five. Ding! Message in.',
-        icon: 'flat-color-icons:business-contact',
-      },
-      {
-        title: 'Footers',
-        description: "The footer's like the credits of a movie but sprinkled with easter eggs. Time to hunt!",
-        icon: 'flat-color-icons:database',
+        title: 'Patient and professional',
+        testimonial:
+          'Mr Cheema is patient, organised and very good at explaining maths in a way that makes sense.',
+        name: 'Parent review',
+        job: 'Maths Tutor Help',
       },
     ]}
   >
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
-  </Features2>
-
-  <!-- HighlightedPosts Widget ******* -->
-
-  <BlogLatestPosts
-    title="Find out more content in our Blog"
-    information={`The blog is used to display AstroWind documentation.
-                        Each new article will be an important step that you will need to know to be an expert in creating a website using Astro v6 + Tailwind CSS v4.
-                        Astro is a very interesting technology. Thanks.
-                `}
-  />
-
-  <!-- FAQs Widget ******************* -->
+  </Testimonials>
 
   <FAQs
     title="Frequently Asked Questions"
-    subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
+    subtitle="Quick answers for parents comparing maths tuition options."
     tagline="FAQs"
+    columns={2}
     classes={{ container: 'max-w-6xl' }}
     items={[
       {
-        title: 'Why AstroWind?',
+        title: 'Do you teach online or in person?',
         description:
-          "Michael Knight a young loner on a crusade to champion the cause of the innocent. The helpless. The powerless in a world of criminals who operate above the law. Here he comes Here comes Speed Racer. He's a demon on wheels.",
+          'Both options are available. In-person tuition is Manchester-based, and online lessons are available for students outside the local area.',
       },
       {
-        title: 'What do I need to start?',
+        title: 'Which levels do you teach?',
         description:
-          'Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds. Many say exploration is part of our destiny, but it’s actually our duty to future generations.',
+          'Tuition is available for GCSE, IGCSE, A-Level and Functional Skills maths, including exam preparation and topic support.',
       },
       {
-        title: 'How to install the Astro + Tailwind CSS template?',
+        title: 'Can lessons help with exam technique?',
         description:
-          "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.",
+          'Yes. Lessons include past paper practice, mark scheme guidance and advice on how to show working clearly.',
       },
       {
-        title: "What's something that you don't understand?",
+        title: 'How do I book?',
         description:
-          "A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear. I didn't even know we were calling him Big Bear.",
-      },
-      {
-        title: 'What is something that you would like to try again?',
-        description:
-          "A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in.",
-      },
-      {
-        title: 'If you could only ask one question to each person you meet, what would that question be?',
-        description:
-          "This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.",
+          'Use the contact page to request a free consultation. You can explain the student level, goals and preferred lesson format.',
       },
     ]}
   />
-
-  <!-- Stats Widget ****************** -->
-
-  <Stats
-    stats={[
-      { title: 'Downloads', amount: '132K' },
-      { title: 'Stars', amount: '24.8K' },
-      { title: 'Forks', amount: '10.3K' },
-      { title: 'Users', amount: '48.4K' },
-    ]}
-  />
-
-  <!-- CallToAction Widget *********** -->
 
   <CallToAction
     actions={[
       {
         variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/arthelokyo/astrowind',
-        target: '_blank',
-        icon: 'tabler:download',
+        text: 'Book a Free Consultation',
+        href: '/contact',
+        icon: 'tabler:calendar-check',
       },
+      { text: 'View Tuition Options', href: '#tuition-options' },
     ]}
   >
-    <Fragment slot="title">
-      Astro&nbsp;+&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
-    </Fragment>
+    <Fragment slot="title">Ready to Get Maths Support?</Fragment>
 
     <Fragment slot="subtitle">
-      Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't
-      waste more time! :P
+      Tell us the student level, exam board and the areas that feel difficult. We will help you choose the right next
+      step.
     </Fragment>
   </CallToAction>
 </Layout>

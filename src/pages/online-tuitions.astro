@@ -1,0 +1,126 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import Content from '~/components/widgets/Content.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Online Maths Tuition',
+  description:
+    'Online maths tuition for GCSE, IGCSE, A-Level and Functional Skills students with clear explanations and exam practice.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Online Courses"
+    title="Online Maths Tuition with Clear Teaching and Regular Practice"
+    subtitle="Flexible online lessons for students who want structured maths support from home, without losing the personal feedback of one-to-one tuition."
+    actions={[
+      { variant: 'primary', text: 'Book Online Tuition', href: '/contact', icon: 'tabler:video' },
+      { text: 'See Maths Levels', href: '/maths-level' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?auto=format&fit=crop&w=1800&q=80',
+      alt: 'Student learning online with a laptop',
+    }}
+  />
+
+  <Features
+    title="What Online Lessons Include"
+    subtitle="Online tuition is interactive, focused and planned around the student's school work or exam preparation."
+    columns={3}
+    items={[
+      {
+        title: 'Live explanations',
+        description: 'Topics are explained step by step, with time for questions and guided examples.',
+        icon: 'tabler:presentation',
+      },
+      {
+        title: 'Shared working',
+        description: 'Students can follow methods clearly and practise questions during the lesson.',
+        icon: 'tabler:writing',
+      },
+      {
+        title: 'Exam-style practice',
+        description: 'Lessons include past paper questions, topic revision and feedback on written working.',
+        icon: 'tabler:file-pencil',
+      },
+      {
+        title: 'Flexible location',
+        description: 'Learn from home while keeping a regular lesson routine and structured support.',
+        icon: 'tabler:home',
+      },
+      {
+        title: 'Personalised pace',
+        description: 'Lessons can slow down for difficult topics or move faster when the student is ready.',
+        icon: 'tabler:adjustments',
+      },
+      {
+        title: 'Parent-friendly updates',
+        description: 'Parents can understand what was covered and what the student should practise next.',
+        icon: 'tabler:messages',
+      },
+    ]}
+  />
+
+  <Content
+    title="Online Tuition Is Best When It Stays Structured"
+    items={[
+      {
+        title: 'Before the lesson',
+        description: 'Share the level, exam board and any topics or homework the student wants to cover.',
+      },
+      {
+        title: 'During the lesson',
+        description: 'The tutor explains methods, checks understanding and works through examples with the student.',
+      },
+      {
+        title: 'After the lesson',
+        description: 'The student leaves with clear next steps and practice areas for revision.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80',
+      alt: 'Online study setup',
+    }}
+  >
+    <Fragment slot="content">
+      <p>
+        Online maths tuition works well for students who need flexibility but still benefit from calm, direct teaching
+        and regular accountability.
+      </p>
+    </Fragment>
+  </Content>
+
+  <FAQs
+    title="Online Tuition FAQs"
+    columns={2}
+    items={[
+      {
+        title: 'Which levels can be taught online?',
+        description: 'Online tuition is available for GCSE, IGCSE, A-Level and Functional Skills maths.',
+      },
+      {
+        title: 'Does online tuition include exam practice?',
+        description: 'Yes. Lessons can include past papers, topic worksheets and exam-style questions.',
+      },
+      {
+        title: 'What does the student need?',
+        description: 'A reliable internet connection, a quiet place to work and a device suitable for video lessons.',
+      },
+      {
+        title: 'Can we switch between online and in-person?',
+        description: 'Yes, where availability allows. Many families use a mix depending on timetable and location.',
+      },
+    ]}
+  />
+
+  <CallToAction
+    title="Book Online Maths Tuition"
+    subtitle="Share the student level, topic concerns and preferred lesson times, and we will help you choose the next step."
+    actions={[{ variant: 'primary', text: 'Request a Free Consultation', href: '/contact', icon: 'tabler:calendar-check' }]}
+  />
+</Layout>

@@ -1,0 +1,247 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import Content from '~/components/widgets/Content.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'GCSE Higher Maths Classes Manchester | Grades 6-9',
+  description:
+    'Structured weekly GCSE Higher Maths sessions in Manchester for Year 10 and 11 students aiming for grades 6-9.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="GCSE Higher Maths"
+    title="GCSE Higher Maths Classes Manchester"
+    subtitle="Structured weekly Maths sessions in Manchester designed to help Year 10 and 11 Higher Tier students master key topics, build confidence and succeed in GCSE Maths."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Book Now',
+        href: 'https://hai-bl.com/onboarding/interest-form',
+        target: '_blank',
+        icon: 'tabler:calendar-check',
+      },
+      { text: 'Call or WhatsApp', href: '/contact' },
+    ]}
+    image={{
+      src: 'https://i0.wp.com/mathstutorhelp.com/wp-content/uploads/2024/07/group-kids-studying-school-scaled.jpg?fit=1600%2C1066&ssl=1',
+      alt: 'GCSE Maths group revision classes',
+    }}
+  />
+
+  <Features
+    title="Class Details"
+    subtitle="A small, focused GCSE Higher Maths group for students who need regular support, exam practice and clear feedback."
+    columns={3}
+    items={[
+      {
+        title: 'Year 10 and Year 11',
+        description: 'For Higher Tier students aiming for grades 6-9.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Sundays, 11:00am-12:00pm',
+        description: 'Weekly classes from September 2026 to May 2027.',
+        icon: 'tabler:clock',
+      },
+      {
+        title: 'Levenshulme High School',
+        description: 'Manchester, M19 1FS. Local in-person support in a structured classroom setting.',
+        icon: 'tabler:map-pin',
+      },
+      {
+        title: 'Maximum 7 students',
+        description: 'Small group size for personalised attention and a calmer learning environment.',
+        icon: 'tabler:users-group',
+      },
+      {
+        title: 'Pay as you go',
+        description: '£20 per lesson, or book early to secure £16 per lesson.',
+        icon: 'tabler:coin-pound',
+      },
+      {
+        title: 'Paper-based learning',
+        description: 'No screens in class, just focused GCSE-style practice and written working.',
+        icon: 'tabler:file-pencil',
+      },
+    ]}
+  />
+
+  <Content
+    isReversed
+    title="What Students Get"
+    items={[
+      {
+        title: 'Diagnostic-led planning',
+        description: 'Lessons are shaped around the topics students find difficult and the skills they need for exams.',
+      },
+      {
+        title: 'Exam question practice',
+        description: 'Students practise GCSE-style questions, learn how to show working and review common mistakes.',
+      },
+      {
+        title: 'Flexible support',
+        description: 'Students can bring schoolwork, use tutor-provided materials or access bonus tasks and past papers.',
+      },
+      {
+        title: 'Private guidance',
+        description: 'Support is available when students need extra help, with parent updates available on request.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1400&q=80',
+      alt: 'GCSE Higher Maths revision notes',
+    }}
+  >
+    <Fragment slot="content">
+      <p>
+        This Higher Tier group is for learners who want structured weekly support, focused revision and clear teaching
+        from an experienced GCSE Maths teacher.
+      </p>
+    </Fragment>
+  </Content>
+
+  <Features
+    title="Course Plan and Exam Dates"
+    subtitle="Students follow a structured programme that builds towards the 2027 GCSE Maths papers."
+    columns={3}
+    items={[
+      {
+        title: 'Full Scheme of Work',
+        description:
+          'Download the full course plan: <a class="underline" href="/sow-gcse-higher-2026-27.pdf">SOW GCSE Higher 2026-27</a>.',
+        icon: 'tabler:file-download',
+      },
+      {
+        title: '2027 Paper 1',
+        description: 'GCSE Maths Paper 1: 13 May 2027.',
+        icon: 'tabler:calendar',
+      },
+      {
+        title: '2027 Paper 2',
+        description: 'GCSE Maths Paper 2: 19 May 2027.',
+        icon: 'tabler:calendar',
+      },
+      {
+        title: '2027 Paper 3',
+        description: 'GCSE Maths Paper 3: 2 June 2027.',
+        icon: 'tabler:calendar',
+      },
+      {
+        title: 'AQA, Edexcel and OCR',
+        description: 'Tasks are adapted to your child’s exam board and specification.',
+        icon: 'tabler:clipboard-check',
+      },
+      {
+        title: 'Holiday classes',
+        description: 'Holiday session dates are shared by WhatsApp and email when available.',
+        icon: 'tabler:sun',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features>
+
+  <Content
+    title="Parent Feedback"
+    items={[
+      {
+        title: 'Grade progress',
+        description: '“My daughter moved from a grade 6 to 7 - excellent teaching.”',
+      },
+      {
+        title: 'Focused environment',
+        description: '“Small group and no-phone rule really helped focus.”',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1400&q=80',
+      alt: 'Focused classroom learning',
+    }}
+  >
+    <Fragment slot="content">
+      <p>
+        The class is designed to give students a focused place to practise, ask questions and build exam confidence
+        before the final GCSE papers.
+      </p>
+    </Fragment>
+  </Content>
+
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Answers for parents considering the GCSE Higher Maths class."
+    columns={2}
+    items={[
+      {
+        title: 'What if my child misses a session?',
+        description: 'No need to rebook or pay again. Let us know in advance and attend the next available session.',
+      },
+      {
+        title: 'Is homework given?',
+        description: 'Yes. Optional worksheets are provided, and students can also bring schoolwork for support.',
+      },
+      {
+        title: 'How is progress tracked?',
+        description: 'Progress is tracked with mock tasks, diagnostic reviews and regular tutor feedback.',
+      },
+      {
+        title: 'Do students use computers in class?',
+        description: 'No. Work is paper-based to reflect real exam conditions and reduce distractions.',
+      },
+      {
+        title: 'Can my child join mid-way through the term?',
+        description: 'Yes. Students can join anytime, and the first session includes a diagnostic test.',
+      },
+      {
+        title: 'What exam boards do you cover?',
+        description: 'AQA, Edexcel and OCR are covered, with tasks tailored to your child’s specification.',
+      },
+      {
+        title: 'Is this suitable for Foundation Tier students?',
+        description: 'This class is for Higher Tier. Foundation students can join the 10:00am Foundation group.',
+      },
+      {
+        title: 'Do you run sessions during school holidays?',
+        description: 'Yes. Holiday class dates are shared via WhatsApp and email.',
+      },
+      {
+        title: 'Can parents get feedback?',
+        description: 'Yes. Updates can be shared by WhatsApp or email on request.',
+      },
+      {
+        title: 'Is there a free trial?',
+        description: 'Yes. If you are not happy after the first session, you do not have to pay.',
+      },
+      {
+        title: 'Who teaches the class?',
+        description: 'An experienced, qualified Maths teacher with over 10 years of teaching and tutoring experience.',
+      },
+      {
+        title: 'Is there an online option?',
+        description: 'An online tutoring club is launching soon, with dates to be announced.',
+      },
+    ]}
+  />
+
+  <CallToAction
+    title="Book a GCSE Higher Maths Place"
+    subtitle="Limited spaces are available. Book early to secure the lower lesson rate, or call/WhatsApp 07806 248525 if you have questions."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Book Now',
+        href: 'https://hai-bl.com/onboarding/interest-form',
+        target: '_blank',
+        icon: 'tabler:calendar-check',
+      },
+      { text: 'Ask About 1-to-1 Tuition', href: '/contact' },
+    ]}
+  />
+</Layout>

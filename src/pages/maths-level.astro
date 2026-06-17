@@ -1,0 +1,127 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import Content from '~/components/widgets/Content.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Maths Level',
+  description:
+    'Maths tuition levels covered by Maths Tutor Help, including KS3, GCSE, IGCSE, Functional Skills and A-Level.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Maths Level"
+    title="Maths Tuition for KS3, GCSE, IGCSE, Functional Skills and A-Level"
+    subtitle="Support for students at different stages, from building core skills to preparing for higher-grade exam questions."
+    actions={[
+      { variant: 'primary', text: 'Find the Right Support', href: '/contact', icon: 'tabler:school' },
+      { text: 'View Tuition Services', href: '/maths-tuition' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1453738773917-9c3eff1db985?auto=format&fit=crop&w=1800&q=80',
+      alt: 'Student writing in a maths notebook',
+    }}
+  />
+
+  <Features
+    title="Levels Covered"
+    subtitle="Choose support based on the student's current stage, exam route and confidence level."
+    columns={3}
+    items={[
+      {
+        title: 'KS3 Maths',
+        description: 'Core number, algebra, geometry, graphs and problem-solving skills for younger secondary students.',
+        icon: 'tabler:books',
+      },
+      {
+        title: 'GCSE Maths',
+        description: 'Foundation and higher tier support with topic revision, exam technique and past paper practice.',
+        icon: 'tabler:certificate',
+      },
+      {
+        title: 'IGCSE Maths',
+        description: 'Structured help for IGCSE topics, methods and exam-style questions.',
+        icon: 'tabler:world',
+      },
+      {
+        title: 'Functional Skills Maths',
+        description: 'Practical numeracy support for learners who need maths for everyday, study or work goals.',
+        icon: 'tabler:clipboard-check',
+      },
+      {
+        title: 'A-Level Maths',
+        description: 'Pure maths, mechanics and statistics support with a focus on reasoning and clear working.',
+        icon: 'tabler:chart-line',
+      },
+      {
+        title: 'Exam Resits',
+        description: 'Focused revision plans for students retaking exams or needing a stronger final grade.',
+        icon: 'tabler:refresh',
+      },
+    ]}
+  />
+
+  <Content
+    isReversed
+    title="Support Changes with the Level"
+    items={[
+      {
+        title: 'KS3 and confidence',
+        description: 'Lessons strengthen the foundations students need before GCSE topics become more demanding.',
+      },
+      {
+        title: 'GCSE and IGCSE preparation',
+        description: 'Students practise common question types, learn exam technique and revisit weaker topics.',
+      },
+      {
+        title: 'A-Level depth',
+        description: 'Lessons focus on deeper understanding, multi-step questions and accurate mathematical reasoning.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1605711285791-0219e80e43a3?auto=format&fit=crop&w=1400&q=80',
+      alt: 'Maths books and calculator',
+    }}
+  >
+    <Fragment slot="content">
+      <p>
+        The right tuition depends on the student's current level and goal. Some students need confidence and core skills;
+        others need exam timing, challenge questions or a clear revision plan.
+      </p>
+    </Fragment>
+  </Content>
+
+  <FAQs
+    title="Maths Level FAQs"
+    columns={2}
+    items={[
+      {
+        title: 'Do you support KS3 students?',
+        description: 'Yes. KS3 support is available for students who need stronger foundations before GCSE.',
+      },
+      {
+        title: 'Can you help with GCSE resits?',
+        description: 'Yes. Resit lessons can focus on high-value topics, exam technique and confidence rebuilding.',
+      },
+      {
+        title: 'Is A-Level tuition available?',
+        description: 'Yes. A-Level maths support is available for pure maths, mechanics and statistics.',
+      },
+      {
+        title: 'How do I know which support is right?',
+        description: 'Start with a free consultation and share the student level, exam board and main concerns.',
+      },
+    ]}
+  />
+
+  <CallToAction
+    title="Not Sure Which Level to Choose?"
+    subtitle="Send a short message with the student's year group, exam board and goals. We will point you to the right support."
+    actions={[{ variant: 'primary', text: 'Ask About Maths Support', href: '/contact', icon: 'tabler:message' }]}
+  />
+</Layout>

@@ -1,228 +1,220 @@
 ---
-import Features2 from '~/components/widgets/Features2.astro';
-import Features3 from '~/components/widgets/Features3.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import Stats from '~/components/widgets/Stats.astro';
-import Steps2 from '~/components/widgets/Steps2.astro';
 import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'About us',
+  title: 'About Maths Tutor Help',
+  description:
+    'Maths Tutor Help provides professional maths tuition in Manchester and online for KS3, GCSE, IGCSE, Functional Skills and A-Level students.',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
-
   <Hero
-    tagline="About us"
+    tagline="About Maths Tutor Help"
+    title="Professional Maths Tuition in Manchester and Online"
+    subtitle="Supporting KS3, GCSE, IGCSE, Functional Skills and A-Level students with clear explanations, personalised support and structured exam preparation."
+    actions={[
+      { variant: 'primary', text: 'Book a Free Consultation', href: '/contact/', icon: 'tabler:calendar-check' },
+      { text: 'View Tuition Options', href: '/maths-tuition/' },
+    ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Caos Image',
+      src: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1800&q=80',
+      alt: 'Maths Tutor Help classroom support',
+    }}
+  />
+
+  <Content
+    title="Helping Students Build Confidence in Maths"
+    items={[
+      {
+        title: 'Clear explanations',
+        description: 'Topics are broken down into simple steps so students understand the method, not just the answer.',
+      },
+      {
+        title: 'Personalised lesson plans',
+        description: 'Support is adapted to each learner’s goals, strengths and areas for improvement.',
+      },
+      {
+        title: 'Progress tracking',
+        description: 'Lessons focus on closing gaps, reinforcing understanding and preparing students for exams.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1596495577886-d920f1fb7238?auto=format&fit=crop&w=1400&q=80',
+      alt: 'Student receiving maths tuition',
     }}
   >
-    <Fragment slot="title">
-      Elevate your online presence with our <br />
-      <span class="text-accent dark:text-white"> Beautiful Website Templates</span>
+    <Fragment slot="content">
+      <p>
+        Welcome to Maths Tutor Help (MTH), a trusted place for maths tutoring in Manchester and online. Many students do
+        not struggle because they lack potential. They often need clearer explanations, individual attention and the
+        right guidance at the right time.
+      </p>
+      <p>
+        Our mission is to provide that support through structured teaching, personalised lesson plans and consistent
+        progress tracking.
+      </p>
     </Fragment>
+  </Content>
 
-    <Fragment slot="subtitle">
-      Donec efficitur, ipsum quis congue luctus, mauris magna convallis mauris, eu auctor nisi lectus non augue. Donec
-      quis lorem non massa vulputate efficitur ac at turpis. Sed tincidunt ex a nunc convallis, et lobortis nisi tempus.
-      Suspendisse vitae nisi eget tortor luctus maximus sed non lectus.
+  <Features
+    title="What Makes Us Different?"
+    subtitle="With classroom teaching experience and a calm, step-by-step approach, MTH helps students learn with more confidence."
+    columns={3}
+    items={[
+      {
+        title: 'Simple steps',
+        description: 'We break difficult topics into manageable stages and revisit gaps until methods feel secure.',
+        icon: 'tabler:list-check',
+      },
+      {
+        title: 'Guided practice',
+        description: 'Students build confidence through examples, questions and feedback that match their current level.',
+        icon: 'tabler:pencil-check',
+      },
+      {
+        title: 'Exam preparation',
+        description: 'GCSE, IGCSE and A-Level students practise exam-style questions and proven revision strategies.',
+        icon: 'tabler:file-check',
+      },
+      {
+        title: 'Problem solving',
+        description: 'Lessons encourage independence, reasoning and the ability to choose the right method.',
+        icon: 'tabler:bulb',
+      },
+      {
+        title: '1:1 and group classes',
+        description: 'Students can choose individual tuition or affordable, focused small group classes.',
+        icon: 'tabler:users-group',
+      },
+      {
+        title: 'Online and in person',
+        description: 'Tuition is available online and in person in Manchester.',
+        icon: 'tabler:device-laptop',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
-  </Hero>
+  </Features>
 
-  <!-- Stats Widget ****************** -->
-
-  <Stats
-    title="Statistics about us"
-    stats={[
-      { title: 'Offices', amount: '4' },
-      { title: 'Employees', amount: '248' },
-      { title: 'Templates', amount: '12' },
-      { title: 'Awards', amount: '24' },
+  <Features
+    title="Maths Tuition Services We Offer"
+    subtitle="Flexible support options for different ages, goals and learning needs."
+    columns={3}
+    items={[
+      {
+        title: 'KS3 Maths Tuition',
+        description: 'Years 7-9 support for strong foundations and early confidence.',
+        icon: 'tabler:books',
+      },
+      {
+        title: 'GCSE and IGCSE Maths',
+        description: 'Foundation and Higher support for revision, exam preparation and grade improvement.',
+        icon: 'tabler:certificate',
+      },
+      {
+        title: 'Functional Skills Maths',
+        description: 'Level 1 and Level 2 support for adult learners, apprentices and college students.',
+        icon: 'tabler:clipboard-check',
+      },
+      {
+        title: 'A-Level Maths',
+        description: 'Advanced support including algebra, calculus, mechanics and statistics.',
+        icon: 'tabler:chart-line',
+      },
+      {
+        title: '1:1 Tuition',
+        description: 'Targeted, personalised learning online or in person.',
+        icon: 'tabler:user-check',
+      },
+      {
+        title: 'Small Group Classes',
+        description: 'Affordable, engaging and collaborative learning for GCSE students.',
+        icon: 'tabler:users',
+      },
     ]}
   />
 
-  <!-- Features3 Widget ************** -->
-
-  <Features3
-    title="Our templates"
-    subtitle="Etiam scelerisque, enim eget vestibulum luctus, nibh mauris blandit nulla, nec vestibulum risus justo ut enim. Praesent lacinia diam et ante imperdiet euismod."
-    columns={3}
-    isBeforeContent={true}
+  <Content
+    isReversed
+    title="Why Parents Choose Us"
     items={[
       {
-        title: 'Educational',
-        description:
-          'Morbi faucibus luctus quam, sit amet aliquet felis tempor id. Cras augue massa, ornare quis dignissim a, molestie vel nulla.',
-        icon: 'tabler:template',
+        title: 'Qualified teacher',
+        description: 'Students are supported by an experienced maths teacher, not just a tutor.',
       },
       {
-        title: 'Interior Design',
-        description:
-          'Vivamus porttitor, tortor convallis aliquam pretium, turpis enim consectetur elit, vitae egestas purus erat ac nunc nulla.',
-        icon: 'tabler:template',
+        title: 'Support for all abilities',
+        description: 'From struggling learners to high achievers, lessons meet students where they are.',
       },
       {
-        title: 'Photography',
-        description:
-          'Duis sed lectus in nisl vehicula porttitor eget quis odio. Aliquam erat volutpat. Nulla eleifend nulla id sem fermentum.',
-        icon: 'tabler:template',
-      },
-    ]}
-  />
-
-  <!-- Features3 Widget ************** -->
-
-  <Features3
-    columns={3}
-    isAfterContent={true}
-    items={[
-      {
-        title: 'E-commerce',
-        description:
-          'Rutrum non odio at vehicula. Proin ipsum justo, dignissim in vehicula sit amet, dignissim id quam. Sed ac tincidunt sapien.',
-        icon: 'tabler:template',
+        title: 'Revision plans and worksheets',
+        description: 'Students receive structured practice and resources to support learning between sessions.',
       },
       {
-        title: 'Blog',
-        description:
-          'Nullam efficitur volutpat sem sed fringilla. Suspendisse et enim eu orci volutpat laoreet ac vitae libero.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Business',
-        description:
-          'Morbi et elit finibus, facilisis justo ut, pharetra ipsum. Donec efficitur, ipsum quis congue luctus, mauris magna.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Branding',
-        description:
-          'Suspendisse vitae nisi eget tortor luctus maximus sed non lectus. Cras malesuada pretium placerat. Nullam venenatis dolor a ante rhoncus.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Medical',
-        description:
-          'Vestibulum malesuada lacus id nibh posuere feugiat. Nam volutpat nulla a felis ultrices, id suscipit mauris congue. In hac habitasse platea dictumst.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Fashion Design',
-        description:
-          'Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus.',
-        icon: 'tabler:template',
+        title: 'Online learning platform',
+        description: 'Extra digital resources and learning support help students keep practising.',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
-      alt: 'Colorful Image',
+      src: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1400&q=80',
+      alt: 'Maths notes and exam practice',
     }}
-  />
+  >
+    <Fragment slot="content">
+      <p>
+        With structured teaching, expert guidance and continuous support, we help students grow step by step, at their
+        pace and in their way.
+      </p>
+    </Fragment>
+  </Content>
 
-  <!-- Steps2 Widget ****************** -->
-
-  <Steps2
-    title="Our values"
-    subtitle="Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus. Nulla facilisi. Vestibulum malesuada lacus."
+  <Content
+    title="Meet the Founder: Mr Sheraz"
     items={[
       {
-        title: 'Customer-centric approach',
-        description:
-          'Donec id nibh neque. Quisque et fermentum tortor. Fusce vitae dolor a mauris dignissim commodo. Ut eleifend luctus condimentum.',
+        title: 'Founder and Lead Tutor',
+        description: 'Maths Tutor Help was founded by Mr Sheraz, a qualified and DBS-checked maths teacher in Manchester.',
       },
       {
-        title: 'Constant Improvement',
+        title: "15+ years' experience",
         description:
-          'Phasellus laoreet fermentum venenatis. Vivamus dapibus pulvinar arcu eget mattis. Fusce eget mauris leo.',
+          'Experience across UK schools, colleges, international institutions and private tuition.',
       },
       {
-        title: 'Ethical Practices',
-        description:
-          'Vestibulum imperdiet libero et lectus molestie, et maximus augue porta. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+        title: 'Specialist maths support',
+        description: 'Specialist in KS3, GCSE, IGCSE, Functional Skills and A-Level Maths.',
       },
     ]}
-  />
-
-  <!-- Steps2 Widget ****************** -->
-
-  <Steps2
-    title="Achievements"
-    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla, sed porttitor est nibh at nulla."
-    isReversed={true}
-    callToAction={{
-      text: 'See more',
-      href: '/',
+    image={{
+      src: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80',
+      alt: 'Tutor supporting students',
     }}
-    items={[
-      {
-        title: 'Global reach',
-        description: 'Nam malesuada urna in enim imperdiet tincidunt. Phasellus non tincidunt nisi, at elementum mi.',
-        icon: 'tabler:globe',
-      },
-      {
-        title: 'Positive customer feedback and reviews',
-        description:
-          'Cras semper nulla leo, eget laoreet erat cursus sed. Praesent faucibus massa in purus iaculis dictum.',
-        icon: 'tabler:message-star',
-      },
-      {
-        title: 'Awards and recognition as industry experts',
-        description:
-          'Phasellus lacinia cursus velit, eu malesuada magna pretium eu. Etiam aliquet tellus purus, blandit lobortis ex rhoncus vitae.',
-        icon: 'tabler:award',
-      },
-    ]}
-  />
+  >
+    <Fragment slot="content">
+      <p>
+        Mr Sheraz established MTH after seeing first-hand how many students fall behind because of fast-paced classrooms,
+        missing foundations and a lack of personalised support.
+      </p>
+      <blockquote class="mt-6 border-l-4 border-primary pl-4 text-xl font-medium text-gray-900 dark:text-white">
+        Every learner can succeed in Maths with the right structure, guidance and encouragement. My goal is not only to
+        raise grades, but to help students enjoy learning and believe in themselves.
+      </blockquote>
+    </Fragment>
+  </Content>
 
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Our locations"
-    tagline="Find us"
-    columns={4}
-    items={[
-      {
-        title: 'EE.UU',
-        description: '1234 Lorem Ipsum St, 12345, Miami',
-      },
-      {
-        title: 'Spain',
-        description: '5678 Lorem Ipsum St, 56789, Madrid',
-      },
-      {
-        title: 'Australia',
-        description: '9012 Lorem Ipsum St, 90123, Sydney',
-      },
-      {
-        title: 'Brazil',
-        description: '3456 Lorem Ipsum St, 34567, São Paulo',
-      },
-    ]}
-  />
-
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Technical Support"
-    tagline="Contact us"
-    columns={2}
-    items={[
-      {
-        title: 'Chat with us',
-        description:
-          'Integer luctus laoreet libero, auctor varius purus rutrum sit amet. Ut nec molestie nisi, quis eleifend mi.',
-        icon: 'tabler:messages',
-      },
-      {
-        title: 'Call us',
-        description:
-          'Mauris faucibus finibus orci, in posuere elit viverra non. In hac habitasse platea dictumst. Cras lobortis metus a hendrerit congue.',
-        icon: 'tabler:headset',
-      },
+  <CallToAction
+    title="Ready to Talk About Maths Support?"
+    subtitle="Tell us the student's level, goals and preferred lesson format. We will help you choose the right next step."
+    actions={[
+      { variant: 'primary', text: 'Book a Free Consultation', href: '/contact/', icon: 'tabler:calendar-check' },
+      { text: 'View Group Classes', href: '/gcse-revision-class-higher-manchester/' },
     ]}
   />
 </Layout>
