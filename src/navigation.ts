@@ -7,29 +7,12 @@ export const headerData = {
       href: getPermalink('/'),
     },
     {
+      text: 'GCSE Group Classes',
+      href: `${getPermalink('/')}#group-classes`,
+    },
+    {
       text: 'Tuition',
       href: getPermalink('/maths-tuition'),
-    },
-    {
-      text: 'Group Classes',
-      links: [
-        {
-          text: 'GCSE Higher Maths',
-          href: getPermalink('/gcse-revision-class-higher-manchester'),
-        },
-        {
-          text: 'GCSE Foundation Maths',
-          href: getPermalink('/gcse-foundation-maths-tutoring-club-2025'),
-        },
-        {
-          text: 'Summer Coding Course',
-          href: getPermalink('/manchestersummercodingclub'),
-        },
-      ],
-    },
-    {
-      text: 'Online Courses',
-      href: 'https://hai-bl.com/onboarding/interest-form',
     },
     {
       text: 'Prices',
@@ -44,12 +27,12 @@ export const headerData = {
       href: getPermalink('/contact'),
     },
   ],
-  actions: [{ text: 'Login/Register', href: 'https://hai-bl.com/onboarding/interest-form' }],
+  actions: [{ text: 'Register Your Interest', href: 'https://hai-bl.com/onboarding/interest-form' }],
 };
 
 export const footerData = {
   description:
-    'Personalised maths tuition for KS3, GCSE, IGCSE, Functional Skills and A-Level, available online or in person in Manchester.',
+    'Personalised maths tuition for KS3, GCSE, IGCSE, Functional Skills and A-Level, available online or in person in Manchester.<br /><br />Qualified Teacher | DBS Checked | 15+ Years’ Experience<br />Location: Levenshulme, Manchester<br />Online tuition available across the UK<br />WhatsApp: <a class="text-accent underline" href="https://wa.me/447860248525">07860 248525</a>',
   links: [
     {
       title: 'Tuition',
@@ -65,25 +48,26 @@ export const footerData = {
     {
       title: 'Classes & Portal',
       links: [
+        { text: 'GCSE Group Classes', href: `${getPermalink('/')}#group-classes` },
         { text: 'GCSE Higher Group Classes', href: getPermalink('/gcse-revision-class-higher-manchester') },
         { text: 'GCSE Foundation Group Classes', href: getPermalink('/gcse-foundation-maths-tutoring-club-2025') },
         { text: 'Summer Coding Course', href: getPermalink('/manchestersummercodingclub') },
-        { text: 'Student Portal', href: 'https://hai-bl.com/onboarding/interest-form' },
-        { text: 'Portal Login', href: 'https://hai-bl.com/onboarding/interest-form' },
+        { text: 'Student Portal Login', href: 'https://hai-bl.com/onboarding/interest-form' },
       ],
     },
     {
-      title: 'Prices & Contact',
+      title: 'Fees & Booking',
       links: [
         { text: 'Online Tutoring – £25/hr', href: getPermalink('/online-tuitions') },
         { text: 'In-Person Tutoring – £30/hr', href: getPermalink('/maths-tuition') },
         { text: 'Group Session – £20', href: getPermalink('/gcse-revision-class-higher-manchester') },
+        { text: 'Register Your Interest', href: 'https://hai-bl.com/onboarding/interest-form' },
         { text: 'Book a Free Consultation', href: 'https://calendar.app.google/VJ6tgEKfsUZAncDe9' },
         { text: 'Contact', href: getPermalink('/contact') },
       ],
     },
     {
-      title: 'Useful Links',
+      title: 'Free Revision Resources',
       links: [
         { text: 'BBC Bitesize Maths', href: 'https://www.bbc.co.uk/bitesize/subjects/z38pycw' },
         { text: 'Corbettmaths', href: 'https://corbettmaths.com/' },
@@ -103,11 +87,11 @@ export const footerData = {
   socialLinks: [
     { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://www.facebook.com/mathstutorhelp' },
     { ariaLabel: 'X', icon: 'tabler:brand-x', href: 'http://twitter.com' },
-    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/company/mathstutorhelp' },
+    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/in/mathstutorhelp/' },
     { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://www.instagram.com/mathstutorhelp/' },
   ],
   footNote: `
-    Copyright &copy; 2026 <a class="text-[#F7B200] underline" href="/">MathsTutorHelp</a>. All rights reserved.<br />Powered by ZakTec Solutions.
+    Copyright &copy; 2026 <a class="text-accent underline" href="/">MathsTutorHelp</a>. All rights reserved.<br />Powered by ZakTec Solutions.
   `,
   theme: 'dark',
 };

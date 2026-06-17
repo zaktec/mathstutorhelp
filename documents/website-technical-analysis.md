@@ -20,7 +20,7 @@ Astro is a good fit for this type of small business website because most pages a
 | AstroWind         | The project is based on the AstroWind template, which provides layouts, navigation, widgets, blog support and design utilities. |
 | astro-icon        | Provides icon support using Iconify icon sets such as `tabler`.                                                                 |
 | @astrojs/sitemap  | Generates sitemap output for SEO.                                                                                               |
-| @astrojs/rss      | Supports RSS feed generation for the blog.                                                                                      |
+| @astrojs/rss      | Installed from the starter template, but the visible RSS route/icon has been removed.                                            |
 | @astrojs/mdx      | Allows MDX content if needed.                                                                                                   |
 | astro-compress    | Compresses/minifies generated static output.                                                                                    |
 | unpic / sharp     | Used for image handling and optimisation paths.                                                                                 |
@@ -51,13 +51,12 @@ The project requires Node `>=22.12.0`.
 | `src/data/`          | Blog/post content data.                                                 | Supports AstroWind blog/content features.                                               |
 | `src/utils/`         | Utility functions for metadata, permalinks, frontmatter and blog logic. | Keeps shared logic out of components and pages.                                         |
 | `public/`            | Static files copied directly to the final site.                         | Used for `robots.txt`, Decap CMS files and headers.                                     |
-| `documents/`         | Project documentation.                                                  | Stores this technical analysis and future project documents.                            |
-| `document/`          | Existing brand documentation folder.                                    | Currently contains `branding.md`; the naming overlaps with the new `documents/` folder. |
+| `documents/`         | Project documentation.                                                  | Stores the technical analysis, branding guide and future project documents.             |
 | `vendor/`            | AstroWind integration code.                                             | Supports the AstroWind configuration and virtual config imports.                        |
 | `.github/workflows/` | GitHub Actions workflow files.                                          | Builds, checks and deploys the site.                                                    |
 | `dist/`              | Generated production build output.                                      | Created by `npm run build`; should be treated as generated output.                      |
 
-The structure is logical, but there are two similar documentation folders: `document/` and `documents/`. For long-term maintainability, it would be cleaner to use only one name.
+The structure is logical. Project documentation should be kept in `documents/` to avoid splitting guidance across multiple folders.
 
 ## 4. Page Organisation
 
@@ -81,7 +80,6 @@ The MathsTutorHelp-specific pages are clear and focused. There are also several 
 | `src/pages/terms.md`                                       | `/terms/`                                    | Terms page, inherited from the template and should be checked for brand accuracy.                   |
 | `src/pages/safeguarding.md`                                | `/safeguarding/`                             | Safeguarding information page.                                                                      |
 | `src/pages/404.astro`                                      | `/404/`                                      | Custom not found page.                                                                              |
-| `src/pages/rss.xml.ts`                                     | `/rss.xml`                                   | RSS feed endpoint.                                                                                  |
 | `src/pages/[...blog]/...`                                  | Blog routes                                  | AstroWind blog listing, category, tag and pagination routes.                                        |
 | `src/pages/homes/*.astro`                                  | `/homes/.../`                                | Demo AstroWind homepages; likely not needed for MathsTutorHelp.                                     |
 | `src/pages/landing/*.astro`                                | `/landing/.../`                              | Demo AstroWind landing pages; likely not needed.                                                    |
@@ -147,28 +145,21 @@ The navigation is controlled by `src/navigation.ts`.
 Current main menu items:
 
 - Home
+- GCSE Group Classes
 - Tuition
-- Group Classes
-- Student Portal
 - Prices
 - About
 - Contact
-- Book Free Consultation button
-
-The `Group Classes` menu contains:
-
-- GCSE Higher Maths
-- GCSE Foundation Maths
-- Summer Coding Course
+- Register Your Interest button
 
 The footer navigation is also controlled in the same file. This is useful because header and footer link changes can be made in one place.
 
-The navigation is simple and appropriate for a tutoring website. It gives parents quick access to the main questions: what tuition is offered, what classes exist, how much it costs, who the tutor is and how to contact/book.
+The navigation is intentionally short and focused on the current main conversion goal: GCSE group class registration. Supporting links such as online tuition, the student portal, summer coding and revision resources are kept in the footer.
 
 Recommended navigation improvements:
 
-- Keep the top navigation short. If more service pages are added, put them under the Tuition dropdown instead of adding too many top-level links.
-- Replace `Student Portal` with separate `Register Interest` and `Portal Login` links if those are different user journeys.
+- Keep the top navigation short. If more service pages are added, put supporting links in the footer unless they are a primary conversion goal.
+- Keep external portal/register links clearly labelled so parents understand when they are leaving the main website.
 - Make sure every internal link uses the AstroWind permalink helper or a base-aware link approach, because the site is deployed under `/mathstutorhelp/` on GitHub Pages.
 
 ## 8. Styling and Design System
@@ -187,21 +178,32 @@ The project uses Tailwind CSS v4 with:
 `src/components/CustomStyles.astro` defines the main design tokens:
 
 - Inter variable font
-- primary blue
-- secondary blue
-- accent purple
+- primary navy
+- secondary teal
+- warm yellow accent
 - text colours
 - page background colours
 - dark mode colours
 
-The current visual direction is clean, modern and suitable for an education/tutoring website. The footer has been customised with a dark blue MathsTutorHelp style.
+`src/assets/styles/tailwind.css` exposes reusable brand colour names:
+
+- `primary` for the main navy
+- `secondary` for teal
+- `accent` for warm yellow CTA emphasis
+- `accent-hover` for yellow hover states
+- `brand-navy` for fixed navy text on yellow buttons
+- `brand-soft` for pale blue section backgrounds
+- `footer` and `footer-border` for the dark footer treatment
+
+The current visual direction is clean, modern and suitable for an education/tutoring website. The palette is now more brand-specific and avoids the old AstroWind blue/purple defaults.
+
+The remaining template colour utilities have been replaced with brand tokens where practical. New sections should use the shared colour names rather than arbitrary hex values or generic template colours.
 
 Areas to improve:
 
-- The accent colour is still the AstroWind purple. Consider replacing it with a MathsTutorHelp brand colour so the site feels less template-based.
 - Some pages use remote Unsplash images. These are convenient, but local, branded images would make the site more trustworthy.
 - Several inherited template pages still use generic AstroWind text and styling patterns.
-- Button and link colours should be checked for contrast in both light and dark mode.
+- Button and link colours should continue to be checked for contrast in both light and dark mode when new sections are added.
 
 ## 9. Assets and Images
 
@@ -248,15 +250,17 @@ Homepage sections:
 
 | Section          | Purpose                                                                                                                           |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| Hero             | Introduces Maths Tutor Help as a maths tutor in Manchester for GCSE, IGCSE and A-Level. Includes booking and tuition option CTAs. |
-| Trust points     | Highlights qualified teacher, DBS checked, 15+ years' experience, online/in-person support and exam-focused practice.             |
+| Hero             | Leads with GCSE group tuition in Levenshulme and a Register Your Interest CTA.                                                    |
+| Meet Your Tutor  | Introduces Mr Sheraz, professional trust signals, Google Calendar booking and LinkedIn profile link.                              |
+| Progress support | Explains outcomes such as finding gaps, building confidence, exam technique, routine and parent feedback.                         |
+| Group classes    | Promotes GCSE Higher/Foundation group classes, £20 sessions, Levenshulme location and limited places.                             |
 | Tuition options  | Explains GCSE, IGCSE, A-Level, Functional Skills, online tuition and group classes.                                               |
-| Group classes    | Advertises GCSE Higher, GCSE Foundation and Summer Coding Course pages.                                                           |
 | How lessons work | Explains the process: find gaps, build understanding, practise exam questions and review progress.                                |
 | Prices           | Summarises tuition options and links towards enquiry actions.                                                                     |
-| Testimonials     | Provides parent-focused reassurance. Some copy is currently placeholder-style and should be replaced with real testimonials.      |
+| Summer Coding    | Advertises the Summer Coding Club by MathsTutorHelp without distracting from the main maths offer.                                |
+| Parent feedback  | Uses parent-style feedback examples until real reviews can be added with permission.                                              |
 | FAQs             | Answers common parent questions about online/in-person lessons, levels and booking.                                               |
-| CTA              | Encourages visitors to book a free consultation.                                                                                  |
+| CTA              | Encourages visitors to register interest in GCSE group classes.                                                                   |
 
 The homepage is clear for parents and students because it quickly communicates what is offered, where it is offered and how to take the next step.
 
@@ -280,7 +284,7 @@ Recommended content organisation improvements:
 - Move repeated class details into shared data files, for example `src/data/classes.ts`.
 - Move pricing into `src/data/pricing.ts` so the homepage, pricing page and footer stay consistent.
 - Remove or rewrite AstroWind demo blog/content if the site does not need a blog.
-- Replace placeholder testimonials with real parent reviews when available.
+- Replace parent-style feedback examples with real parent reviews when available and permission has been given.
 
 ## 12. SEO Structure
 
@@ -301,6 +305,7 @@ Good SEO points:
 - Images generally include alt text.
 - Footer and page CTAs create internal links between important pages.
 - Sitemap support is present.
+- RSS output has been removed, so `/rss.xml` is no longer generated.
 
 SEO issues to improve:
 
@@ -325,7 +330,6 @@ Responsive strengths:
 
 Areas to check manually:
 
-- Mobile dropdown behaviour for `Group Classes`.
 - Whether long navigation labels fit on smaller screens.
 - Whether footer columns remain readable on narrow phones.
 - Whether remote images crop well on mobile.
@@ -347,8 +351,8 @@ Accessibility strengths:
 Accessibility improvements:
 
 - Check heading order on every page to confirm there is one main H1 and logical H2/H3 structure.
-- Ensure colour contrast is strong for blue, purple and footer link states.
-- Make sure dropdown menus are fully keyboard accessible.
+- Ensure colour contrast is strong for navy, teal, yellow CTA and footer link states.
+- If dropdown navigation is reintroduced later, make sure dropdown menus are fully keyboard accessible.
 - Replace vague link text where needed with more specific labels.
 - Ensure the contact form has proper labels, validation messages and correct MathsTutorHelp contact details.
 - Review dark mode contrast because the template includes both light and dark themes.
@@ -372,7 +376,7 @@ Practical improvements:
 
 - Delete unused demo pages or move them outside `src/pages/`.
 - Create shared data files for pricing, tuition services and group classes.
-- Keep one documentation folder name.
+- Keep documentation in `documents/`.
 - Update contact, privacy and terms content.
 - Run `npm run check` before committing to catch formatting issues.
 - Use consistent internal link helpers for GitHub Pages deployment.
@@ -399,9 +403,9 @@ Practical improvements:
 5. Move repeated group class details into a shared data file.
 6. Check all internal links for GitHub Pages base path compatibility.
 7. Optimise local images and remove unused app-store/google-play assets if not needed.
-8. Replace placeholder testimonials with real reviews.
+8. Replace parent-style feedback examples with real parent reviews when available.
 9. Review colour contrast for buttons, footer links and dark mode.
-10. Simplify documentation folders by choosing either `document/` or `documents/`.
+10. Keep documentation in `documents/` and avoid reintroducing a second `document/` folder.
 11. Run `npm run fix` and `npm run check` before pushing changes.
 12. Consider adding structured local business/schema metadata for tutoring services.
 

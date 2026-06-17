@@ -37,12 +37,12 @@ const {
 <footer
   class:list={[
     { dark: theme === 'dark' },
-    'relative border-t border-gray-200 dark:border-[#021E42] not-prose',
-    { 'bg-[#00387D] text-white': theme === 'dark' },
+    'relative border-t border-gray-200 dark:border-footer-border not-prose',
+    { 'bg-footer text-white': theme === 'dark' },
   ]}
 >
   <div
-    class:list={['absolute inset-0 pointer-events-none', theme === 'dark' ? 'bg-[#00387D]' : 'dark:bg-dark']}
+    class:list={['absolute inset-0 pointer-events-none', theme === 'dark' ? 'bg-footer' : 'dark:bg-dark']}
     aria-hidden="true"
   >
   </div>
@@ -73,7 +73,7 @@ const {
                       class:list={[
                         'hover:underline transition duration-150 ease-in-out',
                         theme === 'dark'
-                          ? 'text-white/85 hover:text-[#F7B200]'
+                          ? 'text-white/85 hover:text-accent'
                           : 'text-muted hover:text-gray-700 dark:text-gray-400',
                       ]}
                       href={href}
@@ -90,7 +90,12 @@ const {
       }
     </div>
     <div class="border-t border-white/15 py-5">
-      <div class:list={['text-sm flex gap-1 flex-wrap', theme === 'dark' ? 'text-white/85' : 'text-muted']}>
+      <div
+        class:list={[
+          'text-sm flex gap-1 flex-wrap justify-center text-center',
+          theme === 'dark' ? 'text-white/85' : 'text-muted',
+        ]}
+      >
         {
           secondaryLinks.map(({ text, href }, index) => (
             <>
@@ -99,7 +104,7 @@ const {
                 class:list={[
                   'hover:underline transition duration-150 ease-in-out',
                   theme === 'dark'
-                    ? 'text-white/85 hover:text-[#F7B200]'
+                    ? 'text-white/85 hover:text-accent'
                     : 'text-muted hover:text-gray-700 dark:text-gray-400',
                 ]}
                 href={href}
@@ -110,17 +115,17 @@ const {
         }
       </div>
     </div>
-    <div class="md:flex md:items-center md:justify-between py-5">
+    <div class="flex flex-col items-center justify-center gap-4 py-5 text-center">
       {
         socialLinks?.length ? (
-          <ul class="flex mb-4 md:order-1 -ml-2 md:ml-4 md:mb-0 rtl:ml-0 rtl:-mr-2 rtl:md:ml-0 rtl:md:mr-4">
+          <ul class="flex flex-wrap justify-center">
             {socialLinks.map(({ ariaLabel, href, text, icon }) => (
               <li>
                 <a
                   class:list={[
                     'focus:outline-none focus:ring-4 rounded-lg text-sm p-2.5 inline-flex items-center',
                     theme === 'dark'
-                      ? 'text-white hover:text-[#F7B200] hover:bg-white/10 focus:ring-white/20'
+                      ? 'text-white hover:text-accent hover:bg-white/10 focus:ring-white/20'
                       : 'text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-gray-200 dark:focus:ring-gray-700',
                   ]}
                   aria-label={ariaLabel}
@@ -137,7 +142,7 @@ const {
         )
       }
 
-      <div class:list={['text-sm mr-4', theme === 'dark' ? 'text-white/85' : 'dark:text-muted']}>
+      <div class:list={['text-sm', theme === 'dark' ? 'text-white/85' : 'dark:text-muted']}>
         <Fragment set:html={footNote} />
       </div>
     </div>

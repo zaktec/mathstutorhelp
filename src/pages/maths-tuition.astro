@@ -7,9 +7,9 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'Maths Tuition Services',
+  title: 'Maths Tuition Manchester - 1-to-1, Online & Group Classes',
   description:
-    'Personalised maths tuition in Manchester and online for GCSE, IGCSE, A-Level and Functional Skills students.',
+    'Maths tuition in Manchester with 1-to-1, online and group classes for KS3, GCSE, IGCSE, Functional Skills and A-Level students.',
 };
 
 const consultationBookingUrl = 'https://calendar.app.google/VJ6tgEKfsUZAncDe9';
@@ -18,8 +18,8 @@ const consultationBookingUrl = 'https://calendar.app.google/VJ6tgEKfsUZAncDe9';
 <Layout metadata={metadata}>
   <Hero
     tagline="Maths Tuition Services"
-    title="Personalised Maths Tuition for Confidence and Exam Progress"
-    subtitle="Clear, structured support for students who need help understanding topics, preparing for exams or building stronger maths confidence."
+    title="KS3, GCSE, IGCSE, Functional Skills and A-Level Maths Tuition"
+    subtitle="High-quality, affordable online and in-person maths tuition in Manchester, with structured lessons, exam preparation and access to extra online learning support."
     actions={[
       {
         variant: 'primary',
@@ -27,112 +27,199 @@ const consultationBookingUrl = 'https://calendar.app.google/VJ6tgEKfsUZAncDe9';
         href: consultationBookingUrl,
         icon: 'tabler:calendar-check',
       },
-      { text: 'View Maths Levels', href: '/maths-level' },
+      { text: 'View Prices', href: '#tuition-prices' },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1596495577886-d920f1fb7238?auto=format&fit=crop&w=1800&q=80',
-      alt: 'Student working through maths problems with a tutor',
+      src: 'https://i0.wp.com/mathstutorhelp.com/wp-content/uploads/2019/08/post13.jpg?fit=1800%2C1200&ssl=1',
+      alt: 'Online, group and revision maths courses',
     }}
   />
 
   <Features
-    title="Maths Support That Fits the Student"
-    subtitle="Lessons are planned around the student's current level, school topics and exam goals."
-    columns={3}
+    title="Tuition Prices"
+    subtitle="Online tuition, face-to-face sessions and group classes are available, with flexible support to suit each learner's needs."
+    id="tuition-prices"
+    columns={4}
     items={[
       {
-        title: 'One-to-one tuition',
-        description: 'Focused individual support for students who need targeted explanations and regular feedback.',
-        icon: 'tabler:user',
+        title: 'Online 1-to-1 Maths Tuition',
+        description:
+          '<strong class="text-3xl text-gray-900 dark:text-white">£25/hr</strong><br />Zoom or Teams lessons with online platform access. Best for flexible learning from home.',
+        icon: 'tabler:device-laptop',
+        callToAction: { text: 'Book Online Tuition', href: consultationBookingUrl },
       },
       {
-        title: 'Exam preparation',
-        description: 'Past papers, mark schemes and exam-style questions to improve method, timing and confidence.',
-        icon: 'tabler:file-check',
+        title: 'In-Person 1-to-1 Tuition',
+        description:
+          '<strong class="text-3xl text-gray-900 dark:text-white">£30/hr</strong><br />Manchester-based tuition with platform resources. Best for focused support and confidence building.',
+        icon: 'tabler:user-check',
+        callToAction: { text: 'Book In-Person Tuition', href: consultationBookingUrl },
       },
       {
-        title: 'Topic catch-up',
-        description: 'Step-by-step help with algebra, graphs, geometry, trigonometry, statistics and problem solving.',
-        icon: 'tabler:math-function',
+        title: 'Group Classes',
+        description:
+          '<strong class="text-3xl text-gray-900 dark:text-white">£20/student</strong><br />Online or in-person group learning with platform resources. Best for affordable collaborative learning.',
+        icon: 'tabler:users-group',
+        callToAction: { text: 'Join a Group Class', href: '/gcse-revision-class-higher-manchester/' },
       },
       {
-        title: 'Confidence building',
-        description: 'Calm explanations and guided practice for students who feel anxious or behind in maths.',
-        icon: 'tabler:heart-handshake',
-      },
-      {
-        title: 'Homework support',
-        description: 'Help with maths homework while making sure students understand the method, not just the answer.',
-        icon: 'tabler:book',
-      },
-      {
-        title: 'Parent updates',
-        description: 'Clear communication about progress, focus areas and what to practise between lessons.',
-        icon: 'tabler:message-circle',
+        title: 'A-Level Maths Tuition',
+        description:
+          '<strong class="text-3xl text-gray-900 dark:text-white">£40/hr</strong><br />Advanced online or in-person support with platform resources. Best for deeper content and exam preparation.',
+        icon: 'tabler:chart-line',
+        callToAction: { text: 'Book A-Level Tuition', href: consultationBookingUrl },
       },
     ]}
   />
 
   <Content
     isReversed
-    title="How the Tuition Works"
+    title="Online Learning Platform Included"
     items={[
       {
-        title: 'Assess current understanding',
-        description: "We identify weak topics, confidence gaps and the student's target grade or learning goal.",
+        title: 'Topic resources and worksheets',
+        description:
+          'Students can use topic-based resources, worksheets and revision materials alongside live lessons.',
       },
       {
-        title: 'Teach clearly',
-        description: 'Methods are broken down into manageable steps with examples that students can repeat.',
+        title: 'Practice and homework tasks',
+        description:
+          'Practice questions, homework tasks and mini quizzes help students keep learning between sessions.',
       },
       {
-        title: 'Practise regularly',
-        description: 'Students apply each method to exam-style questions and receive feedback on working out.',
+        title: 'Video explanations',
+        description:
+          'Key topics are supported with video explanations so students can revisit methods when they need to.',
       },
       {
-        title: 'Review and adjust',
-        description: 'Lessons adapt as the student improves, with revision focused on the areas that matter most.',
+        title: 'Learning beyond lesson time',
+        description:
+          'The platform gives students extra support outside tutoring time, helping knowledge stick long term.',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1400&q=80',
-      alt: 'Maths notes and formulas',
+      src: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80',
+      alt: 'Student using an online learning platform',
     }}
   >
     <Fragment slot="content">
       <p>
-        Good tuition should feel practical and reassuring. The aim is to help students understand the maths, show clear
-        working and feel more prepared when they sit assessments or exams.
+        Alongside live tutoring sessions, students receive access to online learning support with resources, practice
+        questions and revision tasks. This helps students continue practising independently after each lesson.
       </p>
     </Fragment>
   </Content>
+
+  <Features
+    title="Choose the Tuition Format That Fits"
+    subtitle="Whether the student needs help catching up, preparing for exams or aiming for higher grades, lessons are structured, engaging and results-driven."
+    columns={4}
+    items={[
+      {
+        title: 'Online 1-to-1 Tuition',
+        description:
+          'Live personalised lessons with digital worksheets, revision materials, step-by-step explanations and flexible scheduling.',
+        icon: 'tabler:video',
+      },
+      {
+        title: 'In-Person Tuition',
+        description:
+          'Face-to-face private maths support in Manchester with real-time guidance, printed resources and online platform access.',
+        icon: 'tabler:school',
+      },
+      {
+        title: 'Group Maths Classes',
+        description:
+          'Small groups focused on revision, past papers and exam technique, with digital resources for study outside class.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'A-Level Maths Tuition',
+        description:
+          'Specialist support for advanced topics including differentiation, integration, algebra, functions, trigonometry and exam reasoning.',
+        icon: 'tabler:function',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-brand-soft dark:bg-transparent"></div>
+    </Fragment>
+  </Features>
+
+  <Features
+    title="Why Parents Choose Maths Tutor Help"
+    subtitle="Understanding first, confidence next, grades follow."
+    columns={3}
+    items={[
+      {
+        title: 'Qualified and DBS checked',
+        description: 'Students are supported by a qualified, DBS-checked maths teacher.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: "15+ years' experience",
+        description: 'Lessons are built around structured, friendly teaching and years of classroom experience.',
+        icon: 'tabler:award',
+      },
+      {
+        title: 'Homework and revision support',
+        description: 'Students receive help with homework, revision, exam-style practice and independent study.',
+        icon: 'tabler:book',
+      },
+      {
+        title: 'Online platform access',
+        description: 'Platform resources are included so students can practise beyond the live lesson.',
+        icon: 'tabler:device-desktop',
+      },
+      {
+        title: 'Flexible lesson options',
+        description: 'Choose online, in-person or group tuition depending on the student and timetable.',
+        icon: 'tabler:calendar',
+      },
+      {
+        title: 'Exam preparation',
+        description: 'Lessons can focus on GCSE, IGCSE, Functional Skills or A-Level exam technique and confidence.',
+        icon: 'tabler:file-check',
+      },
+    ]}
+  />
 
   <FAQs
     title="Maths Tuition FAQs"
     columns={2}
     items={[
       {
-        title: 'Is tuition available in person?',
-        description: 'Yes. In-person tuition is available in Manchester, with online lessons also available.',
+        title: 'Which levels do you support?',
+        description: 'Tuition is available for KS3, GCSE, IGCSE, Functional Skills and A-Level maths.',
       },
       {
-        title: 'Can you help with a specific exam board?',
-        description: 'Yes. Lessons can be matched to the student’s exam board, topics and mark scheme style.',
+        title: 'Is tuition available online and in person?',
+        description: 'Yes. Online lessons are available UK-wide, and in-person tuition is available in Manchester.',
       },
       {
-        title: 'Do you teach foundation and higher GCSE?',
-        description: 'Yes. Support is available for both foundation and higher tier GCSE maths.',
+        title: 'Is access to the online learning platform included?',
+        description:
+          'Yes. Students can use online resources, worksheets, practice questions, video explanations and revision tasks between lessons.',
       },
       {
-        title: 'How do we start?',
-        description: 'Use the contact page to request a free consultation and share the student level and goals.',
+        title: 'How do we book a lesson?',
+        description:
+          'Book a free consultation or message Maths Tutor Help on WhatsApp at 07860 248525 to ask about availability.',
       },
     ]}
   />
 
   <CallToAction
-    title="Start with a Free Consultation"
-    subtitle="Tell us what your child is studying, what feels difficult and whether you prefer online or in-person tuition."
-    actions={[{ variant: 'primary', text: 'Contact Maths Tutor Help', href: '/contact', icon: 'tabler:send' }]}
+    title="Contact to Book a Lesson"
+    subtitle="Have a question or want to arrange tutoring? Message us and we will help you get started."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Book a Free Consultation',
+        href: consultationBookingUrl,
+        icon: 'tabler:calendar-check',
+      },
+      { text: 'Contact Maths Tutor Help', href: '/contact', icon: 'tabler:send' },
+    ]}
   />
 </Layout>

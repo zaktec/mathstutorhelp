@@ -38,7 +38,7 @@ const isHomepage = normalizedPath === '/' || normalizedPath === basePath;
         {
           tagline && (
             <p
-              class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+              class="text-base text-secondary dark:text-teal-200 font-bold tracking-wide uppercase intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
               set:html={tagline}
             />
           )
@@ -48,7 +48,7 @@ const isHomepage = normalizedPath === '/' || normalizedPath === basePath;
             <h1
               class:list={[
                 'font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade',
-                isHomepage ? 'text-5xl md:text-6xl' : 'text-4xl md:text-5xl',
+                isHomepage ? 'text-4xl sm:text-5xl md:text-6xl' : 'text-4xl md:text-5xl',
               ]}
               set:html={title}
             />

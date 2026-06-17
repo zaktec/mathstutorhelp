@@ -22,12 +22,16 @@ Use a simple, consistent palette.
 | Purpose                  | Colour         | Hex       |
 | ------------------------ | -------------- | --------- |
 | Primary brand            | Navy           | `#00387D` |
-| Secondary brand          | Bright blue    | `#007ACC` |
+| Secondary brand          | Teal           | `#0F766E` |
 | Main accent              | Warm yellow    | `#F7B200` |
-| Text                     | Dark grey      | `#222222` |
-| Muted text               | Grey           | `#727272` |
-| Light section background | Pale blue grey | `#F5F8FB` |
+| Accent hover             | Deeper yellow  | `#D99800` |
+| Text heading             | Ink            | `#101828` |
+| Body text                | Slate          | `#1D2939` |
+| Muted text               | Soft slate     | `#475467` |
+| Light section background | Soft blue      | `#EFF6FF` |
 | Page background          | White          | `#FFFFFF` |
+| Footer background        | Ink navy       | `#0B1F3A` |
+| Footer border            | Soft navy      | `#123B63` |
 
 ## Colour Usage
 
@@ -38,7 +42,7 @@ Primary navy should be used for:
 - Main headings
 - Important section titles
 
-Bright blue should be used for:
+Teal should be used for:
 
 - Links
 - Secondary buttons
@@ -61,9 +65,9 @@ Use one main button style across the whole site.
 Primary button:
 
 - Background: `#F7B200`
-- Text: `#222222`
-- Hover background: `#00387D`
-- Hover text: `#FFFFFF`
+- Text: `#00387D`
+- Hover background: `#D99800`
+- Hover text: `#00387D`
 - Text examples:
   - Book a Free Consultation
   - Register Interest
@@ -76,6 +80,8 @@ Secondary button:
 - Text: `#00387D`
 - Hover background: `#00387D`
 - Hover text: `#FFFFFF`
+
+Use the shared `.btn-primary` and `.btn-secondary` utilities rather than adding one-off button colours on individual pages.
 
 ## Typography Direction
 
@@ -108,28 +114,31 @@ The homepage should answer these questions quickly:
 
 Recommended homepage order:
 
-1. Hero section
-2. Trust/experience section
-3. Tuition levels
-4. Group classes
-5. Prices
-6. Testimonials
-7. FAQs
-8. Contact call-to-action
+1. Hero section focused on GCSE group tuition
+2. Meet Your Tutor
+3. Progress/support outcomes
+4. GCSE group classes
+5. Tuition levels
+6. How lessons work
+7. Prices
+8. Summer Coding Club
+9. Parent-style feedback or real testimonials
+10. FAQs
+11. Register interest call-to-action
 
 ## Hero Section Recommendation
 
 Headline:
 
-> Maths Tutor in Manchester for GCSE, IGCSE and A-Level
+> GCSE Group Maths Classes in Levenshulme, Manchester
 
 Supporting text:
 
-> Online and in-person maths tuition with clear explanations, exam practice and personalised support from an experienced, DBS-checked teacher.
+> Small focused group tuition for GCSE Foundation and Higher students, with exam-style practice, clear explanations and support from an experienced, DBS-checked teacher.
 
 Primary button:
 
-> Book a Free Consultation
+> Register Your Interest
 
 Secondary button:
 
@@ -144,11 +153,31 @@ Use:
 - Maths Tuition Services
 - GCSE Maths Support
 - A-Level Maths Tuition
-- Group Classes in Manchester
+- GCSE Group Classes
 - Online Maths Tuition
-- What Parents Say
+- Parent-Style Feedback
 - Free Maths Resources
 - Contact Maths Tutor Help
+
+## Implementation Notes
+
+The palette is defined in:
+
+- `src/components/CustomStyles.astro` for global CSS variables
+- `src/assets/styles/tailwind.css` for Tailwind theme names and button utilities
+
+Use these Tailwind colour names where possible:
+
+- `primary` for main navy
+- `secondary` for teal
+- `accent` for warm yellow
+- `accent-hover` for yellow hover states
+- `brand-navy` for fixed navy text on yellow buttons
+- `brand-soft` for pale blue section backgrounds
+- `footer` for the dark footer background
+- `footer-border` for footer borders
+
+Avoid reintroducing generic template colour utilities such as `bg-blue-50`, `text-purple-*`, `bg-indigo-*` or one-off arbitrary hex classes unless there is a clear reason.
 
 Avoid:
 
@@ -210,17 +239,18 @@ Do not split traffic between both domains. The canonical URL, header text, foote
 
 Use a dark navy footer:
 
-- Background: `#00387D`
+- Background: `#0B1F3A`
+- Border: `#123B63`
 - Headings: white
 - Body text: white or very light grey
 - Links: `#F7B200`
 
 Footer columns:
 
-- About Maths Tutor Help
-- Tuition Services
-- Prices
-- Contact
+- Tuition
+- Classes & Portal
+- Fees & Booking
+- Free Revision Resources
 
 ## Trust Signals To Add
 
@@ -232,6 +262,8 @@ Add these near the top of the homepage:
 - Online and in-person lessons
 - Manchester-based
 - GCSE, IGCSE and A-Level support
+
+Keep these signals close to the hero and Meet Your Tutor sections. Use later homepage sections for outcomes such as confidence, routine, exam technique and parent feedback rather than repeating the same credentials.
 
 ## Overall Design Goal
 
