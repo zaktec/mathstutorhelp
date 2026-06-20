@@ -7,16 +7,12 @@ export const headerData = {
       href: getPermalink('/'),
     },
     {
-      text: 'GCSE Group Classes',
-      href: `${getPermalink('/')}#group-classes`,
+      text: 'Online Tuition',
+      href: getPermalink('/online-tuitions'),
     },
     {
       text: 'Tuition',
       href: getPermalink('/maths-tuition'),
-    },
-    {
-      text: 'Prices',
-      href: getPermalink('/pricing'),
     },
     {
       text: 'About',
@@ -27,7 +23,7 @@ export const headerData = {
       href: getPermalink('/contact'),
     },
   ],
-  actions: [{ text: 'Register Your Interest', href: 'https://hai-bl.com/onboarding/interest-form' }],
+  actions: [{ text: 'Register Interest', href: 'https://hai-bl.com/onboarding/interest-form' }],
 };
 
 export const footerData = {
@@ -47,6 +43,8 @@ export const footerData = {
       title: 'Classes',
       links: [
         { text: 'GCSE Group Classes', href: `${getPermalink('/')}#group-classes` },
+        { text: 'GCSE Higher Class', href: getPermalink('/gcse-revision-class-higher-manchester') },
+        { text: 'GCSE Foundation Class', href: getPermalink('/gcse-foundation-maths-tutoring-club-2025') },
         { text: 'Summer Coding Course', href: getPermalink('/manchestersummercodingclub') },
       ],
     },
@@ -56,6 +54,20 @@ export const footerData = {
         { text: 'Book a Free Consultation', href: 'https://calendar.app.google/VJ6tgEKfsUZAncDe9' },
         { text: 'Register Your Interest', href: 'https://hai-bl.com/onboarding/interest-form' },
         { text: 'Contact', href: getPermalink('/contact') },
+      ],
+    },
+    {
+      title: 'Resources',
+      links: [
+        { text: 'Maths Levels', href: getPermalink('/maths-level') },
+        { text: 'Safeguarding', href: getPermalink('/safeguarding') },
+      ],
+    },
+    {
+      title: 'Legal',
+      links: [
+        { text: 'Privacy Policy', href: getPermalink('/privacy') },
+        { text: 'Terms', href: getPermalink('/terms') },
       ],
     },
   ],
@@ -74,7 +86,7 @@ export const footerData = {
     { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://www.instagram.com/mathstutorhelp/' },
   ],
   footNote: `
-    Copyright &copy; 2026 <a class="text-accent underline" href="/">MathsTutorHelp</a>. All rights reserved.<br />Powered by ZakTec Solutions.
+    Copyright &copy; 2026 <a class="text-accent underline" href="${getPermalink('/')}">MathsTutorHelp</a>. All rights reserved.<br />Powered by ZakTec Solutions.
   `,
   theme: 'dark',
 };

@@ -1,7 +1,7 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
-import Features from '~/components/widgets/Features.astro';
+import Features2 from '~/components/widgets/Features2.astro';
 import Content from '~/components/widgets/Content.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
@@ -32,6 +32,69 @@ const packages = [
     price: '£80/month',
   },
 ];
+
+const courses = [
+  {
+    title: 'GCSE Foundation',
+    description: 'Targeted support for number, algebra, ratio, geometry and exam confidence for Foundation tier.',
+    icon: 'tabler:certificate',
+    callToAction: {
+      text: 'More info / Enrol',
+      href: contactUrl,
+      icon: 'tabler:chevron-right',
+    },
+  },
+  {
+    title: 'GCSE Higher',
+    description: 'Higher tier tuition covering advanced topics, problem solving and exam-style practice.',
+    icon: 'tabler:chart-line',
+    callToAction: {
+      text: 'More info / Enrol',
+      href: contactUrl,
+      icon: 'tabler:chevron-right',
+    },
+  },
+  {
+    title: 'KS3 Maths',
+    description: 'Build strong foundations before GCSE with clear teaching, practice and confidence-building.',
+    icon: 'tabler:school',
+    callToAction: {
+      text: 'More info / Enrol',
+      href: contactUrl,
+      icon: 'tabler:chevron-right',
+    },
+  },
+  {
+    title: 'Functional Skills',
+    description: 'Practical maths support for Functional Skills learners, including real-life questions and revision.',
+    icon: 'tabler:list-check',
+    callToAction: {
+      text: 'More info / Enrol',
+      href: contactUrl,
+      icon: 'tabler:chevron-right',
+    },
+  },
+  {
+    title: 'Python Coding',
+    description: 'Beginner-friendly Python lessons for students who want to learn coding and logical thinking.',
+    icon: 'tabler:code',
+    callToAction: {
+      text: 'More info / Enrol',
+      href: contactUrl,
+      icon: 'tabler:chevron-right',
+    },
+  },
+  {
+    title: 'Problem Solving',
+    description: 'Develop reasoning, multi-step methods and confidence with unfamiliar maths questions.',
+    icon: 'tabler:bulb',
+    callToAction: {
+      text: 'More info / Enrol',
+      href: contactUrl,
+      icon: 'tabler:chevron-right',
+    },
+  },
+];
 ---
 
 <Layout metadata={metadata}>
@@ -49,42 +112,12 @@ const packages = [
     }}
   />
 
-  <Features
-    title="Why Choose Online Tuition?"
-    subtitle="No travel, no stress. Just effective maths support from home for KS3, GCSE, IGCSE, Functional Skills and A-Level students."
+  <Features2
+    tagline="Online Courses"
+    title="Choose the Right Online Course"
+    subtitle="Structured online courses for maths, coding and problem-solving skills, taught in clear small steps from home."
     columns={3}
-    items={[
-      {
-        title: 'Learn from anywhere',
-        description: 'Lessons are laptop and tablet friendly, so students can learn from home or another quiet space.',
-        icon: 'tabler:device-laptop',
-      },
-      {
-        title: 'Affordable support',
-        description: 'A flexible alternative to private home tutoring, with simple monthly package options.',
-        icon: 'tabler:coin-pound',
-      },
-      {
-        title: 'Flexible scheduling',
-        description: 'Book support around school, revision, activities and family routines.',
-        icon: 'tabler:calendar-time',
-      },
-      {
-        title: 'Personalised pace',
-        description: 'Lessons can slow down for difficult topics or move faster when confidence grows.',
-        icon: 'tabler:adjustments',
-      },
-      {
-        title: 'Platform resources',
-        description: 'Students get access to resources, worksheets and learning platform practice between sessions.',
-        icon: 'tabler:books',
-      },
-      {
-        title: 'Exam preparation',
-        description: 'Great for confidence building, topic revision and exam-style practice.',
-        icon: 'tabler:file-pencil',
-      },
-    ]}
+    items={courses}
   />
 
   <section class="bg-white py-16 dark:bg-slate-900">

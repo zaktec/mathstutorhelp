@@ -3,10 +3,11 @@ import Layout from '~/layouts/PageLayout.astro';
 
 import HomeHero from '~/components/widgets/HomeHero.astro';
 import Features from '~/components/widgets/Features.astro';
+import Features2 from '~/components/widgets/Features2.astro';
 import Content from '~/components/widgets/Content.astro';
-import Testimonials from '~/components/widgets/Testimonials.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
   title: 'Maths Tuition in Manchester & Online',
@@ -17,72 +18,38 @@ const metadata = {
 
 const consultationBookingUrl = 'https://calendar.app.google/VJ6tgEKfsUZAncDe9';
 const groupClassInterestUrl = 'https://hai-bl.com/onboarding/interest-form';
+const foundationClassUrl = getPermalink('/gcse-foundation-maths-tutoring-club-2025');
+const higherClassUrl = getPermalink('/gcse-revision-class-higher-manchester');
+const onlineTuitionUrl = getPermalink('/online-tuitions');
+const summerCodingUrl = getPermalink('/manchestersummercodingclub');
+const compactSection = { container: 'py-8 md:py-10 lg:py-12' };
 ---
 
 <Layout metadata={metadata}>
-  <HomeHero consultationBookingUrl={consultationBookingUrl} />
+  <HomeHero groupClassInterestUrl={groupClassInterestUrl} />
 
-  <Features
-    id="who-for"
-    tagline="Who It Is For"
-    title="Who MathsTutorHelp Is For"
-    subtitle="Support is suitable for students who need maths to feel clearer, more structured and less stressful."
-    columns={4}
+  <Features2
+    id="meet-your-tutor"
+    tagline="Meet Your Tutor"
+    title="Qualified Maths Support From Mr Sheraz Cheema"
+    subtitle="My name is Mr Sheraz, a fully qualified and DBS-checked maths tutor with over 15 years of teaching experience. I founded MathsTutorHelp to give students clear, structured and supportive maths tuition that builds confidence, strengthens understanding and improves exam technique."
+    columns={3}
+    classes={compactSection}
     items={[
       {
-        title: 'Students feeling anxious or stuck',
-        description: 'Calm explanations help students start again without feeling judged or rushed.',
+        title: 'Clear teaching',
+        description: 'Methods are explained step by step so students can follow the process and remember it later.',
+        icon: 'tabler:chalkboard',
+      },
+      {
+        title: 'Patient support',
+        description: 'Students can ask questions, revisit difficult topics and build confidence at a steady pace.',
         icon: 'tabler:mood-smile',
       },
       {
-        title: 'GCSE and IGCSE exam preparation',
-        description: 'Lessons focus on the topics, question styles and working-out skills needed for exams.',
-        icon: 'tabler:file-pencil',
-      },
-      {
-        title: 'Students aiming higher',
-        description: 'Support is available for Foundation Grade 4/5 goals and Higher Grade 6-9 ambitions.',
-        icon: 'tabler:chart-line',
-      },
-      {
-        title: 'Online or Manchester-based support',
-        description: 'Families can choose online lessons, local one-to-one tuition or GCSE group classes.',
-        icon: 'tabler:map-2',
-      },
-    ]}
-  />
-
-  <Features
-    id="tuition-options"
-    tagline="Maths Tuition Services"
-    title="Tuition for the Stage Your Child Is At"
-    subtitle="Support is available for school students, exam candidates and learners who need practical maths confidence."
-    columns={4}
-    items={[
-      {
-        title: 'GCSE Maths Support',
-        description:
-          'Topic-by-topic revision, exam question practice and clear methods for foundation and higher tier GCSE maths.',
-        icon: 'tabler:math-function',
-      },
-      {
-        title: 'IGCSE Maths Tuition',
-        description:
-          'Structured support for IGCSE students, including algebra, geometry, graphs, statistics and exam technique.',
-        icon: 'tabler:calculator',
-      },
-      {
-        title: 'A-Level Maths Tuition',
-        description:
-          'Focused help with pure maths, mechanics and statistics, with careful attention to reasoning and problem solving.',
-        icon: 'tabler:chart-line',
-      },
-      {
-        title: 'Online Maths and Functional Skills',
-        description:
-          'Flexible online lessons and practical Functional Skills support with clear worked examples and regular practice.',
-        icon: 'tabler:video',
-        callToAction: { text: 'View Tuition Options', href: '/online-tuitions/' },
+        title: 'Practical next steps',
+        description: 'Support is tailored to each student’s level, goals and areas of difficulty.',
+        icon: 'tabler:list-check',
       },
     ]}
   />
@@ -91,6 +58,7 @@ const groupClassInterestUrl = 'https://hai-bl.com/onboarding/interest-form';
     id="group-classes"
     tagline="GCSE Group Classes"
     title="Small GCSE Group Maths Classes in Levenshulme"
+    classes={compactSection}
     items={[
       {
         title: 'GCSE Higher Maths Classes',
@@ -98,8 +66,8 @@ const groupClassInterestUrl = 'https://hai-bl.com/onboarding/interest-form';
           'Best for students aiming for grades 6-9, with topic revision, exam technique and guided practice.',
         icon: 'tabler:chart-line',
         callToAction: {
-          text: 'View Tuition Options',
-          href: '/gcse-revision-class-higher-manchester/',
+          text: 'View Higher Class',
+          href: higherClassUrl,
         },
       },
       {
@@ -108,8 +76,8 @@ const groupClassInterestUrl = 'https://hai-bl.com/onboarding/interest-form';
           'Best for students aiming to secure grades 4-5 with clear methods and confidence-building practice.',
         icon: 'tabler:certificate',
         callToAction: {
-          text: 'View Tuition Options',
-          href: '/gcse-foundation-maths-tutoring-club-2025/',
+          text: 'View Foundation Class',
+          href: foundationClassUrl,
         },
       },
       {
@@ -139,7 +107,7 @@ const groupClassInterestUrl = 'https://hai-bl.com/onboarding/interest-form';
         >
           <p class="text-lg font-bold text-gray-900 dark:text-white">Interested in GCSE group classes?</p>
           <p class="mt-2 text-sm text-muted dark:text-slate-300">
-            Register your interest to ask about current places or join the waiting list.
+            Places are limited and allocated on a first-come, first-served basis.
           </p>
           <a class="btn-primary mt-4 w-full sm:w-auto" href={groupClassInterestUrl}>Register Your Interest</a>
         </div>
@@ -148,17 +116,85 @@ const groupClassInterestUrl = 'https://hai-bl.com/onboarding/interest-form';
 
     <Fragment slot="content">
       <p>
-        Group classes are a strong option for GCSE students who need routine, motivation and exam-focused practice
-        without the cost of full one-to-one tuition. Classes are based in Levenshulme and taught in a calm, supportive
-        setting.
+        Now enrolling for small GCSE maths group classes in Levenshulme, Manchester. Group classes are a strong option
+        for students who need routine, motivation and exam-focused practice without the cost of full one-to-one tuition.
+        Sessions are led personally by Mr Sheraz in a calm, supportive setting.
       </p>
     </Fragment>
   </Content>
+
+  <Features
+    id="parent-priorities"
+    tagline="Support That Helps Students Make Progress"
+    title="What Parents Often Look For"
+    subtitle="Many families want maths tuition that builds confidence, improves exam technique and creates a regular study routine."
+    columns={4}
+    classes={compactSection}
+    items={[
+      {
+        title: 'More confidence',
+        description: 'Calm explanations help students ask questions and restart topics without feeling judged.',
+        icon: 'tabler:mood-smile',
+      },
+      {
+        title: 'Better exam technique',
+        description: 'Students practise the question styles, working-out and timing needed for GCSE and IGCSE exams.',
+        icon: 'tabler:file-pencil',
+      },
+      {
+        title: 'A regular routine',
+        description: 'Weekly support helps students stay consistent instead of leaving revision until the last minute.',
+        icon: 'tabler:calendar-check',
+      },
+      {
+        title: 'Clear next steps',
+        description: 'Parents get a better sense of what has improved and what the student should practise next.',
+        icon: 'tabler:list-check',
+      },
+    ]}
+  />
+
+  <Features
+    id="tuition-options"
+    tagline="Tuition Services"
+    title="Tuition for the Stage Your Child Is At"
+    subtitle="Support is available for school students, exam candidates and learners who need practical maths confidence."
+    columns={4}
+    classes={compactSection}
+    items={[
+      {
+        title: 'GCSE Maths Support',
+        description:
+          'Topic-by-topic revision, exam question practice and clear methods for Foundation and Higher tier GCSE maths.',
+        icon: 'tabler:math-function',
+      },
+      {
+        title: 'IGCSE Maths Tuition',
+        description:
+          'Structured support for IGCSE students, including algebra, geometry, graphs, statistics and exam technique.',
+        icon: 'tabler:calculator',
+      },
+      {
+        title: 'A-Level Maths Tuition',
+        description:
+          'Focused help with pure maths, mechanics and statistics, with careful attention to reasoning and problem solving.',
+        icon: 'tabler:chart-line',
+      },
+      {
+        title: 'Online and Functional Skills',
+        description:
+          'Flexible online lessons and practical Functional Skills support with clear worked examples and regular practice.',
+        icon: 'tabler:video',
+        callToAction: { text: 'View Online Tuition', href: onlineTuitionUrl },
+      },
+    ]}
+  />
 
   <Content
     isReversed
     tagline="How Lessons Work"
     title="Clear Explanations, Regular Practice and Steady Progress"
+    classes={compactSection}
     items={[
       {
         title: 'Find the gaps',
@@ -196,13 +232,14 @@ const groupClassInterestUrl = 'https://hai-bl.com/onboarding/interest-form';
     title="Simple Tuition Options"
     subtitle="Choose the lesson format that best fits your child, timetable and goals."
     columns={3}
+    classes={compactSection}
     items={[
       {
         title: 'One-to-one tuition - £30/hr',
         description:
           'Personalised GCSE, IGCSE, A-Level or Functional Skills support. Best for targeted help and faster feedback.',
         icon: 'tabler:user',
-        callToAction: { text: 'Book a Free Consultation', href: consultationBookingUrl },
+        callToAction: { text: 'Ask About 1:1 Tuition', href: consultationBookingUrl },
       },
       {
         title: 'Small group classes - £20',
@@ -216,84 +253,30 @@ const groupClassInterestUrl = 'https://hai-bl.com/onboarding/interest-form';
         description:
           'Flexible online maths tuition with the same clear teaching, guided examples and exam question practice.',
         icon: 'tabler:device-desktop',
-        callToAction: { text: 'Book a Free Consultation', href: consultationBookingUrl },
+        callToAction: { text: 'Ask About Online Lessons', href: consultationBookingUrl },
       },
     ]}
   />
 
-  <Testimonials
-    title="Words from real customers"
-    testimonials={[
-      {
-        testimonial:
-          'Mr Cheema is amazing. My child understands maths much better now and feels more confident with exam questions.',
-        name: 'GCSE parent',
-        job: 'Manchester',
-        image:
-          '<div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">GP</div>',
-      },
-      {
-        testimonial:
-          'The lessons are clear and structured. Difficult topics are explained step by step, which has made a big difference.',
-        name: 'A-Level student',
-        job: 'Online tuition',
-        image:
-          '<div class="flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-sm font-bold text-white">AS</div>',
-      },
-      {
-        testimonial:
-          'Regular practice and feedback helped us understand what needed improving and how to prepare for the next assessment.',
-        name: 'Parent feedback',
-        job: 'GCSE support',
-        image:
-          '<div class="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-sm font-bold text-brand-navy">PF</div>',
-      },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-brand-soft dark:bg-transparent"></div>
-    </Fragment>
-  </Testimonials>
-
-  <Content
-    tagline="Also Available"
-    title="Summer Coding Club"
-    callToAction={{
-      text: 'View Summer Coding Course',
-      href: '/manchestersummercodingclub/',
-      icon: 'tabler:chevron-right',
-    }}
-    items={[
-      {
-        title: 'Python for ages 13-17',
-        description: 'Beginner-friendly coding lessons where students learn Python and build practical projects.',
-        icon: 'tabler:code',
-      },
-      {
-        title: 'Small summer group',
-        description: 'A limited-place Manchester coding course for students interested in maths, logic and technology.',
-        icon: 'tabler:users-group',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1400&q=80',
-      alt: 'Student learning Python coding on a laptop',
-    }}
-  >
-    <Fragment slot="content">
-      <p>
-        The Summer Coding Club is an additional option for students who want to learn Python, build practical projects
-        and develop stronger problem-solving skills.
-      </p>
-    </Fragment>
-  </Content>
+  <section class="bg-brand-soft py-8 dark:bg-slate-900">
+    <div class="mx-auto flex max-w-6xl flex-col gap-5 px-4 sm:px-6 md:flex-row md:items-center md:justify-between">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Also Available</p>
+        <h2 class="mt-2 text-2xl font-bold text-gray-950 dark:text-white">Summer Coding Club</h2>
+        <p class="mt-2 max-w-3xl text-base leading-7 text-muted dark:text-slate-300">
+          A smaller extra option for students aged 13-17 who want to learn Python and develop problem-solving skills.
+        </p>
+      </div>
+      <a class="btn-secondary shrink-0" href={summerCodingUrl}>View Summer Coding Course</a>
+    </div>
+  </section>
 
   <FAQs
     title="Frequently Asked Questions"
     subtitle="Quick answers for parents comparing maths tuition options."
     tagline="FAQs"
     columns={2}
-    classes={{ container: 'max-w-6xl' }}
+    classes={{ container: 'max-w-6xl py-8 md:py-10 lg:py-12' }}
     items={[
       {
         title: 'Do you teach online or in person?',
@@ -318,6 +301,7 @@ const groupClassInterestUrl = 'https://hai-bl.com/onboarding/interest-form';
   />
 
   <CallToAction
+    classes={compactSection}
     actions={[
       {
         variant: 'primary',

@@ -59,35 +59,37 @@ const {
         </div>
         {description && <p class="max-w-sm text-sm leading-6 text-white/85" set:html={description} />}
       </div>
-      {
-        links.map(({ title, links }) => (
-          <div class="col-span-6 md:col-span-3 lg:col-span-2">
-            <div class:list={['font-semibold mb-3', theme === 'dark' ? 'text-white' : 'dark:text-gray-300']}>
-              {title}
+      <div class="col-span-12 grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:col-span-9 lg:grid-cols-5">
+        {
+          links.map(({ title, links }) => (
+            <div>
+              <div class:list={['font-semibold mb-3', theme === 'dark' ? 'text-white' : 'dark:text-gray-300']}>
+                {title}
+              </div>
+              {links && Array.isArray(links) && links.length > 0 && (
+                <ul class="text-sm leading-6">
+                  {links.map(({ text, href, ariaLabel }) => (
+                    <li class="mb-1.5">
+                      <a
+                        class:list={[
+                          'hover:underline transition duration-150 ease-in-out',
+                          theme === 'dark'
+                            ? 'text-white/85 hover:text-accent'
+                            : 'text-muted hover:text-gray-700 dark:text-gray-400',
+                        ]}
+                        href={href}
+                        aria-label={ariaLabel}
+                      >
+                        <Fragment set:html={text} />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
-            {links && Array.isArray(links) && links.length > 0 && (
-              <ul class="text-sm leading-6">
-                {links.map(({ text, href, ariaLabel }) => (
-                  <li class="mb-1.5">
-                    <a
-                      class:list={[
-                        'hover:underline transition duration-150 ease-in-out',
-                        theme === 'dark'
-                          ? 'text-white/85 hover:text-accent'
-                          : 'text-muted hover:text-gray-700 dark:text-gray-400',
-                      ]}
-                      href={href}
-                      aria-label={ariaLabel}
-                    >
-                      <Fragment set:html={text} />
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-        ))
-      }
+          ))
+        }
+      </div>
     </div>
     <div class="border-t border-white/15 py-5">
       <div
@@ -142,7 +144,7 @@ const {
         )
       }
 
-      <div class:list={['text-sm', theme === 'dark' ? 'text-white/85' : 'dark:text-muted']}>
+      <div class:list={['text-xs leading-6', theme === 'dark' ? 'text-white/65' : 'dark:text-muted']}>
         <Fragment set:html={footNote} />
       </div>
     </div>

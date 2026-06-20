@@ -3,7 +3,10 @@ import { Icon } from 'astro-icon/components';
 import Button from '~/components/ui/Button.astro';
 import { getAsset, getPermalink } from '~/utils/permalinks';
 
-const { consultationBookingUrl, tuitionOptionsUrl = getPermalink('/maths-tuition/') } = Astro.props;
+const {
+  groupClassInterestUrl,
+  tuitionOptionsUrl = getPermalink('/maths-tuition/'),
+} = Astro.props;
 const tutorImageUrl = getAsset('/images/maths-tutor-sheraz-cheema.jpeg');
 
 const trustPoints = [
@@ -22,25 +25,22 @@ const trustPoints = [
   <div class="relative mx-auto max-w-7xl px-4 sm:px-6">
     <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
     <div
-      class="grid items-center gap-10 py-12 md:grid-cols-[minmax(0,1.08fr)_minmax(360px,0.92fr)] md:gap-14 md:py-16 lg:py-20"
+      class="grid items-center gap-8 py-10 md:grid-cols-[minmax(0,1.08fr)_minmax(360px,0.92fr)] md:gap-12 md:py-12 lg:py-14"
     >
       <div class="max-w-3xl">
         <p class="mb-4 text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">MathsTutorHelp</p>
         <h1 class="font-heading text-4xl font-bold leading-tight text-gray-950 dark:text-white sm:text-5xl lg:text-6xl">
           Maths Tutor in Manchester for GCSE, IGCSE and A-Level
         </h1>
-        <p class="mt-6 text-xl font-semibold leading-relaxed text-primary dark:text-slate-100">
-          Hi, I&apos;m Mr Sheraz Cheema, a qualified Maths teacher and founder of MathsTutorHelp.
-        </p>
-        <p class="mt-4 max-w-2xl text-lg leading-relaxed text-muted dark:text-slate-300">
-          I help students build confidence, improve exam technique and make steady progress with clear, structured maths
-          tuition online and in Manchester.
+        <p class="mt-6 max-w-2xl text-xl font-semibold leading-relaxed text-primary dark:text-slate-100">
+          Small group GCSE classes in Levenshulme and online one-to-one maths tuition with a qualified, DBS-checked
+          teacher.
         </p>
         <div class="mt-8 flex flex-col gap-3 sm:flex-row">
           <Button
             variant="primary"
-            text="Book a Free Consultation"
-            href={consultationBookingUrl}
+            text="Register Your Interest"
+            href={groupClassInterestUrl}
             icon="tabler:calendar-check"
             class="w-full sm:w-auto"
           />
