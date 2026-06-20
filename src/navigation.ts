@@ -8,10 +8,10 @@ export const headerData = {
     },
     {
       text: 'Online Tuition',
-      href: getPermalink('/online-tuitions'),
+      href: getPermalink('/online-tuition'),
     },
     {
-      text: 'Tuition',
+      text: 'Maths Tuition',
       href: getPermalink('/maths-tuition'),
     },
     {
@@ -34,7 +34,7 @@ export const footerData = {
       title: 'Tuition',
       links: [
         { text: 'Maths Tuition', href: getPermalink('/maths-tuition') },
-        { text: 'Online Tuition', href: getPermalink('/online-tuitions') },
+        { text: 'Online Tuition', href: getPermalink('/online-tuition') },
         { text: 'Maths Levels', href: getPermalink('/maths-level') },
         { text: 'Prices', href: getPermalink('/pricing') },
       ],
@@ -59,6 +59,7 @@ export const footerData = {
     {
       title: 'Resources',
       links: [
+        { text: 'Gallery', href: getPermalink('/gallery') },
         { text: 'Maths Levels', href: getPermalink('/maths-level') },
         { text: 'Safeguarding', href: getPermalink('/safeguarding') },
       ],
@@ -81,7 +82,6 @@ export const footerData = {
   ],
   socialLinks: [
     { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://www.facebook.com/mathstutorhelp' },
-    { ariaLabel: 'X', icon: 'tabler:brand-x', href: 'http://twitter.com' },
     { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/in/mathstutorhelp/' },
     { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://www.instagram.com/mathstutorhelp/' },
   ],

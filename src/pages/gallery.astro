@@ -1,0 +1,53 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Gallery from '~/components/widgets/Gallery.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { getAsset, getPermalink } from '~/utils/permalinks';
+
+const metadata = {
+  title: 'Gallery',
+  description: 'Gallery for MathsTutorHelp lessons, tutoring spaces and student learning resources.',
+};
+
+const galleryImages = [
+  {
+    src: getAsset('/images/maths-tutor-sheraz-cheema-home.jpeg'),
+    alt: 'Mr Sheraz Cheema from MathsTutorHelp',
+    title: 'MathsTutorHelp',
+  },
+  {
+    src: getAsset('/images/maths-tutor-sheraz-cheema.jpeg'),
+    alt: 'Mr Sheraz Cheema teaching maths',
+    title: 'Maths Teaching',
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <section class="bg-brand-soft py-8 dark:bg-slate-900 md:py-10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Gallery</p>
+      <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-950 dark:text-white md:text-4xl">
+        MathsTutorHelp Gallery
+      </h1>
+      <p class="mt-3 max-w-3xl text-base leading-7 text-muted dark:text-slate-300">
+        Photos from MathsTutorHelp, including tutoring, learning spaces and class updates.
+      </p>
+    </div>
+  </section>
+
+  <Gallery images={galleryImages} />
+
+  <CallToAction
+    title="Want to Learn More?"
+    subtitle="Contact MathsTutorHelp to ask about online tuition, GCSE group classes or one-to-one maths support."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Contact MathsTutorHelp',
+        href: getPermalink('/contact'),
+        icon: 'tabler:calendar-check',
+      },
+    ]}
+  />
+</Layout>
