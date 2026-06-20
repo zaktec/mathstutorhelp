@@ -1,0 +1,55 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { getPermalink } from '~/utils/permalinks';
+import { registerInterestUrl } from '~/utils/onlineCourses';
+
+const metadata = {
+  title: 'Online Group Classes',
+  description: 'Small online group classes for GCSE Maths and beginner coding may be available through MathsTutorHelp.',
+};
+---
+
+<Layout metadata={metadata}>
+  <section class="bg-brand-soft py-16 dark:bg-slate-900 md:py-20">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Also Available</p>
+      <h1 class="mt-3 text-4xl font-bold tracking-tight text-gray-950 dark:text-white md:text-5xl">
+        Online Group Classes
+      </h1>
+      <p class="mt-5 max-w-3xl text-lg leading-8 text-muted dark:text-slate-300">
+        Small online group classes may be available for GCSE Maths and beginner coding. These are suitable for students
+        who want regular guided practice at a lower cost than one-to-one tuition.
+      </p>
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <a class="btn-primary justify-center" href={registerInterestUrl}>Ask About Group Classes</a>
+        <a class="btn-secondary justify-center" href={getPermalink('/online-tuition')}>Back to Online Tuition</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-14 dark:bg-slate-900">
+    <div class="mx-auto grid max-w-5xl gap-4 px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-4">
+      {
+        ['Small groups', 'Guided practice', 'Topic revision', 'Exam-style questions'].map((item) => (
+          <div class="rounded-lg border border-gray-200 bg-gray-50 p-5 text-sm font-semibold text-gray-800 dark:border-gray-700 dark:bg-slate-800 dark:text-slate-200">
+            {item}
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <CallToAction
+    title="Interested in Online Group Classes?"
+    subtitle="Register your interest and I will let you know when suitable group times are available."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Register Interest',
+        href: registerInterestUrl,
+        icon: 'tabler:calendar-check',
+      },
+    ]}
+  />
+</Layout>

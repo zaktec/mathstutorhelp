@@ -1,104 +1,28 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-import Content from '~/components/widgets/Content.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { getPermalink } from '~/utils/permalinks';
+import { onlineCourseCards, onlinePackages, overviewPackageIncludes, registerInterestUrl } from '~/utils/onlineCourses';
 
 const metadata = {
   title: 'Online Maths Tuition',
   description:
-    'Learn from home with flexible, affordable online maths tuition for KS3, GCSE, IGCSE, Functional Skills and A-Level students.',
+    'Online maths tuition for Year 6, KS3, GCSE, IGCSE, Functional Skills and A-Level students, with clear one-to-one support and flexible packages.',
 };
 
-const consultationBookingUrl = 'https://calendar.app.google/VJ6tgEKfsUZAncDe9';
 const contactUrl = getPermalink('/contact');
-const codingClubUrl = getPermalink('/manchestersummercodingclub');
-
-const packages = [
-  {
-    title: 'Bronze Package',
-    sessions: '1 online session per month',
-    price: '£25/month',
-    note: '',
-  },
-  {
-    title: 'Silver Package',
-    sessions: '2 online sessions per month',
-    price: '£45/month',
-    note: 'Equivalent to £22.50 per session',
-  },
-  {
-    title: 'Gold Package',
-    sessions: '4 online sessions per month',
-    price: '£80/month',
-    note: 'Best value — equivalent to £20 per session',
-  },
-];
-
-const courses = [
-  {
-    title: 'GCSE Foundation',
-    description: 'Targeted support for number, algebra, ratio, geometry and exam confidence for Foundation tier.',
-    icon: 'tabler:certificate',
-    callToAction: {
-      text: 'Ask About This Course',
-      href: contactUrl,
-      icon: 'tabler:chevron-right',
-    },
-  },
-  {
-    title: 'GCSE Higher',
-    description: 'Higher tier tuition covering advanced topics, problem solving and exam-style practice.',
-    icon: 'tabler:chart-line',
-    callToAction: {
-      text: 'Ask About This Course',
-      href: contactUrl,
-      icon: 'tabler:chevron-right',
-    },
-  },
-  {
-    title: 'KS3 Maths',
-    description: 'Build strong foundations before GCSE with clear teaching, practice and confidence-building.',
-    icon: 'tabler:school',
-    callToAction: {
-      text: 'Ask About This Course',
-      href: contactUrl,
-      icon: 'tabler:chevron-right',
-    },
-  },
-  {
-    title: 'Functional Skills',
-    description: 'Practical maths support for Functional Skills learners, including real-life questions and revision.',
-    icon: 'tabler:list-check',
-    callToAction: {
-      text: 'Ask About This Course',
-      href: contactUrl,
-      icon: 'tabler:chevron-right',
-    },
-  },
-  {
-    title: 'Problem Solving',
-    description: 'Develop reasoning, multi-step methods and confidence with unfamiliar maths questions.',
-    icon: 'tabler:bulb',
-    callToAction: {
-      text: 'Ask About This Course',
-      href: contactUrl,
-      icon: 'tabler:chevron-right',
-    },
-  },
-];
+const groupClassesUrl = getPermalink('/online-group-classes');
 ---
 
 <Layout metadata={metadata}>
   <Hero
     tagline="Online Maths Tuition"
     title="Online Maths Tuition Packages"
-    subtitle="Learn from home with flexible, affordable online maths tuition. Sessions are personalised, structured and supported by access to our online learning platform for extra practice anytime."
+    subtitle="Flexible one-to-one online maths tuition for students who need clear teaching, regular practice and calm support from home."
     actions={[
-      { variant: 'primary', text: 'Book Online Tuition', href: consultationBookingUrl, icon: 'tabler:video' },
+      { variant: 'primary', text: 'Register Interest', href: registerInterestUrl, icon: 'tabler:calendar-check' },
       { text: 'Contact Us', href: contactUrl },
     ]}
     image={{
@@ -107,139 +31,123 @@ const courses = [
     }}
   />
 
-  <Features2
-    tagline="Online Maths Tutoring"
-    title="Choose the Right Maths Support"
-    subtitle="Structured online maths tuition for school, exams and confidence, taught in clear small steps from home."
-    columns={3}
-    items={courses}
-  />
-
-  <section class="bg-white py-16 dark:bg-slate-900">
+  <section class="bg-white py-14 dark:bg-slate-900">
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
       <div class="mx-auto max-w-3xl text-center">
-        <p class="text-base font-semibold uppercase tracking-wide text-primary">1:1 Online Tutoring</p>
-        <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white md:text-4xl">
-          Choose the package that suits your child
+        <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Online Maths Tutoring</p>
+        <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-950 dark:text-white md:text-4xl">
+          Choose the Right Online Support
         </h2>
-        <p class="mt-4 text-lg text-muted dark:text-slate-400">
+        <p class="mt-4 text-lg leading-8 text-muted dark:text-slate-300">
+          Online support is available for students at different stages, from Year 6 preparation to GCSE, IGCSE,
+          Functional Skills, A-Level and beginner coding. Choose a course below to view more details, topics covered
+          and enrolment options.
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        {
+          onlineCourseCards.map((course) => (
+            <article class="flex h-full flex-col rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-slate-800">
+              <h3 class="text-xl font-bold text-gray-950 dark:text-white">{course.title}</h3>
+              <p class="mt-3 text-sm leading-6 text-muted dark:text-slate-300">{course.description}</p>
+              <ul class="mt-4 space-y-2 text-sm leading-6 text-muted dark:text-slate-300">
+                {course.bullets.map((item) => (
+                  <li class="flex gap-2">
+                    <span class="mt-2 size-1.5 rounded-full bg-secondary" aria-hidden="true" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <div class="mt-auto pt-5">
+                <a class="btn-secondary w-full justify-center sm:w-auto" href={getPermalink(`/${course.slug}`)}>
+                  {course.buttonText}
+                </a>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+
+    </div>
+  </section>
+
+  <section class="bg-brand-soft py-14 dark:bg-slate-900">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">1:1 Online Tutoring</p>
+        <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-950 dark:text-white md:text-4xl">
+          Choose the Package That Suits Your Child
+        </h2>
+        <p class="mt-4 text-lg leading-8 text-muted dark:text-slate-300">
           Each booking is a 55-minute live online session with focused teaching, guided practice and clear next steps.
         </p>
       </div>
 
       <div class="mt-10 grid gap-5 md:grid-cols-3">
         {
-          packages.map((item) => (
+          onlinePackages.map((item) => (
             <article class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-slate-800">
-              <h3 class="text-xl font-bold text-gray-900 dark:text-white">{item.title}</h3>
-              <p class="mt-3 text-muted dark:text-slate-300">{item.sessions}</p>
+              <h3 class="text-xl font-bold text-gray-950 dark:text-white">{item.title} Package</h3>
+              <p class="mt-3 text-muted dark:text-slate-300">{item.detail}</p>
               <p class="mt-6 text-3xl font-extrabold text-primary">{item.price}</p>
               {item.note && <p class="mt-3 text-sm font-semibold text-secondary dark:text-teal-200">{item.note}</p>}
             </article>
           ))
         }
       </div>
+    </div>
+  </section>
 
-      <div class="mt-8 rounded-lg border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-slate-800">
-        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Every one-to-one package includes</h3>
-        <div class="mt-5 grid gap-3 text-muted dark:text-slate-300 sm:grid-cols-2 lg:grid-cols-3">
-          <p>Diagnostic test and personalised learning plan</p>
-          <p>Access to the online platform and learner resources</p>
-          <p>Custom online worksheet after every session</p>
-          <p>Fully qualified and DBS-checked tutor</p>
-          <p>No contracts, cancel anytime</p>
-          <p>Support for KS3, GCSE, IGCSE, Functional Skills and A-Level</p>
+  <section class="bg-white py-14 dark:bg-slate-900">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+        <div>
+          <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Included</p>
+          <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-950 dark:text-white">
+            What Every One-to-One Package Includes
+          </h2>
+          <p class="mt-4 text-lg leading-8 text-muted dark:text-slate-300">
+            Each one-to-one package is designed to give students structured support, regular practice and clear next
+            steps after every session.
+          </p>
+        </div>
+        <ul class="grid gap-3 sm:grid-cols-2">
+          {
+            overviewPackageIncludes.map((item) => (
+              <li class="rounded-lg border border-gray-200 bg-gray-50 p-4 text-sm font-medium leading-6 text-gray-800 dark:border-gray-700 dark:bg-slate-800 dark:text-slate-200">
+                {item}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-brand-soft py-10 dark:bg-slate-900">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-slate-800">
+        <div class="grid gap-5 md:grid-cols-[1fr_auto] md:items-center">
+          <div>
+            <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Also Available</p>
+            <h2 class="mt-2 text-2xl font-bold text-gray-950 dark:text-white">Online Group Classes</h2>
+            <p class="mt-3 text-base leading-7 text-muted dark:text-slate-300">
+              Small online group classes may be available for GCSE Maths and beginner coding. These are suitable for
+              students who want regular support at a lower cost than one-to-one tuition.
+            </p>
+            <ul class="mt-4 grid gap-2 text-sm text-muted dark:text-slate-300 sm:grid-cols-2">
+              <li>Small groups</li>
+              <li>Guided practice</li>
+              <li>Topic revision</li>
+              <li>Exam-style questions</li>
+            </ul>
+          </div>
+          <a class="btn-secondary justify-center" href={groupClassesUrl}>Ask About Group Classes</a>
         </div>
       </div>
     </div>
   </section>
-
-  <Content
-    title="A Typical Online Session"
-    subtitle="Interactive online tuition keeps lessons focused, clear and easy to follow."
-    items={[
-      {
-        title: 'Live teaching',
-        description: 'Clear explanations with guided examples and space for questions.',
-        icon: 'tabler:presentation',
-      },
-      {
-        title: 'Digital whiteboard',
-        description: 'Screen-sharing and shared working help students follow each method step by step.',
-        icon: 'tabler:chalkboard',
-      },
-      {
-        title: 'Exam-style questions',
-        description: 'Practice includes reasoning, topic breakdowns and exam preparation.',
-        icon: 'tabler:file-analytics',
-      },
-      {
-        title: 'Follow-up tasks',
-        description: 'Homework or revision tasks help students keep improving between lessons.',
-        icon: 'tabler:clipboard-check',
-      },
-    ]}
-    columns={2}
-    image={{
-      src: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80',
-      alt: 'Online study setup',
-    }}
-  >
-    <Fragment slot="content">
-      <p>
-        Students receive structured support during the lesson and platform access for additional revision outside
-        lesson time.
-      </p>
-    </Fragment>
-  </Content>
-
-  <section class="bg-brand-soft py-8 dark:bg-slate-900">
-    <div class="mx-auto flex max-w-6xl flex-col gap-5 px-4 sm:px-6 md:flex-row md:items-center md:justify-between">
-      <div>
-        <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Also Available</p>
-        <h2 class="mt-2 text-2xl font-bold text-gray-950 dark:text-white">Python Coding</h2>
-        <p class="mt-2 max-w-3xl text-base leading-7 text-muted dark:text-slate-300">
-          Beginner-friendly Python lessons are available for students who want to build coding and logical thinking
-          skills.
-        </p>
-      </div>
-      <a class="btn-secondary shrink-0" href={codingClubUrl}>View Coding Course</a>
-    </div>
-  </section>
-
-  <Content
-    title="Online Group Classes"
-    subtitle="Interactive online group sessions are planned to start in September."
-    items={[
-      {
-        title: '£15 per learner',
-        description: 'Simple per-session pricing for online group learning.',
-        icon: 'tabler:coin-pound',
-      },
-      {
-        title: 'Maximum 6 learners',
-        description: 'Small groups keep sessions interactive and manageable.',
-        icon: 'tabler:users-group',
-      },
-      {
-        title: 'Revision and exam practice',
-        description: 'Sessions include topic breakdowns, guided revision and exam-style questions.',
-        icon: 'tabler:file-pencil',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1606761568499-6d2451b23c66?auto=format&fit=crop&w=1400&q=80',
-      alt: 'Small online class learning together',
-    }}
-    isReversed
-    isAfterContent
-  >
-    <Fragment slot="content">
-      <p>
-        Join the waiting list to be notified when enrolment opens and suitable group times are available.
-      </p>
-    </Fragment>
-  </Content>
 
   <FAQs
     title="Online Tuition FAQs"
@@ -247,7 +155,7 @@ const courses = [
     items={[
       {
         title: 'Which levels can be taught online?',
-        description: 'Online tuition is available for KS3, GCSE, IGCSE, A-Level and Functional Skills maths.',
+        description: 'Online tuition is available for Year 6, KS3, GCSE, IGCSE, Functional Skills and A-Level maths.',
       },
       {
         title: 'How long is each lesson?',
@@ -255,27 +163,23 @@ const courses = [
       },
       {
         title: 'Does online tuition include exam practice?',
-        description: 'Yes. Lessons can include topic revision, past papers, worksheets and exam-style questions.',
+        description: 'Yes. GCSE, IGCSE and A-Level lessons can include topic revision, past papers and exam-style questions.',
       },
       {
         title: 'What does the student need?',
         description: 'A reliable internet connection, a quiet place to work and a device suitable for video lessons.',
-      },
-      {
-        title: 'Can we switch between online and in-person?',
-        description: 'Yes, where availability allows. Many families use a mix depending on timetable and location.',
       },
     ]}
   />
 
   <CallToAction
     title="Ready to Get Started?"
-    subtitle="WhatsApp 07860 248525 or fill in the contact form and we will reply with available time slots."
+    subtitle="Register your interest and I will get back to you with the best support option for your child."
     actions={[
       {
         variant: 'primary',
-        text: 'Contact MathsTutorHelp',
-        href: contactUrl,
+        text: 'Register Interest',
+        href: registerInterestUrl,
         icon: 'tabler:calendar-check',
       },
     ]}

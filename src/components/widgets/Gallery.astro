@@ -5,6 +5,8 @@ interface GalleryImage {
   src: string;
   alt: string;
   title?: string;
+  aspectClass?: string;
+  objectFitClass?: string;
 }
 
 interface Props {
@@ -18,25 +20,153 @@ const { images = [] } = Astro.props;
   <div class="mx-auto max-w-7xl px-4 sm:px-6">
     <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {
-        images.map((image) => (
+        images.map((image, index) => (
           <figure class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-slate-800">
-            <Image
-              class="aspect-[4/3] w-full object-cover"
-              src={image.src}
-              alt={image.alt}
-              width={640}
-              height={480}
-              widths={[400, 640, 960]}
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              layout="responsive"
-              format="webp"
-            />
-            {image.title && (
-              <figcaption class="p-4 text-sm font-semibold text-gray-900 dark:text-white">{image.title}</figcaption>
-            )}
+            <div class="relative">
+              <span class="absolute left-3 top-3 z-10 rounded-full bg-gray-950/85 px-3 py-1 text-xs font-bold text-white">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <button
+                type="button"
+                class="block w-full cursor-zoom-in text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-primary/40"
+                data-gallery-trigger
+                data-gallery-index={index}
+                data-gallery-src={image.src}
+                data-gallery-alt={image.alt}
+                data-gallery-title={image.title || `Image ${index + 1}`}
+                aria-label={`Open ${image.title || `image ${index + 1}`}`}
+              >
+                <Image
+                  class={`${image.aspectClass || 'aspect-[4/3]'} w-full ${image.objectFitClass || 'object-cover'}`}
+                  src={image.src}
+                  alt={image.alt}
+                  width={640}
+                  height={480}
+                  widths={[400, 640, 960]}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  layout="responsive"
+                  format="webp"
+                />
+              </button>
+            </div>
+            <figcaption class="flex items-center justify-between gap-3 p-4 text-sm font-semibold text-gray-900 dark:text-white">
+              <span>{image.title}</span>
+              <span class="shrink-0 text-xs font-bold text-secondary dark:text-teal-200">Image {index + 1}</span>
+            </figcaption>
           </figure>
         ))
       }
     </div>
   </div>
 </section>
+
+<div
+  id="gallery-lightbox"
+  class="fixed inset-0 z-50 hidden bg-gray-950/95 px-4 py-5"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Gallery image viewer"
+>
+  <div class="mx-auto flex h-full max-w-6xl flex-col">
+    <div class="mb-4 flex items-center justify-between gap-4 text-white">
+      <div>
+        <p id="gallery-lightbox-count" class="text-xs font-bold uppercase tracking-wide text-teal-200"></p>
+        <h2 id="gallery-lightbox-title" class="mt-1 text-lg font-bold"></h2>
+      </div>
+      <button
+        type="button"
+        class="rounded-full border border-white/30 px-4 py-2 text-sm font-bold text-white hover:bg-white hover:text-gray-950"
+        data-gallery-close
+      >
+        Close
+      </button>
+    </div>
+
+    <div class="relative min-h-0 flex-1">
+      <button
+        type="button"
+        class="absolute left-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/90 px-3 py-2 text-sm font-bold text-gray-950 shadow hover:bg-white"
+        data-gallery-prev
+        aria-label="Previous image"
+      >
+        Prev
+      </button>
+      <img
+        id="gallery-lightbox-image"
+        class="mx-auto h-full max-h-full w-full object-contain"
+        src=""
+        alt=""
+        loading="lazy"
+      />
+      <button
+        type="button"
+        class="absolute right-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/90 px-3 py-2 text-sm font-bold text-gray-950 shadow hover:bg-white"
+        data-gallery-next
+        aria-label="Next image"
+      >
+        Next
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const triggers = Array.from(document.querySelectorAll('[data-gallery-trigger]'));
+  const lightbox = document.getElementById('gallery-lightbox');
+  const image = document.getElementById('gallery-lightbox-image');
+  const title = document.getElementById('gallery-lightbox-title');
+  const count = document.getElementById('gallery-lightbox-count');
+  const closeButton = document.querySelector('[data-gallery-close]');
+  const prevButton = document.querySelector('[data-gallery-prev]');
+  const nextButton = document.querySelector('[data-gallery-next]');
+
+  const galleryItems = triggers.map((trigger) => ({
+    src: trigger.getAttribute('data-gallery-src') || '',
+    alt: trigger.getAttribute('data-gallery-alt') || '',
+    title: trigger.getAttribute('data-gallery-title') || '',
+  }));
+
+  let currentIndex = 0;
+
+  const showImage = (index) => {
+    if (!lightbox || !image || !title || !count || galleryItems.length === 0) return;
+
+    currentIndex = (index + galleryItems.length) % galleryItems.length;
+    const item = galleryItems[currentIndex];
+
+    image.setAttribute('src', item.src);
+    image.setAttribute('alt', item.alt);
+    title.textContent = item.title;
+    count.textContent = `Image ${currentIndex + 1} of ${galleryItems.length}`;
+    lightbox.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+  };
+
+  const closeLightbox = () => {
+    if (!lightbox || !image) return;
+
+    lightbox.classList.add('hidden');
+    image.setAttribute('src', '');
+    document.body.classList.remove('overflow-hidden');
+  };
+
+  triggers.forEach((trigger, index) => {
+    trigger.addEventListener('click', () => showImage(index));
+  });
+
+  closeButton?.addEventListener('click', closeLightbox);
+  prevButton?.addEventListener('click', () => showImage(currentIndex - 1));
+  nextButton?.addEventListener('click', () => showImage(currentIndex + 1));
+
+  lightbox?.addEventListener('click', (event) => {
+    if (event.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (!lightbox || lightbox.classList.contains('hidden')) return;
+
+    if (event.key === 'Escape') closeLightbox();
+    if (event.key === 'ArrowLeft') showImage(currentIndex - 1);
+    if (event.key === 'ArrowRight') showImage(currentIndex + 1);
+  });
+</script>

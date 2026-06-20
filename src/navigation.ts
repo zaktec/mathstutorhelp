@@ -23,7 +23,7 @@ export const headerData = {
       href: getPermalink('/contact'),
     },
   ],
-  actions: [{ text: 'Register Interest', href: 'https://hai-bl.com/onboarding/interest-form' }],
+  actions: [{ text: 'Login', href: 'https://hai-bl.com/auth/login' }],
 };
 
 export const footerData = {
