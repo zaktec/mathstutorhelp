@@ -5,6 +5,7 @@ import HomeHero from '~/components/widgets/HomeHero.astro';
 import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Content from '~/components/widgets/Content.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { getPermalink } from '~/utils/permalinks';
@@ -124,37 +125,6 @@ const compactSection = { container: 'py-8 md:py-10 lg:py-12' };
   </Content>
 
   <Features
-    id="parent-priorities"
-    tagline="Support That Helps Students Make Progress"
-    title="What Parents Often Look For"
-    subtitle="Many families want maths tuition that builds confidence, improves exam technique and creates a regular study routine."
-    columns={4}
-    classes={compactSection}
-    items={[
-      {
-        title: 'More confidence',
-        description: 'Calm explanations help students ask questions and restart topics without feeling judged.',
-        icon: 'tabler:mood-smile',
-      },
-      {
-        title: 'Better exam technique',
-        description: 'Students practise the question styles, working-out and timing needed for GCSE and IGCSE exams.',
-        icon: 'tabler:file-pencil',
-      },
-      {
-        title: 'A regular routine',
-        description: 'Weekly support helps students stay consistent instead of leaving revision until the last minute.',
-        icon: 'tabler:calendar-check',
-      },
-      {
-        title: 'Clear next steps',
-        description: 'Parents get a better sense of what has improved and what the student should practise next.',
-        icon: 'tabler:list-check',
-      },
-    ]}
-  />
-
-  <Features
     id="tuition-options"
     tagline="Tuition Services"
     title="Tuition for the Stage Your Child Is At"
@@ -190,42 +160,6 @@ const compactSection = { container: 'py-8 md:py-10 lg:py-12' };
     ]}
   />
 
-  <Content
-    isReversed
-    tagline="How Lessons Work"
-    title="Clear Explanations, Regular Practice and Steady Progress"
-    classes={compactSection}
-    items={[
-      {
-        title: 'Find the gaps',
-        description: 'The first sessions identify weak topics, target grade and the exam board requirements.',
-      },
-      {
-        title: 'Build understanding',
-        description: 'Each topic is taught step by step, with examples that make the method easier to remember.',
-      },
-      {
-        title: 'Practise exam questions',
-        description: 'Students work through exam-style questions so they can apply methods and show working clearly.',
-      },
-      {
-        title: 'Review progress',
-        description: 'Parents get a clear sense of what has improved and what the student should practise next.',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1400&q=80',
-      alt: 'Maths working and formulas on a study desk',
-    }}
-  >
-    <Fragment slot="content">
-      <p>
-        The aim is not just to get through homework. Students learn why a method works, when to use it and how to show
-        working clearly in exams.
-      </p>
-    </Fragment>
-  </Content>
-
   <Features
     id="prices"
     tagline="Prices"
@@ -254,6 +188,39 @@ const compactSection = { container: 'py-8 md:py-10 lg:py-12' };
           'Flexible online maths tuition with the same clear teaching, guided examples and exam question practice.',
         icon: 'tabler:device-desktop',
         callToAction: { text: 'Ask About Online Lessons', href: consultationBookingUrl },
+      },
+    ]}
+  />
+
+  <Testimonials
+    tagline="Testimonials"
+    title="What Parents and Students Say"
+    subtitle="Real feedback from families and learners supported by MathsTutorHelp."
+    classes={compactSection}
+    testimonials={[
+      {
+        testimonial:
+          'Mr Sheraz has really helped my son become more confident in Maths. The lessons are clear, structured, and focused on exam-style questions.',
+        name: 'Aisha Khan',
+        job: 'Parent',
+        image:
+          '<div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">AK</div>',
+      },
+      {
+        testimonial:
+          'The tuition helped me understand topics I used to struggle with. I like how the lessons are easy to follow and not rushed.',
+        name: 'Imran Patel',
+        job: 'GCSE Student',
+        image:
+          '<div class="flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-sm font-bold text-white">IP</div>',
+      },
+      {
+        testimonial:
+          'My daughter has improved a lot since joining the sessions. The small group size means she gets support when she needs it.',
+        name: 'Sadia Ahmed',
+        job: 'Parent',
+        image:
+          '<div class="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-sm font-bold text-brand-navy">SA</div>',
       },
     ]}
   />
