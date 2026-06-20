@@ -20,14 +20,14 @@ const groupClassInterestUrl = 'https://hai-bl.com/onboarding/interest-form';
 ---
 
 <Layout metadata={metadata}>
-  <HomeHero consultationBookingUrl={consultationBookingUrl} tuitionOptionsUrl="/maths-tuition/" />
+  <HomeHero consultationBookingUrl={consultationBookingUrl} />
 
   <Features
     id="who-for"
     tagline="Who It Is For"
     title="Who MathsTutorHelp Is For"
     subtitle="Support is suitable for students who need maths to feel clearer, more structured and less stressful."
-    columns={3}
+    columns={4}
     items={[
       {
         title: 'Students feeling anxious or stuck',
@@ -40,19 +40,9 @@ const groupClassInterestUrl = 'https://hai-bl.com/onboarding/interest-form';
         icon: 'tabler:file-pencil',
       },
       {
-        title: 'Foundation Grade 4/5 students',
-        description: 'Clear methods and regular practice help students aim for secure Grade 4 or Grade 5 outcomes.',
-        icon: 'tabler:certificate',
-      },
-      {
-        title: 'Higher Grade 6-9 students',
-        description: 'Students pushing higher get challenge, exam technique and support with harder problem solving.',
+        title: 'Students aiming higher',
+        description: 'Support is available for Foundation Grade 4/5 goals and Higher Grade 6-9 ambitions.',
         icon: 'tabler:chart-line',
-      },
-      {
-        title: 'Students needing routine',
-        description: 'Regular tuition gives students structure, accountability and a clear plan for practice.',
-        icon: 'tabler:calendar-check',
       },
       {
         title: 'Online or Manchester-based support',
@@ -67,49 +57,32 @@ const groupClassInterestUrl = 'https://hai-bl.com/onboarding/interest-form';
     tagline="Maths Tuition Services"
     title="Tuition for the Stage Your Child Is At"
     subtitle="Support is available for school students, exam candidates and learners who need practical maths confidence."
-    columns={3}
+    columns={4}
     items={[
       {
         title: 'GCSE Maths Support',
         description:
           'Topic-by-topic revision, exam question practice and clear methods for foundation and higher tier GCSE maths.',
         icon: 'tabler:math-function',
-        callToAction: { text: 'View Tuition Options', href: '/maths-tuition/' },
       },
       {
         title: 'IGCSE Maths Tuition',
         description:
           'Structured support for IGCSE students, including algebra, geometry, graphs, statistics and exam technique.',
         icon: 'tabler:calculator',
-        callToAction: { text: 'View Tuition Options', href: '/maths-tuition/' },
       },
       {
         title: 'A-Level Maths Tuition',
         description:
           'Focused help with pure maths, mechanics and statistics, with careful attention to reasoning and problem solving.',
         icon: 'tabler:chart-line',
-        callToAction: { text: 'View Tuition Options', href: '/maths-tuition/' },
       },
       {
-        title: 'Functional Skills Maths',
+        title: 'Online Maths and Functional Skills',
         description:
-          'Practical maths support for learners who need clearer methods and confidence with everyday numeracy.',
-        icon: 'tabler:clipboard-check',
-        callToAction: { text: 'View Tuition Options', href: '/maths-tuition/' },
-      },
-      {
-        title: 'Online Maths Tuition',
-        description:
-          'Interactive online lessons with worked examples, shared resources and regular exam-style practice.',
+          'Flexible online lessons and practical Functional Skills support with clear worked examples and regular practice.',
         icon: 'tabler:video',
         callToAction: { text: 'View Tuition Options', href: '/online-tuitions/' },
-      },
-      {
-        title: 'Group Classes in Manchester',
-        description:
-          'Small group maths classes for students who benefit from structured teaching and regular guided practice.',
-        icon: 'tabler:users-group',
-        callToAction: { text: 'Register Your Interest', href: groupClassInterestUrl },
       },
     ]}
   />
@@ -248,56 +221,32 @@ const groupClassInterestUrl = 'https://hai-bl.com/onboarding/interest-form';
     ]}
   />
 
-  <Features
-    id="exam-boards"
-    tagline="Exam Boards"
-    title="Exam Boards Supported"
-    subtitle="GCSE Maths support is available for Edexcel, AQA and OCR exam boards. IGCSE support is also available for students following Pearson Edexcel or Cambridge IGCSE Maths."
-    columns={3}
-    items={[
-      {
-        title: 'GCSE Maths',
-        description: "Support for Edexcel, AQA and OCR, adapted to the student's tier and target grade.",
-        icon: 'tabler:file-certificate',
-      },
-      {
-        title: 'IGCSE Maths',
-        description: 'Support for Pearson Edexcel IGCSE and Cambridge IGCSE Maths specifications.',
-        icon: 'tabler:book-2',
-      },
-      {
-        title: 'Target-grade planning',
-        description: 'Lessons are matched to Foundation Grade 4/5 goals or Higher Grade 6-9 ambitions.',
-        icon: 'tabler:target-arrow',
-      },
-    ]}
-  />
-
   <Testimonials
-    tagline="What Parents Can Expect"
-    title="Calm Teaching, Regular Practice and Clear Feedback"
-    subtitle="Families can expect calm teaching, regular practice and clear feedback so students know what to improve next."
+    title="Words from real customers"
     testimonials={[
       {
-        title: 'Clearer confidence with difficult topics',
         testimonial:
-          'Students are supported to attempt challenging topics step by step, especially when algebra, fractions or problem-solving questions feel overwhelming.',
-        name: 'Confidence support',
-        job: 'Confidence building',
+          'Mr Cheema is amazing. My child understands maths much better now and feels more confident with exam questions.',
+        name: 'GCSE parent',
+        job: 'Manchester',
+        image:
+          '<div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">GP</div>',
       },
       {
-        title: 'Better exam technique',
         testimonial:
-          'Lessons focus on showing working clearly, understanding where marks are gained and approaching exam-style questions with a steady method.',
-        name: 'Exam preparation',
-        job: 'GCSE preparation',
+          'The lessons are clear and structured. Difficult topics are explained step by step, which has made a big difference.',
+        name: 'A-Level student',
+        job: 'Online tuition',
+        image:
+          '<div class="flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-sm font-bold text-white">AS</div>',
       },
       {
-        title: 'A useful routine for progress',
         testimonial:
-          'Regular practice, simple homework targets and parent-friendly feedback help families understand what is improving and what still needs work.',
-        name: 'Steady progress',
-        job: 'Steady progress',
+          'Regular practice and feedback helped us understand what needed improving and how to prepare for the next assessment.',
+        name: 'Parent feedback',
+        job: 'GCSE support',
+        image:
+          '<div class="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-sm font-bold text-brand-navy">PF</div>',
       },
     ]}
   >
@@ -310,7 +259,7 @@ const groupClassInterestUrl = 'https://hai-bl.com/onboarding/interest-form';
     tagline="Also Available"
     title="Summer Coding Club"
     callToAction={{
-      text: 'View Tuition Options',
+      text: 'View Summer Coding Course',
       href: '/manchestersummercodingclub/',
       icon: 'tabler:chevron-right',
     }}
@@ -357,11 +306,6 @@ const groupClassInterestUrl = 'https://hai-bl.com/onboarding/interest-form';
           'Tuition is available for KS3, GCSE, IGCSE, A-Level and Functional Skills maths, including exam preparation and topic support.',
       },
       {
-        title: 'Can lessons help with exam technique?',
-        description:
-          'Yes. Lessons include past paper practice, mark scheme guidance and advice on how to show working clearly.',
-      },
-      {
         title: 'How do I book?',
         description:
           'Register your interest for group class places or request a free consultation. You can explain the student level, goals and preferred lesson format.',
@@ -369,11 +313,6 @@ const groupClassInterestUrl = 'https://hai-bl.com/onboarding/interest-form';
       {
         title: 'How much are group classes?',
         description: 'Group sessions are £20. Online tutoring is £25/hr and in-person one-to-one tutoring is £30/hr.',
-      },
-      {
-        title: 'Where are group classes held?',
-        description:
-          'GCSE group classes are based in Levenshulme, Manchester. Register your interest to ask about current spaces.',
       },
     ]}
   />

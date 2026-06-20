@@ -32,47 +32,30 @@ export const headerData = {
 
 export const footerData = {
   description:
-    'Personalised maths tuition for KS3, GCSE, IGCSE, Functional Skills and A-Level, available online or in person in Manchester.<br /><br />Qualified Teacher | DBS Checked | 15+ Years’ Experience<br />Location: Levenshulme, Manchester<br />Online tuition available across the UK<br />WhatsApp: <a class="text-accent underline" href="https://wa.me/447860248525">07860 248525</a>',
+    'Manchester-based maths tuition for GCSE, IGCSE, Functional Skills and A-Level students.<br /><br />Qualified Teacher | DBS Checked | 15+ Years’ Experience<br />WhatsApp: <a class="text-accent underline" href="https://wa.me/447860248525">07860 248525</a>',
   links: [
     {
       title: 'Tuition',
       links: [
-        { text: 'GCSE Maths Tuition', href: getPermalink('/maths-tuition') },
-        { text: 'IGCSE Maths Tuition', href: getPermalink('/maths-level') },
-        { text: 'A-Level Maths Tuition', href: getPermalink('/maths-level') },
-        { text: 'Functional Skills Maths', href: getPermalink('/maths-level') },
+        { text: 'Maths Tuition', href: getPermalink('/maths-tuition') },
         { text: 'Online Tuition', href: getPermalink('/online-tuitions') },
-        { text: 'In-Person Tuition', href: getPermalink('/maths-tuition') },
+        { text: 'Maths Levels', href: getPermalink('/maths-level') },
+        { text: 'Prices', href: getPermalink('/pricing') },
       ],
     },
     {
-      title: 'Classes & Portal',
+      title: 'Classes',
       links: [
         { text: 'GCSE Group Classes', href: `${getPermalink('/')}#group-classes` },
-        { text: 'GCSE Higher Group Classes', href: getPermalink('/gcse-revision-class-higher-manchester') },
-        { text: 'GCSE Foundation Group Classes', href: getPermalink('/gcse-foundation-maths-tutoring-club-2025') },
         { text: 'Summer Coding Course', href: getPermalink('/manchestersummercodingclub') },
-        { text: 'Student Portal Login', href: 'https://hai-bl.com/onboarding/interest-form' },
       ],
     },
     {
-      title: 'Fees & Booking',
+      title: 'Booking',
       links: [
-        { text: 'Online Tutoring – £25/hr', href: getPermalink('/online-tuitions') },
-        { text: 'In-Person Tutoring – £30/hr', href: getPermalink('/maths-tuition') },
-        { text: 'Group Session – £20', href: getPermalink('/gcse-revision-class-higher-manchester') },
-        { text: 'Register Your Interest', href: 'https://hai-bl.com/onboarding/interest-form' },
         { text: 'Book a Free Consultation', href: 'https://calendar.app.google/VJ6tgEKfsUZAncDe9' },
+        { text: 'Register Your Interest', href: 'https://hai-bl.com/onboarding/interest-form' },
         { text: 'Contact', href: getPermalink('/contact') },
-      ],
-    },
-    {
-      title: 'Free Revision Resources',
-      links: [
-        { text: 'BBC Bitesize Maths', href: 'https://www.bbc.co.uk/bitesize/subjects/z38pycw' },
-        { text: 'Corbettmaths', href: 'https://corbettmaths.com/' },
-        { text: 'Maths Genie', href: 'https://www.mathsgenie.co.uk/' },
-        { text: 'MME GCSE Maths Revision', href: 'https://mmerevise.co.uk/gcse-maths-revision/' },
       ],
     },
   ],

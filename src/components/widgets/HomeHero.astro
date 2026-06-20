@@ -1,10 +1,10 @@
 ---
 import { Icon } from 'astro-icon/components';
 import Button from '~/components/ui/Button.astro';
-import Image from '~/components/common/Image.astro';
-import { getPermalink } from '~/utils/permalinks';
+import { getAsset, getPermalink } from '~/utils/permalinks';
 
 const { consultationBookingUrl, tuitionOptionsUrl = getPermalink('/maths-tuition/') } = Astro.props;
+const tutorImageUrl = getAsset('/images/maths-tutor-sheraz-cheema.jpeg');
 
 const trustPoints = [
   { text: "15+ years' experience", icon: 'tabler:award' },
@@ -48,26 +48,24 @@ const trustPoints = [
             text="View Tuition Options"
             href={tuitionOptionsUrl}
             icon="tabler:chevron-right"
-            class="w-full sm:w-auto bg-white"
+            class="w-full border-2 border-primary bg-brand-soft text-primary hover:bg-primary hover:text-white sm:w-auto"
           />
         </div>
       </div>
 
       <aside
-        class="mx-auto w-full max-w-md overflow-hidden rounded-lg border border-primary/15 bg-white shadow-xl shadow-slate-900/10 dark:border-slate-700 dark:bg-slate-900"
+        class="mx-auto w-full max-w-sm overflow-hidden rounded-lg border border-primary/15 bg-white shadow-xl shadow-slate-900/10 dark:border-slate-700 dark:bg-slate-900"
       >
         <div class="bg-brand-soft">
-          <Image
-            src="~/assets/images/maths-tutor-sheraz-cheema-home.jpeg"
+          <img
+            src={tutorImageUrl}
             alt="Mr Sheraz Cheema teaching GCSE Maths at a whiteboard"
-            width={900}
-            height={1157}
-            widths={[360, 520, 760]}
+            width={1448}
+            height={1086}
             sizes="(max-width: 767px) 100vw, 420px"
             loading="eager"
             fetchpriority="high"
-            format="webp"
-            layout="responsive"
+            decoding="async"
             class="w-full object-cover"
           />
         </div>
