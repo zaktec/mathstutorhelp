@@ -1,302 +1,112 @@
-# 🚀 AstroWind
+# MathsTutorHelp Website
 
-<img src="https://raw.githubusercontent.com/arthelokyo/.github/main/resources/astrowind/lighthouse-score.png" align="right"
-     alt="AstroWind Lighthouse Score" width="100" height="358">
+Astro website for MathsTutorHelp, a Manchester-based maths tuition service run by Mr Sheraz. The site is built for parents and students looking for GCSE, IGCSE, KS3, Functional Skills, A-Level, online tuition, in-person tuition, GCSE group classes and beginner coding support.
 
-🌟 _Most *starred* & *forked* Astro theme in 2022, 2023, 2024 & 2025_. 🌟
+The project started from AstroWind, but the live source has been cleaned and customised for MathsTutorHelp.
 
-**AstroWind** is a free and open-source template to make your website using **[Astro v6](https://astro.build/) + [Tailwind CSS v4](https://tailwindcss.com/)**. Ready to start a new project and designed taking into account web best practices.
+## Tech Stack
 
-- ✅ **Production-ready** scores in **PageSpeed Insights** reports.
-- ✅ Integration with **Tailwind CSS v4** supporting **Dark mode** and **_RTL_**.
-- ✅ **Fast and SEO friendly blog** with automatic **RSS feed**, **MDX** support, **Categories & Tags**, **Social Share**, ...
-- ✅ **Image Optimization** (using new **Astro Assets** and **Unpic** for Universal image CDN).
-- ✅ Generation of **project sitemap** based on your routes.
-- ✅ **Open Graph tags** for social media sharing.
-- ✅ **Analytics** built-in Google Analytics, and Splitbee integration.
+- Astro 6
+- Tailwind CSS v4
+- TypeScript
+- AstroWind layout/widget foundation
+- `astro-icon` with Tabler icons
+- `@astrojs/sitemap`
+- `astro-compress`
 
-<br>
+Node requirement: `>=22.12.0`
 
-![AstroWind Theme Screenshot](https://raw.githubusercontent.com/arthelokyo/.github/main/resources/astrowind/screenshot-astrowind-readme-fina-v1.png)
+## Common Commands
 
-[![arthelokyo](https://custom-icon-badges.demolab.com/badge/made%20by%20-arthelokyo-556bf2?style=flat-square&logo=arthelokyo&logoColor=white&labelColor=101827)](https://github.com/arthelokyo)
-[![License](https://img.shields.io/github/license/arthelokyo/astrowind?style=flat-square&color=dddddd&labelColor=000000)](https://github.com/arthelokyo/astrowind/blob/main/LICENSE.md)
-[![Maintained](https://img.shields.io/badge/maintained%3F-yes-brightgreen.svg?style=flat-square)](https://github.com/arthelokyo)
-[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](https://github.com/arthelokyo/astrowind#contributing)
-[![Known Vulnerabilities](https://snyk.io/test/github/arthelokyo/astrowind/badge.svg?style=flat-square)](https://snyk.io/test/github/arthelokyo/astrowind)
-[![Stars](https://img.shields.io/github/stars/arthelokyo/astrowind.svg?style=social&label=stars&maxAge=86400&color=ff69b4)](https://github.com/arthelokyo/astrowind)
-[![Forks](https://img.shields.io/github/forks/arthelokyo/astrowind.svg?style=social&label=forks&maxAge=86400&color=ff69b4)](https://github.com/arthelokyo/astrowind)
+Run commands from the project root:
 
-<br>
-
-<details open>
-<summary>Table of Contents</summary>
-
-- [Demo](#demo)
-- [Upcoming: AstroWind 2.0 – We Need Your Vision!](#-upcoming-astrowind-20--we-need-your-vision)
-- [TL;DR](#tldr)
-- [Getting started](#getting-started)
-  - [Project structure](#project-structure)
-  - [Commands](#commands)
-  - [Configuration](#configuration)
-  - [Deploy](#deploy)
-- [Frequently Asked Questions](#frequently-asked-questions)
-- [Contributing](#contributing)
-- [Acknowledgements](#acknowledgements)
-- [License](#license)
-
-</details>
-
-<br>
-
-## Demo
-
-📌 [https://astrowind.vercel.app/](https://astrowind.vercel.app/)
-
-<br>
-
-## 🔔 Upcoming: AstroWind 2.0 – We Need Your Vision!
-
-We're gearing up for **AstroWind 2.0**, and we want it to be shaped by you, our community. Join the discussion and share your ideas, suggestions, and feedback to help us make AstroWind even better.
-
-[Share Your Feedback in Our Discussion!](https://github.com/arthelokyo/astrowind/discussions/392)
-
-<br>
-
-## TL;DR
-
-```shell
-npm create astro@latest -- --template arthelokyo/astrowind
+```bash
+npm install
+npm run dev
+npm run build
+npm run preview
+npm run check
+npm run fix
 ```
 
-## Getting started
+Local development normally runs at:
 
-**AstroWind** tries to give you quick access to creating a website using [Astro v6](https://astro.build/) + [Tailwind CSS v4](https://tailwindcss.com/). It's a free theme which focuses on simplicity, good practices and high performance.
-
-Very little vanilla javascript is used only to provide basic functionality so that each developer decides which framework (React, Vue, Svelte, Solid JS...) to use and how to approach their goals.
-
-> **Note:** Requires **Node.js >= 22.12.0**. The template currently uses `output: 'static'`, but the blog only works with `prerender = true`.
-
-### Project structure
-
-Inside **AstroWind** template, you'll see the following folders and files:
-
-```
-/
-├── public/
-│   ├── _headers
-│   └── robots.txt
-├── src/
-│   ├── assets/
-│   │   ├── favicons/
-│   │   ├── images/
-│   │   └── styles/
-│   │       └── tailwind.css
-│   ├── components/
-│   │   ├── blog/
-│   │   ├── common/
-│   │   ├── ui/
-│   │   ├── widgets/
-│   │   │   ├── Header.astro
-│   │   │   └── ...
-│   │   ├── CustomStyles.astro
-│   │   ├── Favicons.astro
-│   │   └── Logo.astro
-│   ├── content.config.ts
-│   ├── data/
-│   │   └── post/
-│   │       ├── post-slug-1.md
-│   │       ├── post-slug-2.mdx
-│   │       └── ...
-│   ├── layouts/
-│   │   ├── Layout.astro
-│   │   ├── MarkdownLayout.astro
-│   │   └── PageLayout.astro
-│   ├── pages/
-│   │   ├── [...blog]/
-│   │   │   ├── [category]/
-│   │   │   ├── [tag]/
-│   │   │   ├── [...page].astro
-│   │   │   └── index.astro
-│   │   ├── index.astro
-│   │   ├── 404.astro
-│   │   ├-- rss.xml.ts
-│   │   └── ...
-│   ├── utils/
-│   ├── config.yaml
-│   └── navigation.js
-├── package.json
-├── astro.config.ts
-└── ...
+```text
+http://localhost:4321/mathstutorhelp/
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Main Pages
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Important routes:
 
-Any static assets, like images, can be placed in the `public/` directory if they do not require any transformation or in the `assets/` directory if they are imported directly.
+- `/` - homepage
+- `/about/` - about Mr Sheraz and MathsTutorHelp
+- `/contact/` - call, WhatsApp and Hai-BL enquiry form link
+- `/maths-tuition/` - overview of maths tuition options
+- `/online-tuition/` - online tuition overview
+- `/online-tuitions/` - redirect to `/online-tuition/`
+- `/pricing/` - pricing page
+- `/gallery/` - image gallery with click-to-view lightbox
+- `/maths-level/` - supported maths levels
+- `/gcse-revision-class-higher-manchester/` - GCSE Higher group class
+- `/gcse-foundation-maths-tutoring-club-2025/` - GCSE Foundation group class
+- `/manchestersummercodingclub/` - summer coding course
+- `/online-group-classes/` - short online group classes enquiry page
 
-[![Edit AstroWind on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/arthelokyo/astrowind/tree/main) [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/arthelokyo/astrowind)
+Online course detail routes are generated from `src/pages/[onlineCourse].astro` using `src/utils/onlineCourses.ts`:
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file `README.md`. Update `src/config.yaml` and contents. Have fun!
+- `/year-6-maths/`
+- `/ks3-maths/`
+- `/gcse-foundation-maths/`
+- `/gcse-higher-maths/`
+- `/igcse-maths/`
+- `/functional-skills-maths/`
+- `/a-level-maths/`
+- `/coding-problem-solving/`
+- `/coding-problem-solving-part-2/`
 
-<br>
+## Key Files
 
-### Commands
+- `src/pages/` - route files
+- `src/pages/index.astro` - homepage
+- `src/pages/[onlineCourse].astro` - shared online course detail template
+- `src/utils/onlineCourses.ts` - online course data and package data
+- `src/navigation.ts` - header/footer links, social links and footer text
+- `src/components/widgets/HomeHero.astro` - homepage hero
+- `src/components/widgets/Gallery.astro` - gallery grid and lightbox
+- `src/components/CustomStyles.astro` - brand CSS variables
+- `src/assets/styles/tailwind.css` - Tailwind theme tokens and button utilities
+- `documents/` - project documentation
+- `archive/unused-astrowind/` - notes for archived template/demo files
 
-All commands are run from the root of the project, from a terminal:
+## Content And CTAs
 
-| Command             | Action                                             |
-| :------------------ | :------------------------------------------------- |
-| `npm install`       | Installs dependencies                              |
-| `npm run dev`       | Starts local dev server at `localhost:4321`        |
-| `npm run build`     | Build your production site to `./dist/`            |
-| `npm run preview`   | Preview your build locally, before deploying       |
-| `npm run check`     | Check your project for errors                      |
-| `npm run fix`       | Run Eslint and format codes with Prettier          |
-| `npm run astro ...` | Run CLI commands like `astro add`, `astro preview` |
+Current primary enquiry paths:
 
-<br>
+- Phone: `07860 248 525`
+- WhatsApp: `https://wa.me/447860248525`
+- Hai-BL enquiry form: `https://hai-bl.com/onboarding/interest-form`
+- Login button: `https://hai-bl.com/auth/login`
+- Consultation booking: `https://calendar.app.google/VJ6tgEKfsUZAncDe9`
 
-### Configuration
+Hai-BL blocks iframe embedding, so the contact page links to the form instead of embedding it.
 
-Basic configuration file: `./src/config.yaml`
+## Deployment Notes
 
-```yaml
-site:
-  name: 'Example'
-  site: 'https://example.com'
-  base: '/' # Change this if you need to deploy to Github Pages, for example
-  trailingSlash: false # Generate permalinks with or without "/" at the end
+The site is configured for a base path under `/mathstutorhelp/`. Use `getPermalink()` or `getAsset()` for internal links and public assets so links work on GitHub Pages and local development.
 
-  googleSiteVerificationId: false # Or some value,
+Build output is generated into `dist/`.
 
-# Default SEO metadata
-metadata:
-  title:
-    default: 'Example'
-    template: '%s — Example'
-  description: 'This is the default meta description of Example website'
-  robots:
-    index: true
-    follow: true
-  openGraph:
-    site_name: 'Example'
-    images:
-      - url: '~/assets/images/default.png'
-        width: 1200
-        height: 628
-    type: website
-  twitter:
-    handle: '@twitter_user'
-    site: '@twitter_user'
-    cardType: summary_large_image
-
-i18n:
-  language: en
-  textDirection: ltr
-
-apps:
-  blog:
-    isEnabled: true # If the blog will be enabled
-    postsPerPage: 6 # Number of posts per page
-
-    post:
-      isEnabled: true
-      permalink: '/blog/%slug%' # Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
-      robots:
-        index: true
-
-    list:
-      isEnabled: true
-      pathname: 'blog' # Blog main path, you can change this to "articles" (/articles)
-      robots:
-        index: true
-
-    category:
-      isEnabled: true
-      pathname: 'category' # Category main path /category/some-category, you can change this to "group" (/group/some-category)
-      robots:
-        index: true
-
-    tag:
-      isEnabled: true
-      pathname: 'tag' # Tag main path /tag/some-tag, you can change this to "topics" (/topics/some-category)
-      robots:
-        index: false
-
-    isRelatedPostsEnabled: true # If a widget with related posts is to be displayed below each post
-    relatedPostsCount: 4 # Number of related posts to display
-
-analytics:
-  vendors:
-    googleAnalytics:
-      id: null # or "G-XXXXXXXXXX"
-
-ui:
-  theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
-```
-
-<br>
-
-#### Customize Design
-
-With Tailwind CSS v4, all configuration is CSS-first. To customize Font families, Colors or more Elements refer to the following files:
-
-- `src/components/CustomStyles.astro` — CSS variables for colors and fonts
-- `src/assets/styles/tailwind.css` — Tailwind theme tokens (`@theme`), custom utilities (`@utility`), and plugins
-
-### Deploy
-
-#### Deploy to production (manual)
-
-You can create an optimized production build with:
-
-```shell
+```bash
 npm run build
 ```
 
-Now, your website is ready to be deployed. All generated files are located at
-`dist` folder, which you can deploy the folder to any hosting service you
-prefer.
+## Maintenance Notes
 
-#### Deploy to Netlify
-
-Clone this repository on your own GitHub account and deploy it to Netlify:
-
-[![Netlify Deploy button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/arthelokyo/astrowind)
-
-#### Deploy to Vercel
-
-Clone this repository on your own GitHub account and deploy to Vercel:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Farthelokyo%2Fastrowind)
-
-#### Deploy to PandaStack
-
-Clone this repository on your own GitHub account and deploy to PandaStack:
-
-[![Deploy to PandaStack](https://dashboard.pandastack.io/deploy-button.svg)](https://dashboard.pandastack.io/deploy?repo=arthelokyo/astrowind&type=static&buildCmd=npm+run+build&outputDir=dist)
-
-<br>
-
-## Frequently Asked Questions
-
-- Why?
--
--
-
-<br>
-
-## Contributing
-
-If you have any ideas, suggestions or find any bugs, feel free to open a discussion, an issue or create a pull request.
-That would be very useful for all of us and we would be happy to listen and take action.
-
-## Acknowledgements
-
-Initially created by **Arthelokyo** and maintained by a community of [contributors](https://github.com/arthelokyo/astrowind/graphs/contributors).
-
-## License
-
-**AstroWind** is licensed under the MIT license — see the [LICENSE](./LICENSE.md) file for details.
+- Keep parent-facing copy calm, clear and trustworthy.
+- Use UK spelling and “maths”.
+- Avoid generic AstroWind/demo wording.
+- Do not add new live pages under `src/pages/` unless they should become public routes.
+- Put reference-only or unused files outside `src/pages/`, for example under `archive/`.
+- Keep prices and online course cards consistent with `src/utils/onlineCourses.ts` where relevant.
+- Rewrite `src/pages/privacy.md` and `src/pages/terms.md` before launch because they still contain template legal wording.

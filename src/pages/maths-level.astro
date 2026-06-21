@@ -2,25 +2,100 @@
 import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Features from '~/components/widgets/Features.astro';
-import Content from '~/components/widgets/Content.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
-  title: 'Maths Level',
+  title: 'Maths Level - KS1, KS2, KS3, GCSE, IGCSE, A-Level & Functional Skills',
   description:
-    'Maths tuition levels covered by Maths Tutor Help, including KS3, GCSE, IGCSE, Functional Skills and A-Level.',
+    'Maths Tutor Help supports students at every stage of maths education, from KS1 and KS2 through KS3, GCSE, IGCSE, A-Level, Functional Skills and adult numeracy.',
 };
+
+const contactUrl = getPermalink('/contact');
+const mathsTuitionUrl = getPermalink('/maths-tuition');
+const pricingUrl = getPermalink('/pricing');
+
+const mathsLevels = [
+  {
+    title: 'Key Stage 1',
+    description: 'Primary school maths support for Years 1 and 2, helping younger learners build early number skills.',
+    icon: 'tabler:school',
+  },
+  {
+    title: 'Lower Key Stage 2',
+    description: 'Primary school support for Years 3 and 4, strengthening core methods, confidence and problem solving.',
+    icon: 'tabler:pencil',
+  },
+  {
+    title: 'Upper Key Stage 2',
+    description: 'Primary school support for Years 5 and 6, including preparation for the move into secondary maths.',
+    icon: 'tabler:backpack',
+  },
+  {
+    title: 'Key Stage 3',
+    description: 'Secondary school maths for Years 7, 8 and 9, covering the foundations needed before GCSE.',
+    icon: 'tabler:books',
+  },
+  {
+    title: 'Entrance Exams',
+    description: 'Support for common 11+ and 13+ entrance tests, including topic practice and exam-style questions.',
+    icon: 'tabler:file-certificate',
+  },
+  {
+    title: 'GCSE Maths',
+    description: 'Secondary school GCSE support for Years 10 and 11 across exam boards, including Foundation and Higher.',
+    icon: 'tabler:certificate',
+  },
+  {
+    title: 'IGCSE Maths',
+    description: 'International GCSE support for learners following Cambridge or Edexcel curriculum routes.',
+    icon: 'tabler:world',
+  },
+  {
+    title: 'A-Level Maths',
+    description: 'College-level support for Years 12 and 13, including pure maths, mechanics and statistics.',
+    icon: 'tabler:chart-line',
+  },
+  {
+    title: 'Functional Skills',
+    description: 'Practical maths support for adult learners working towards Functional Skills Level 1 or Level 2.',
+    icon: 'tabler:list-check',
+  },
+  {
+    title: 'Adult Numeracy',
+    description: 'Numeracy support for adult learners who do not yet have a Level 1 or Level 2 maths grade.',
+    icon: 'tabler:calculator',
+  },
+];
+
+const priceOptions = [
+  {
+    title: 'Online Tutoring',
+    price: '£25',
+    detail: 'Live online maths tuition for focused support from home.',
+  },
+  {
+    title: 'Offline Tutoring',
+    price: '£30',
+    detail: 'Face-to-face maths tuition for students who prefer in-person learning.',
+  },
+  {
+    title: 'Group Session',
+    price: '£15',
+    detail: 'Small group maths support for learners who benefit from shared practice.',
+  },
+];
 ---
 
 <Layout metadata={metadata}>
   <Hero
     tagline="Maths Level"
-    title="Maths Tuition for KS3, GCSE, IGCSE, Functional Skills and A-Level"
-    subtitle="Support for students at different stages, from building core skills to preparing for higher-grade exam questions."
+    title="Maths Support at Every Stage"
+    subtitle="Maths Tutor Help supports learners from primary school through secondary school, entrance exams, GCSE, IGCSE, A-Level, Functional Skills and adult numeracy."
     actions={[
-      { variant: 'primary', text: 'Find the Right Support', href: '/contact', icon: 'tabler:school' },
-      { text: 'View Tuition Services', href: '/maths-tuition' },
+      { variant: 'primary', text: 'Find the Right Support', href: contactUrl, icon: 'tabler:school' },
+      { text: 'View Tuition Services', href: mathsTuitionUrl },
     ]}
     image={{
       src: 'https://images.unsplash.com/photo-1453738773917-9c3eff1db985?auto=format&fit=crop&w=1800&q=80',
@@ -29,100 +104,101 @@ const metadata = {
   />
 
   <Features
-    title="Levels Covered"
-    subtitle="Choose support based on the student's current stage, exam route and confidence level."
+    title="Levels We Cover"
+    subtitle="Beginner, intermediate and advanced learners are catered for, with tuition adapted to the curriculum, student confidence and the topics causing the most difficulty."
     columns={3}
-    items={[
-      {
-        title: 'KS3 Maths',
-        description:
-          'Core number, algebra, geometry, graphs and problem-solving skills for younger secondary students.',
-        icon: 'tabler:books',
-      },
-      {
-        title: 'GCSE Maths',
-        description: 'Foundation and higher tier support with topic revision, exam technique and past paper practice.',
-        icon: 'tabler:certificate',
-      },
-      {
-        title: 'IGCSE Maths',
-        description: 'Structured help for IGCSE topics, methods and exam-style questions.',
-        icon: 'tabler:world',
-      },
-      {
-        title: 'Functional Skills Maths',
-        description: 'Practical numeracy support for learners who need maths for everyday, study or work goals.',
-        icon: 'tabler:clipboard-check',
-      },
-      {
-        title: 'A-Level Maths',
-        description: 'Pure maths, mechanics and statistics support with a focus on reasoning and clear working.',
-        icon: 'tabler:chart-line',
-      },
-      {
-        title: 'Exam Resits',
-        description: 'Focused revision plans for students retaking exams or needing a stronger final grade.',
-        icon: 'tabler:refresh',
-      },
-    ]}
+    items={mathsLevels}
   />
 
-  <Content
-    isReversed
-    title="Support Changes with the Level"
-    items={[
-      {
-        title: 'KS3 and confidence',
-        description: 'Lessons strengthen the foundations students need before GCSE topics become more demanding.',
-      },
-      {
-        title: 'GCSE and IGCSE preparation',
-        description: 'Students practise common question types, learn exam technique and revisit weaker topics.',
-      },
-      {
-        title: 'A-Level depth',
-        description: 'Lessons focus on deeper understanding, multi-step questions and accurate mathematical reasoning.',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1605711285791-0219e80e43a3?auto=format&fit=crop&w=1400&q=80',
-      alt: 'Maths books and calculator',
-    }}
-  >
-    <Fragment slot="content">
-      <p>
-        The right tuition depends on the student's current level and goal. Some students need confidence and core
-        skills; others need exam timing, challenge questions or a clear revision plan.
-      </p>
-    </Fragment>
-  </Content>
+  <section class="bg-brand-soft py-14 dark:bg-slate-900">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+        <div>
+          <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Diagnostic Support</p>
+          <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-950 dark:text-white">
+            Bespoke Support for Difficult Topics
+          </h2>
+          <p class="mt-4 text-lg leading-8 text-muted dark:text-slate-300">
+            Maths Tutor Help offers bespoke packages that focus on the core topics causing the most difficulty.
+            Diagnostic tests can accompany the initial contact with one student or multiple pupils, so the right next
+            steps can be planned from the start.
+          </p>
+        </div>
+        <div class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-slate-800">
+          <h3 class="text-2xl font-bold text-gray-950 dark:text-white">How We Choose the Right Level</h3>
+          <ul class="mt-5 space-y-3 text-base leading-7 text-muted dark:text-slate-300">
+            <li class="flex gap-3">
+              <span class="mt-3 size-2 rounded-full bg-secondary" aria-hidden="true"></span>
+              <span>Identify the student's year group, current curriculum and exam board where relevant.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-3 size-2 rounded-full bg-secondary" aria-hidden="true"></span>
+              <span>Use diagnostic questions to find the topics that need the most attention.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-3 size-2 rounded-full bg-secondary" aria-hidden="true"></span>
+              <span>Create a tuition plan that suits the learner's confidence, goals and available time.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-14 dark:bg-slate-900">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Prices</p>
+        <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-950 dark:text-white md:text-4xl">
+          Our Prices
+        </h2>
+        <p class="mt-4 text-lg leading-8 text-muted dark:text-slate-300">
+          A simple guide to the tuition options listed on the original Maths Level page.
+        </p>
+      </div>
+      <div class="mt-10 grid gap-5 md:grid-cols-3">
+        {
+          priceOptions.map((option) => (
+            <article class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-slate-800">
+              <h3 class="text-xl font-bold text-gray-950 dark:text-white">{option.title}</h3>
+              <p class="mt-5 text-4xl font-extrabold tracking-tight text-primary">{option.price}</p>
+              <p class="mt-4 text-sm leading-6 text-muted dark:text-slate-300">{option.detail}</p>
+            </article>
+          ))
+        }
+      </div>
+      <div class="mt-8 text-center">
+        <a class="btn-secondary justify-center" href={pricingUrl}>View Current Tuition Prices</a>
+      </div>
+    </div>
+  </section>
 
   <FAQs
     title="Maths Level FAQs"
     columns={2}
     items={[
       {
-        title: 'Do you support KS3 students?',
-        description: 'Yes. KS3 support is available for students who need stronger foundations before GCSE.',
+        title: 'Do you support primary school pupils?',
+        description: 'Yes. Support is available for Key Stage 1, Lower Key Stage 2 and Upper Key Stage 2 pupils.',
       },
       {
-        title: 'Can you help with GCSE resits?',
-        description: 'Yes. Resit lessons can focus on high-value topics, exam technique and confidence rebuilding.',
+        title: 'Can you help with entrance exams?',
+        description: 'Yes. Tuition can support common 11+ and 13+ entrance exam preparation.',
       },
       {
-        title: 'Is A-Level tuition available?',
-        description: 'Yes. A-Level maths support is available for pure maths, mechanics and statistics.',
+        title: 'Which secondary levels are covered?',
+        description: 'Support is available for KS3, GCSE, IGCSE and A-Level maths across different exam routes.',
       },
       {
-        title: 'How do I know which support is right?',
-        description: 'Start with a free consultation and share the student level, exam board and main concerns.',
+        title: 'Do you work with adult learners?',
+        description: 'Yes. Adult numeracy and Functional Skills Level 1 or Level 2 support is available.',
       },
     ]}
   />
 
   <CallToAction
     title="Not Sure Which Level to Choose?"
-    subtitle="Send a short message with the student's year group, exam board and goals. We will point you to the right support."
-    actions={[{ variant: 'primary', text: 'Ask About Maths Support', href: '/contact', icon: 'tabler:message' }]}
+    subtitle="Send a short message with the student's year group, exam board and main concerns. We will point you to the right support."
+    actions={[{ variant: 'primary', text: 'Ask About Maths Support', href: contactUrl, icon: 'tabler:message' }]}
   />
 </Layout>

@@ -5,12 +5,20 @@ import Features from '~/components/widgets/Features.astro';
 import Content from '~/components/widgets/Content.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
   title: 'GCSE Higher Maths Classes Manchester | Grades 6-9',
   description:
     'Structured weekly GCSE Higher Maths sessions in Manchester for Year 10 and 11 students aiming for grades 6-9.',
 };
+
+const interestFormUrl = 'https://hai-bl.com/onboarding/interest-form';
+const contactUrl = getPermalink('/contact');
+const foundationClassUrl = getPermalink('/gcse-foundation-maths-tutoring-club-2025');
+const onlineTuitionUrl = getPermalink('/online-tuition');
+const sowUrl = 'https://mathstutorhelp.com/sow-gcse-higher-2026-27.pdf';
+const phoneDisplay = '07860 248 525';
 ---
 
 <Layout metadata={metadata}>
@@ -22,11 +30,11 @@ const metadata = {
       {
         variant: 'primary',
         text: 'Book Now',
-        href: 'https://hai-bl.com/onboarding/interest-form',
+        href: interestFormUrl,
         target: '_blank',
         icon: 'tabler:calendar-check',
       },
-      { text: 'Call or WhatsApp', href: '/contact' },
+      { text: 'Call or WhatsApp', href: contactUrl },
     ]}
     image={{
       src: 'https://i0.wp.com/mathstutorhelp.com/wp-content/uploads/2024/07/group-kids-studying-school-scaled.jpg?fit=1600%2C1066&ssl=1',
@@ -46,7 +54,7 @@ const metadata = {
       },
       {
         title: 'Sundays, 11:00am-12:00pm',
-        description: 'Weekly classes from September 2026 to May 2027.',
+        description: 'Weekly classes from 13 September 2026 to May 2027.',
         icon: 'tabler:clock',
       },
       {
@@ -60,8 +68,8 @@ const metadata = {
         icon: 'tabler:users-group',
       },
       {
-        title: 'Pay as you go',
-        description: '£20 per lesson, or book early to secure £16 per lesson.',
+        title: 'Flexible pricing',
+        description: '£20 per session pay-as-you-go, or £16 per lesson with advance block booking.',
         icon: 'tabler:coin-pound',
       },
       {
@@ -77,6 +85,10 @@ const metadata = {
     title="What Students Get"
     items={[
       {
+        title: 'Clear Higher topic teaching',
+        description: 'Key GCSE Higher topics are explained clearly, with methods students can apply in exams.',
+      },
+      {
         title: 'Diagnostic-led planning',
         description: 'Lessons are shaped around the topics students find difficult and the skills they need for exams.',
       },
@@ -85,13 +97,12 @@ const metadata = {
         description: 'Students practise GCSE-style questions, learn how to show working and review common mistakes.',
       },
       {
-        title: 'Flexible support',
-        description:
-          'Students can bring schoolwork, use tutor-provided materials or access bonus tasks and past papers.',
+        title: 'Paper-based learning',
+        description: 'No screens in class, just structured, focused study that reflects real exam conditions.',
       },
       {
-        title: 'Private guidance',
-        description: 'Support is available when students need extra help, with parent updates available on request.',
+        title: 'Homework and materials',
+        description: 'Students can bring schoolwork, use tutor-provided materials or access bonus tasks and past papers.',
       },
     ]}
     image={{
@@ -115,7 +126,7 @@ const metadata = {
       {
         title: 'Full Scheme of Work',
         description:
-          'Download the full course plan: <a class="underline" href="/sow-gcse-higher-2026-27.pdf">SOW GCSE Higher 2026-27</a>.',
+          `Download the full course plan: <a class="underline" href="${sowUrl}">SOW GCSE Higher 2026-27</a>.`,
         icon: 'tabler:file-download',
       },
       {
@@ -135,7 +146,7 @@ const metadata = {
       },
       {
         title: 'AQA, Edexcel and OCR',
-        description: 'Tasks are adapted to your child’s exam board and specification.',
+        description: 'Tasks are adapted to your child’s exam board and specification, including AQA, Edexcel and OCR.',
         icon: 'tabler:clipboard-check',
       },
       {
@@ -151,15 +162,19 @@ const metadata = {
   </Features>
 
   <Content
-    title="Parent Feedback"
+    title="Booking and Attendance"
     items={[
       {
-        title: 'Grade progress',
-        description: '“My daughter moved from a grade 6 to 7 - excellent teaching.”',
+        title: 'Reserve a place first',
+        description: 'A place should be reserved before attending, as class numbers are limited.',
       },
       {
-        title: 'Focused environment',
-        description: '“Small group and no-phone rule really helped focus.”',
+        title: 'Pay flexibly',
+        description: 'Students can pay at the door once their place is reserved, or ask about block booking.',
+      },
+      {
+        title: 'Join mid-way',
+        description: 'Students can join during the year where spaces are available.',
       },
     ]}
     image={{
@@ -169,8 +184,8 @@ const metadata = {
   >
     <Fragment slot="content">
       <p>
-        The class is designed to give students a focused place to practise, ask questions and build exam confidence
-        before the final GCSE papers.
+        Book the full term to secure your child’s place, or attend flexibly once a space has been reserved. Places are
+        limited because the class is kept small for focused support.
       </p>
     </Fragment>
   </Content>
@@ -182,7 +197,7 @@ const metadata = {
     items={[
       {
         title: 'What if my child misses a session?',
-        description: 'No need to rebook or pay again. Let us know in advance and attend the next available session.',
+        description: 'Let us know in advance. Where possible, your child can attend the next suitable session.',
       },
       {
         title: 'Is homework given?',
@@ -198,7 +213,7 @@ const metadata = {
       },
       {
         title: 'Can my child join mid-way through the term?',
-        description: 'Yes. Students can join anytime, and the first session includes a diagnostic test.',
+        description: 'Yes. Students can join mid-way if a place is available. The first session includes a diagnostic check.',
       },
       {
         title: 'What exam boards do you cover?',
@@ -206,7 +221,7 @@ const metadata = {
       },
       {
         title: 'Is this suitable for Foundation Tier students?',
-        description: 'This class is for Higher Tier. Foundation students can join the 10:00am Foundation group.',
+        description: `This class is for Higher Tier. Foundation students can view the Foundation group here: <a class="underline" href="${foundationClassUrl}">GCSE Foundation class</a>.`,
       },
       {
         title: 'Do you run sessions during school holidays?',
@@ -218,31 +233,31 @@ const metadata = {
       },
       {
         title: 'Is there a free trial?',
-        description: 'Yes. If you are not happy after the first session, you do not have to pay.',
+        description: 'Ask about current trial or first-session arrangements when you register interest.',
       },
       {
         title: 'Who teaches the class?',
-        description: 'An experienced, qualified Maths teacher with over 10 years of teaching and tutoring experience.',
+        description: 'The class is taught by Mr Sheraz, a qualified and DBS-checked maths teacher with 15+ years of teaching experience.',
       },
       {
         title: 'Is there an online option?',
-        description: 'An online tutoring club is launching soon, with dates to be announced.',
+        description: `Students who prefer learning from home can view online tuition options here: <a class="underline" href="${onlineTuitionUrl}">Online Maths Tuition</a>.`,
       },
     ]}
   />
 
   <CallToAction
     title="Book a GCSE Higher Maths Place"
-    subtitle="Limited spaces are available. Book early to secure the lower lesson rate, or call/WhatsApp 07806 248525 if you have questions."
+    subtitle={`Limited spaces are available. Book early to ask about the £16 advance block booking rate, or call/WhatsApp ${phoneDisplay} if you have questions.`}
     actions={[
       {
         variant: 'primary',
         text: 'Book Now',
-        href: 'https://hai-bl.com/onboarding/interest-form',
+        href: interestFormUrl,
         target: '_blank',
         icon: 'tabler:calendar-check',
       },
-      { text: 'Ask About 1-to-1 Tuition', href: '/contact' },
+      { text: 'Ask About 1-to-1 Tuition', href: contactUrl },
     ]}
   />
 </Layout>

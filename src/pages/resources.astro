@@ -1,0 +1,87 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { getPermalink } from '~/utils/permalinks';
+
+const metadata = {
+  title: 'Maths Resources | MathsTutorHelp',
+  description:
+    'Useful external maths revision links for GCSE Maths students, including BBC Bitesize, CorbettMaths, Maths Genie and MME Revise.',
+};
+
+const resources = [
+  {
+    title: 'BBC Maths',
+    href: 'https://www.bbc.co.uk/bitesize/subjects/z38pycw',
+    description: 'Topic explanations, revision notes and practice for secondary maths.',
+  },
+  {
+    title: 'CorbettMaths',
+    href: 'https://corbettmaths.com/',
+    description: 'Videos, worksheets, practice questions and 5-a-day maths revision.',
+  },
+  {
+    title: 'Maths Genie',
+    href: 'https://www.mathsgenie.co.uk/',
+    description: 'GCSE Maths revision by grade, topic and exam-style practice.',
+  },
+  {
+    title: 'MME Maths',
+    href: 'https://mmerevise.co.uk/gcse-maths-revision/',
+    description: 'GCSE Maths revision resources, worksheets and exam practice.',
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <section class="bg-brand-soft py-12 dark:bg-slate-900 md:py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">MTH Link</p>
+      <h1 class="mt-2 text-4xl font-bold tracking-tight text-gray-950 dark:text-white md:text-5xl">
+        Useful Maths Resources
+      </h1>
+      <p class="mt-4 max-w-3xl text-lg leading-8 text-muted dark:text-slate-300">
+        A small collection of helpful maths revision websites for students who want extra practice between lessons.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-white py-12 dark:bg-slate-900">
+    <div class="mx-auto grid max-w-7xl gap-5 px-4 sm:px-6 md:grid-cols-2">
+      {
+        resources.map((resource) => (
+          <article class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-slate-800">
+            <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">External Resource</p>
+            <h2 class="mt-3 text-2xl font-bold text-gray-950 dark:text-white">{resource.title}</h2>
+            <p class="mt-3 text-base leading-7 text-muted dark:text-slate-300">{resource.description}</p>
+            <a
+              class="btn-secondary mt-6 w-full justify-center sm:w-auto"
+              href={resource.href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open Resource
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <CallToAction
+    title="Need More Structured Support?"
+    subtitle="These resources are useful for extra practice. If your child needs a clear routine, feedback and exam-focused support, MathsTutorHelp can help."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'View Online Maths Tuition',
+        href: getPermalink('/online-tuition'),
+        icon: 'tabler:school',
+      },
+      {
+        text: 'Contact MathsTutorHelp',
+        href: getPermalink('/contact'),
+      },
+    ]}
+  />
+</Layout>

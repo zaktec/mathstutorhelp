@@ -5,28 +5,35 @@ import Features from '~/components/widgets/Features.astro';
 import Content from '~/components/widgets/Content.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
   title: 'GCSE Maths Foundation Tutoring Manchester | Grades 4-5',
   description:
     'GCSE Foundation Maths tutoring club in Levenshulme, Manchester for Year 10 and 11 students working towards grades 4-5.',
 };
+
+const interestFormUrl = 'https://hai-bl.com/onboarding/interest-form';
+const contactUrl = getPermalink('/contact');
+const higherClassUrl = getPermalink('/gcse-revision-class-higher-manchester');
+const onlineTuitionUrl = getPermalink('/online-tuition');
+const phoneDisplay = '07860 248 525';
 ---
 
 <Layout metadata={metadata}>
   <Hero
     tagline="Group Classes"
-    title="GCSE Maths Foundation Tutoring"
-    subtitle="Small group GCSE Foundation Maths classes in Levenshulme for students working towards grades 4-5."
+    title="GCSE Maths Foundation Tutoring (Grades 4-5)"
+    subtitle="Small group GCSE Foundation Maths classes in Levenshulme, helping students move from grade 3 towards grade 5 with structured weekly exam practice."
     actions={[
       {
         variant: 'primary',
         text: 'Book a Place',
-        href: 'https://hai-bl.com/onboarding/interest-form',
+        href: interestFormUrl,
         target: '_blank',
         icon: 'tabler:calendar-check',
       },
-      { text: 'Ask a Question', href: '/contact' },
+      { text: 'Ask a Question', href: contactUrl },
     ]}
     image={{
       src: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1800&q=80',
@@ -40,13 +47,13 @@ const metadata = {
     columns={3}
     items={[
       {
-        title: 'Grades 4-5 focus',
-        description: 'Designed for Foundation Tier students who need a secure pass and stronger core skills.',
+        title: 'Grades 3-5 focus',
+        description: 'Designed for Foundation Tier students aiming to secure grades 4-5 and strengthen core skills.',
         icon: 'tabler:certificate',
       },
       {
         title: 'Sundays 10:00am-11:00am',
-        description: 'Weekly sessions from 13 September 2026 through the 2027 exam preparation period.',
+        description: 'Weekly sessions from 13 September 2026 to May 2027, covering the full exam preparation period.',
         icon: 'tabler:clock',
       },
       {
@@ -61,7 +68,7 @@ const metadata = {
       },
       {
         title: 'Simple pricing',
-        description: '£20 per session pay-as-you-go, or £16 per session with block booking.',
+        description: '£20 per session pay-as-you-go, or £16 per session with advance block booking.',
         icon: 'tabler:coin-pound',
       },
       {
@@ -76,20 +83,24 @@ const metadata = {
     title="What Students Work On"
     items={[
       {
-        title: 'Foundation topics',
-        description: 'Number, algebra, ratio, geometry and the common topics needed for grades 4-5.',
+        title: 'Key Foundation topics',
+        description: 'Clear teaching of number, algebra, ratio, geometry and common topics needed for grades 4-5.',
       },
       {
         title: 'Exam-style practice',
-        description: 'Students practise real question styles and learn how to show working clearly.',
+        description: 'Students practise exam-style questions every lesson and learn how to show working clearly.',
       },
       {
         title: 'Diagnostic support',
         description: 'Lessons respond to weak areas so students spend time on the topics that matter most.',
       },
       {
-        title: 'Confidence and independence',
-        description: 'Students learn to work through problems with support where needed.',
+        title: 'Independent practice',
+        description: 'Students work independently with support where needed, building confidence and resilience.',
+      },
+      {
+        title: 'Homework and materials',
+        description: 'Students can bring schoolwork, use tutor-provided worksheets or access bonus practice tasks.',
       },
     ]}
     image={{
@@ -105,10 +116,56 @@ const metadata = {
     </Fragment>
   </Content>
 
+  <Features
+    title="Booking and Attendance"
+    subtitle="A calm, focused Foundation class with flexible attendance once your child’s place is reserved."
+    columns={3}
+    items={[
+      {
+        title: 'Reserve a place first',
+        description: 'Places are limited because the group is capped at 7 students.',
+        icon: 'tabler:calendar-check',
+      },
+      {
+        title: 'Pay flexibly',
+        description: 'Students can pay on the day once their place is reserved, or ask about block booking.',
+        icon: 'tabler:coin-pound',
+      },
+      {
+        title: 'No joining fee',
+        description: 'Flexible pay-as-you-go access is available where spaces remain.',
+        icon: 'tabler:circle-check',
+      },
+      {
+        title: 'Exam board support',
+        description: 'AQA, Edexcel and OCR tasks can be adapted to the student’s specification.',
+        icon: 'tabler:clipboard-check',
+      },
+      {
+        title: 'Paper-based lessons',
+        description: 'No screens in class, just structured study and exam-style written practice.',
+        icon: 'tabler:file-pencil',
+      },
+      {
+        title: 'Parent updates',
+        description: 'Progress updates can be shared by WhatsApp on request.',
+        icon: 'tabler:message-circle',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-brand-soft dark:bg-transparent"></div>
+    </Fragment>
+  </Features>
+
   <FAQs
     title="Foundation Class FAQs"
     columns={2}
     items={[
+      {
+        title: 'What if my child misses a session?',
+        description: 'Let us know in advance. Where possible, your child can attend the next suitable session.',
+      },
       {
         title: 'Can my child bring schoolwork?',
         description: 'Yes. Students can bring schoolwork or use tutor-provided worksheets and practice questions.',
@@ -122,24 +179,52 @@ const metadata = {
         description: 'AQA, Edexcel and OCR can be supported, with tasks adapted to the student specification.',
       },
       {
+        title: 'Do students use computers in class?',
+        description: 'No. Work is paper-based to reflect real exam conditions and reduce distractions.',
+      },
+      {
+        title: 'Can my child join mid-way through the term?',
+        description: 'Yes. Students can join mid-way if a place is available. The first session includes a diagnostic check.',
+      },
+      {
+        title: 'Do you run sessions during school holidays?',
+        description: 'Holiday class dates are shared by WhatsApp when available.',
+      },
+      {
+        title: 'Can parents get feedback?',
+        description: 'Yes. Updates can be shared by WhatsApp on request.',
+      },
+      {
         title: 'Is there a free trial?',
-        description: 'If you are not happy after the first session, you do not have to pay.',
+        description: 'Ask about current trial or first-session arrangements when you register interest.',
+      },
+      {
+        title: 'Who teaches the class?',
+        description: 'The class is taught by Mr Sheraz, a qualified and DBS-checked maths teacher with 15+ years of teaching experience.',
+      },
+      {
+        title: 'Is this suitable for Higher Tier students?',
+        description: `This class is for Foundation Tier. Higher students can view the Higher group here: <a class="underline" href="${higherClassUrl}">GCSE Higher class</a>.`,
+      },
+      {
+        title: 'Is there an online option?',
+        description: `Students who prefer learning from home can view online tuition options here: <a class="underline" href="${onlineTuitionUrl}">Online Maths Tuition</a>.`,
       },
     ]}
   />
 
   <CallToAction
     title="Reserve a Foundation Class Place"
-    subtitle="Spaces are limited to keep the group focused and supportive."
+    subtitle={`Spaces are limited to keep the group focused and supportive. Book early to ask about the £16 advance block booking rate, or call/WhatsApp ${phoneDisplay} if you have questions.`}
     actions={[
       {
         variant: 'primary',
         text: 'Book Now',
-        href: 'https://hai-bl.com/onboarding/interest-form',
+        href: interestFormUrl,
         target: '_blank',
         icon: 'tabler:calendar-check',
       },
-      { text: 'Contact Us', href: '/contact' },
+      { text: 'Contact Us', href: contactUrl },
     ]}
   />
 </Layout>

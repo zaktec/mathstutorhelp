@@ -5,28 +5,33 @@ import Features from '~/components/widgets/Features.astro';
 import Content from '~/components/widgets/Content.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
   title: 'Summer Coding Course Manchester | Python Ages 13-17',
   description:
-    'Small-group summer Python coding course in Manchester for ages 13-17. Learn Python, build projects and develop problem-solving skills.',
+    'Summer Python coding course in Manchester for ages 13-17. Build real apps, boost problem-solving and learn Python in a calm small group.',
 };
+
+const interestFormUrl = 'https://hai-bl.com/onboarding/interest-form';
+const contactUrl = getPermalink('/contact');
+const onlineTuitionUrl = getPermalink('/online-tuition');
 ---
 
 <Layout metadata={metadata}>
   <Hero
     tagline="Summer Coding Course"
     title="Python Coding Course in Manchester for Ages 13-17"
-    subtitle="A beginner-friendly summer course where students learn Python, build real projects and strengthen logical problem-solving."
+    subtitle="Build real apps, boost problem-solving and learn Python from scratch. No experience needed."
     actions={[
       {
         variant: 'primary',
         text: 'Register Interest',
-        href: 'https://hai-bl.com/onboarding/interest-form',
+        href: interestFormUrl,
         target: '_blank',
         icon: 'tabler:code',
       },
-      { text: 'Ask a Question', href: '/contact' },
+      { text: 'Ask a Question', href: contactUrl },
     ]}
     image={{
       src: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1800&q=80',
@@ -100,11 +105,91 @@ const metadata = {
   >
     <Fragment slot="content">
       <p>
-        This course combines coding and maths thinking so students can improve problem-solving while building something
-        practical and confidence-boosting.
+        Give your child a powerful head start in coding this summer in a calm, focused, small-group environment.
+        Students learn step by step, build real programs and practise problem-solving through coding.
       </p>
     </Fragment>
   </Content>
+
+  <Features
+    title="Maths Skills Included"
+    subtitle="The course links Python coding with useful maths thinking and logical reasoning."
+    columns={3}
+    items={[
+      {
+        title: 'Algebra in code',
+        description: 'Students practise formulas, substitution and using variables in real Python programs.',
+        icon: 'tabler:math-function',
+      },
+      {
+        title: 'Sequences and patterns',
+        description: 'Coding tasks help students spot patterns, repeat steps and build logical routines.',
+        icon: 'tabler:repeat',
+      },
+      {
+        title: 'Averages and percentages',
+        description: 'Projects can include mean, minimum, maximum, percentages and simple calculations.',
+        icon: 'tabler:percentage',
+      },
+      {
+        title: 'Logical reasoning',
+        description: 'Students practise if statements, loops and step-by-step decision making.',
+        icon: 'tabler:bulb',
+      },
+      {
+        title: 'GCSE Maths thinking',
+        description: 'Coding supports careful working, accuracy and problem-solving habits.',
+        icon: 'tabler:certificate',
+      },
+      {
+        title: 'Real scenarios',
+        description: 'Students apply maths ideas inside quizzes, mini tools and simple app-style projects.',
+        icon: 'tabler:apps',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-brand-soft dark:bg-transparent"></div>
+    </Fragment>
+  </Features>
+
+  <Features
+    title="Requirements and Final Outcome"
+    subtitle="Students finish with a practical project and a clearer route for future coding progress."
+    columns={3}
+    items={[
+      {
+        title: 'Laptop required',
+        description: 'Students bring a laptop and use free beginner-friendly Python software.',
+        icon: 'tabler:device-laptop',
+      },
+      {
+        title: 'No internet needed',
+        description: 'Once the software is set up, coding tasks can work offline during lessons.',
+        icon: 'tabler:wifi-off',
+      },
+      {
+        title: 'Complete Python project',
+        description: 'Students build a complete Python program by the end of the six sessions.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Certificate included',
+        description: 'Students receive a certificate for completing the course.',
+        icon: 'tabler:award',
+      },
+      {
+        title: 'Future progression',
+        description: 'Students can move on to advanced coding, web development or GCSE Computer Science support.',
+        icon: 'tabler:route',
+      },
+      {
+        title: 'Small group support',
+        description: 'The group is capped at 7 students so learners can ask questions and get help.',
+        icon: 'tabler:users-group',
+      },
+    ]}
+  />
 
   <FAQs
     title="Coding Course FAQs"
@@ -112,7 +197,7 @@ const metadata = {
     items={[
       {
         title: 'Do students need coding experience?',
-        description: 'No. The course is beginner-friendly and starts from the basics.',
+        description: 'No. Complete beginners are welcome, and the course starts from the basics.',
       },
       {
         title: 'Do students need internet in lessons?',
@@ -124,7 +209,11 @@ const metadata = {
       },
       {
         title: 'Is an online option available?',
-        description: 'An online version is planned and will be announced separately.',
+        description: `An online version is planned. You can also view current online support here: <a class="underline" href="${onlineTuitionUrl}">Online Tuition</a>.`,
+      },
+      {
+        title: 'Is payment required to register interest?',
+        description: 'No. Payment is not required to register interest.',
       },
     ]}
   />
@@ -136,11 +225,11 @@ const metadata = {
       {
         variant: 'primary',
         text: 'Register Interest',
-        href: 'https://hai-bl.com/onboarding/interest-form',
+        href: interestFormUrl,
         target: '_blank',
         icon: 'tabler:send',
       },
-      { text: 'Contact Us', href: '/contact' },
+      { text: 'Contact Us', href: contactUrl },
     ]}
   />
 </Layout>

@@ -7,12 +7,12 @@ export const headerData = {
       href: getPermalink('/'),
     },
     {
-      text: 'Online Tuition',
+      text: 'Online Maths Tuition',
       href: getPermalink('/online-tuition'),
     },
     {
-      text: 'Maths Tuition',
-      href: getPermalink('/maths-tuition'),
+      text: 'GCSE Classes',
+      href: `${getPermalink('/')}#group-classes`,
     },
     {
       text: 'About',
@@ -34,9 +34,10 @@ export const footerData = {
       title: 'Tuition',
       links: [
         { text: 'Maths Tuition', href: getPermalink('/maths-tuition') },
-        { text: 'Online Tuition', href: getPermalink('/online-tuition') },
+        { text: 'Online Maths Tuition', href: getPermalink('/online-tuition') },
         { text: 'Maths Levels', href: getPermalink('/maths-level') },
-        { text: 'Prices', href: getPermalink('/pricing') },
+        { text: 'Work with MTH', href: getPermalink('/work-with-mth') },
+        { text: 'Tuition Prices', href: getPermalink('/pricing') },
       ],
     },
     {
@@ -59,8 +60,9 @@ export const footerData = {
     {
       title: 'Resources',
       links: [
+        { text: 'Maths Resources', href: getPermalink('/resources') },
+        { text: 'Blog', href: getPermalink('/blog') },
         { text: 'Gallery', href: getPermalink('/gallery') },
-        { text: 'Maths Levels', href: getPermalink('/maths-level') },
         { text: 'Safeguarding', href: getPermalink('/safeguarding') },
       ],
     },

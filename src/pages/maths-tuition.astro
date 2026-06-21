@@ -5,6 +5,7 @@ import Features from '~/components/widgets/Features.astro';
 import Content from '~/components/widgets/Content.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
   title: 'Maths Tuition Manchester - 1-to-1, Online & Group Classes',
@@ -13,13 +14,53 @@ const metadata = {
 };
 
 const consultationBookingUrl = 'https://calendar.app.google/VJ6tgEKfsUZAncDe9';
+const contactUrl = getPermalink('/contact');
+const onlineTuitionUrl = getPermalink('/online-tuition');
+const higherClassUrl = getPermalink('/gcse-revision-class-higher-manchester');
+const pricingUrl = getPermalink('/pricing');
+
+const priceOptions = [
+  {
+    label: 'Online 1-to-1',
+    price: '£25',
+    unit: '/hr',
+    description: 'Live online maths tuition from home with clear teaching and online resources.',
+    href: onlineTuitionUrl,
+    action: 'View Online Tuition',
+  },
+  {
+    label: 'In-person 1-to-1',
+    price: '£30',
+    unit: '/hr',
+    description: 'Manchester-based private maths tuition for focused support and confidence building.',
+    href: consultationBookingUrl,
+    action: 'Book a Consultation',
+    featured: true,
+  },
+  {
+    label: 'Group classes',
+    price: '£20',
+    unit: 'per student',
+    description: 'Small GCSE group classes for structured revision and exam-style practice.',
+    href: higherClassUrl,
+    action: 'View Group Classes',
+  },
+  {
+    label: 'A-Level tuition',
+    price: '£40',
+    unit: '/hr',
+    description: 'Advanced support for pure maths, statistics, mechanics and exam technique.',
+    href: consultationBookingUrl,
+    action: 'Ask About A-Level',
+  },
+];
 ---
 
 <Layout metadata={metadata}>
   <Hero
     tagline="Maths Tuition Services"
-    title="KS3, GCSE, IGCSE, Functional Skills and A-Level Maths Tuition"
-    subtitle="High-quality, affordable online and in-person maths tuition in Manchester, with structured lessons, exam preparation and access to extra online learning support."
+    title="Maths Tuition in Manchester and Online"
+    subtitle="Structured maths support for KS3, GCSE, IGCSE, Functional Skills and A-Level students, taught by a qualified, DBS-checked teacher."
     actions={[
       {
         variant: 'primary',
@@ -36,41 +77,115 @@ const consultationBookingUrl = 'https://calendar.app.google/VJ6tgEKfsUZAncDe9';
   />
 
   <Features
-    title="Tuition Prices"
-    subtitle="Online tuition, face-to-face sessions and group classes are available, with flexible support to suit each learner's needs."
-    id="tuition-prices"
+    title="Choose the Right Maths Tuition"
+    subtitle="A simple guide for parents choosing between online, in-person, group or advanced maths support."
     columns={4}
     items={[
       {
-        title: 'Online 1-to-1 Maths Tuition',
+        title: 'Online 1-to-1 Tuition',
         description:
-          '<strong class="text-3xl text-gray-900 dark:text-white">£25/hr</strong><br />Zoom or Teams lessons with online platform access. Best for flexible learning from home.',
+          'Best for flexible learning from home, targeted topic support and regular weekly practice.',
         icon: 'tabler:device-laptop',
-        callToAction: { text: 'Book Online Tuition', href: consultationBookingUrl },
+        callToAction: { text: 'View Online Tuition', href: onlineTuitionUrl },
       },
       {
-        title: 'In-Person 1-to-1 Tuition',
+        title: 'In-Person Tuition',
         description:
-          '<strong class="text-3xl text-gray-900 dark:text-white">£30/hr</strong><br />Manchester-based tuition with platform resources. Best for focused support and confidence building.',
+          'Best for students who benefit from face-to-face guidance, confidence building and focused feedback.',
         icon: 'tabler:user-check',
-        callToAction: { text: 'Book In-Person Tuition', href: consultationBookingUrl },
+        callToAction: { text: 'Book Consultation', href: consultationBookingUrl },
       },
       {
-        title: 'Group Classes',
+        title: 'GCSE Group Classes',
         description:
-          '<strong class="text-3xl text-gray-900 dark:text-white">£20/student</strong><br />Online or in-person group learning with platform resources. Best for affordable collaborative learning.',
+          'Best for GCSE students who need routine, guided revision and exam-style question practice.',
         icon: 'tabler:users-group',
-        callToAction: { text: 'Join a Group Class', href: '/gcse-revision-class-higher-manchester/' },
+        callToAction: { text: 'View Group Classes', href: higherClassUrl },
       },
       {
         title: 'A-Level Maths Tuition',
         description:
-          '<strong class="text-3xl text-gray-900 dark:text-white">£40/hr</strong><br />Advanced online or in-person support with platform resources. Best for deeper content and exam preparation.',
+          'Best for Year 12 and Year 13 students needing help with pure maths, statistics or mechanics.',
         icon: 'tabler:chart-line',
-        callToAction: { text: 'Book A-Level Tuition', href: consultationBookingUrl },
+        callToAction: { text: 'Ask About A-Level', href: consultationBookingUrl },
       },
     ]}
   />
+
+  <Features
+    title="Support for the Stage Your Child Is At"
+    subtitle="Lessons can follow school topics, target gaps from a diagnostic check or focus on exam preparation."
+    columns={5}
+    items={[
+      {
+        title: 'KS3 Maths',
+        description: 'Build stronger foundations before GCSE with number, algebra, ratio, geometry and problem solving.',
+        icon: 'tabler:school',
+      },
+      {
+        title: 'GCSE Maths',
+        description: 'Foundation and Higher support with exam-style practice for Edexcel, AQA and OCR.',
+        icon: 'tabler:certificate',
+      },
+      {
+        title: 'IGCSE Maths',
+        description: 'Structured help with IGCSE topics, worked examples and exam technique.',
+        icon: 'tabler:calculator',
+      },
+      {
+        title: 'Functional Skills',
+        description: 'Practical maths support for everyday maths, assessments, college, work and apprenticeships.',
+        icon: 'tabler:list-check',
+      },
+      {
+        title: 'A-Level Maths',
+        description: 'Focused support for pure maths, statistics, mechanics and harder exam questions.',
+        icon: 'tabler:function',
+      },
+    ]}
+  />
+
+  <Features
+    title="What Lessons Focus On"
+    subtitle="The aim is to make maths clearer, improve confidence and give students regular practice they can build on."
+    columns={3}
+    items={[
+      {
+        title: 'Clear explanations',
+        description: 'Methods are broken down step by step so students understand what to do and why it works.',
+        icon: 'tabler:chalkboard',
+      },
+      {
+        title: 'Guided practice',
+        description: 'Students practise with support first, then build independence through carefully chosen questions.',
+        icon: 'tabler:pencil-check',
+      },
+      {
+        title: 'Exam technique',
+        description: 'GCSE, IGCSE and A-Level students practise exam-style questions, working-out and common mistakes.',
+        icon: 'tabler:file-check',
+      },
+      {
+        title: 'Confidence building',
+        description: 'Lessons are calm and supportive so students can ask questions and revisit difficult topics.',
+        icon: 'tabler:mood-smile',
+      },
+      {
+        title: 'Homework support',
+        description: 'Students can receive help with homework, revision tasks and independent study routines.',
+        icon: 'tabler:book',
+      },
+      {
+        title: 'Clear next steps',
+        description: 'Each lesson can end with targeted practice so students know what to focus on next.',
+        icon: 'tabler:list-check',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-brand-soft dark:bg-transparent"></div>
+    </Fragment>
+  </Features>
 
   <Content
     isReversed
@@ -78,23 +193,19 @@ const consultationBookingUrl = 'https://calendar.app.google/VJ6tgEKfsUZAncDe9';
     items={[
       {
         title: 'Topic resources and worksheets',
-        description:
-          'Students can use topic-based resources, worksheets and revision materials alongside live lessons.',
+        description: 'Students can use topic-based resources, worksheets and revision materials alongside lessons.',
       },
       {
-        title: 'Practice and homework tasks',
-        description:
-          'Practice questions, homework tasks and mini quizzes help students keep learning between sessions.',
+        title: 'Practice tasks',
+        description: 'Practice questions and homework tasks help students keep learning between sessions.',
       },
       {
         title: 'Video explanations',
-        description:
-          'Key topics are supported with video explanations so students can revisit methods when they need to.',
+        description: 'Key topics are supported with video explanations so students can revisit methods.',
       },
       {
         title: 'Learning beyond lesson time',
-        description:
-          'The platform gives students extra support outside tutoring time, helping knowledge stick long term.',
+        description: 'Extra resources help students practise independently after each lesson.',
       },
     ]}
     image={{
@@ -104,47 +215,61 @@ const consultationBookingUrl = 'https://calendar.app.google/VJ6tgEKfsUZAncDe9';
   >
     <Fragment slot="content">
       <p>
-        Alongside live tutoring sessions, students receive access to online learning support with resources, practice
-        questions and revision tasks. This helps students continue practising independently after each lesson.
+        Alongside live tutoring, students can receive access to online learning support with resources, practice
+        questions and revision tasks. This helps learning continue between lessons without overloading the page with
+        too much detail.
       </p>
     </Fragment>
   </Content>
 
-  <Features
-    title="Choose the Tuition Format That Fits"
-    subtitle="Whether the student needs help catching up, preparing for exams or aiming for higher grades, lessons are structured, engaging and results-driven."
-    columns={4}
-    items={[
-      {
-        title: 'Online 1-to-1 Tuition',
-        description:
-          'Live personalised lessons with digital worksheets, revision materials, step-by-step explanations and flexible scheduling.',
-        icon: 'tabler:video',
-      },
-      {
-        title: 'In-Person Tuition',
-        description:
-          'Face-to-face private maths support in Manchester with real-time guidance, printed resources and online platform access.',
-        icon: 'tabler:school',
-      },
-      {
-        title: 'Group Maths Classes',
-        description:
-          'Small groups focused on revision, past papers and exam technique, with digital resources for study outside class.',
-        icon: 'tabler:users',
-      },
-      {
-        title: 'A-Level Maths Tuition',
-        description:
-          'Specialist support for advanced topics including differentiation, integration, algebra, functions, trigonometry and exam reasoning.',
-        icon: 'tabler:function',
-      },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-brand-soft dark:bg-transparent"></div>
-    </Fragment>
-  </Features>
+  <section id="tuition-prices" class="bg-brand-soft py-12 dark:bg-slate-900">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Prices</p>
+        <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-950 dark:text-white md:text-4xl">
+          Simple Maths Tuition Prices
+        </h2>
+        <p class="mt-4 text-lg leading-8 text-muted dark:text-slate-300">
+          A clear guide to the main tuition options. Exact availability depends on timetable and student level.
+        </p>
+      </div>
+
+      <div class="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+        {
+          priceOptions.map((option) => (
+            <article
+              class={`relative rounded-lg border bg-white p-6 shadow-sm dark:bg-slate-800 ${
+                option.featured
+                  ? 'border-primary ring-2 ring-primary/20 dark:border-teal-300'
+                  : 'border-gray-200 dark:border-gray-700'
+              }`}
+            >
+              {option.featured && (
+                <span class="absolute right-4 top-4 rounded-full bg-primary px-3 py-1 text-xs font-bold text-white">
+                  Popular
+                </span>
+              )}
+              <h3 class="pr-20 text-xl font-bold text-gray-950 dark:text-white">{option.label}</h3>
+              <div class="mt-5 rounded-lg bg-brand-soft p-5 dark:bg-slate-900">
+                <p class="flex items-end gap-2 text-primary">
+                  <span class="text-5xl font-extrabold tracking-tight">{option.price}</span>
+                  <span class="pb-2 text-sm font-bold text-gray-700 dark:text-slate-200">{option.unit}</span>
+                </p>
+              </div>
+              <p class="mt-5 min-h-24 text-sm leading-6 text-muted dark:text-slate-300">{option.description}</p>
+              <a class="btn-secondary mt-5 w-full justify-center" href={option.href}>{option.action}</a>
+            </article>
+          ))
+        }
+      </div>
+
+      <div class="mt-6 text-center">
+        <a class="text-sm font-bold text-primary underline-offset-4 hover:underline" href={pricingUrl}>
+          View full pricing page
+        </a>
+      </div>
+    </div>
+  </section>
 
   <Features
     title="Why Parents Choose Maths Tutor Help"
@@ -210,8 +335,8 @@ const consultationBookingUrl = 'https://calendar.app.google/VJ6tgEKfsUZAncDe9';
   />
 
   <CallToAction
-    title="Contact to Book a Lesson"
-    subtitle="Have a question or want to arrange tutoring? Message us and we will help you get started."
+    title="Ready to Find the Right Tuition Option?"
+    subtitle="Book a free consultation and I will help you choose the best support for your child."
     actions={[
       {
         variant: 'primary',
@@ -219,7 +344,7 @@ const consultationBookingUrl = 'https://calendar.app.google/VJ6tgEKfsUZAncDe9';
         href: consultationBookingUrl,
         icon: 'tabler:calendar-check',
       },
-      { text: 'Contact Maths Tutor Help', href: '/contact', icon: 'tabler:send' },
+      { text: 'Contact Maths Tutor Help', href: contactUrl, icon: 'tabler:send' },
     ]}
   />
 </Layout>

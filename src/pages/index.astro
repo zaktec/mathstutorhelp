@@ -24,6 +24,37 @@ const higherClassUrl = getPermalink('/gcse-revision-class-higher-manchester');
 const onlineTuitionUrl = getPermalink('/online-tuition');
 const summerCodingUrl = getPermalink('/manchestersummercodingclub');
 const compactSection = { container: 'py-8 md:py-10 lg:py-12' };
+
+const priceOptions = [
+  {
+    label: 'One-to-one tuition',
+    price: '£30',
+    unit: '/hr',
+    description:
+      'Personalised GCSE, IGCSE, A-Level or Functional Skills support. Best for targeted help and faster feedback.',
+    action: 'Ask About 1:1 Tuition',
+    href: consultationBookingUrl,
+  },
+  {
+    label: 'Small group classes',
+    price: '£20',
+    unit: 'per session',
+    description:
+      'Structured Manchester-based group lessons for students who like learning with others and regular practice.',
+    action: 'Register Your Interest',
+    href: groupClassInterestUrl,
+    featured: true,
+  },
+  {
+    label: 'Online lessons',
+    price: '£25',
+    unit: '/hr',
+    description:
+      'Flexible online maths tuition with the same clear teaching, guided examples and exam question practice.',
+    action: 'Ask About Online Lessons',
+    href: consultationBookingUrl,
+  },
+];
 ---
 
 <Layout metadata={metadata}>
@@ -158,37 +189,48 @@ const compactSection = { container: 'py-8 md:py-10 lg:py-12' };
     ]}
   />
 
-  <Features
-    id="prices"
-    tagline="Prices"
-    title="Simple Tuition Options"
-    subtitle="Choose the lesson format that best fits your child, timetable and goals."
-    columns={3}
-    classes={compactSection}
-    items={[
-      {
-        title: 'One-to-one tuition - £30/hr',
-        description:
-          'Personalised GCSE, IGCSE, A-Level or Functional Skills support. Best for targeted help and faster feedback.',
-        icon: 'tabler:user',
-        callToAction: { text: 'Ask About 1:1 Tuition', href: consultationBookingUrl },
-      },
-      {
-        title: 'Small group classes - £20',
-        description:
-          'Structured Manchester-based group lessons for students who like learning with others and regular practice.',
-        icon: 'tabler:users',
-        callToAction: { text: 'Register Your Interest', href: groupClassInterestUrl },
-      },
-      {
-        title: 'Online lessons - £25/hr',
-        description:
-          'Flexible online maths tuition with the same clear teaching, guided examples and exam question practice.',
-        icon: 'tabler:device-desktop',
-        callToAction: { text: 'Ask About Online Lessons', href: consultationBookingUrl },
-      },
-    ]}
-  />
+  <section id="prices" class="bg-brand-soft py-8 dark:bg-slate-900 md:py-10 lg:py-12">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Prices</p>
+        <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-950 dark:text-white md:text-4xl">
+          Simple Tuition Options
+        </h2>
+        <p class="mt-4 text-lg leading-8 text-muted dark:text-slate-300">
+          Choose the lesson format that best fits your child, timetable and goals.
+        </p>
+      </div>
+
+      <div class="mt-8 grid gap-5 md:grid-cols-3">
+        {
+          priceOptions.map((option) => (
+            <article
+              class={`relative rounded-lg border bg-white p-6 shadow-sm dark:bg-slate-800 ${
+                option.featured
+                  ? 'border-primary ring-2 ring-primary/20 dark:border-teal-300'
+                  : 'border-gray-200 dark:border-gray-700'
+              }`}
+            >
+              {option.featured && (
+                <span class="absolute right-4 top-4 rounded-full bg-primary px-3 py-1 text-xs font-bold text-white">
+                  Popular
+                </span>
+              )}
+              <h3 class="pr-20 text-xl font-bold text-gray-950 dark:text-white">{option.label}</h3>
+              <div class="mt-5 rounded-lg bg-brand-soft p-5 dark:bg-slate-900">
+                <p class="flex items-end gap-2 text-primary">
+                  <span class="text-5xl font-extrabold tracking-tight">{option.price}</span>
+                  <span class="pb-2 text-sm font-bold text-gray-700 dark:text-slate-200">{option.unit}</span>
+                </p>
+              </div>
+              <p class="mt-5 min-h-20 text-sm leading-6 text-muted dark:text-slate-300">{option.description}</p>
+              <a class="btn-secondary mt-5 w-full justify-center" href={option.href}>{option.action}</a>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
 
   <Testimonials
     tagline="Testimonials"

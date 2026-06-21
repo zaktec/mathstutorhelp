@@ -1,196 +1,41 @@
-# Maths Tutor Help Branding Guide
+# MathsTutorHelp Branding Guide
 
 ## Brand Position
 
-Maths Tutor Help should feel clear, trustworthy and practical. The site is mainly for parents and students who want reliable maths support, so the design should look professional rather than playful or overly template-like.
+MathsTutorHelp should feel clear, trustworthy, calm and practical. The website is mainly for parents and students who want reliable maths support from a qualified teacher.
 
 Core message:
 
-> Personalised maths tuition for KS3, GCSE, IGCSE, Functional Skills and A-Level, available online and in person.
+> Structured maths tuition in Manchester and online for KS3, GCSE, IGCSE, Functional Skills and A-Level students.
+
+Secondary offer:
+
+> Beginner coding and problem-solving lessons are also available, but they should not overpower the maths tuition offer.
 
 ## Main Audience
 
 - Parents looking for a reliable maths tutor in Manchester
 - GCSE and IGCSE students who need exam-focused support
+- KS3 students who need stronger foundations before GCSE
 - A-Level students who need structured topic help
-- Learners who need confidence, revision planning and clearer explanations
+- Functional Skills learners who need practical maths confidence
+- Families looking for online one-to-one tuition
+- Students interested in beginner coding and logical problem solving
 
-## Recommended Colour Palette
+## Tone Of Voice
 
-Use a simple, consistent palette.
+Use writing that is:
 
-| Purpose                  | Colour         | Hex       |
-| ------------------------ | -------------- | --------- |
-| Primary brand            | Navy           | `#00387D` |
-| Secondary brand          | Teal           | `#0F766E` |
-| Main accent              | Warm yellow    | `#F7B200` |
-| Accent hover             | Deeper yellow  | `#D99800` |
-| Text heading             | Ink            | `#101828` |
-| Body text                | Slate          | `#1D2939` |
-| Muted text               | Soft slate     | `#475467` |
-| Light section background | Soft blue      | `#EFF6FF` |
-| Page background          | White          | `#FFFFFF` |
-| Footer background        | Ink navy       | `#0B1F3A` |
-| Footer border            | Soft navy      | `#123B63` |
-
-## Colour Usage
-
-Primary navy should be used for:
-
-- Header/nav accents
-- Footer background
-- Main headings
-- Important section titles
-
-Teal should be used for:
-
-- Links
-- Secondary buttons
-- Icons
-- Small highlights
-
-Warm yellow should be used sparingly for:
-
-- Main call-to-action buttons
-- Important badges
-- Price highlights
-- Small emphasis areas
-
-Avoid using many bright colours at once. The current template includes child-friendly colours such as red, yellow, green and blue. These can make the site feel generic. For a tutoring business, navy, blue, yellow and white will look more trustworthy.
-
-## Button Style
-
-Use one main button style across the whole site.
-
-Primary button:
-
-- Background: `#F7B200`
-- Text: `#00387D`
-- Hover background: `#D99800`
-- Hover text: `#00387D`
-- Text examples:
-  - Book a Free Consultation
-  - Register Interest
-  - Contact Mr Sheraz
-
-Secondary button:
-
-- Background: transparent or white
-- Border: `#00387D`
-- Text: `#00387D`
-- Hover background: `#00387D`
-- Hover text: `#FFFFFF`
-
-Use the shared `.btn-primary` and `.btn-secondary` utilities rather than adding one-off button colours on individual pages.
-
-## Typography Direction
-
-The site should feel readable and calm.
-
-Recommended style:
-
-- Headings: bold, clear and not too decorative
-- Body text: simple, medium-sized and easy to scan
-- Avoid all-caps headings except for small labels
-- Avoid very playful fonts
-
-Tone should be:
-
-- Friendly
-- Confident
 - Clear
-- Parent-focused
-- Results-focused without sounding exaggerated
+- Professional
+- Parent-friendly
+- Calm
+- Trustworthy
+- Simple to understand
 
-## Homepage Content Priorities
+Avoid language that sounds too salesy or exaggerated. The site should feel like a qualified teacher offering structured support.
 
-The homepage should answer these questions quickly:
-
-1. Who is this for?
-2. What levels do you teach?
-3. Is it online, in person, or both?
-4. How much does it cost?
-5. How do I book?
-
-Recommended homepage order:
-
-1. Hero section focused on GCSE group tuition
-2. Meet Your Tutor
-3. Progress/support outcomes
-4. GCSE group classes
-5. Tuition levels
-6. How lessons work
-7. Prices
-8. Summer Coding Club
-9. Parent-style feedback or real testimonials
-10. FAQs
-11. Register interest call-to-action
-
-## Hero Section Recommendation
-
-Headline:
-
-> GCSE Group Maths Classes in Levenshulme, Manchester
-
-Supporting text:
-
-> Small focused group tuition for GCSE Foundation and Higher students, with exam-style practice, clear explanations and support from an experienced, DBS-checked teacher.
-
-Primary button:
-
-> Register Your Interest
-
-Secondary button:
-
-> View Tuition Options
-
-## Section Naming
-
-Replace generic template labels with specific tutoring labels.
-
-Use:
-
-- Maths Tuition Services
-- GCSE Maths Support
-- A-Level Maths Tuition
-- GCSE Group Classes
-- Online Maths Tuition
-- Parent-Style Feedback
-- Free Maths Resources
-- Contact Maths Tutor Help
-
-## Implementation Notes
-
-The palette is defined in:
-
-- `src/components/CustomStyles.astro` for global CSS variables
-- `src/assets/styles/tailwind.css` for Tailwind theme names and button utilities
-
-Use these Tailwind colour names where possible:
-
-- `primary` for main navy
-- `secondary` for teal
-- `accent` for warm yellow
-- `accent-hover` for yellow hover states
-- `brand-navy` for fixed navy text on yellow buttons
-- `brand-soft` for pale blue section backgrounds
-- `footer` for the dark footer background
-- `footer-border` for footer borders
-
-Avoid reintroducing generic template colour utilities such as `bg-blue-50`, `text-purple-*`, `bg-indigo-*` or one-off arbitrary hex classes unless there is a clear reason.
-
-Avoid:
-
-- Services
-- Online Courses
-- MTH Link
-- Tailor-made Math courses
-
-## Language Rules
-
-Use UK wording consistently.
-
-Use:
+Use UK wording consistently:
 
 - Maths
 - Tuition
@@ -203,68 +48,269 @@ Use:
 Avoid:
 
 - Math
-- Courses, unless it really is a structured course
-- Generic claims like "best tutor" without proof
+- Generic phrases like “best tutor” without proof
+- Overly playful wording
+- “Online Courses” when the offer is really online maths tuition
 
-## Content Fixes Needed On Live Site
+## Colour Palette
 
-Fix these visible wording issues:
+| Purpose | Colour | Hex |
+| --- | --- | --- |
+| Primary brand | Navy | `#00387D` |
+| Secondary brand | Teal | `#0F766E` |
+| Main accent | Warm yellow | `#F7B200` |
+| Accent hover | Deeper yellow | `#D99800` |
+| Text heading | Ink | `#101828` |
+| Body text | Slate | `#1D2939` |
+| Muted text | Soft slate | `#475467` |
+| Light section background | Soft blue | `#EFF6FF` |
+| Page background | White | `#FFFFFF` |
+| Footer background | Ink navy | `#0B1F3A` |
+| Footer border | Soft navy | `#123B63` |
 
-- `Twiter` -> `Twitter`
-- `Instragram` -> `Instagram`
-- `clear explaination` -> `clear explanation`
-- `The tutor (Mr Cheema) are amazing` -> `Mr Cheema is amazing`
-- `Tailor-made Math courses` -> `Tailor-made Maths tuition`
-- `math homework` -> `maths homework`
+## Colour Usage
 
-## Domain Recommendation
+Primary navy should be used for:
 
-Choose one main domain.
+- Main headings
+- Footer background
+- Strong trust/brand areas
+- Important section titles
 
-If the UK market is the focus, use:
+Teal should be used for:
 
-> `https://www.mathstutorhelp.co.uk`
+- Icons
+- Small labels
+- Secondary highlights
+- Supporting links
 
-Then redirect `.com` to `.co.uk`.
+Warm yellow should be used sparingly for:
 
-If `.com` is already stronger for SEO, keep:
+- Main CTA buttons
+- Important badges
+- Price highlights
+- Conversion-focused emphasis
 
-> `https://mathstutorhelp.com`
+Avoid generic template palettes such as purple/indigo gradients or bright mixed colours that make the site feel less professional.
 
-Then redirect `.co.uk` to `.com`.
+## Buttons
 
-Do not split traffic between both domains. The canonical URL, header text, footer links and SEO settings should all use the same main domain.
+Use shared button utilities rather than one-off button styling.
 
-## Footer Recommendation
+Primary button:
 
-Use a dark navy footer:
+- Use for the main action in a section
+- Examples:
+  - Book a Free Consultation
+  - Register Interest
+  - Open Hai-BL Form
+  - Contact MathsTutorHelp
 
-- Background: `#0B1F3A`
-- Border: `#123B63`
-- Headings: white
-- Body text: white or very light grey
-- Links: `#F7B200`
+Secondary button:
 
-Footer columns:
+- Use for supporting actions
+- Examples:
+  - View Tuition Options
+  - View Group Classes
+  - Back to Online Tuition
+
+Header action:
+
+- Current header action is `Login`
+- URL: `https://hai-bl.com/auth/login`
+
+Enquiry action:
+
+- Hai-BL interest form URL: `https://hai-bl.com/onboarding/interest-form`
+- This form should open as a normal link because Hai-BL blocks iframe embedding.
+
+## Homepage Direction
+
+The homepage should be broad and parent-focused, not only about GCSE group classes.
+
+Current preferred structure:
+
+1. Hero
+2. Meet Your Tutor
+3. GCSE Group Classes
+4. Tuition Services
+5. Highlighted Prices
+6. Testimonials
+7. Summer Coding Club banner
+8. FAQs
+9. Final CTA
+
+Hero headline:
+
+> Maths Tutor in Manchester for GCSE, IGCSE and A-Level
+
+Supporting text:
+
+> Small group GCSE classes in Levenshulme and online one-to-one maths tuition with a qualified, DBS-checked teacher.
+
+Primary button:
+
+> Register Your Interest
+
+Secondary button:
+
+> View Tuition Options
+
+## Navigation
+
+Keep the top navigation simple:
+
+- Home
+- Online Tuition
+- Maths Tuition
+- About
+- Contact
+- Login
+
+Avoid adding too many service links to the top nav. Put extra links in the footer instead.
+
+## Footer
+
+Footer groups should remain clear:
 
 - Tuition
-- Classes & Portal
-- Fees & Booking
-- Free Revision Resources
+- Classes
+- Booking
+- Resources
+- Legal
 
-## Trust Signals To Add
+The footer should keep “Powered by ZakTec Solutions” subtle.
 
-Add these near the top of the homepage:
+Social links currently include:
+
+- Facebook
+- LinkedIn
+- Instagram
+
+Exam board badges may be shown subtly in the footer, but avoid using official logos unless permission and correct brand usage are confirmed.
+
+## Page-Specific Direction
+
+### About
+
+The About page should feel personal and trustworthy.
+
+Keep:
+
+- Mr Sheraz near the top
+- One real picture of Mr Sheraz
+- Qualified teacher
+- DBS checked
+- 15+ years’ experience
+- Clear teaching approach
+
+Avoid turning About into another full services page.
+
+### Contact
+
+The Contact page should be short and enquiry-focused.
+
+Use:
+
+- Phone
+- WhatsApp
+- Link to Hai-BL enquiry form
+- What to include in your message
+- What happens next
+
+Do not show a public email unless it is intentionally being used.
+
+### Online Tuition
+
+The Online Tuition page should be a clean overview page with short cards and links to detail pages.
+
+Cards currently include:
+
+- Challenge Maths Club (Year 6)
+- KS3 Maths
+- GCSE Foundation Maths
+- GCSE Higher Maths
+- IGCSE Maths
+- Functional Skills Maths
+- A-Level Maths
+- Coding and Problem Solving
+- Coding and Problem Solving Part 2
+
+Coding can appear as cards, but the main tone should still prioritise maths tuition.
+
+### Gallery
+
+Gallery images should:
+
+- Have useful alt text
+- Display a visible number
+- Open larger in the lightbox
+- Avoid awkward cropping for portrait posters
+
+## Typography
+
+The site should feel readable and calm.
+
+Recommended style:
+
+- Strong headings
+- Clear body text
+- Simple section labels
+- No negative letter spacing
+- No oversized text inside compact cards
+- Avoid heavy all-caps except for small labels
+
+## Images
+
+Use real MathsTutorHelp images where possible. Stock images are acceptable as temporary supporting visuals but should be replaced over time.
+
+Priority images:
+
+- Real tutor photo
+- Real class/tutoring images
+- Posters or resources in the gallery
+
+Avoid using the same picture repeatedly on one page.
+
+## Trust Signals
+
+Use these consistently:
 
 - Qualified teacher
 - DBS checked
-- 15+ years' experience
-- Online and in-person lessons
-- Manchester-based
-- GCSE, IGCSE and A-Level support
+- 15+ years’ experience
+- Manchester / Levenshulme based
+- Online and in-person support
+- GCSE, IGCSE, Functional Skills and A-Level
 
-Keep these signals close to the hero and Meet Your Tutor sections. Use later homepage sections for outcomes such as confidence, routine, exam technique and parent feedback rather than repeating the same credentials.
+Testimonials should only be presented as real testimonials if they are genuine and permission has been given.
 
-## Overall Design Goal
+## Implementation Notes
 
-The site should feel like a serious, approachable UK tutoring business. Keep the template structure if needed, but reduce the number of colours, make call-to-action buttons consistent, use clearer section titles, and keep the message focused on maths tuition, confidence and exam progress.
+Brand tokens live in:
+
+- `src/components/CustomStyles.astro`
+- `src/assets/styles/tailwind.css`
+
+Use Tailwind colour names:
+
+- `primary`
+- `secondary`
+- `accent`
+- `accent-hover`
+- `brand-navy`
+- `brand-soft`
+- `footer`
+- `footer-border`
+
+Use `getPermalink()` for internal links and `getAsset()` for public/static assets, because the site runs under the `/mathstutorhelp/` base path.
+
+## Remaining Content Fixes
+
+Before launch:
+
+- Rewrite `src/pages/privacy.md`
+- Rewrite `src/pages/terms.md`
+- Replace more stock images with real MathsTutorHelp images
+- Keep pricing consistent across homepage, Maths Tuition and Pricing pages
+- Add structured local business/schema metadata if SEO work continues

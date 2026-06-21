@@ -20,23 +20,23 @@ const trustPoints = [
 
 <section class="relative md:-mt-[76px] not-prose overflow-hidden">
   <div class="absolute inset-0 bg-brand-soft dark:bg-page-dark" aria-hidden="true"></div>
-  <div class="absolute inset-x-0 bottom-0 h-24 bg-page dark:bg-page-dark" aria-hidden="true"></div>
+  <div class="absolute inset-x-0 bottom-0 h-10 bg-page dark:bg-page-dark" aria-hidden="true"></div>
 
   <div class="relative mx-auto max-w-7xl px-4 sm:px-6">
     <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
     <div
-      class="grid items-center gap-8 py-10 md:grid-cols-[minmax(0,1.08fr)_minmax(360px,0.92fr)] md:gap-12 md:py-12 lg:py-14"
+      class="grid items-center gap-6 py-7 md:grid-cols-[minmax(0,1.12fr)_minmax(300px,0.88fr)] md:gap-10 md:py-8 lg:py-10"
     >
       <div class="max-w-3xl">
-        <p class="mb-4 text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">MathsTutorHelp</p>
-        <h1 class="font-heading text-4xl font-bold leading-tight text-gray-950 dark:text-white sm:text-5xl lg:text-6xl">
+        <p class="mb-3 text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">MathsTutorHelp</p>
+        <h1 class="font-heading text-4xl font-bold leading-tight text-gray-950 dark:text-white sm:text-5xl lg:text-[3.35rem]">
           Maths Tutor in Manchester for GCSE, IGCSE and A-Level
         </h1>
-        <p class="mt-6 max-w-2xl text-xl font-semibold leading-relaxed text-primary dark:text-slate-100">
+        <p class="mt-4 max-w-2xl text-lg font-semibold leading-relaxed text-primary dark:text-slate-100">
           Small group GCSE classes in Levenshulme and online one-to-one maths tuition with a qualified, DBS-checked
           teacher.
         </p>
-        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <div class="mt-6 flex flex-col gap-3 sm:flex-row">
           <Button
             variant="primary"
             text="Register Your Interest"
@@ -54,7 +54,7 @@ const trustPoints = [
       </div>
 
       <aside
-        class="mx-auto w-full max-w-sm overflow-hidden rounded-lg border border-primary/15 bg-white shadow-xl shadow-slate-900/10 dark:border-slate-700 dark:bg-slate-900"
+        class="mx-auto w-full max-w-xs overflow-hidden rounded-lg border border-primary/15 bg-white shadow-xl shadow-slate-900/10 dark:border-slate-700 dark:bg-slate-900 md:max-w-sm lg:max-w-[340px]"
       >
         <div class="bg-brand-soft">
           <img
@@ -62,7 +62,7 @@ const trustPoints = [
             alt="Mr Sheraz Cheema teaching GCSE Maths at a whiteboard"
             width={1448}
             height={1086}
-            sizes="(max-width: 767px) 100vw, 420px"
+            sizes="(max-width: 767px) 100vw, 340px"
             loading="eager"
             fetchpriority="high"
             decoding="async"
@@ -70,15 +70,15 @@ const trustPoints = [
           />
         </div>
 
-        <div class="bg-brand-soft/70 px-5 pb-5 pt-5 dark:bg-slate-900">
-          <p class="text-2xl font-bold text-gray-950 dark:text-white">Mr Sheraz Cheema</p>
+        <div class="bg-brand-soft/70 px-4 pb-4 pt-4 dark:bg-slate-900">
+          <p class="text-xl font-bold text-gray-950 dark:text-white">Mr Sheraz Cheema</p>
           <p class="mt-1 font-semibold text-secondary dark:text-teal-200">Qualified Maths Teacher</p>
 
-          <ul class="mt-5 space-y-3">
+          <ul class="mt-4 grid gap-2">
             {
               trustPoints.map((point) => (
-                <li class="flex gap-3 text-sm leading-6 text-muted dark:text-slate-300">
-                  <Icon name={point.icon} class="mt-0.5 h-5 w-5 shrink-0 text-secondary dark:text-teal-200" />
+                <li class="flex gap-2 text-sm leading-5 text-muted dark:text-slate-300">
+                  <Icon name={point.icon} class="mt-0.5 h-4 w-4 shrink-0 text-secondary dark:text-teal-200" />
                   <span>{point.text}</span>
                 </li>
               ))

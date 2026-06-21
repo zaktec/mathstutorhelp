@@ -1,0 +1,149 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { getPermalink } from '~/utils/permalinks';
+
+const metadata = {
+  title: 'Work with MTH - Maths Support Assistant in Levenshulme',
+  description:
+    'Maths Support Assistant wanted for Sunday group tutoring sessions in Levenshulme with Maths Tutor Help. Suitable for a reliable A-Level Maths student or equivalent.',
+};
+
+const contactUrl = getPermalink('/contact');
+const whatsappUrl =
+  'https://wa.me/447860248525?text=Hi%20MathsTutorHelp%2C%20I%20am%20interested%20in%20the%20Maths%20Support%20Assistant%20role.';
+
+const roleDetails = [
+  {
+    title: 'When',
+    description: 'Sundays for around 2 hours, supporting group tutoring sessions in Levenshulme.',
+    icon: 'tabler:calendar-time',
+  },
+  {
+    title: 'Who It Suits',
+    description: 'A reliable A-Level Maths student, or someone with equivalent maths confidence and communication.',
+    icon: 'tabler:user-check',
+  },
+  {
+    title: 'Experience',
+    description: 'No prior tutoring experience is needed. Sessions are teacher-led and guidance is provided.',
+    icon: 'tabler:chalkboard',
+  },
+];
+
+const responsibilities = [
+  {
+    title: 'Support Younger Learners',
+    description: 'Help pupils stay focused, follow the lesson and build confidence during group maths sessions.',
+    icon: 'tabler:users',
+  },
+  {
+    title: 'Explain Maths Topics',
+    description: 'Give simple, patient explanations when students need extra support with a question or method.',
+    icon: 'tabler:message-circle',
+  },
+  {
+    title: 'Prepare Resources',
+    description: 'Help set up worksheets, materials and learning resources before or during the session.',
+    icon: 'tabler:files',
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Work with MTH"
+    title="Maths Support Assistant Wanted"
+    subtitle="Maths Tutor Help is looking for a reliable A-Level Maths student or equivalent to help with teacher-led Sunday group tutoring sessions in Levenshulme."
+    actions={[
+      { variant: 'primary', text: 'Send Interest on WhatsApp', href: whatsappUrl, icon: 'tabler:brand-whatsapp' },
+      { text: 'Contact MathsTutorHelp', href: contactUrl },
+    ]}
+    image={{
+      src: 'https://i0.wp.com/mathstutorhelp.com/wp-content/uploads/2019/08/post2.jpg?fit=1800%2C1200&ssl=1',
+      alt: 'Maths tutoring and classroom support',
+    }}
+  />
+
+  <Features
+    title="Role Overview"
+    subtitle="A practical support role for someone confident with maths and comfortable helping younger learners in a structured group setting."
+    columns={3}
+    items={roleDetails}
+  />
+
+  <section class="bg-brand-soft py-14 dark:bg-slate-900">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+        <div>
+          <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">About the Role</p>
+          <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-950 dark:text-white">
+            Support Sunday Maths Sessions
+          </h2>
+          <p class="mt-4 text-lg leading-8 text-muted dark:text-slate-300">
+            The role involves helping with group tutoring sessions, supporting younger learners, explaining topics and
+            helping set up resources. The group is teacher-led, so the assistant is there to support the learning
+            environment rather than run sessions independently.
+          </p>
+        </div>
+        <div class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-slate-800">
+          <h3 class="text-2xl font-bold text-gray-950 dark:text-white">Key Details</h3>
+          <ul class="mt-5 space-y-3 text-base leading-7 text-muted dark:text-slate-300">
+            <li class="flex gap-3">
+              <span class="mt-3 size-2 rounded-full bg-secondary" aria-hidden="true"></span>
+              <span>Location: Levenshulme.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-3 size-2 rounded-full bg-secondary" aria-hidden="true"></span>
+              <span>Time: Sundays, approximately 2 hours.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-3 size-2 rounded-full bg-secondary" aria-hidden="true"></span>
+              <span>Pay: negotiable.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-3 size-2 rounded-full bg-secondary" aria-hidden="true"></span>
+              <span>DBS required and can be arranged.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Features
+    title="What You Will Help With"
+    subtitle="You do not need to be an experienced tutor. The main requirement is reliability, maths confidence and a calm approach with learners."
+    columns={3}
+    items={responsibilities}
+  />
+
+  <section class="bg-white py-14 dark:bg-slate-900">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="rounded-lg border border-gray-200 bg-brand-soft p-6 shadow-sm dark:border-gray-700 dark:bg-slate-800">
+        <div class="grid gap-5 md:grid-cols-[1fr_auto] md:items-center">
+          <div>
+            <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">How to Apply</p>
+            <h2 class="mt-2 text-2xl font-bold text-gray-950 dark:text-white">Send Your CV If Interested</h2>
+            <p class="mt-3 text-base leading-7 text-muted dark:text-slate-300">
+              Send a short message with your availability, maths background and CV. MathsTutorHelp will reply with
+              next steps if the role is currently suitable.
+            </p>
+          </div>
+          <a class="btn-primary justify-center" href={whatsappUrl}>Message About the Role</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction
+    title="Interested in Working with MTH?"
+    subtitle="Send your CV and a short note about your maths background, availability and interest in supporting Sunday group sessions."
+    actions={[
+      { variant: 'primary', text: 'Send Interest on WhatsApp', href: whatsappUrl, icon: 'tabler:brand-whatsapp' },
+      { text: 'Contact Page', href: contactUrl },
+    ]}
+  />
+</Layout>

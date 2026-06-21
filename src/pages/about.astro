@@ -4,22 +4,25 @@ import Hero from '~/components/widgets/Hero.astro';
 import Features from '~/components/widgets/Features.astro';
 import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import { getPermalink } from '~/utils/permalinks';
+import { getAsset, getPermalink } from '~/utils/permalinks';
 
 const metadata = {
-  title: 'About Maths Tutor Help — Professional Maths Tuition in Manchester & Online',
+  title: 'About Mr Sheraz | MathsTutorHelp Manchester',
   description:
-    'Maths Tutor Help provides professional maths tuition in Manchester and online for KS3, GCSE, IGCSE, Functional Skills and A-Level students.',
+    'Learn about Mr Sheraz, a qualified and DBS-checked maths teacher providing GCSE, IGCSE, Functional Skills and A-Level tuition in Manchester and online.',
 };
 
 const consultationBookingUrl = 'https://calendar.app.google/VJ6tgEKfsUZAncDe9';
+const tuitionUrl = getPermalink('/maths-tuition');
+const groupClassesUrl = getPermalink('/gcse-revision-class-higher-manchester');
+const tutorImageUrl = getAsset('/images/maths-tutor-sheraz-cheema.jpeg');
 ---
 
 <Layout metadata={metadata}>
   <Hero
-    tagline="About Maths Tutor Help"
-    title="About Maths Tutor Help — Professional Maths Tuition in Manchester & Online"
-    subtitle="Supporting KS3, GCSE, IGCSE, Functional Skills and A-Level students with personalised maths tuition in Manchester and online."
+    tagline="About MathsTutorHelp"
+    title="About Mr Sheraz and MathsTutorHelp"
+    subtitle="Qualified, DBS-checked maths support for students in Manchester and online, with lessons built around clear explanations, confidence and steady progress."
     actions={[
       {
         variant: 'primary',
@@ -27,84 +30,77 @@ const consultationBookingUrl = 'https://calendar.app.google/VJ6tgEKfsUZAncDe9';
         href: consultationBookingUrl,
         icon: 'tabler:calendar-check',
       },
-      { text: 'View Tuition Options', href: getPermalink('/maths-tuition') },
+      { text: 'View Tuition Options', href: tuitionUrl },
     ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1800&q=80',
-      alt: 'Maths Tutor Help classroom support',
-    }}
   />
 
   <Content
-    title="Supporting Students With Clear, Personalised Maths Help"
+    title="Meet Mr Sheraz"
     items={[
       {
-        title: 'Clear explanations',
-        description: 'Topics are broken down into simple steps so students understand the method, not just the answer.',
+        title: 'Qualified teacher',
+        description: 'A fully qualified maths teacher with classroom and private tuition experience.',
       },
       {
-        title: 'Personalised lesson plans',
-        description: 'Support is adapted to each learner’s goals, strengths and areas for improvement.',
+        title: 'DBS checked',
+        description: 'Professional, responsible support for students and families.',
       },
       {
-        title: 'Progress tracking',
-        description: 'Lessons focus on closing gaps, reinforcing understanding and preparing students for exams.',
+        title: "15+ years' experience",
+        description: 'Experience supporting learners across schools, colleges, international settings and tuition.',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1596495577886-d920f1fb7238?auto=format&fit=crop&w=1400&q=80',
-      alt: 'Student receiving maths tuition',
+      src: tutorImageUrl,
+      alt: 'Mr Sheraz Cheema teaching maths',
     }}
   >
     <Fragment slot="content">
       <p>
-        Welcome to Maths Tutor Help (MTH), a trusted place for maths tutoring in Manchester and online, helping learners
-        build confidence, strengthen understanding and achieve higher grades. We specialise in KS3, GCSE, IGCSE,
-        Functional Skills Level 1-2 and A-Level Maths, offering personalised support for students of all abilities.
+        My name is Mr Sheraz. I founded MathsTutorHelp to give students calm, structured and focused maths support that
+        helps them understand the method, practise with purpose and build confidence over time.
       </p>
       <p>
-        Many students do not struggle because they lack potential. They simply have not had clear explanations,
-        individual attention or the right guidance at the right time. Our mission is to provide that support through
-        structured teaching, personalised lesson plans and consistent progress tracking.
+        Many students do not struggle because they lack ability. Often they need clearer explanations, more individual
+        attention and a regular routine for practice. MathsTutorHelp is built around that kind of support.
       </p>
     </Fragment>
   </Content>
 
   <Features
-    title="What Makes Us Different?"
-    subtitle="With over 10 years of experience in mainstream classrooms, lessons are interactive, step-by-step and confidence-building."
+    title="My Teaching Approach"
+    subtitle="Lessons are clear, patient and exam-aware without feeling rushed or overwhelming."
     columns={3}
     items={[
       {
-        title: 'Simple steps',
-        description: 'We break difficult topics into manageable stages and revisit gaps until methods feel secure.',
-        icon: 'tabler:list-check',
+        title: 'Clear explanations',
+        description: 'Topics are broken into simple steps so students understand the method, not just the answer.',
+        icon: 'tabler:chalkboard',
       },
       {
         title: 'Guided practice',
-        description:
-          'Students build confidence through examples, questions and feedback that match their current level.',
+        description: 'Students practise with examples, feedback and questions matched to their current level.',
         icon: 'tabler:pencil-check',
       },
       {
-        title: 'Exam preparation',
-        description: 'GCSE, IGCSE and A-Level students practise exam-style questions and proven revision strategies.',
+        title: 'Exam technique',
+        description: 'GCSE, IGCSE and A-Level students practise exam-style questions and written working.',
         icon: 'tabler:file-check',
       },
       {
-        title: 'Problem solving',
-        description: 'Lessons encourage independence, reasoning and the ability to choose the right method.',
-        icon: 'tabler:bulb',
+        title: 'Confidence building',
+        description: 'Lessons give students space to ask questions, revisit gaps and make steady progress.',
+        icon: 'tabler:mood-smile',
       },
       {
-        title: '1:1 and group classes',
-        description: 'Students can choose individual tuition or affordable, focused small group classes.',
-        icon: 'tabler:users-group',
+        title: 'Personalised support',
+        description: 'Support is adapted to the student’s level, goals, confidence and areas of difficulty.',
+        icon: 'tabler:user-check',
       },
       {
-        title: 'Online and in person',
-        description: 'Lessons are available online and in person in Manchester.',
-        icon: 'tabler:device-laptop',
+        title: 'Clear next steps',
+        description: 'Students can receive targeted practice and guidance on what to improve next.',
+        icon: 'tabler:list-check',
       },
     ]}
   >
@@ -114,122 +110,94 @@ const consultationBookingUrl = 'https://calendar.app.google/VJ6tgEKfsUZAncDe9';
   </Features>
 
   <Features
-    title="Maths Tuition Services We Offer"
-    subtitle="Flexible support options for different ages, goals and learning needs."
-    columns={3}
+    title="Who I Support"
+    subtitle="Maths support is available for students who need confidence, exam preparation or structured help with school topics."
+    columns={5}
     items={[
       {
-        title: 'KS3 Maths Tuition',
-        description: 'Years 7-9 support for building strong foundations and early confidence.',
-        icon: 'tabler:books',
+        title: 'KS3 Maths',
+        description: 'Years 7-9 foundations before GCSE.',
+        icon: 'tabler:school',
       },
       {
-        title: 'GCSE and IGCSE Maths',
-        description: 'Foundation and Higher support for exam preparation, revision and grade improvement.',
+        title: 'GCSE Maths',
+        description: 'Foundation and Higher support with exam practice.',
         icon: 'tabler:certificate',
       },
       {
-        title: 'Functional Skills Maths',
-        description: 'Level 1 and Level 2 support for adult learners, apprentices and college students.',
+        title: 'IGCSE Maths',
+        description: 'Topic revision, worked examples and exam technique.',
+        icon: 'tabler:calculator',
+      },
+      {
+        title: 'Functional Skills',
+        description: 'Practical maths for everyday use and assessments.',
         icon: 'tabler:clipboard-check',
       },
       {
         title: 'A-Level Maths',
-        description: 'Advanced topics including algebra, calculus, mechanics and statistics.',
-        icon: 'tabler:chart-line',
-      },
-      {
-        title: '1:1 Tuition',
-        description: 'Targeted, personalised learning online or in person.',
-        icon: 'tabler:user-check',
-      },
-      {
-        title: 'Small Group Classes',
-        description: 'Affordable, engaging and collaborative learning for students who benefit from group support.',
-        icon: 'tabler:users',
+        description: 'Pure maths, statistics, mechanics and problem solving.',
+        icon: 'tabler:function',
       },
     ]}
   />
 
   <Content
     isReversed
-    title="Why Parents Choose Us"
+    title="Local and Online Maths Tuition"
     items={[
       {
-        title: 'Qualified teacher',
-        description: 'Students are supported by an experienced maths teacher, not just a tutor.',
+        title: 'Manchester based',
+        description: 'Based in Levenshulme, supporting students from Manchester and nearby areas.',
       },
       {
-        title: 'Support for all abilities',
-        description: 'From struggling learners to high achievers, lessons meet students where they are.',
+        title: 'Online tuition',
+        description: 'Flexible online maths lessons are available for students who prefer learning from home.',
       },
       {
-        title: 'Revision plans and worksheets',
-        description: 'Students receive structured practice and resources to support learning between sessions.',
-      },
-      {
-        title: '1:1 and group learning options',
-        description: 'Families can choose individual tuition or small group lessons depending on the student’s needs.',
-      },
-      {
-        title: 'Online learning platform',
-        description: 'Extra digital resources and learning support help students keep practising.',
-      },
-      {
-        title: 'Visible progress tracking',
-        description: 'Parents can see what is improving and what the student should focus on next.',
+        title: 'Small group classes',
+        description: 'GCSE group classes are available for students who benefit from routine and guided practice.',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1400&q=80',
-      alt: 'Maths notes and exam practice',
+      src: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1400&q=80',
+      alt: 'Students learning in a classroom',
     }}
   >
     <Fragment slot="content">
       <p>
-        With structured teaching, expert guidance and continuous support, we help students grow step by step, at their
-        pace and in their way.
+        MathsTutorHelp supports families looking for structured maths tuition in Manchester and online. Lessons can be
+        one-to-one, online, in person or in small groups depending on availability and the student’s needs.
       </p>
     </Fragment>
   </Content>
 
-  <Content
-    title="Meet the Founder: Mr Sheraz"
+  <Features
+    title="Why Families Choose MathsTutorHelp"
+    subtitle="Parents often want tuition that feels professional, steady and easy for students to follow."
+    columns={3}
     items={[
       {
-        title: 'Founder and Lead Tutor',
-        description:
-          'Maths Tutor Help was founded by Mr Sheraz, a qualified and DBS-checked maths teacher in Manchester.',
+        title: 'Teacher-led support',
+        description: 'Students are supported by a qualified maths teacher with years of classroom experience.',
+        icon: 'tabler:award',
       },
       {
-        title: "15+ years' experience",
-        description: 'Experience across UK schools, colleges, international institutions and private tuition.',
+        title: 'Calm learning environment',
+        description: 'Lessons are supportive and structured, helping students feel more confident with maths.',
+        icon: 'tabler:heart-handshake',
       },
       {
-        title: 'Specialist maths support',
-        description: 'Specialist in KS3, GCSE, IGCSE, Functional Skills and A-Level Maths.',
+        title: 'Regular practice',
+        description: 'Students can receive worksheets, revision tasks and clear guidance for independent study.',
+        icon: 'tabler:book',
       },
     ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80',
-      alt: 'Tutor supporting students',
-    }}
-  >
-    <Fragment slot="content">
-      <p>
-        Mr Sheraz established MTH after seeing first-hand how many students fall behind due to lack of personalised
-        support, fast-paced classrooms and missing foundational understanding.
-      </p>
-      <blockquote class="mt-6 border-l-4 border-primary pl-4 text-xl font-medium text-gray-900 dark:text-white">
-        Every learner can succeed in Maths with the right structure, guidance and encouragement. My goal is not only to
-        raise grades, but to help students enjoy learning and believe in themselves.
-      </blockquote>
-    </Fragment>
-  </Content>
+  />
 
   <CallToAction
     title="Ready to Talk About Maths Support?"
-    subtitle="Tell us the student's level, goals and preferred lesson format. We will help you choose the right next step."
+    subtitle="Tell me the student's level, goals and preferred lesson format. I will help you choose the right next step."
     actions={[
       {
         variant: 'primary',
@@ -237,7 +205,7 @@ const consultationBookingUrl = 'https://calendar.app.google/VJ6tgEKfsUZAncDe9';
         href: consultationBookingUrl,
         icon: 'tabler:calendar-check',
       },
-      { text: 'View Group Classes', href: getPermalink('/gcse-revision-class-higher-manchester') },
+      { text: 'View Group Classes', href: groupClassesUrl },
     ]}
   />
 </Layout>
