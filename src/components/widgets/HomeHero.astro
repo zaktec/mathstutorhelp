@@ -2,11 +2,9 @@
 import { Icon } from 'astro-icon/components';
 import Button from '~/components/ui/Button.astro';
 import { getAsset, getPermalink } from '~/utils/permalinks';
+import { contactDetails, ctaLabels } from '~/utils/siteDetails';
 
-const {
-  groupClassInterestUrl,
-  tuitionOptionsUrl = getPermalink('/maths-tuition/'),
-} = Astro.props;
+const { groupClassInterestUrl, tuitionOptionsUrl = getPermalink('/maths-tuition/') } = Astro.props;
 const tutorImageUrl = getAsset('/images/maths-tutor-sheraz-cheema.jpeg');
 
 const trustPoints = [
@@ -29,7 +27,9 @@ const trustPoints = [
     >
       <div class="max-w-3xl">
         <p class="mb-3 text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">MathsTutorHelp</p>
-        <h1 class="font-heading text-4xl font-bold leading-tight text-gray-950 dark:text-white sm:text-5xl lg:text-[3.35rem]">
+        <h1
+          class="font-heading text-4xl font-bold leading-tight text-gray-950 dark:text-white sm:text-5xl lg:text-[3.35rem]"
+        >
           Maths Tutor in Manchester for GCSE, IGCSE and A-Level
         </h1>
         <p class="mt-4 max-w-2xl text-lg font-semibold leading-relaxed text-primary dark:text-slate-100">
@@ -39,7 +39,7 @@ const trustPoints = [
         <div class="mt-6 flex flex-col gap-3 sm:flex-row">
           <Button
             variant="primary"
-            text="Register Your Interest"
+            text={ctaLabels.groupClassInterest}
             href={groupClassInterestUrl}
             icon="tabler:calendar-check"
             class="w-full sm:w-auto"
@@ -73,6 +73,13 @@ const trustPoints = [
         <div class="bg-brand-soft/70 px-4 pb-4 pt-4 dark:bg-slate-900">
           <p class="text-xl font-bold text-gray-950 dark:text-white">Mr Sheraz Cheema</p>
           <p class="mt-1 font-semibold text-secondary dark:text-teal-200">Qualified Maths Teacher</p>
+          <a
+            class="mt-3 inline-flex items-center gap-2 rounded-md border border-primary/20 bg-white px-3 py-2 text-sm font-bold text-primary hover:bg-primary hover:text-white dark:border-slate-700 dark:bg-slate-800 dark:text-teal-200"
+            href={contactDetails.phoneHref}
+          >
+            <Icon name="tabler:phone" class="h-4 w-4" />
+            Call {contactDetails.phoneDisplay}
+          </a>
 
           <ul class="mt-4 grid gap-2">
             {

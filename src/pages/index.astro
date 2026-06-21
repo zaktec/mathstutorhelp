@@ -9,6 +9,7 @@ import Testimonials from '~/components/widgets/Testimonials.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { getPermalink } from '~/utils/permalinks';
+import { bookingLinks, ctaLabels, tuitionPrices } from '~/utils/siteDetails';
 
 const metadata = {
   title: 'Maths Tuition in Manchester & Online',
@@ -17,8 +18,8 @@ const metadata = {
   ignoreTitleTemplate: true,
 };
 
-const consultationBookingUrl = 'https://calendar.app.google/VJ6tgEKfsUZAncDe9';
-const groupClassInterestUrl = 'https://hai-bl.com/onboarding/interest-form';
+const consultationBookingUrl = bookingLinks.freeConsultation;
+const groupClassInterestUrl = bookingLinks.groupClassInterest;
 const foundationClassUrl = getPermalink('/gcse-foundation-maths-tutoring-club-2025');
 const higherClassUrl = getPermalink('/gcse-revision-class-higher-manchester');
 const onlineTuitionUrl = getPermalink('/online-tuition');
@@ -28,8 +29,8 @@ const compactSection = { container: 'py-8 md:py-10 lg:py-12' };
 const priceOptions = [
   {
     label: 'One-to-one tuition',
-    price: '£30',
-    unit: '/hr',
+    price: tuitionPrices.oneToOne.amount,
+    unit: tuitionPrices.oneToOne.unit,
     description:
       'Personalised GCSE, IGCSE, A-Level or Functional Skills support. Best for targeted help and faster feedback.',
     action: 'Ask About 1:1 Tuition',
@@ -37,18 +38,18 @@ const priceOptions = [
   },
   {
     label: 'Small group classes',
-    price: '£20',
-    unit: 'per session',
+    price: tuitionPrices.smallGroup.amount,
+    unit: tuitionPrices.smallGroup.unit,
     description:
       'Structured Manchester-based group lessons for students who like learning with others and regular practice.',
-    action: 'Register Your Interest',
+    action: ctaLabels.groupClassInterest,
     href: groupClassInterestUrl,
     featured: true,
   },
   {
     label: 'Online lessons',
-    price: '£25',
-    unit: '/hr',
+    price: tuitionPrices.online.amount,
+    unit: tuitionPrices.online.unit,
     description:
       'Flexible online maths tuition with the same clear teaching, guided examples and exam question practice.',
     action: 'Ask About Online Lessons',
@@ -113,7 +114,7 @@ const priceOptions = [
         },
       },
       {
-        title: '£20 group sessions',
+        title: `${tuitionPrices.smallGroup.display} group sessions`,
         description: 'An affordable route for regular GCSE maths support, revision and exam-style practice.',
         icon: 'tabler:coin-pound',
       },
@@ -141,7 +142,7 @@ const priceOptions = [
           <p class="mt-2 text-sm text-muted dark:text-slate-300">
             Places are limited and allocated on a first-come, first-served basis.
           </p>
-          <a class="btn-primary mt-4 w-full sm:w-auto" href={groupClassInterestUrl}>Register Your Interest</a>
+          <a class="btn-primary mt-4 w-full sm:w-auto" href={groupClassInterestUrl}>{ctaLabels.groupClassInterest}</a>
         </div>
       </div>
     </Fragment>
@@ -165,8 +166,7 @@ const priceOptions = [
     items={[
       {
         title: 'GCSE Maths Support',
-        description:
-          'Foundation and Higher tier GCSE maths with exam-style practice. Supports Edexcel, AQA and OCR.',
+        description: 'Foundation and Higher tier GCSE maths with exam-style practice. Supports Edexcel, AQA and OCR.',
         icon: 'tabler:math-function',
       },
       {
@@ -224,7 +224,9 @@ const priceOptions = [
                 </p>
               </div>
               <p class="mt-5 min-h-20 text-sm leading-6 text-muted dark:text-slate-300">{option.description}</p>
-              <a class="btn-secondary mt-5 w-full justify-center" href={option.href}>{option.action}</a>
+              <a class="btn-secondary mt-5 w-full justify-center" href={option.href}>
+                {option.action}
+              </a>
             </article>
           ))
         }
@@ -302,7 +304,7 @@ const priceOptions = [
       },
       {
         title: 'How much are group classes?',
-        description: 'Group sessions are £20. Online tutoring is £25/hr and in-person one-to-one tutoring is £30/hr.',
+        description: `Group sessions are ${tuitionPrices.smallGroup.display}. Online tutoring is ${tuitionPrices.online.display} and in-person one-to-one tutoring is ${tuitionPrices.oneToOne.display}.`,
       },
     ]}
   />
@@ -312,11 +314,11 @@ const priceOptions = [
     actions={[
       {
         variant: 'primary',
-        text: 'Register Your Interest',
+        text: ctaLabels.groupClassInterest,
         href: groupClassInterestUrl,
         icon: 'tabler:calendar-check',
       },
-      { text: 'Book a Free Consultation', href: consultationBookingUrl },
+      { text: ctaLabels.freeConsultation, href: consultationBookingUrl },
     ]}
   >
     <Fragment slot="title">Ready to Find the Right Maths Support?</Fragment>

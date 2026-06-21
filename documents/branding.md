@@ -54,19 +54,19 @@ Avoid:
 
 ## Colour Palette
 
-| Purpose | Colour | Hex |
-| --- | --- | --- |
-| Primary brand | Navy | `#00387D` |
-| Secondary brand | Teal | `#0F766E` |
-| Main accent | Warm yellow | `#F7B200` |
-| Accent hover | Deeper yellow | `#D99800` |
-| Text heading | Ink | `#101828` |
-| Body text | Slate | `#1D2939` |
-| Muted text | Soft slate | `#475467` |
-| Light section background | Soft blue | `#EFF6FF` |
-| Page background | White | `#FFFFFF` |
-| Footer background | Ink navy | `#0B1F3A` |
-| Footer border | Soft navy | `#123B63` |
+| Purpose                  | Colour        | Hex       |
+| ------------------------ | ------------- | --------- |
+| Primary brand            | Navy          | `#00387D` |
+| Secondary brand          | Teal          | `#0F766E` |
+| Main accent              | Warm yellow   | `#F7B200` |
+| Accent hover             | Deeper yellow | `#D99800` |
+| Text heading             | Ink           | `#101828` |
+| Body text                | Slate         | `#1D2939` |
+| Muted text               | Soft slate    | `#475467` |
+| Light section background | Soft blue     | `#EFF6FF` |
+| Page background          | White         | `#FFFFFF` |
+| Footer background        | Ink navy      | `#0B1F3A` |
+| Footer border            | Soft navy     | `#123B63` |
 
 ## Colour Usage
 

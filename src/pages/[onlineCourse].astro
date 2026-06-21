@@ -10,6 +10,7 @@ import {
   packageIncludes,
   registerInterestUrl,
 } from '~/utils/onlineCourses';
+import { ctaLabels } from '~/utils/siteDetails';
 
 export function getStaticPaths() {
   return onlineCourseCards.map((course) => ({
@@ -46,7 +47,7 @@ const metadata = {
           )
         }
         <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-          <a class="btn-primary justify-center" href={registerInterestUrl}>Register Interest</a>
+          <a class="btn-primary justify-center" href={registerInterestUrl}>{ctaLabels.onlineTuitionInterest}</a>
           <a class="btn-secondary justify-center" href={onlineTuitionUrl}>Back to Online Tuition</a>
         </div>
       </div>
@@ -107,7 +108,9 @@ const metadata = {
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
       <div class="mx-auto max-w-3xl text-center">
         <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Packages</p>
-        <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-950 dark:text-white">One-to-One Package Information</h2>
+        <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-950 dark:text-white">
+          One-to-One Package Information
+        </h2>
       </div>
       <div class="mt-8 grid gap-5 md:grid-cols-3">
         {
@@ -153,7 +156,7 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Register Interest',
+        text: ctaLabels.onlineTuitionInterest,
         href: registerInterestUrl,
         icon: 'tabler:calendar-check',
       },

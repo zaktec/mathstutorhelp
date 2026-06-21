@@ -5,8 +5,7 @@ export const blogPosts = [
     date: '2024-06-06',
     image: '/images/blog/5-expert-tips-for-maths-revision.jpg',
     imageAlt: 'Maths revision advice banner for GCSE students',
-    excerpt:
-      'Simple, practical revision advice for students preparing for GCSE Maths exams, mocks or topic tests.',
+    excerpt: 'Simple, practical revision advice for students preparing for GCSE Maths exams, mocks or topic tests.',
     category: 'MTH Blog',
     content: [
       {
@@ -52,8 +51,7 @@ export const blogPosts = [
     date: '2024-06-06',
     image: '/images/blog/finding-a-maths-tutor-in-manchester.jpg',
     imageAlt: 'Finding a maths tutor in Manchester banner',
-    excerpt:
-      'What parents should look for when choosing maths tuition in Manchester, online or in person.',
+    excerpt: 'What parents should look for when choosing maths tuition in Manchester, online or in person.',
     category: 'MTH Blog',
     content: [
       {
@@ -131,8 +129,7 @@ export const blogPosts = [
     date: '2019-08-12',
     image: '/images/blog/the-benefits-of-online-maths-tutoring.jpg',
     imageAlt: 'Online maths tutoring benefits banner',
-    excerpt:
-      'Why online maths tuition can work well for students who need flexible, structured and focused support.',
+    excerpt: 'Why online maths tuition can work well for students who need flexible, structured and focused support.',
     category: 'MTH Blog',
     content: [
       {
@@ -169,8 +166,7 @@ export const blogPosts = [
     date: '2019-08-12',
     image: '/images/blog/5-ways-to-improve-your-gcse-maths-grade.jpg',
     imageAlt: 'Five ways to improve your GCSE Maths grade banner',
-    excerpt:
-      'Five practical ways GCSE students can improve confidence, accuracy and exam performance in maths.',
+    excerpt: 'Five practical ways GCSE students can improve confidence, accuracy and exam performance in maths.',
     category: 'MTH Blog',
     content: [
       {

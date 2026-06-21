@@ -3,6 +3,7 @@ import Layout from '~/layouts/PageLayout.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { getPermalink } from '~/utils/permalinks';
 import { registerInterestUrl } from '~/utils/onlineCourses';
+import { ctaLabels } from '~/utils/siteDetails';
 
 const metadata = {
   title: 'Online Group Classes',
@@ -46,7 +47,7 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Register Interest',
+        text: ctaLabels.groupClassInterest,
         href: registerInterestUrl,
         icon: 'tabler:calendar-check',
       },

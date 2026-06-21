@@ -4,6 +4,8 @@ import Hero from '~/components/widgets/Hero.astro';
 import Features from '~/components/widgets/Features.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import { getPermalink } from '~/utils/permalinks';
+import { bookingLinks, ctaLabels, tuitionPrices } from '~/utils/siteDetails';
 
 const metadata = {
   title: 'Maths Tuition Prices',
@@ -11,7 +13,10 @@ const metadata = {
     'Clear Maths Tutor Help pricing for online maths tuition, in-person tuition and group classes in Manchester.',
 };
 
-const consultationBookingUrl = 'https://calendar.app.google/VJ6tgEKfsUZAncDe9';
+const consultationBookingUrl = bookingLinks.freeConsultation;
+const contactUrl = getPermalink('/contact');
+const higherClassUrl = getPermalink('/gcse-revision-class-higher-manchester');
+const mathsTuitionUrl = getPermalink('/maths-tuition');
 ---
 
 <Layout metadata={metadata}>
@@ -22,11 +27,11 @@ const consultationBookingUrl = 'https://calendar.app.google/VJ6tgEKfsUZAncDe9';
     actions={[
       {
         variant: 'primary',
-        text: 'Book a Free Consultation',
+        text: ctaLabels.freeConsultation,
         href: consultationBookingUrl,
         icon: 'tabler:calendar-check',
       },
-      { text: 'View Group Classes', href: '/gcse-revision-class-higher-manchester/' },
+      { text: 'View Group Classes', href: higherClassUrl },
     ]}
     image={{
       src: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1800&q=80',
@@ -41,24 +46,21 @@ const consultationBookingUrl = 'https://calendar.app.google/VJ6tgEKfsUZAncDe9';
     items={[
       {
         title: 'Online Tutoring',
-        description:
-          '<strong class="text-3xl text-gray-900 dark:text-white">£25/hr</strong><br />Flexible online maths tuition for GCSE, IGCSE, Functional Skills and A-Level students.',
+        description: `<strong class="text-3xl text-gray-900 dark:text-white">${tuitionPrices.online.display}</strong><br />Flexible online maths tuition for GCSE, IGCSE, Functional Skills and A-Level students.`,
         icon: 'tabler:device-laptop',
-        callToAction: { text: 'Ask about online tuition', href: '/contact/' },
+        callToAction: { text: 'Ask about online tuition', href: contactUrl },
       },
       {
         title: 'In-Person Tutoring',
-        description:
-          '<strong class="text-3xl text-gray-900 dark:text-white">£30/hr</strong><br />Manchester-based in-person support with clear explanations and personalised practice.',
+        description: `<strong class="text-3xl text-gray-900 dark:text-white">${tuitionPrices.oneToOne.display}</strong><br />Manchester-based in-person support with clear explanations and personalised practice.`,
         icon: 'tabler:user-check',
-        callToAction: { text: 'Ask about in-person tuition', href: '/contact/' },
+        callToAction: { text: 'Ask about in-person tuition', href: contactUrl },
       },
       {
         title: 'Group Session',
-        description:
-          '<strong class="text-3xl text-gray-900 dark:text-white">£20</strong><br />Small group GCSE Maths classes in Levenshulme, Manchester. Limited places available.',
+        description: `<strong class="text-3xl text-gray-900 dark:text-white">${tuitionPrices.smallGroup.display}</strong><br />Small group GCSE Maths classes in Levenshulme, Manchester. Limited places available.`,
         icon: 'tabler:users-group',
-        callToAction: { text: 'View group classes', href: '/gcse-revision-class-higher-manchester/' },
+        callToAction: { text: 'View group classes', href: higherClassUrl },
       },
     ]}
   />
@@ -116,9 +118,8 @@ const consultationBookingUrl = 'https://calendar.app.google/VJ6tgEKfsUZAncDe9';
           'Yes. You can book a free consultation to discuss the student level, goals and best lesson option.',
       },
       {
-        title: 'Do group classes cost £20 per session?',
-        description:
-          'Yes. Group sessions are listed at £20, with some group class pages offering early booking or block booking options.',
+        title: `Do group classes cost ${tuitionPrices.smallGroup.display}?`,
+        description: `Yes. Group sessions are listed at ${tuitionPrices.smallGroup.display}, with some group class pages offering early booking or block booking options.`,
       },
       {
         title: 'Can we switch between online and in-person tuition?',
@@ -137,11 +138,11 @@ const consultationBookingUrl = 'https://calendar.app.google/VJ6tgEKfsUZAncDe9';
     actions={[
       {
         variant: 'primary',
-        text: 'Book a Free Consultation',
+        text: ctaLabels.freeConsultation,
         href: consultationBookingUrl,
         icon: 'tabler:calendar-check',
       },
-      { text: 'View Tuition Services', href: '/maths-tuition/' },
+      { text: 'View Tuition Services', href: mathsTuitionUrl },
     ]}
   />
 </Layout>

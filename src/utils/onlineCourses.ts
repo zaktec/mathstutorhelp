@@ -1,4 +1,6 @@
-export const registerInterestUrl = 'https://hai-bl.com/onboarding/interest-form';
+import { bookingLinks } from './siteDetails';
+
+export const registerInterestUrl = bookingLinks.groupClassInterest;
 
 export const onlinePackages = [
   {
@@ -47,7 +49,12 @@ export const onlineCourseCards = [
       'Support for Year 6 students preparing for secondary school, with a focus on confidence, number skills and problem solving.',
     intro:
       'Online Challenge Maths Club support for Year 6 students preparing for secondary school. Lessons focus on confidence, number skills, problem solving and clear written methods.',
-    bullets: ['Fractions, decimals and percentages', 'Times tables and mental maths', 'Word problems', 'Shape and measure'],
+    bullets: [
+      'Fractions, decimals and percentages',
+      'Times tables and mental maths',
+      'Word problems',
+      'Shape and measure',
+    ],
     buttonText: 'View Challenge Maths Club',
     whoFor: [
       'Year 6 students preparing for secondary school',
@@ -67,7 +74,8 @@ export const onlineCourseCards = [
     faqs: [
       {
         title: 'Is this suitable before Year 7?',
-        description: 'Yes. This course helps Year 6 students strengthen key maths skills before starting secondary school.',
+        description:
+          'Yes. This course helps Year 6 students strengthen key maths skills before starting secondary school.',
       },
       {
         title: 'Do students need to be confident already?',
@@ -83,9 +91,17 @@ export const onlineCourseCards = [
     slug: 'ks3-maths',
     title: 'KS3 Maths',
     pageTitle: 'KS3 Maths Online Tuition',
-    description: 'Structured support for students in Years 7, 8 and 9 who need to build strong foundations before GCSE.',
-    intro: 'Structured online maths support for students in Years 7, 8 and 9 who need to build strong foundations before GCSE.',
-    bullets: ['Number skills', 'Algebra basics', 'Fractions, decimals and percentages', 'Geometry and angles', 'Graphs and data'],
+    description:
+      'Structured support for students in Years 7, 8 and 9 who need to build strong foundations before GCSE.',
+    intro:
+      'Structured online maths support for students in Years 7, 8 and 9 who need to build strong foundations before GCSE.',
+    bullets: [
+      'Number skills',
+      'Algebra basics',
+      'Fractions, decimals and percentages',
+      'Geometry and angles',
+      'Graphs and data',
+    ],
     buttonText: 'View KS3 Maths',
     whoFor: [
       'Year 7, Year 8 and Year 9 students',
@@ -125,7 +141,13 @@ export const onlineCourseCards = [
       'Online support for students aiming to secure grades 4-5, with clear methods, confidence building and regular exam-style practice.',
     intro:
       'Online GCSE Foundation maths support for students aiming to secure grades 4-5 through clear methods, regular practice and exam-style questions.',
-    bullets: ['Number and algebra', 'Ratio and proportion', 'Geometry and statistics', 'Exam technique', 'Edexcel, AQA and OCR support'],
+    bullets: [
+      'Number and algebra',
+      'Ratio and proportion',
+      'Geometry and statistics',
+      'Exam technique',
+      'Edexcel, AQA and OCR support',
+    ],
     buttonText: 'View GCSE Foundation',
     whoFor: [
       'GCSE students aiming for grade 4 or 5',
@@ -162,9 +184,17 @@ export const onlineCourseCards = [
     slug: 'gcse-higher-maths',
     title: 'GCSE Higher Maths',
     pageTitle: 'GCSE Higher Maths Online Tuition',
-    description: 'Focused online support for students aiming for grades 6-9, including higher-level topics and problem-solving practice.',
-    intro: 'Focused online GCSE Higher maths support for students aiming for grades 6-9, including higher-level topics and problem-solving practice.',
-    bullets: ['Quadratics and algebra', 'Trigonometry', 'Circle theorems', 'Vectors and functions', 'Edexcel, AQA and OCR support'],
+    description:
+      'Focused online support for students aiming for grades 6-9, including higher-level topics and problem-solving practice.',
+    intro:
+      'Focused online GCSE Higher maths support for students aiming for grades 6-9, including higher-level topics and problem-solving practice.',
+    bullets: [
+      'Quadratics and algebra',
+      'Trigonometry',
+      'Circle theorems',
+      'Vectors and functions',
+      'Edexcel, AQA and OCR support',
+    ],
     buttonText: 'View GCSE Higher',
     whoFor: [
       'GCSE Higher students aiming for grades 6-9',
@@ -202,9 +232,17 @@ export const onlineCourseCards = [
     slug: 'igcse-maths',
     title: 'IGCSE Maths',
     pageTitle: 'IGCSE Maths Online Tuition',
-    description: 'Structured online support for IGCSE students, with topic revision, worked examples and exam-style question practice.',
-    intro: 'Structured online IGCSE maths support with clear explanations, topic revision and exam-style question practice.',
-    bullets: ['Algebra and graphs', 'Geometry and trigonometry', 'Statistics and probability', 'Exam technique', 'Pearson Edexcel and Cambridge support'],
+    description:
+      'Structured online support for IGCSE students, with topic revision, worked examples and exam-style question practice.',
+    intro:
+      'Structured online IGCSE maths support with clear explanations, topic revision and exam-style question practice.',
+    bullets: [
+      'Algebra and graphs',
+      'Geometry and trigonometry',
+      'Statistics and probability',
+      'Exam technique',
+      'Pearson Edexcel and Cambridge support',
+    ],
     buttonText: 'View IGCSE Maths',
     whoFor: [
       'IGCSE students studying at school or independently',
@@ -241,9 +279,17 @@ export const onlineCourseCards = [
     slug: 'functional-skills-maths',
     title: 'Functional Skills Maths',
     pageTitle: 'Functional Skills Maths Online Tuition',
-    description: 'Practical maths support for learners who need confidence with everyday maths and Functional Skills assessments.',
-    intro: 'Practical online maths support for learners who need confidence with everyday maths and Functional Skills assessments.',
-    bullets: ['Money and percentages', 'Fractions and decimals', 'Measures and ratio', 'Charts and tables', 'Real-life problem solving'],
+    description:
+      'Practical maths support for learners who need confidence with everyday maths and Functional Skills assessments.',
+    intro:
+      'Practical online maths support for learners who need confidence with everyday maths and Functional Skills assessments.',
+    bullets: [
+      'Money and percentages',
+      'Fractions and decimals',
+      'Measures and ratio',
+      'Charts and tables',
+      'Real-life problem solving',
+    ],
     buttonText: 'View Functional Skills',
     whoFor: [
       'Functional Skills Level 1 or Level 2 learners',
@@ -280,8 +326,10 @@ export const onlineCourseCards = [
     slug: 'a-level-maths',
     title: 'A-Level Maths',
     pageTitle: 'A-Level Maths Online Tuition',
-    description: 'Focused support for A-Level students who need help with pure maths, statistics, mechanics and exam technique.',
-    intro: 'Focused online A-Level maths support for students who need help with pure maths, statistics, mechanics and exam technique.',
+    description:
+      'Focused support for A-Level students who need help with pure maths, statistics, mechanics and exam technique.',
+    intro:
+      'Focused online A-Level maths support for students who need help with pure maths, statistics, mechanics and exam technique.',
     bullets: ['Pure maths', 'Differentiation and integration', 'Statistics', 'Mechanics', 'Exam-style practice'],
     buttonText: 'View A-Level Maths',
     whoFor: [
@@ -321,8 +369,15 @@ export const onlineCourseCards = [
     pageTitle: 'Coding and Problem Solving Online Lessons',
     description:
       'Beginner-friendly coding lessons that help students develop logical thinking, problem-solving skills and confidence with programming.',
-    intro: 'Beginner-friendly coding lessons that help students develop logical thinking, programming confidence and problem-solving skills.',
-    bullets: ['Python basics', 'If statements and loops', 'Functions', 'Simple projects', 'Debugging and computational thinking'],
+    intro:
+      'Beginner-friendly coding lessons that help students develop logical thinking, programming confidence and problem-solving skills.',
+    bullets: [
+      'Python basics',
+      'If statements and loops',
+      'Functions',
+      'Simple projects',
+      'Debugging and computational thinking',
+    ],
     note: 'Separate from maths tuition, but useful for students who enjoy logic, puzzles and problem solving.',
     buttonText: 'View Coding and Problem Solving',
     whoFor: [
@@ -364,7 +419,13 @@ export const onlineCourseCards = [
       'Next-step coding lessons for students who know the basics and are ready to build more confidence with Python projects.',
     intro:
       'Part 2 coding lessons help students move beyond the basics with more structured Python practice, simple projects and stronger problem-solving habits.',
-    bullets: ['Lists and strings', 'Nested if statements', 'Loops with data', 'Functions and mini projects', 'Debugging practice'],
+    bullets: [
+      'Lists and strings',
+      'Nested if statements',
+      'Loops with data',
+      'Functions and mini projects',
+      'Debugging practice',
+    ],
     note: 'This is suitable for students who have completed beginner coding or already understand simple Python basics.',
     buttonText: 'View Coding Part 2',
     whoFor: [
@@ -394,7 +455,8 @@ export const onlineCourseCards = [
       },
       {
         title: 'Will students build projects?',
-        description: 'Yes. Lessons can include small Python projects that practise logic, debugging and problem solving.',
+        description:
+          'Yes. Lessons can include small Python projects that practise logic, debugging and problem solving.',
       },
     ],
   },

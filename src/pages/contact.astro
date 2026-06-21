@@ -3,6 +3,7 @@ import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
 import Features from '~/components/widgets/Features.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import { bookingLinks, contactDetails } from '~/utils/siteDetails';
 
 const metadata = {
   title: 'Contact Maths Tutor Help',
@@ -10,7 +11,7 @@ const metadata = {
     'Contact Maths Tutor Help by phone, WhatsApp or online form for GCSE, IGCSE, Functional Skills, A-Level and group maths tuition in Manchester.',
 };
 
-const haiBlInterestFormUrl = 'https://hai-bl.com/onboarding/interest-form';
+const haiBlInterestFormUrl = bookingLinks.groupClassInterest;
 ---
 
 <Layout metadata={metadata}>
@@ -20,13 +21,13 @@ const haiBlInterestFormUrl = 'https://hai-bl.com/onboarding/interest-form';
     subtitle="Get in touch to ask about one-to-one maths tuition, online lessons or GCSE group classes. Please include the student's year group, current level and preferred lesson format."
     callToAction={{
       variant: 'primary',
-      text: 'Call 07860 248 525',
-      href: 'tel:+447860248525',
+      text: `Call ${contactDetails.phoneDisplay}`,
+      href: contactDetails.phoneHref,
       icon: 'tabler:phone',
     }}
     callToAction2={{
       text: 'Send a WhatsApp',
-      href: 'https://wa.me/447860248525',
+      href: contactDetails.whatsappHref,
       icon: 'tabler:brand-whatsapp',
     }}
   />
@@ -38,11 +39,11 @@ const haiBlInterestFormUrl = 'https://hai-bl.com/onboarding/interest-form';
     items={[
       {
         title: 'Phone',
-        description: '07860 248 525<br />Call to ask about availability, tuition options or GCSE group classes.',
+        description: `${contactDetails.phoneDisplay}<br />Call to ask about availability, tuition options or GCSE group classes.`,
         icon: 'tabler:phone',
         callToAction: {
           text: 'Call now',
-          href: 'tel:+447860248525',
+          href: contactDetails.phoneHref,
         },
       },
       {
@@ -51,7 +52,7 @@ const haiBlInterestFormUrl = 'https://hai-bl.com/onboarding/interest-form';
         icon: 'tabler:brand-whatsapp',
         callToAction: {
           text: 'Message on WhatsApp',
-          href: 'https://wa.me/447860248525',
+          href: contactDetails.whatsappHref,
         },
       },
       {
@@ -83,14 +84,14 @@ const haiBlInterestFormUrl = 'https://hai-bl.com/onboarding/interest-form';
         </p>
       </div>
 
-      <div class="mx-auto mt-8 max-w-2xl rounded-lg border border-gray-200 bg-brand-soft p-6 text-center shadow-sm dark:border-gray-700 dark:bg-slate-800">
+      <div
+        class="mx-auto mt-8 max-w-2xl rounded-lg border border-gray-200 bg-brand-soft p-6 text-center shadow-sm dark:border-gray-700 dark:bg-slate-800"
+      >
         <h3 class="text-2xl font-bold text-gray-950 dark:text-white">Open the Secure Enquiry Form</h3>
         <p class="mt-3 text-base leading-7 text-muted dark:text-slate-300">
           Hai-BL opens in its own secure page, so your browser may block it from appearing inside this website.
         </p>
-        <a class="btn-primary mt-5" href={haiBlInterestFormUrl}>
-          Open Hai-BL Form
-        </a>
+        <a class="btn-primary mt-5" href={haiBlInterestFormUrl}> Open Hai-BL Form </a>
       </div>
     </div>
   </section>
@@ -161,13 +162,13 @@ const haiBlInterestFormUrl = 'https://hai-bl.com/onboarding/interest-form';
     actions={[
       {
         variant: 'primary',
-        text: 'Call 07860 248 525',
-        href: 'tel:+447860248525',
+        text: `Call ${contactDetails.phoneDisplay}`,
+        href: contactDetails.phoneHref,
         icon: 'tabler:phone',
       },
       {
         text: 'WhatsApp MathsTutorHelp',
-        href: 'https://wa.me/447860248525',
+        href: contactDetails.whatsappHref,
         icon: 'tabler:brand-whatsapp',
       },
     ]}

@@ -5,6 +5,7 @@ import Features from '~/components/widgets/Features.astro';
 import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { getAsset, getPermalink } from '~/utils/permalinks';
+import { bookingLinks, ctaLabels } from '~/utils/siteDetails';
 
 const metadata = {
   title: 'About Mr Sheraz | MathsTutorHelp Manchester',
@@ -12,7 +13,7 @@ const metadata = {
     'Learn about Mr Sheraz, a qualified and DBS-checked maths teacher providing GCSE, IGCSE, Functional Skills and A-Level tuition in Manchester and online.',
 };
 
-const consultationBookingUrl = 'https://calendar.app.google/VJ6tgEKfsUZAncDe9';
+const consultationBookingUrl = bookingLinks.freeConsultation;
 const tuitionUrl = getPermalink('/maths-tuition');
 const groupClassesUrl = getPermalink('/gcse-revision-class-higher-manchester');
 const tutorImageUrl = getAsset('/images/maths-tutor-sheraz-cheema.jpeg');
@@ -26,7 +27,7 @@ const tutorImageUrl = getAsset('/images/maths-tutor-sheraz-cheema.jpeg');
     actions={[
       {
         variant: 'primary',
-        text: 'Book a Free Consultation',
+        text: ctaLabels.freeConsultation,
         href: consultationBookingUrl,
         icon: 'tabler:calendar-check',
       },
@@ -201,7 +202,7 @@ const tutorImageUrl = getAsset('/images/maths-tutor-sheraz-cheema.jpeg');
     actions={[
       {
         variant: 'primary',
-        text: 'Book a Free Consultation',
+        text: ctaLabels.freeConsultation,
         href: consultationBookingUrl,
         icon: 'tabler:calendar-check',
       },

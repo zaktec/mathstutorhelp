@@ -6,6 +6,7 @@ import Content from '~/components/widgets/Content.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { getPermalink } from '~/utils/permalinks';
+import { bookingLinks, contactDetails, ctaLabels, tuitionPrices } from '~/utils/siteDetails';
 
 const metadata = {
   title: 'GCSE Higher Maths Classes Manchester | Grades 6-9',
@@ -13,12 +14,12 @@ const metadata = {
     'Structured weekly GCSE Higher Maths sessions in Manchester for Year 10 and 11 students aiming for grades 6-9.',
 };
 
-const interestFormUrl = 'https://hai-bl.com/onboarding/interest-form';
+const interestFormUrl = bookingLinks.groupClassInterest;
 const contactUrl = getPermalink('/contact');
 const foundationClassUrl = getPermalink('/gcse-foundation-maths-tutoring-club-2025');
 const onlineTuitionUrl = getPermalink('/online-tuition');
 const sowUrl = 'https://mathstutorhelp.com/sow-gcse-higher-2026-27.pdf';
-const phoneDisplay = '07860 248 525';
+const phoneDisplay = contactDetails.phoneDisplay;
 ---
 
 <Layout metadata={metadata}>
@@ -29,7 +30,7 @@ const phoneDisplay = '07860 248 525';
     actions={[
       {
         variant: 'primary',
-        text: 'Book Now',
+        text: ctaLabels.groupClassInterest,
         href: interestFormUrl,
         target: '_blank',
         icon: 'tabler:calendar-check',
@@ -69,7 +70,7 @@ const phoneDisplay = '07860 248 525';
       },
       {
         title: 'Flexible pricing',
-        description: '£20 per session pay-as-you-go, or £16 per lesson with advance block booking.',
+        description: `${tuitionPrices.smallGroup.display} pay-as-you-go, or £16 per lesson with advance block booking.`,
         icon: 'tabler:coin-pound',
       },
       {
@@ -102,7 +103,8 @@ const phoneDisplay = '07860 248 525';
       },
       {
         title: 'Homework and materials',
-        description: 'Students can bring schoolwork, use tutor-provided materials or access bonus tasks and past papers.',
+        description:
+          'Students can bring schoolwork, use tutor-provided materials or access bonus tasks and past papers.',
       },
     ]}
     image={{
@@ -125,8 +127,7 @@ const phoneDisplay = '07860 248 525';
     items={[
       {
         title: 'Full Scheme of Work',
-        description:
-          `Download the full course plan: <a class="underline" href="${sowUrl}">SOW GCSE Higher 2026-27</a>.`,
+        description: `Download the full course plan: <a class="underline" href="${sowUrl}">SOW GCSE Higher 2026-27</a>.`,
         icon: 'tabler:file-download',
       },
       {
@@ -213,7 +214,8 @@ const phoneDisplay = '07860 248 525';
       },
       {
         title: 'Can my child join mid-way through the term?',
-        description: 'Yes. Students can join mid-way if a place is available. The first session includes a diagnostic check.',
+        description:
+          'Yes. Students can join mid-way if a place is available. The first session includes a diagnostic check.',
       },
       {
         title: 'What exam boards do you cover?',
@@ -237,7 +239,8 @@ const phoneDisplay = '07860 248 525';
       },
       {
         title: 'Who teaches the class?',
-        description: 'The class is taught by Mr Sheraz, a qualified and DBS-checked maths teacher with 15+ years of teaching experience.',
+        description:
+          'The class is taught by Mr Sheraz, a qualified and DBS-checked maths teacher with 15+ years of teaching experience.',
       },
       {
         title: 'Is there an online option?',
@@ -252,7 +255,7 @@ const phoneDisplay = '07860 248 525';
     actions={[
       {
         variant: 'primary',
-        text: 'Book Now',
+        text: ctaLabels.groupClassInterest,
         href: interestFormUrl,
         target: '_blank',
         icon: 'tabler:calendar-check',

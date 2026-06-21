@@ -1,4 +1,5 @@
 import { getPermalink } from './utils/permalinks';
+import { bookingLinks, contactDetails, ctaLabels } from './utils/siteDetails';
 
 export const headerData = {
   links: [
@@ -23,12 +24,11 @@ export const headerData = {
       href: getPermalink('/contact'),
     },
   ],
-  actions: [{ text: 'Login', href: 'https://hai-bl.com/auth/login' }],
+  actions: [{ text: 'Student Login', href: bookingLinks.studentLogin }],
 };
 
 export const footerData = {
-  description:
-    'Manchester-based maths tuition for GCSE, IGCSE, Functional Skills and A-Level students.<br /><br />Qualified Teacher | DBS Checked | 15+ Years’ Experience<br />WhatsApp: <a class="text-accent underline" href="https://wa.me/447860248525">07860 248525</a>',
+  description: `Manchester-based maths tuition for GCSE, IGCSE, Functional Skills and A-Level students.<br /><br />Qualified Teacher | DBS Checked | 15+ Years’ Experience<br />WhatsApp: <a class="text-accent underline" href="${contactDetails.whatsappHref}">${contactDetails.phoneCompact}</a>`,
   links: [
     {
       title: 'Tuition',
@@ -52,8 +52,8 @@ export const footerData = {
     {
       title: 'Booking',
       links: [
-        { text: 'Book a Free Consultation', href: 'https://calendar.app.google/VJ6tgEKfsUZAncDe9' },
-        { text: 'Register Your Interest', href: 'https://hai-bl.com/onboarding/interest-form' },
+        { text: ctaLabels.freeConsultation, href: bookingLinks.freeConsultation },
+        { text: ctaLabels.groupClassInterest, href: bookingLinks.groupClassInterest },
         { text: 'Contact', href: getPermalink('/contact') },
       ],
     },

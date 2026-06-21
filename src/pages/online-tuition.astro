@@ -5,6 +5,7 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { getPermalink } from '~/utils/permalinks';
 import { onlineCourseCards, onlinePackages, overviewPackageIncludes, registerInterestUrl } from '~/utils/onlineCourses';
+import { ctaLabels } from '~/utils/siteDetails';
 
 const metadata = {
   title: 'Online Maths Tuition',
@@ -22,7 +23,12 @@ const groupClassesUrl = getPermalink('/online-group-classes');
     title="Online Maths Tuition Packages"
     subtitle="Flexible one-to-one online maths tuition for students who need clear teaching, regular practice and calm support from home."
     actions={[
-      { variant: 'primary', text: 'Register Interest', href: registerInterestUrl, icon: 'tabler:calendar-check' },
+      {
+        variant: 'primary',
+        text: ctaLabels.onlineTuitionInterest,
+        href: registerInterestUrl,
+        icon: 'tabler:calendar-check',
+      },
       { text: 'Contact Us', href: contactUrl },
     ]}
     image={{
@@ -40,8 +46,8 @@ const groupClassesUrl = getPermalink('/online-group-classes');
         </h2>
         <p class="mt-4 text-lg leading-8 text-muted dark:text-slate-300">
           Online support is available for students at different stages, from Year 6 preparation to GCSE, IGCSE,
-          Functional Skills, A-Level and beginner coding. Choose a course below to view more details, topics covered
-          and enrolment options.
+          Functional Skills, A-Level and beginner coding. Choose a course below to view more details, topics covered and
+          enrolment options.
         </p>
       </div>
 
@@ -68,7 +74,6 @@ const groupClassesUrl = getPermalink('/online-group-classes');
           ))
         }
       </div>
-
     </div>
   </section>
 
@@ -163,7 +168,8 @@ const groupClassesUrl = getPermalink('/online-group-classes');
       },
       {
         title: 'Does online tuition include exam practice?',
-        description: 'Yes. GCSE, IGCSE and A-Level lessons can include topic revision, past papers and exam-style questions.',
+        description:
+          'Yes. GCSE, IGCSE and A-Level lessons can include topic revision, past papers and exam-style questions.',
       },
       {
         title: 'What does the student need?',
@@ -178,7 +184,7 @@ const groupClassesUrl = getPermalink('/online-group-classes');
     actions={[
       {
         variant: 'primary',
-        text: 'Register Interest',
+        text: ctaLabels.onlineTuitionInterest,
         href: registerInterestUrl,
         icon: 'tabler:calendar-check',
       },

@@ -5,6 +5,7 @@ import Features from '~/components/widgets/Features.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { getPermalink } from '~/utils/permalinks';
+import { tuitionPrices } from '~/utils/siteDetails';
 
 const metadata = {
   title: 'Maths Level - KS1, KS2, KS3, GCSE, IGCSE, A-Level & Functional Skills',
@@ -24,7 +25,8 @@ const mathsLevels = [
   },
   {
     title: 'Lower Key Stage 2',
-    description: 'Primary school support for Years 3 and 4, strengthening core methods, confidence and problem solving.',
+    description:
+      'Primary school support for Years 3 and 4, strengthening core methods, confidence and problem solving.',
     icon: 'tabler:pencil',
   },
   {
@@ -44,7 +46,8 @@ const mathsLevels = [
   },
   {
     title: 'GCSE Maths',
-    description: 'Secondary school GCSE support for Years 10 and 11 across exam boards, including Foundation and Higher.',
+    description:
+      'Secondary school GCSE support for Years 10 and 11 across exam boards, including Foundation and Higher.',
     icon: 'tabler:certificate',
   },
   {
@@ -72,17 +75,17 @@ const mathsLevels = [
 const priceOptions = [
   {
     title: 'Online Tutoring',
-    price: '£25',
+    price: tuitionPrices.online.display,
     detail: 'Live online maths tuition for focused support from home.',
   },
   {
     title: 'Offline Tutoring',
-    price: '£30',
+    price: tuitionPrices.oneToOne.display,
     detail: 'Face-to-face maths tuition for students who prefer in-person learning.',
   },
   {
     title: 'Group Session',
-    price: '£15',
+    price: tuitionPrices.smallGroup.display,
     detail: 'Small group maths support for learners who benefit from shared practice.',
   },
 ];
@@ -149,9 +152,7 @@ const priceOptions = [
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
       <div class="mx-auto max-w-3xl text-center">
         <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Prices</p>
-        <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-950 dark:text-white md:text-4xl">
-          Our Prices
-        </h2>
+        <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-950 dark:text-white md:text-4xl">Our Prices</h2>
         <p class="mt-4 text-lg leading-8 text-muted dark:text-slate-300">
           A simple guide to the tuition options listed on the original Maths Level page.
         </p>

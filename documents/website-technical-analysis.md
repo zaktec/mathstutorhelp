@@ -8,43 +8,43 @@ The site was originally based on AstroWind. The active source has now been custo
 
 ## 2. Technology
 
-| Technology | Purpose |
-| --- | --- |
-| Astro 6 | Static site framework, routing, page rendering and build output. |
-| Tailwind CSS v4 | Main styling system and responsive utilities. |
-| TypeScript | Used in config, navigation and shared course data. |
-| AstroWind | Base layout/component foundation. |
-| astro-icon | Tabler icon rendering. |
-| @astrojs/sitemap | Sitemap generation. |
-| astro-compress | HTML/CSS compression in production builds. |
-| unpic / sharp | Image handling in the shared image component. |
+| Technology       | Purpose                                                          |
+| ---------------- | ---------------------------------------------------------------- |
+| Astro 6          | Static site framework, routing, page rendering and build output. |
+| Tailwind CSS v4  | Main styling system and responsive utilities.                    |
+| TypeScript       | Used in config, navigation and shared course data.               |
+| AstroWind        | Base layout/component foundation.                                |
+| astro-icon       | Tabler icon rendering.                                           |
+| @astrojs/sitemap | Sitemap generation.                                              |
+| astro-compress   | HTML/CSS compression in production builds.                       |
+| unpic / sharp    | Image handling in the shared image component.                    |
 
 Main commands:
 
-| Command | Purpose |
-| --- | --- |
-| `npm run dev` | Start the local dev server. |
-| `npm run build` | Build the static site into `dist/`. |
-| `npm run preview` | Preview the production build. |
-| `npm run check` | Run Astro, ESLint and Prettier checks. |
-| `npm run fix` | Apply automatic lint/format fixes. |
+| Command           | Purpose                                |
+| ----------------- | -------------------------------------- |
+| `npm run dev`     | Start the local dev server.            |
+| `npm run build`   | Build the static site into `dist/`.    |
+| `npm run preview` | Preview the production build.          |
+| `npm run check`   | Run Astro, ESLint and Prettier checks. |
+| `npm run fix`     | Apply automatic lint/format fixes.     |
 
 Node requirement: `>=22.12.0`.
 
 ## 3. Current Folder Structure
 
-| Folder | Purpose |
-| --- | --- |
-| `src/pages/` | Public route files and dynamic route templates. |
-| `src/components/` | Reusable UI, common and widget components. |
-| `src/layouts/` | Shared page wrappers. |
-| `src/utils/` | Permalink helpers, frontmatter helpers and shared course data. |
-| `src/assets/` | Source images, favicons and global styles. |
-| `public/` | Static files copied directly to build output. |
-| `documents/` | Project documentation. |
-| `archive/` | Reference-only notes/files that should not become public routes. |
-| `vendor/` | AstroWind integration support. |
-| `dist/` | Generated production output. |
+| Folder            | Purpose                                                          |
+| ----------------- | ---------------------------------------------------------------- |
+| `src/pages/`      | Public route files and dynamic route templates.                  |
+| `src/components/` | Reusable UI, common and widget components.                       |
+| `src/layouts/`    | Shared page wrappers.                                            |
+| `src/utils/`      | Permalink helpers, frontmatter helpers and shared course data.   |
+| `src/assets/`     | Source images, favicons and global styles.                       |
+| `public/`         | Static files copied directly to build output.                    |
+| `documents/`      | Project documentation.                                           |
+| `archive/`        | Reference-only notes/files that should not become public routes. |
+| `vendor/`         | AstroWind integration support.                                   |
+| `dist/`           | Generated production output.                                     |
 
 The old `src/data/post`, `src/components/blog`, `src/pages/homes`, `src/pages/landing`, `src/pages/[...blog]` and `src/pages/services.astro` template areas have been removed from the active source.
 
@@ -52,26 +52,26 @@ The old `src/data/post`, `src/components/blog`, `src/pages/homes`, `src/pages/la
 
 Astro uses file-based routing. The site is served under the configured base path `/mathstutorhelp/`, so internal links should use `getPermalink()` and assets should use `getAsset()`.
 
-| File | Route | Purpose |
-| --- | --- | --- |
-| `src/pages/index.astro` | `/` | Homepage with tutor intro, group classes, tuition services, prices, testimonials, FAQs and CTA. |
-| `src/pages/about.astro` | `/about/` | About Mr Sheraz and MathsTutorHelp. |
-| `src/pages/contact.astro` | `/contact/` | Phone, WhatsApp and Hai-BL enquiry form link. |
-| `src/pages/maths-tuition.astro` | `/maths-tuition/` | Overview of online, in-person, group and A-Level tuition. |
-| `src/pages/online-tuition.astro` | `/online-tuition/` | Online tuition overview with nine course cards. |
-| `src/pages/online-tuitions.astro` | `/online-tuitions/` | Redirect page to `/online-tuition/`. |
-| `src/pages/[onlineCourse].astro` | Multiple course routes | Shared detail template for online course pages. |
-| `src/pages/online-group-classes.astro` | `/online-group-classes/` | Short enquiry page for possible online group classes. |
-| `src/pages/gallery.astro` | `/gallery/` | Gallery page with clickable lightbox. |
-| `src/pages/pricing.astro` | `/pricing/` | Pricing overview. |
-| `src/pages/maths-level.astro` | `/maths-level/` | Supported maths levels. |
-| `src/pages/gcse-revision-class-higher-manchester.astro` | `/gcse-revision-class-higher-manchester/` | GCSE Higher group class page. |
-| `src/pages/gcse-foundation-maths-tutoring-club-2025.astro` | `/gcse-foundation-maths-tutoring-club-2025/` | GCSE Foundation group class page. |
-| `src/pages/manchestersummercodingclub.astro` | `/manchestersummercodingclub/` | Summer coding course page. |
-| `src/pages/privacy.md` | `/privacy/` | Privacy policy, still needs legal/content rewrite. |
-| `src/pages/terms.md` | `/terms/` | Terms page, still needs legal/content rewrite. |
-| `src/pages/safeguarding.md` | `/safeguarding/` | Safeguarding page. |
-| `src/pages/404.astro` | `/404/` | Not found page. |
+| File                                                       | Route                                        | Purpose                                                                                         |
+| ---------------------------------------------------------- | -------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `src/pages/index.astro`                                    | `/`                                          | Homepage with tutor intro, group classes, tuition services, prices, testimonials, FAQs and CTA. |
+| `src/pages/about.astro`                                    | `/about/`                                    | About Mr Sheraz and MathsTutorHelp.                                                             |
+| `src/pages/contact.astro`                                  | `/contact/`                                  | Phone, WhatsApp and Hai-BL enquiry form link.                                                   |
+| `src/pages/maths-tuition.astro`                            | `/maths-tuition/`                            | Overview of online, in-person, group and A-Level tuition.                                       |
+| `src/pages/online-tuition.astro`                           | `/online-tuition/`                           | Online tuition overview with nine course cards.                                                 |
+| `src/pages/online-tuitions.astro`                          | `/online-tuitions/`                          | Redirect page to `/online-tuition/`.                                                            |
+| `src/pages/[onlineCourse].astro`                           | Multiple course routes                       | Shared detail template for online course pages.                                                 |
+| `src/pages/online-group-classes.astro`                     | `/online-group-classes/`                     | Short enquiry page for possible online group classes.                                           |
+| `src/pages/gallery.astro`                                  | `/gallery/`                                  | Gallery page with clickable lightbox.                                                           |
+| `src/pages/pricing.astro`                                  | `/pricing/`                                  | Pricing overview.                                                                               |
+| `src/pages/maths-level.astro`                              | `/maths-level/`                              | Supported maths levels.                                                                         |
+| `src/pages/gcse-revision-class-higher-manchester.astro`    | `/gcse-revision-class-higher-manchester/`    | GCSE Higher group class page.                                                                   |
+| `src/pages/gcse-foundation-maths-tutoring-club-2025.astro` | `/gcse-foundation-maths-tutoring-club-2025/` | GCSE Foundation group class page.                                                               |
+| `src/pages/manchestersummercodingclub.astro`               | `/manchestersummercodingclub/`               | Summer coding course page.                                                                      |
+| `src/pages/privacy.md`                                     | `/privacy/`                                  | Privacy policy, still needs legal/content rewrite.                                              |
+| `src/pages/terms.md`                                       | `/terms/`                                    | Terms page, still needs legal/content rewrite.                                                  |
+| `src/pages/safeguarding.md`                                | `/safeguarding/`                             | Safeguarding page.                                                                              |
+| `src/pages/404.astro`                                      | `/404/`                                      | Not found page.                                                                                 |
 
 Generated online course routes:
 
@@ -104,21 +104,21 @@ Footer navigation is also defined in `src/navigation.ts`, with grouped links for
 
 ## 6. Main Components
 
-| Component | Purpose |
-| --- | --- |
-| `HomeHero.astro` | Compact homepage hero with tutor card and trust signals. |
-| `Hero.astro` | General hero with title, subtitle, CTAs and optional image. |
-| `HeroText.astro` | Text-only hero used on contact-style pages. |
-| `Features.astro` | Icon/card grid sections. |
-| `Features2.astro` | Alternative feature layout. |
-| `Content.astro` | Text/image content sections with item lists. |
-| `FAQs.astro` | FAQ section. |
-| `Testimonials.astro` | Homepage testimonials. |
-| `CallToAction.astro` | Final CTA sections. |
-| `Gallery.astro` | Responsive gallery with numbered images and lightbox. |
-| `Button.astro` | Shared button rendering. |
-| `Image.astro` | Shared image output/optimisation wrapper. |
-| `Header.astro` / `Footer.astro` | Shared site shell components. |
+| Component                       | Purpose                                                     |
+| ------------------------------- | ----------------------------------------------------------- |
+| `HomeHero.astro`                | Compact homepage hero with tutor card and trust signals.    |
+| `Hero.astro`                    | General hero with title, subtitle, CTAs and optional image. |
+| `HeroText.astro`                | Text-only hero used on contact-style pages.                 |
+| `Features.astro`                | Icon/card grid sections.                                    |
+| `Features2.astro`               | Alternative feature layout.                                 |
+| `Content.astro`                 | Text/image content sections with item lists.                |
+| `FAQs.astro`                    | FAQ section.                                                |
+| `Testimonials.astro`            | Homepage testimonials.                                      |
+| `CallToAction.astro`            | Final CTA sections.                                         |
+| `Gallery.astro`                 | Responsive gallery with numbered images and lightbox.       |
+| `Button.astro`                  | Shared button rendering.                                    |
+| `Image.astro`                   | Shared image output/optimisation wrapper.                   |
+| `Header.astro` / `Footer.astro` | Shared site shell components.                               |
 
 The old blog components and widgets have been removed because no blog is currently live.
 

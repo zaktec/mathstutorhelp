@@ -6,6 +6,7 @@ import Content from '~/components/widgets/Content.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { getPermalink } from '~/utils/permalinks';
+import { bookingLinks, ctaLabels } from '~/utils/siteDetails';
 
 const metadata = {
   title: 'Summer Coding Course Manchester | Python Ages 13-17',
@@ -13,7 +14,7 @@ const metadata = {
     'Summer Python coding course in Manchester for ages 13-17. Build real apps, boost problem-solving and learn Python in a calm small group.',
 };
 
-const interestFormUrl = 'https://hai-bl.com/onboarding/interest-form';
+const interestFormUrl = bookingLinks.groupClassInterest;
 const contactUrl = getPermalink('/contact');
 const onlineTuitionUrl = getPermalink('/online-tuition');
 ---
@@ -26,7 +27,7 @@ const onlineTuitionUrl = getPermalink('/online-tuition');
     actions={[
       {
         variant: 'primary',
-        text: 'Register Interest',
+        text: ctaLabels.codingCourseInterest,
         href: interestFormUrl,
         target: '_blank',
         icon: 'tabler:code',
@@ -224,7 +225,7 @@ const onlineTuitionUrl = getPermalink('/online-tuition');
     actions={[
       {
         variant: 'primary',
-        text: 'Register Interest',
+        text: ctaLabels.codingCourseInterest,
         href: interestFormUrl,
         target: '_blank',
         icon: 'tabler:send',

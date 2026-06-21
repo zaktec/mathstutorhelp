@@ -6,6 +6,7 @@ import Content from '~/components/widgets/Content.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { getPermalink } from '~/utils/permalinks';
+import { bookingLinks, contactDetails, ctaLabels, tuitionPrices } from '~/utils/siteDetails';
 
 const metadata = {
   title: 'Maths Tuition Manchester - 1-to-1, Online & Group Classes',
@@ -13,7 +14,7 @@ const metadata = {
     'Maths tuition in Manchester with 1-to-1, online and group classes for KS3, GCSE, IGCSE, Functional Skills and A-Level students.',
 };
 
-const consultationBookingUrl = 'https://calendar.app.google/VJ6tgEKfsUZAncDe9';
+const consultationBookingUrl = bookingLinks.freeConsultation;
 const contactUrl = getPermalink('/contact');
 const onlineTuitionUrl = getPermalink('/online-tuition');
 const higherClassUrl = getPermalink('/gcse-revision-class-higher-manchester');
@@ -22,16 +23,16 @@ const pricingUrl = getPermalink('/pricing');
 const priceOptions = [
   {
     label: 'Online 1-to-1',
-    price: '£25',
-    unit: '/hr',
+    price: tuitionPrices.online.amount,
+    unit: tuitionPrices.online.unit,
     description: 'Live online maths tuition from home with clear teaching and online resources.',
     href: onlineTuitionUrl,
     action: 'View Online Tuition',
   },
   {
     label: 'In-person 1-to-1',
-    price: '£30',
-    unit: '/hr',
+    price: tuitionPrices.oneToOne.amount,
+    unit: tuitionPrices.oneToOne.unit,
     description: 'Manchester-based private maths tuition for focused support and confidence building.',
     href: consultationBookingUrl,
     action: 'Book a Consultation',
@@ -39,8 +40,8 @@ const priceOptions = [
   },
   {
     label: 'Group classes',
-    price: '£20',
-    unit: 'per student',
+    price: tuitionPrices.smallGroup.amount,
+    unit: tuitionPrices.smallGroup.unit,
     description: 'Small GCSE group classes for structured revision and exam-style practice.',
     href: higherClassUrl,
     action: 'View Group Classes',
@@ -64,7 +65,7 @@ const priceOptions = [
     actions={[
       {
         variant: 'primary',
-        text: 'Book a Free Consultation',
+        text: ctaLabels.freeConsultation,
         href: consultationBookingUrl,
         icon: 'tabler:calendar-check',
       },
@@ -83,8 +84,7 @@ const priceOptions = [
     items={[
       {
         title: 'Online 1-to-1 Tuition',
-        description:
-          'Best for flexible learning from home, targeted topic support and regular weekly practice.',
+        description: 'Best for flexible learning from home, targeted topic support and regular weekly practice.',
         icon: 'tabler:device-laptop',
         callToAction: { text: 'View Online Tuition', href: onlineTuitionUrl },
       },
@@ -97,15 +97,13 @@ const priceOptions = [
       },
       {
         title: 'GCSE Group Classes',
-        description:
-          'Best for GCSE students who need routine, guided revision and exam-style question practice.',
+        description: 'Best for GCSE students who need routine, guided revision and exam-style question practice.',
         icon: 'tabler:users-group',
         callToAction: { text: 'View Group Classes', href: higherClassUrl },
       },
       {
         title: 'A-Level Maths Tuition',
-        description:
-          'Best for Year 12 and Year 13 students needing help with pure maths, statistics or mechanics.',
+        description: 'Best for Year 12 and Year 13 students needing help with pure maths, statistics or mechanics.',
         icon: 'tabler:chart-line',
         callToAction: { text: 'Ask About A-Level', href: consultationBookingUrl },
       },
@@ -119,7 +117,8 @@ const priceOptions = [
     items={[
       {
         title: 'KS3 Maths',
-        description: 'Build stronger foundations before GCSE with number, algebra, ratio, geometry and problem solving.',
+        description:
+          'Build stronger foundations before GCSE with number, algebra, ratio, geometry and problem solving.',
         icon: 'tabler:school',
       },
       {
@@ -157,7 +156,8 @@ const priceOptions = [
       },
       {
         title: 'Guided practice',
-        description: 'Students practise with support first, then build independence through carefully chosen questions.',
+        description:
+          'Students practise with support first, then build independence through carefully chosen questions.',
         icon: 'tabler:pencil-check',
       },
       {
@@ -216,8 +216,8 @@ const priceOptions = [
     <Fragment slot="content">
       <p>
         Alongside live tutoring, students can receive access to online learning support with resources, practice
-        questions and revision tasks. This helps learning continue between lessons without overloading the page with
-        too much detail.
+        questions and revision tasks. This helps learning continue between lessons without overloading the page with too
+        much detail.
       </p>
     </Fragment>
   </Content>
@@ -257,7 +257,9 @@ const priceOptions = [
                 </p>
               </div>
               <p class="mt-5 min-h-24 text-sm leading-6 text-muted dark:text-slate-300">{option.description}</p>
-              <a class="btn-secondary mt-5 w-full justify-center" href={option.href}>{option.action}</a>
+              <a class="btn-secondary mt-5 w-full justify-center" href={option.href}>
+                {option.action}
+              </a>
             </article>
           ))
         }
@@ -328,8 +330,7 @@ const priceOptions = [
       },
       {
         title: 'How do we book a lesson?',
-        description:
-          'Book a free consultation or message Maths Tutor Help on WhatsApp at 07860 248525 to ask about availability.',
+        description: `Book a free consultation or message Maths Tutor Help on WhatsApp at ${contactDetails.phoneCompact} to ask about availability.`,
       },
     ]}
   />
@@ -340,7 +341,7 @@ const priceOptions = [
     actions={[
       {
         variant: 'primary',
-        text: 'Book a Free Consultation',
+        text: ctaLabels.freeConsultation,
         href: consultationBookingUrl,
         icon: 'tabler:calendar-check',
       },

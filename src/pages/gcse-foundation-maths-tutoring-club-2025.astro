@@ -6,6 +6,7 @@ import Content from '~/components/widgets/Content.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { getPermalink } from '~/utils/permalinks';
+import { bookingLinks, contactDetails, ctaLabels, tuitionPrices } from '~/utils/siteDetails';
 
 const metadata = {
   title: 'GCSE Maths Foundation Tutoring Manchester | Grades 4-5',
@@ -13,11 +14,11 @@ const metadata = {
     'GCSE Foundation Maths tutoring club in Levenshulme, Manchester for Year 10 and 11 students working towards grades 4-5.',
 };
 
-const interestFormUrl = 'https://hai-bl.com/onboarding/interest-form';
+const interestFormUrl = bookingLinks.groupClassInterest;
 const contactUrl = getPermalink('/contact');
 const higherClassUrl = getPermalink('/gcse-revision-class-higher-manchester');
 const onlineTuitionUrl = getPermalink('/online-tuition');
-const phoneDisplay = '07860 248 525';
+const phoneDisplay = contactDetails.phoneDisplay;
 ---
 
 <Layout metadata={metadata}>
@@ -28,7 +29,7 @@ const phoneDisplay = '07860 248 525';
     actions={[
       {
         variant: 'primary',
-        text: 'Book a Place',
+        text: ctaLabels.groupClassInterest,
         href: interestFormUrl,
         target: '_blank',
         icon: 'tabler:calendar-check',
@@ -68,7 +69,7 @@ const phoneDisplay = '07860 248 525';
       },
       {
         title: 'Simple pricing',
-        description: '£20 per session pay-as-you-go, or £16 per session with advance block booking.',
+        description: `${tuitionPrices.smallGroup.display} pay-as-you-go, or £16 per session with advance block booking.`,
         icon: 'tabler:coin-pound',
       },
       {
@@ -184,7 +185,8 @@ const phoneDisplay = '07860 248 525';
       },
       {
         title: 'Can my child join mid-way through the term?',
-        description: 'Yes. Students can join mid-way if a place is available. The first session includes a diagnostic check.',
+        description:
+          'Yes. Students can join mid-way if a place is available. The first session includes a diagnostic check.',
       },
       {
         title: 'Do you run sessions during school holidays?',
@@ -200,7 +202,8 @@ const phoneDisplay = '07860 248 525';
       },
       {
         title: 'Who teaches the class?',
-        description: 'The class is taught by Mr Sheraz, a qualified and DBS-checked maths teacher with 15+ years of teaching experience.',
+        description:
+          'The class is taught by Mr Sheraz, a qualified and DBS-checked maths teacher with 15+ years of teaching experience.',
       },
       {
         title: 'Is this suitable for Higher Tier students?',
@@ -219,7 +222,7 @@ const phoneDisplay = '07860 248 525';
     actions={[
       {
         variant: 'primary',
-        text: 'Book Now',
+        text: ctaLabels.groupClassInterest,
         href: interestFormUrl,
         target: '_blank',
         icon: 'tabler:calendar-check',
