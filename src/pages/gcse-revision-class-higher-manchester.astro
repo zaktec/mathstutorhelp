@@ -5,7 +5,7 @@ import Features from '~/components/widgets/Features.astro';
 import Content from '~/components/widgets/Content.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import { getPermalink } from '~/utils/permalinks';
+import { getAsset, getPermalink } from '~/utils/permalinks';
 import { bookingLinks, contactDetails, ctaLabels, tuitionPrices } from '~/utils/siteDetails';
 
 const metadata = {
@@ -18,7 +18,6 @@ const interestFormUrl = bookingLinks.groupClassInterest;
 const contactUrl = getPermalink('/contact');
 const foundationClassUrl = getPermalink('/gcse-foundation-maths-tutoring-club-2025');
 const onlineTuitionUrl = getPermalink('/online-tuition');
-const sowUrl = 'https://mathstutorhelp.com/sow-gcse-higher-2026-27.pdf';
 const phoneDisplay = contactDetails.phoneDisplay;
 ---
 
@@ -38,7 +37,7 @@ const phoneDisplay = contactDetails.phoneDisplay;
       { text: 'Call or WhatsApp', href: contactUrl },
     ]}
     image={{
-      src: 'https://i0.wp.com/mathstutorhelp.com/wp-content/uploads/2024/07/group-kids-studying-school-scaled.jpg?fit=1600%2C1066&ssl=1',
+      src: getAsset('/images/gcse-higher-group-revision-class.jpg'),
       alt: 'GCSE Maths group revision classes',
     }}
   />
@@ -108,7 +107,7 @@ const phoneDisplay = contactDetails.phoneDisplay;
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1400&q=80',
+      src: getAsset('/images/gcse-higher-maths-notes.jpg'),
       alt: 'GCSE Higher Maths revision notes',
     }}
   >
@@ -127,7 +126,7 @@ const phoneDisplay = contactDetails.phoneDisplay;
     items={[
       {
         title: 'Full Scheme of Work',
-        description: `Download the full course plan: <a class="underline" href="${sowUrl}">SOW GCSE Higher 2026-27</a>.`,
+        description: 'The full course plan can be shared when you register interest or ask about the class.',
         icon: 'tabler:file-download',
       },
       {
@@ -179,7 +178,7 @@ const phoneDisplay = contactDetails.phoneDisplay;
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1400&q=80',
+      src: getAsset('/images/gcse-classroom-teaching.jpg'),
       alt: 'Focused classroom learning',
     }}
   >

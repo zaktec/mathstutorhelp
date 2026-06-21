@@ -1,7 +1,7 @@
 {
   "name": "mathstutorhelp",
   "version": "1.0.0-beta.63",
-  "description": "AstroWind: A free template using Astro 6 and Tailwind CSS v4. Astro starter theme.",
+  "description": "Astro website for MathsTutorHelp, a Manchester-based maths tuition service.",
   "type": "module",
   "engines": {
     "node": ">=22.12.0"

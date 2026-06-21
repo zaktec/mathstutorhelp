@@ -4,7 +4,7 @@ import Hero from '~/components/widgets/Hero.astro';
 import Features from '~/components/widgets/Features.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import { getPermalink } from '~/utils/permalinks';
+import { getAsset, getPermalink } from '~/utils/permalinks';
 import { bookingLinks, ctaLabels, tuitionPrices } from '~/utils/siteDetails';
 
 const metadata = {
@@ -34,8 +34,8 @@ const mathsTuitionUrl = getPermalink('/maths-tuition');
       { text: 'View Group Classes', href: higherClassUrl },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1800&q=80',
-      alt: 'Maths tuition pricing and study notes',
+      src: getAsset('/images/maths-tuition-courses.jpg'),
+      alt: 'Maths tuition courses and pricing options',
     }}
   />
 

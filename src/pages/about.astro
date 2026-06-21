@@ -8,9 +8,9 @@ import { getAsset, getPermalink } from '~/utils/permalinks';
 import { bookingLinks, ctaLabels } from '~/utils/siteDetails';
 
 const metadata = {
-  title: 'About Mr Sheraz | MathsTutorHelp Manchester',
+  title: 'About Mr Sheraz | Maths Tutor in Manchester',
   description:
-    'Learn about Mr Sheraz, a qualified and DBS-checked maths teacher providing GCSE, IGCSE, Functional Skills and A-Level tuition in Manchester and online.',
+    'Learn about Mr Sheraz, a qualified and DBS-checked maths teacher providing GCSE, IGCSE, Functional Skills, A-Level maths tuition and beginner coding support in Manchester and online.',
 };
 
 const consultationBookingUrl = bookingLinks.freeConsultation;
@@ -23,7 +23,7 @@ const tutorImageUrl = getAsset('/images/maths-tutor-sheraz-cheema.jpeg');
   <Hero
     tagline="About MathsTutorHelp"
     title="About Mr Sheraz and MathsTutorHelp"
-    subtitle="Qualified, DBS-checked maths support for students in Manchester and online, with lessons built around clear explanations, confidence and steady progress."
+    subtitle="Qualified, DBS-checked maths and coding support for students in Manchester and online, with lessons built around clear explanations, confidence and steady progress."
     actions={[
       {
         variant: 'primary',
@@ -40,7 +40,7 @@ const tutorImageUrl = getAsset('/images/maths-tutor-sheraz-cheema.jpeg');
     items={[
       {
         title: 'Qualified teacher',
-        description: 'A fully qualified maths teacher with classroom and private tuition experience.',
+        description: 'A fully qualified maths teacher with classroom, private tuition and computer science teaching experience.',
       },
       {
         title: 'DBS checked',
@@ -53,7 +53,7 @@ const tutorImageUrl = getAsset('/images/maths-tutor-sheraz-cheema.jpeg');
     ]}
     image={{
       src: tutorImageUrl,
-      alt: 'Mr Sheraz Cheema teaching maths',
+      alt: 'Mr Sheraz teaching maths',
     }}
   >
     <Fragment slot="content">
@@ -112,8 +112,8 @@ const tutorImageUrl = getAsset('/images/maths-tutor-sheraz-cheema.jpeg');
 
   <Features
     title="Who I Support"
-    subtitle="Maths support is available for students who need confidence, exam preparation or structured help with school topics."
-    columns={5}
+    subtitle="Support is available for students who need confidence, exam preparation or structured help with school topics."
+    columns={3}
     items={[
       {
         title: 'KS3 Maths',
@@ -139,6 +139,11 @@ const tutorImageUrl = getAsset('/images/maths-tutor-sheraz-cheema.jpeg');
         title: 'A-Level Maths',
         description: 'Pure maths, statistics, mechanics and problem solving.',
         icon: 'tabler:function',
+      },
+      {
+        title: 'Coding',
+        description: 'Beginner Python and problem-solving support.',
+        icon: 'tabler:code',
       },
     ]}
   />
@@ -167,7 +172,7 @@ const tutorImageUrl = getAsset('/images/maths-tutor-sheraz-cheema.jpeg');
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1400&q=80',
+      src: getAsset('/images/gcse-classroom-teaching.jpg'),
       alt: 'Students learning in a classroom',
     }}
   >
@@ -186,7 +191,7 @@ const tutorImageUrl = getAsset('/images/maths-tutor-sheraz-cheema.jpeg');
     items={[
       {
         title: 'Teacher-led support',
-        description: 'Students are supported by a qualified maths teacher with years of classroom experience.',
+        description: 'Students are supported by a qualified maths teacher with computer science teaching experience.',
         icon: 'tabler:award',
       },
       {

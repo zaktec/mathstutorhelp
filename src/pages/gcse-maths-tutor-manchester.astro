@@ -1,0 +1,125 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features from '~/components/widgets/Features.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { getPermalink } from '~/utils/permalinks';
+import { bookingLinks, ctaLabels, tuitionPrices } from '~/utils/siteDetails';
+
+const metadata = {
+  title: 'GCSE Maths Tutor Manchester | Foundation & Higher Support',
+  description:
+    'GCSE maths tutor in Manchester for Foundation and Higher students, with small group classes in Levenshulme, one-to-one tuition and online support.',
+};
+
+const gcseClassesUrl = getPermalink('/gcse-classes');
+const higherClassUrl = getPermalink('/gcse-revision-class-higher-manchester');
+const foundationClassUrl = getPermalink('/gcse-foundation-maths-tutoring-club-2025');
+const contactUrl = getPermalink('/contact');
+---
+
+<Layout metadata={metadata}>
+  <HeroText
+    tagline="GCSE Maths Tutor Manchester"
+    title="GCSE Maths Tutor in Manchester"
+    subtitle="Foundation and Higher GCSE maths support for students who need clearer methods, regular exam practice and confidence before mocks or final exams."
+    callToAction={{
+      variant: 'primary',
+      text: ctaLabels.groupClassInterest,
+      href: bookingLinks.groupClassInterest,
+      icon: 'tabler:calendar-check',
+    }}
+    callToAction2={{
+      text: 'View GCSE Classes',
+      href: gcseClassesUrl,
+      icon: 'tabler:users-group',
+    }}
+  />
+
+  <Features
+    title="GCSE Maths Support Options"
+    subtitle="Choose the route that fits the student's grade target, timetable and confidence."
+    columns={3}
+    items={[
+      {
+        title: 'GCSE Foundation',
+        description: 'For students working towards grades 4-5, with clear written methods and steady practice.',
+        icon: 'tabler:certificate',
+        callToAction: { text: 'View Foundation Class', href: foundationClassUrl },
+      },
+      {
+        title: 'GCSE Higher',
+        description: 'For students aiming for grades 6-9, with harder topics and problem-solving practice.',
+        icon: 'tabler:chart-line',
+        callToAction: { text: 'View Higher Class', href: higherClassUrl },
+      },
+      {
+        title: 'One-to-one help',
+        description: `Private tuition is available for targeted GCSE support. Online tuition is ${tuitionPrices.online.display}.`,
+        icon: 'tabler:user-check',
+        callToAction: { text: 'Ask About 1:1 Tuition', href: contactUrl },
+      },
+    ]}
+  />
+
+  <Features
+    title="What GCSE Lessons Can Cover"
+    subtitle="Support can follow school topics, mock feedback or a diagnostic check."
+    columns={4}
+    items={[
+      {
+        title: 'Number and algebra',
+        description: 'Fractions, percentages, equations, graphs, sequences and algebraic methods.',
+        icon: 'tabler:math-function',
+      },
+      {
+        title: 'Geometry and ratio',
+        description: 'Angles, area, volume, trigonometry, scale, proportion and problem solving.',
+        icon: 'tabler:ruler-measure',
+      },
+      {
+        title: 'Exam technique',
+        description: 'Past paper practice, showing working and avoiding common mistakes.',
+        icon: 'tabler:file-check',
+      },
+      {
+        title: 'Confidence building',
+        description: 'Calm explanations and repeated practice so students know what to do next.',
+        icon: 'tabler:mood-smile',
+      },
+    ]}
+  />
+
+  <FAQs
+    title="GCSE Maths Tutor FAQs"
+    columns={2}
+    items={[
+      {
+        title: 'Do you support both Foundation and Higher GCSE Maths?',
+        description: 'Yes. Support is available for Foundation students aiming for grades 4-5 and Higher students aiming for grades 6-9.',
+      },
+      {
+        title: 'Which exam boards are supported?',
+        description: 'GCSE maths support can cover Edexcel, AQA and OCR where suitable.',
+      },
+      {
+        title: 'Are group classes available in Manchester?',
+        description: `Yes. GCSE group classes run in Levenshulme, Manchester, with sessions from ${tuitionPrices.smallGroup.display}.`,
+      },
+      {
+        title: 'Can students get online GCSE maths tuition?',
+        description: `Yes. Live online one-to-one GCSE maths tuition is available at ${tuitionPrices.online.display}.`,
+      },
+    ]}
+  />
+
+  <CallToAction
+    title="Need GCSE Maths Support in Manchester?"
+    subtitle="Register interest or send a message with the student's year group, tier, current grade and target grade."
+    actions={[
+      { variant: 'primary', text: ctaLabels.groupClassInterest, href: bookingLinks.groupClassInterest, icon: 'tabler:calendar-check' },
+      { text: 'Contact MathsTutorHelp', href: contactUrl, icon: 'tabler:send' },
+    ]}
+  />
+</Layout>

@@ -4,7 +4,7 @@ import Hero from '~/components/widgets/Hero.astro';
 import Features from '~/components/widgets/Features.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import { getPermalink } from '~/utils/permalinks';
+import { getAsset, getPermalink } from '~/utils/permalinks';
 import { tuitionPrices } from '~/utils/siteDetails';
 
 const metadata = {
@@ -79,7 +79,7 @@ const priceOptions = [
     detail: 'Live online maths tuition for focused support from home.',
   },
   {
-    title: 'Offline Tutoring',
+    title: 'In-Person Tutoring',
     price: tuitionPrices.oneToOne.display,
     detail: 'Face-to-face maths tuition for students who prefer in-person learning.',
   },
@@ -101,8 +101,8 @@ const priceOptions = [
       { text: 'View Tuition Services', href: mathsTuitionUrl },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1453738773917-9c3eff1db985?auto=format&fit=crop&w=1800&q=80',
-      alt: 'Student writing in a maths notebook',
+      src: getAsset('/images/maths-tuition-courses.jpg'),
+      alt: 'Maths tuition support for different levels',
     }}
   />
 
@@ -154,7 +154,7 @@ const priceOptions = [
         <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Prices</p>
         <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-950 dark:text-white md:text-4xl">Our Prices</h2>
         <p class="mt-4 text-lg leading-8 text-muted dark:text-slate-300">
-          A simple guide to the tuition options listed on the original Maths Level page.
+          A simple guide to the main tuition options available.
         </p>
       </div>
       <div class="mt-10 grid gap-5 md:grid-cols-3">

@@ -5,16 +5,15 @@ import HomeHero from '~/components/widgets/HomeHero.astro';
 import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Content from '~/components/widgets/Content.astro';
-import Testimonials from '~/components/widgets/Testimonials.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import { getPermalink } from '~/utils/permalinks';
+import { getAsset, getPermalink } from '~/utils/permalinks';
 import { bookingLinks, ctaLabels, tuitionPrices } from '~/utils/siteDetails';
 
 const metadata = {
-  title: 'Maths Tuition in Manchester & Online',
+  title: 'Maths Tutor Manchester | GCSE, IGCSE & A-Level Maths',
   description:
-    'GCSE, IGCSE, KS3, Functional Skills and A-Level maths support in Manchester and online from a qualified, DBS-checked teacher.',
+    'Manchester maths tutor for GCSE, IGCSE, KS3, Functional Skills and A-Level. Small GCSE classes in Levenshulme plus online maths tuition.',
   ignoreTitleTemplate: true,
 };
 
@@ -24,7 +23,8 @@ const gcseClassesUrl = getPermalink('/gcse-classes');
 const foundationClassUrl = getPermalink('/gcse-foundation-maths-tutoring-club-2025');
 const higherClassUrl = getPermalink('/gcse-revision-class-higher-manchester');
 const onlineTuitionUrl = getPermalink('/online-tuition');
-const summerCodingUrl = getPermalink('/manchestersummercodingclub');
+const levenshulmeTutorUrl = getPermalink('/maths-tutor-levenshulme');
+const gcseTutorManchesterUrl = getPermalink('/gcse-maths-tutor-manchester');
 const compactSection = { container: 'py-8 md:py-10 lg:py-12' };
 
 const priceOptions = [
@@ -32,8 +32,7 @@ const priceOptions = [
     label: 'One-to-one tuition',
     price: tuitionPrices.oneToOne.amount,
     unit: tuitionPrices.oneToOne.unit,
-    description:
-      'Personalised GCSE, IGCSE, A-Level or Functional Skills support. Best for targeted help and faster feedback.',
+    description: 'Personalised GCSE, IGCSE, A-Level or Functional Skills support.',
     action: 'Ask About 1:1 Tuition',
     href: consultationBookingUrl,
   },
@@ -41,19 +40,17 @@ const priceOptions = [
     label: 'Small group classes',
     price: tuitionPrices.smallGroup.amount,
     unit: tuitionPrices.smallGroup.unit,
-    description:
-      'Structured Manchester-based group lessons for students who like learning with others and regular practice.',
+    description: 'Structured Manchester-based GCSE lessons with regular practice.',
     action: ctaLabels.groupClassInterest,
     href: groupClassInterestUrl,
     featured: true,
   },
   {
-    label: 'Online lessons',
+    label: 'Online tuition',
     price: tuitionPrices.online.amount,
     unit: tuitionPrices.online.unit,
-    description:
-      'Flexible online maths tuition with the same clear teaching, guided examples and exam question practice.',
-    action: 'Ask About Online Lessons',
+    description: 'Live one-to-one online maths tuition. Course packages are separate.',
+    action: 'Ask About Online Tuition',
     href: consultationBookingUrl,
   },
 ];
@@ -65,24 +62,24 @@ const priceOptions = [
   <Features2
     id="meet-your-tutor"
     tagline="Meet Your Tutor"
-    title="Qualified Maths Support From Mr Sheraz Cheema"
-    subtitle="My name is Mr Sheraz, a fully qualified and DBS-checked maths tutor with over 15 years of teaching experience. I founded MathsTutorHelp to give students clear, structured and supportive maths tuition that builds confidence, strengthens understanding and improves exam technique. Based in Levenshulme, supporting students from Manchester, Stockport, Didsbury, Longsight, Burnage and nearby areas."
+    title="Qualified Maths Support From Mr Sheraz"
+    subtitle="Qualified, DBS-checked maths teacher based in Levenshulme, supporting students across Manchester and online."
     columns={3}
     classes={compactSection}
     items={[
       {
         title: 'Clear teaching',
-        description: 'Methods are explained step by step so students can follow the process and remember it later.',
+        description: 'Step-by-step methods for school topics and exam questions.',
         icon: 'tabler:chalkboard',
       },
       {
         title: 'Patient support',
-        description: 'Students can ask questions, revisit difficult topics and build confidence at a steady pace.',
+        description: 'Students can ask questions and rebuild confidence.',
         icon: 'tabler:mood-smile',
       },
       {
         title: 'Practical next steps',
-        description: 'Support is tailored to each student’s level, goals and areas of difficulty.',
+        description: 'Lessons focus on the topics and grades that matter most.',
         icon: 'tabler:list-check',
       },
     ]}
@@ -96,8 +93,7 @@ const priceOptions = [
     items={[
       {
         title: 'GCSE Higher Maths Classes',
-        description:
-          'Best for students aiming for grades 6-9, with topic revision, exam technique and guided practice.',
+        description: 'For students aiming for grades 6-9.',
         icon: 'tabler:chart-line',
         callToAction: {
           text: 'View Higher Class',
@@ -106,8 +102,7 @@ const priceOptions = [
       },
       {
         title: 'GCSE Foundation Tutoring',
-        description:
-          'Best for students aiming to secure grades 4-5 with clear methods and confidence-building practice.',
+        description: 'For students aiming to secure grades 4-5.',
         icon: 'tabler:certificate',
         callToAction: {
           text: 'View Foundation Class',
@@ -116,12 +111,12 @@ const priceOptions = [
       },
       {
         title: `${tuitionPrices.smallGroup.display} group sessions`,
-        description: 'An affordable route for regular GCSE maths support, revision and exam-style practice.',
+        description: 'Regular GCSE maths support at a lower cost than one-to-one tuition.',
         icon: 'tabler:coin-pound',
       },
       {
         title: 'Limited places',
-        description: 'Register your interest to ask about current availability or join the waiting list.',
+        description: 'Ask about availability or join the waiting list.',
         icon: 'tabler:users-group',
       },
     ]}
@@ -130,7 +125,7 @@ const priceOptions = [
       <div class="space-y-4">
         <img
           class="mx-auto w-full rounded-lg bg-gray-500 shadow-lg"
-          src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1400&q=80"
+          src={getAsset('/images/gcse-classroom-teaching.jpg')}
           alt="Students learning together in a classroom"
           width="500"
           height="500"
@@ -153,9 +148,8 @@ const priceOptions = [
 
     <Fragment slot="content">
       <p>
-        Now enrolling for small GCSE maths group classes in Levenshulme, Manchester. Group classes are a strong option
-        for students who need routine, motivation and exam-focused practice without the cost of full one-to-one tuition.
-        Sessions are led personally by Mr Sheraz in a calm, supportive setting.
+        Small GCSE groups give students weekly routine, clear explanations and exam-style practice in a calm,
+        supportive setting.
       </p>
     </Fragment>
   </Content>
@@ -164,34 +158,50 @@ const priceOptions = [
     id="tuition-options"
     tagline="Tuition Services"
     title="Tuition for the Stage Your Child Is At"
-    subtitle="Support is available for school students, exam candidates and learners who need practical maths confidence."
+    subtitle="GCSE, IGCSE, A-Level, Functional Skills, online tuition and local classes."
     columns={4}
     classes={compactSection}
     items={[
       {
         title: 'GCSE Maths Support',
-        description: 'Foundation and Higher tier GCSE maths with exam-style practice. Supports Edexcel, AQA and OCR.',
+        description: 'Foundation and Higher tier maths with exam-style practice.',
         icon: 'tabler:math-function',
+        callToAction: { text: 'GCSE Maths Tutor Manchester', href: gcseTutorManchesterUrl },
       },
       {
         title: 'IGCSE Maths Tuition',
-        description:
-          'Structured IGCSE help with key topics and exam technique. Pearson Edexcel and Cambridge where suitable.',
+        description: 'Structured IGCSE help with key topics and exam technique.',
         icon: 'tabler:calculator',
       },
       {
         title: 'A-Level Maths Tuition',
-        description: 'Focused help with pure maths, mechanics, statistics and problem solving.',
+        description: 'Pure maths, mechanics, statistics and problem solving.',
         icon: 'tabler:chart-line',
       },
       {
-        title: 'Online and Functional Skills',
-        description: 'Flexible online lessons and practical Functional Skills maths support.',
+        title: 'Online Tuition and Courses',
+        description: 'Live online maths tuition is £25/hr. Courses use separate packages.',
         icon: 'tabler:video',
-        callToAction: { text: 'View Online Tuition', href: onlineTuitionUrl },
+        callToAction: { text: 'View Online Options', href: onlineTuitionUrl },
       },
     ]}
   />
+
+  <section class="bg-white py-8 dark:bg-slate-900 md:py-10 lg:py-12">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="rounded-lg border border-gray-200 bg-brand-soft p-6 dark:border-gray-700 dark:bg-slate-800">
+        <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Local Areas</p>
+        <h2 class="mt-2 text-2xl font-bold text-gray-950 dark:text-white">Maths Tuition in Levenshulme and Manchester</h2>
+        <p class="mt-3 text-base leading-7 text-muted dark:text-slate-300">
+          Based in Levenshulme, supporting families across Manchester, Longsight, Burnage, Didsbury and Stockport.
+        </p>
+        <div class="mt-5 flex flex-col gap-3 sm:flex-row">
+          <a class="btn-secondary justify-center" href={levenshulmeTutorUrl}>Maths Tutor Levenshulme</a>
+          <a class="btn-secondary justify-center" href={gcseTutorManchesterUrl}>GCSE Maths Tutor Manchester</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section id="prices" class="bg-brand-soft py-8 dark:bg-slate-900 md:py-10 lg:py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
@@ -200,9 +210,6 @@ const priceOptions = [
         <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-950 dark:text-white md:text-4xl">
           Simple Tuition Options
         </h2>
-        <p class="mt-4 text-lg leading-8 text-muted dark:text-slate-300">
-          Choose the lesson format that best fits your child, timetable and goals.
-        </p>
       </div>
 
       <div class="mt-8 grid gap-5 md:grid-cols-3">
@@ -238,77 +245,28 @@ const priceOptions = [
     </div>
   </section>
 
-  <Testimonials
-    tagline="Testimonials"
-    title="What Parents and Students Say"
-    subtitle="Real feedback from families and learners supported by MathsTutorHelp."
-    classes={compactSection}
-    testimonials={[
-      {
-        testimonial:
-          'Mr Sheraz has really helped my son become more confident in Maths. The lessons are clear, structured, and focused on exam-style questions.',
-        name: 'Aisha Khan',
-        job: 'Parent',
-        image:
-          '<div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">AK</div>',
-      },
-      {
-        testimonial:
-          'The tuition helped me understand topics I used to struggle with. I like how the lessons are easy to follow and not rushed.',
-        name: 'Imran Patel',
-        job: 'GCSE Student',
-        image:
-          '<div class="flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-sm font-bold text-white">IP</div>',
-      },
-      {
-        testimonial:
-          'My daughter has improved a lot since joining the sessions. The small group size means she gets support when she needs it.',
-        name: 'Sadia Ahmed',
-        job: 'Parent',
-        image:
-          '<div class="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-sm font-bold text-brand-navy">SA</div>',
-      },
-    ]}
-  />
-
-  <section class="bg-brand-soft py-8 dark:bg-slate-900">
-    <div class="mx-auto flex max-w-6xl flex-col gap-5 px-4 sm:px-6 md:flex-row md:items-center md:justify-between">
-      <div>
-        <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Also Available</p>
-        <h2 class="mt-2 text-2xl font-bold text-gray-950 dark:text-white">Summer Coding Club</h2>
-        <p class="mt-2 max-w-3xl text-base leading-7 text-muted dark:text-slate-300">
-          A smaller extra option for students aged 13-17 who want to learn Python and develop problem-solving skills.
-        </p>
-      </div>
-      <a class="btn-secondary shrink-0" href={summerCodingUrl}>View Summer Coding Course</a>
-    </div>
-  </section>
-
   <FAQs
     title="Frequently Asked Questions"
-    subtitle="Quick answers for parents comparing maths tuition options."
+    subtitle="Quick answers for parents."
     tagline="FAQs"
     columns={2}
     classes={{ container: 'max-w-6xl py-8 md:py-10 lg:py-12' }}
     items={[
       {
         title: 'Do you teach online or in person?',
-        description:
-          'Both options are available. In-person tuition is Manchester-based, and online lessons are available for students outside the local area.',
+        description: 'Yes. In-person tuition is Manchester-based, and online one-to-one tuition is £25/hr.',
       },
       {
         title: 'Which levels do you teach?',
-        description:
-          'Tuition is available for KS3, GCSE, IGCSE, A-Level and Functional Skills maths, including exam preparation and topic support.',
+        description: 'KS3, GCSE, IGCSE, A-Level and Functional Skills maths.',
       },
       {
         title: 'How do I book?',
-        description:
-          'Register your interest for group class places or request a free consultation. You can explain the student level, goals and preferred lesson format.',
+        description: 'Register interest for group classes or request a free consultation.',
       },
       {
         title: 'How much are group classes?',
-        description: `Group sessions are ${tuitionPrices.smallGroup.display}. Online tutoring is ${tuitionPrices.online.display} and in-person one-to-one tutoring is ${tuitionPrices.oneToOne.display}.`,
+        description: `Group sessions are ${tuitionPrices.smallGroup.display}. Online one-to-one tuition is ${tuitionPrices.online.display}.`,
       },
     ]}
   />
@@ -328,8 +286,7 @@ const priceOptions = [
     <Fragment slot="title">Ready to Find the Right Maths Support?</Fragment>
 
     <Fragment slot="subtitle">
-      Tell us the student level, target grade and the areas that feel difficult. We will help you choose between
-      one-to-one tuition, online lessons or a GCSE group class.
+      Tell us the student level and target grade. We will help you choose the best option.
     </Fragment>
   </CallToAction>
 </Layout>

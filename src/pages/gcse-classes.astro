@@ -9,7 +9,7 @@ import { getAsset, getPermalink } from '~/utils/permalinks';
 import { bookingLinks, ctaLabels, tuitionPrices } from '~/utils/siteDetails';
 
 const metadata = {
-  title: 'GCSE Maths Classes Manchester',
+  title: 'GCSE Maths Classes Manchester | Small Groups in Levenshulme',
   description:
     'Small GCSE Maths group classes in Levenshulme, Manchester for Foundation and Higher students, with limited places and weekly exam-focused support.',
 };
@@ -41,6 +41,9 @@ const classImageUrl = getAsset('/images/gallery/ks3-gcse-maths-classes-mancheste
     image={{
       src: classImageUrl,
       alt: 'GCSE Maths students in a small group class',
+      width: 720,
+      height: 874,
+      style: 'object-fit:contain;max-height:520px;height:auto;max-width:100%;width:auto;background-color:#f4efd8',
     }}
   />
 

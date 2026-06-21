@@ -1,0 +1,76 @@
+---
+import { SITE } from 'astrowind:config';
+import { contactDetails, tuitionPrices } from '~/utils/siteDetails';
+
+const siteUrl = String(SITE.site || 'https://zaktec.github.io').replace(/\/$/, '');
+const basePath = SITE.base || '/mathstutorhelp';
+const homepageUrl = `${siteUrl}${basePath}/`;
+const logoUrl = `${siteUrl}${basePath}/images/maths-tutor-sheraz-cheema.jpeg`;
+
+const data = {
+  '@context': 'https://schema.org',
+  '@type': ['LocalBusiness', 'EducationalOrganization'],
+  '@id': `${homepageUrl}#mathstutorhelp`,
+  name: 'Maths Tutor Help',
+  alternateName: 'MathsTutorHelp',
+  url: homepageUrl,
+  image: logoUrl,
+  telephone: contactDetails.phoneDisplay,
+  priceRange: `${tuitionPrices.online.display} online, ${tuitionPrices.oneToOne.display} in-person, ${tuitionPrices.smallGroup.display} group`,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Levenshulme',
+    addressRegion: 'Manchester',
+    addressCountry: 'GB',
+  },
+  areaServed: [
+    'Manchester',
+    'Levenshulme',
+    'Longsight',
+    'Burnage',
+    'Didsbury',
+    'Stockport',
+    'South Manchester',
+    'United Kingdom',
+  ],
+  founder: {
+    '@type': 'Person',
+    name: 'Mr Sheraz',
+    jobTitle: 'Qualified Maths Teacher and Computer Science Tutor',
+  },
+  knowsAbout: [
+    'GCSE Maths',
+    'IGCSE Maths',
+    'KS3 Maths',
+    'Functional Skills Maths',
+    'A-Level Maths',
+    'Online Maths Tuition',
+    'Python coding lessons',
+  ],
+  makesOffer: [
+    {
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: 'GCSE maths tuition in Manchester',
+      },
+    },
+    {
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: 'Online maths tuition',
+      },
+    },
+    {
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: 'GCSE maths group classes in Levenshulme',
+      },
+    },
+  ],
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(data)} />

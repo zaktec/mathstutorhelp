@@ -1,5 +1,5 @@
 import { getPermalink } from './utils/permalinks';
-import { bookingLinks, contactDetails, ctaLabels } from './utils/siteDetails';
+import { bookingLinks, ctaLabels } from './utils/siteDetails';
 
 export const headerData = {
   links: [
@@ -12,7 +12,7 @@ export const headerData = {
       href: getPermalink('/maths-tuition'),
     },
     {
-      text: 'Online Tuition',
+      text: 'Online Courses',
       href: getPermalink('/online-tuition'),
     },
     {
@@ -32,15 +32,13 @@ export const headerData = {
 };
 
 export const footerData = {
-  description: `Manchester-based maths tuition for GCSE, IGCSE, Functional Skills and A-Level students.<br /><br />Qualified Teacher | DBS Checked | 15+ Years’ Experience<br />WhatsApp: <a class="text-accent underline" href="${contactDetails.whatsappHref}">${contactDetails.phoneCompact}</a>`,
   links: [
     {
       title: 'Tuition',
       links: [
         { text: 'Maths Tuition', href: getPermalink('/maths-tuition') },
-        { text: 'Online Maths Tuition', href: getPermalink('/online-tuition') },
         { text: 'Maths Levels', href: getPermalink('/maths-level') },
-        { text: 'Work with MTH', href: getPermalink('/work-with-mth') },
+        { text: 'Online Courses', href: getPermalink('/online-tuition') },
         { text: 'Tuition Prices', href: getPermalink('/pricing') },
       ],
     },
@@ -54,11 +52,21 @@ export const footerData = {
       ],
     },
     {
+      title: 'Local Areas',
+      links: [
+        { text: 'Maths Tutor Levenshulme', href: getPermalink('/maths-tutor-levenshulme') },
+        { text: 'GCSE Maths Tutor Manchester', href: getPermalink('/gcse-maths-tutor-manchester') },
+        { text: 'Manchester Tuition', href: getPermalink('/maths-tuition') },
+        { text: 'GCSE Classes Manchester', href: getPermalink('/gcse-classes') },
+      ],
+    },
+    {
       title: 'Booking',
       links: [
         { text: ctaLabels.freeConsultation, href: bookingLinks.freeConsultation },
         { text: ctaLabels.groupClassInterest, href: bookingLinks.groupClassInterest },
         { text: 'Contact', href: getPermalink('/contact') },
+        { text: 'Student Login', href: bookingLinks.studentLogin },
       ],
     },
     {
@@ -67,12 +75,14 @@ export const footerData = {
         { text: 'Maths Resources', href: getPermalink('/resources') },
         { text: 'Blog', href: getPermalink('/blog') },
         { text: 'Gallery', href: getPermalink('/gallery') },
-        { text: 'Safeguarding', href: getPermalink('/safeguarding') },
+        { text: 'Work with MTH', href: getPermalink('/work-with-mth') },
       ],
     },
     {
       title: 'Legal',
       links: [
+        { text: 'About', href: getPermalink('/about') },
+        { text: 'Safeguarding', href: getPermalink('/safeguarding') },
         { text: 'Privacy Policy', href: getPermalink('/privacy') },
         { text: 'Terms', href: getPermalink('/terms') },
       ],

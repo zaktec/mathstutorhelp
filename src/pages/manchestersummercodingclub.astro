@@ -5,13 +5,13 @@ import Features from '~/components/widgets/Features.astro';
 import Content from '~/components/widgets/Content.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import { getPermalink } from '~/utils/permalinks';
+import { getAsset, getPermalink } from '~/utils/permalinks';
 import { bookingLinks, ctaLabels } from '~/utils/siteDetails';
 
 const metadata = {
   title: 'Summer Coding Course Manchester | Python Ages 13-17',
   description:
-    'Summer Python coding course in Manchester for ages 13-17. Build real apps, boost problem-solving and learn Python in a calm small group.',
+    'Summer Python coding course in Manchester for ages 13-17. Build real apps, boost problem-solving and learn Python with a qualified teacher in a calm small group.',
 };
 
 const interestFormUrl = bookingLinks.groupClassInterest;
@@ -23,7 +23,7 @@ const onlineTuitionUrl = getPermalink('/online-tuition');
   <Hero
     tagline="Summer Coding Course"
     title="Python Coding Course in Manchester for Ages 13-17"
-    subtitle="Build real apps, boost problem-solving and learn Python from scratch. No experience needed."
+    subtitle="Build real apps, boost problem-solving and learn Python from scratch with a qualified teacher. No experience needed."
     actions={[
       {
         variant: 'primary',
@@ -35,14 +35,14 @@ const onlineTuitionUrl = getPermalink('/online-tuition');
       { text: 'Ask a Question', href: contactUrl },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1800&q=80',
-      alt: 'Student learning Python coding',
+      src: getAsset('/images/online-maths-lesson-laptop.jpg'),
+      alt: 'Student learning online coding on a laptop',
     }}
   />
 
   <Features
     title="Course Details"
-    subtitle="A practical six-week course for beginners who want to learn coding in a calm small-group environment."
+    subtitle="A practical six-week course for beginners who want to learn coding with calm, teacher-led support."
     columns={3}
     items={[
       {
@@ -62,7 +62,7 @@ const onlineTuitionUrl = getPermalink('/online-tuition');
       },
       {
         title: 'Max 7 students',
-        description: 'Small-group teaching gives students focused support while they build projects.',
+        description: 'Small-group teaching from a qualified maths teacher and computer science tutor gives students focused support while they build projects.',
         icon: 'tabler:users-group',
       },
       {
@@ -100,7 +100,7 @@ const onlineTuitionUrl = getPermalink('/online-tuition');
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80',
+      src: getAsset('/images/online-maths-tutoring-packages.jpg'),
       alt: 'Python coding lesson on a laptop',
     }}
   >

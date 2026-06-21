@@ -3,7 +3,7 @@ import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Features from '~/components/widgets/Features.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import { getPermalink } from '~/utils/permalinks';
+import { getAsset, getPermalink } from '~/utils/permalinks';
 
 const metadata = {
   title: 'Work with MTH - Maths Support Assistant in Levenshulme',
@@ -62,7 +62,7 @@ const responsibilities = [
       { text: 'Contact MathsTutorHelp', href: contactUrl },
     ]}
     image={{
-      src: 'https://i0.wp.com/mathstutorhelp.com/wp-content/uploads/2019/08/post2.jpg?fit=1800%2C1200&ssl=1',
+      src: getAsset('/images/maths-support-assistant-classroom.jpg'),
       alt: 'Maths tutoring and classroom support',
     }}
   />

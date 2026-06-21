@@ -5,7 +5,7 @@ import Features from '~/components/widgets/Features.astro';
 import Content from '~/components/widgets/Content.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import { getPermalink } from '~/utils/permalinks';
+import { getAsset, getPermalink } from '~/utils/permalinks';
 import { bookingLinks, contactDetails, ctaLabels, tuitionPrices } from '~/utils/siteDetails';
 
 const metadata = {
@@ -37,7 +37,7 @@ const phoneDisplay = contactDetails.phoneDisplay;
       { text: 'Ask a Question', href: contactUrl },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1800&q=80',
+      src: getAsset('/images/gcse-classroom-teaching.jpg'),
       alt: 'GCSE foundation maths small group class',
     }}
   />
@@ -105,7 +105,7 @@ const phoneDisplay = contactDetails.phoneDisplay;
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1596495577886-d920f1fb7238?auto=format&fit=crop&w=1400&q=80',
+      src: getAsset('/images/gcse-higher-maths-notes.jpg'),
       alt: 'Student practising GCSE maths',
     }}
   >

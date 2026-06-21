@@ -1,0 +1,100 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features from '~/components/widgets/Features.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { getPermalink } from '~/utils/permalinks';
+import { bookingLinks, contactDetails, ctaLabels, tuitionPrices } from '~/utils/siteDetails';
+
+const metadata = {
+  title: 'Maths Tutor Levenshulme | GCSE Maths Classes & 1-to-1 Tuition',
+  description:
+    'Maths tutor in Levenshulme, Manchester for GCSE, IGCSE, KS3, Functional Skills and A-Level, with small group classes and one-to-one tuition.',
+};
+
+const contactUrl = getPermalink('/contact');
+const gcseClassesUrl = getPermalink('/gcse-classes');
+const mathsTuitionUrl = getPermalink('/maths-tuition');
+---
+
+<Layout metadata={metadata}>
+  <HeroText
+    tagline="Maths Tutor Levenshulme"
+    title="Maths Tutor in Levenshulme, Manchester"
+    subtitle="Local maths support for students in Levenshulme and nearby Manchester areas, including GCSE group classes, one-to-one tuition and online support."
+    callToAction={{
+      variant: 'primary',
+      text: ctaLabels.groupClassInterest,
+      href: bookingLinks.groupClassInterest,
+      icon: 'tabler:calendar-check',
+    }}
+    callToAction2={{
+      text: `Call ${contactDetails.phoneDisplay}`,
+      href: contactDetails.phoneHref,
+      icon: 'tabler:phone',
+    }}
+  />
+
+  <Features
+    title="Local Maths Support Near Levenshulme"
+    subtitle="MathsTutorHelp supports families in Levenshulme, Longsight, Burnage, Stockport, Didsbury and South Manchester."
+    columns={3}
+    items={[
+      {
+        title: 'GCSE group classes',
+        description: `Small GCSE Foundation and Higher classes in Levenshulme from ${tuitionPrices.smallGroup.display}.`,
+        icon: 'tabler:users-group',
+        callToAction: { text: 'View GCSE Classes', href: gcseClassesUrl },
+      },
+      {
+        title: 'One-to-one tuition',
+        description: `Focused in-person maths tuition in Manchester from ${tuitionPrices.oneToOne.display}.`,
+        icon: 'tabler:user-check',
+        callToAction: { text: 'View Tuition Options', href: mathsTuitionUrl },
+      },
+      {
+        title: 'Online support',
+        description: `Live online maths tuition is ${tuitionPrices.online.display}, with separate online course packages also available.`,
+        icon: 'tabler:device-laptop',
+        callToAction: { text: 'Ask About Availability', href: contactUrl },
+      },
+    ]}
+  />
+
+  <Features
+    title="Who This Is For"
+    subtitle="Support can be matched to the student's current level, target grade and confidence."
+    columns={4}
+    items={[
+      {
+        title: 'KS3 students',
+        description: 'Build stronger foundations before GCSE with clear explanations and regular practice.',
+        icon: 'tabler:school',
+      },
+      {
+        title: 'GCSE Foundation',
+        description: 'Support for students working towards grades 4-5 with exam-style practice.',
+        icon: 'tabler:certificate',
+      },
+      {
+        title: 'GCSE Higher',
+        description: 'Support for students aiming for grades 6-9 and harder problem-solving questions.',
+        icon: 'tabler:chart-line',
+      },
+      {
+        title: 'Functional Skills',
+        description: 'Practical maths support for Level 1 and Level 2 learners.',
+        icon: 'tabler:list-check',
+      },
+    ]}
+  />
+
+  <CallToAction
+    title="Looking for Maths Tuition in Levenshulme?"
+    subtitle="Send the student's year group, current level and target grade, and MathsTutorHelp will suggest the best next step."
+    actions={[
+      { variant: 'primary', text: ctaLabels.groupClassInterest, href: bookingLinks.groupClassInterest, icon: 'tabler:calendar-check' },
+      { text: 'Contact MathsTutorHelp', href: contactUrl, icon: 'tabler:send' },
+    ]}
+  />
+</Layout>

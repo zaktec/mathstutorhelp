@@ -5,39 +5,48 @@ export const registerInterestUrl = bookingLinks.groupClassInterest;
 export const onlinePackages = [
   {
     title: 'Bronze',
-    detail: '1 online session per month',
-    price: '£25/month',
+    detail: 'Course content and WhatsApp messaging support only',
+    price: '£15/month',
+    note: 'No live sessions',
   },
   {
     title: 'Silver',
-    detail: '2 online sessions per month',
-    price: '£45/month',
-    note: 'Equivalent to £22.50 per session',
+    detail: '1 hour of live tutoring per month, plus course content and messaging support',
+    price: '£30/month',
+    note: '£30/hr',
   },
   {
     title: 'Gold',
-    detail: '4 online sessions per month',
-    price: '£80/month',
-    note: 'Best value - equivalent to £20 per session',
+    detail: '2 hours of live tutoring per month, plus course content and messaging support',
+    price: '£60/month',
+    note: '£30/hr',
   },
 ];
 
 export const packageIncludes = [
-  'Diagnostic test and personalised learning plan',
-  'Access to the online platform and learner resources',
-  'Custom online worksheet after every session',
-  'Fully qualified and DBS-checked tutor',
+  'Access to the selected course content and learner resources',
+  'WhatsApp messaging support for questions between sessions',
+  'Custom worksheet or practice task linked to the course',
+  'Option to include live one-to-one tutoring on Silver and Gold',
+  'Fully qualified and DBS-checked tutor support',
   'No contracts - cancel anytime',
-  "Support matched to the student's level",
 ];
 
 export const overviewPackageIncludes = [
-  'Diagnostic test and personalised learning plan',
-  'Access to the online platform and learner resources',
-  'Custom online worksheet after every session',
-  'Fully qualified and DBS-checked tutor',
-  'No contracts - cancel anytime',
-  'Support for KS3, GCSE, IGCSE, Functional Skills and A-Level',
+  ...packageIncludes,
+];
+
+export const packageFaqs = [
+  {
+    title: 'Can I upgrade or downgrade my support level?',
+    description:
+      'Please ask when registering interest. Support level changes depend on availability and will be confirmed before your child starts.',
+  },
+  {
+    title: 'Is Bronze suitable for every course?',
+    description:
+      'Bronze is best for students who can work independently with course content and messaging support. If your child needs live teaching, Silver or Gold may be a better fit.',
+  },
 ];
 
 export const onlineCourseCards = [
@@ -91,6 +100,8 @@ export const onlineCourseCards = [
     slug: 'ks3-maths',
     title: 'KS3 Maths',
     pageTitle: 'KS3 Maths Online Tuition',
+    metaDescription:
+      'Structured online maths support for Years 7, 8 and 9, covering negative numbers, algebra, ratio, angles and problem solving to build strong foundations before GCSE.',
     description:
       'Structured support for students in Years 7, 8 and 9 who need to build strong foundations before GCSE.',
     intro:
@@ -106,30 +117,54 @@ export const onlineCourseCards = [
     whoFor: [
       'Year 7, Year 8 and Year 9 students',
       'Students who find maths confusing or stressful',
-      'Students who need help with school topics',
-      'Students preparing early for GCSE',
+      'Students moving between schools or settling into a new key stage',
+      'Students who want to get ahead before starting GCSE topics',
     ],
     learn: [
-      'Number skills',
-      'Algebra basics',
-      'Fractions, decimals and percentages',
-      'Ratio and proportion',
-      'Geometry and angles',
-      'Graphs and data',
-      'Problem solving',
+      'Number: negative numbers, factors and multiples, powers and roots, standard form basics',
+      'Algebra: simplifying expressions, solving simple equations, substitution, sequences',
+      'Fractions, decimals and percentages: converting between forms, percentage increase/decrease, mixed numbers',
+      'Ratio and proportion: sharing in a ratio, scale, best buys',
+      'Geometry: angle rules, area and perimeter, introduction to Pythagoras',
+      'Graphs and data: plotting and reading graphs, averages, basic probability',
+      'Problem solving: multi-step word problems and unfamiliar questions',
+    ],
+    lessonSteps: [
+      'Diagnostic check - a short assessment to find the KS3 topics needing the most attention',
+      'Clear explanation - each topic broken into simple, step-by-step methods',
+      'Guided practice - supported questions before independent practice',
+      'Applied questions - practice that builds toward GCSE-style thinking',
+      'Worksheet after the lesson - a short take-home task matched to the topic',
+      'Feedback and next steps - a quick note on progress and what to focus on next',
+    ],
+    packageIncludes: [
+      'Diagnostic test and personalised learning plan',
+      'Access to the online platform and learner resources',
+      'Custom worksheet after every session',
+      'Fully qualified and DBS-checked tutor',
+      'No contracts - cancel anytime',
+      "Lessons adapted to the student's school and current topics where possible",
     ],
     faqs: [
       {
         title: 'Is this suitable for Year 7, Year 8 and Year 9?',
-        description: "Yes. The lessons can be matched to the student's year group and ability.",
+        description:
+          "Yes. Lessons are matched to the student's year group, school curriculum and current ability.",
       },
       {
         title: 'Can this help before GCSE?',
-        description: 'Yes. KS3 support helps build the foundation needed for GCSE Maths.',
+        description:
+          'Yes. KS3 support is designed to build the number, algebra and geometry foundations that GCSE Maths builds directly on.',
       },
       {
         title: 'Will lessons follow school topics?',
-        description: 'Lessons can follow school topics or focus on gaps found through a diagnostic check.',
+        description:
+          'Yes, where possible. We can follow what the student is currently covering at school, or focus on gaps found in the diagnostic check - whichever is more useful.',
+      },
+      {
+        title: 'What if my child is ahead of their year group?',
+        description:
+          'Lessons can move at the right pace - some students use KS3 tuition to get a head start on early GCSE topics.',
       },
     ],
   },
@@ -279,10 +314,12 @@ export const onlineCourseCards = [
     slug: 'functional-skills-maths',
     title: 'Functional Skills Maths',
     pageTitle: 'Functional Skills Maths Online Tuition',
+    metaDescription:
+      'Online Functional Skills Maths support for students and adult learners working towards Level 1 or Level 2 assessments, including apprenticeship and college requirements.',
     description:
-      'Practical maths support for learners who need confidence with everyday maths and Functional Skills assessments.',
+      'Practical, exam-focused support for learners working towards Functional Skills Level 1 or Level 2.',
     intro:
-      'Practical online maths support for learners who need confidence with everyday maths and Functional Skills assessments.',
+      'Practical, exam-focused maths support for students and adult learners working towards Functional Skills Level 1 or Level 2.',
     bullets: [
       'Money and percentages',
       'Fractions and decimals',
@@ -292,33 +329,54 @@ export const onlineCourseCards = [
     ],
     buttonText: 'View Functional Skills',
     whoFor: [
-      'Functional Skills Level 1 or Level 2 learners',
-      'Adult learners returning to maths',
-      'Students preparing for college, work or apprenticeships',
-      'Learners who need practical real-life maths support',
+      'Students who need a Functional Skills qualification instead of, or alongside, GCSE Maths',
+      'Apprentices who need Level 1 or Level 2 Maths to complete their apprenticeship',
+      'Adult learners returning to study, including for college courses or career changes',
+      'Anyone who needs to pass a Functional Skills assessment with a clear deadline',
     ],
     learn: [
-      'Money',
-      'Percentages',
-      'Fractions and decimals',
-      'Measures',
-      'Ratio',
-      'Charts and tables',
-      'Real-life problem solving',
-      'Assessment-style questions',
+      'Number: whole numbers, decimals, negative numbers, rounding',
+      'Money and percentages: budgeting, discounts, percentage increase/decrease, calculating change',
+      'Fractions and decimals: converting between forms and everyday quantities',
+      'Measures, shape and space: units, perimeter, area and reading scales',
+      'Ratio and proportion: scaling recipes, mixing ratios and unit pricing',
+      'Statistics: charts, tables, graphs, averages and interpreting data',
+      'Exam practice: past paper questions and timed practice for the relevant awarding body, such as City & Guilds, Pearson or NCFE',
+    ],
+    lessonSteps: [
+      'Diagnostic check - identifies the current level and specific gaps',
+      'Clear explanation - practical examples relevant to work and daily life',
+      'Guided practice - supported practice before independent exam-style questions',
+      'Past paper practice - timed questions in the assessment format',
+      'Worksheet after the lesson - short practice tasks to reinforce the session',
+      'Feedback and next steps - clear guidance on readiness for the next assessment sitting',
+    ],
+    packageIncludes: [
+      'Diagnostic test to confirm current level and target qualification',
+      'Access to the online platform and learner resources',
+      'Custom worksheet after every session',
+      'Fully qualified and DBS-checked tutor',
+      'No contracts - cancel anytime',
+      'Flexible scheduling to suit work, apprenticeship or college commitments',
     ],
     faqs: [
       {
-        title: 'Is this suitable for adult learners?',
-        description: 'Yes. Functional Skills support is suitable for adult learners and college students.',
+        title: "What's the difference between Level 1 and Level 2?",
+        description:
+          'Level 2 is roughly equivalent to a GCSE grade 4-5 standard and is often required for apprenticeships and further study. Level 1 is the step before this. We can confirm which level suits your situation in the first session.',
       },
       {
-        title: 'Can lessons focus on real-life maths?',
-        description: 'Yes. Lessons can include money, measures, percentages, charts and practical problem solving.',
+        title: 'Do you support adult learners?',
+        description: 'Yes. Many Functional Skills students are adults returning to study, not just school-age students.',
       },
       {
-        title: 'Do you support Level 1 and Level 2?',
-        description: 'Yes. Support can be matched to Level 1 or Level 2.',
+        title: 'Can lessons fit around work or an apprenticeship?',
+        description: 'Yes. Online sessions can be scheduled around work shifts, evenings or weekends.',
+      },
+      {
+        title: 'How quickly can I prepare for an assessment?',
+        description:
+          'This depends on your starting point and the assessment date - the diagnostic check in the first session helps set realistic expectations.',
       },
     ],
   },
@@ -366,11 +424,13 @@ export const onlineCourseCards = [
   {
     slug: 'coding-problem-solving',
     title: 'Coding and Problem Solving',
-    pageTitle: 'Coding and Problem Solving Online Lessons',
+    pageTitle: 'Coding and Problem Solving - Part 1 (Beginner Python)',
+    metaDescription:
+      'Teacher-led beginner Python coding lessons covering the basics in around 6-8 sessions, building logical thinking and problem-solving skills before progressing to Part 2.',
     description:
-      'Beginner-friendly coding lessons that help students develop logical thinking, problem-solving skills and confidence with programming.',
+      'Teacher-led beginner coding lessons that help students develop logical thinking, problem-solving skills and confidence with programming.',
     intro:
-      'Beginner-friendly coding lessons that help students develop logical thinking, programming confidence and problem-solving skills.',
+      'Teacher-led beginner coding lessons that help students develop logical thinking, programming confidence and problem-solving skills.',
     bullets: [
       'Python basics',
       'If statements and loops',
@@ -382,32 +442,59 @@ export const onlineCourseCards = [
     buttonText: 'View Coding and Problem Solving',
     whoFor: [
       'Students aged 10+',
-      'Beginners who want to learn coding',
+      'Complete beginners - no coding experience needed',
       'Students who enjoy logic, puzzles and problem solving',
       'Students preparing for Computer Science at school',
     ],
     learn: [
-      'Python basics',
-      'Variables and data types',
-      'If statements',
-      'Loops',
-      'Functions',
-      'Simple projects',
-      'Debugging skills',
-      'Computational thinking',
+      'Getting started: setting up Python, writing and running a first program',
+      'Variables and data types: numbers, text and storing information',
+      'If statements: making decisions in code',
+      'Loops: repeating actions with for and while loops',
+      'Functions: writing reusable blocks of code',
+      'Simple projects: building small programs such as quizzes and calculators',
+      'Debugging skills: finding and fixing common errors',
+      'Computational thinking: breaking problems into logical steps',
+    ],
+    lessonSteps: [
+      "Diagnostic check - a quick conversation to confirm the student's starting point",
+      'Clear explanation - each new coding concept explained step by step',
+      'Guided practice - students write code with support before independent tasks',
+      "Mini challenges - short coding problems that apply what's just been learned",
+      'Worksheet or take-home task - a small coding exercise before the next session',
+      "Feedback and next steps - a note on progress and what's coming up next",
+    ],
+    packageIncludes: [
+      'A relaxed first session to confirm experience level and pace',
+      'Access to the online platform and learner resources',
+      'Custom worksheet or coding task after every session',
+      'Fully qualified and DBS-checked tutor',
+      'No contracts - cancel anytime',
+      'A certificate-ready final project on completion of Part 1',
     ],
     faqs: [
       {
-        title: 'Is this suitable for beginners?',
-        description: 'Yes. The lessons are beginner-friendly and do not require previous coding experience.',
+        title: 'Is this suitable for complete beginners?',
+        description: 'Yes. No previous coding experience is required - most students start from scratch.',
       },
       {
-        title: 'What language is used?',
-        description: 'Python can be used because it is beginner-friendly and useful for school-level Computer Science.',
+        title: 'What software is used?',
+        description: 'Students use Thonny, a free, beginner-friendly Python editor.',
+      },
+      {
+        title: 'How long does Part 1 take?',
+        description:
+          'Most students complete Part 1 in around 6-8 sessions, depending on the package chosen and how quickly they progress.',
       },
       {
         title: 'Does coding help with maths?',
-        description: 'Coding can support logical thinking, sequencing, problem solving and confidence with technology.',
+        description:
+          'Yes. Coding builds logical thinking, sequencing and problem-solving skills that carry over directly into maths topics like algebra and patterns.',
+      },
+      {
+        title: 'What happens after Part 1?',
+        description:
+          'Students can continue to Part 2 for more advanced Python projects, or move toward GCSE Computer Science support.',
       },
     ],
   },
@@ -416,7 +503,7 @@ export const onlineCourseCards = [
     title: 'Coding and Problem Solving Part 2',
     pageTitle: 'Coding and Problem Solving Part 2 Online Lessons',
     description:
-      'Next-step coding lessons for students who know the basics and are ready to build more confidence with Python projects.',
+      'Teacher-led next-step coding lessons for students who know the basics and are ready to build more confidence with Python projects.',
     intro:
       'Part 2 coding lessons help students move beyond the basics with more structured Python practice, simple projects and stronger problem-solving habits.',
     bullets: [
