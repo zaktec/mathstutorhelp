@@ -17,19 +17,11 @@ export interface Props {
   links: Array<Links>;
   secondaryLinks: Array<Link>;
   socialLinks: Array<Link>;
-  description?: string;
   footNote?: string;
   theme?: string;
 }
 
-const {
-  socialLinks = [],
-  secondaryLinks = [],
-  links = [],
-  description = '',
-  footNote = '',
-  theme = 'light',
-} = Astro.props;
+const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme = 'light' } = Astro.props;
 ---
 
 <footer

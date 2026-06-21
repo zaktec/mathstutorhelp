@@ -97,7 +97,8 @@ const contactUrl = getPermalink('/contact');
     items={[
       {
         title: 'Do you support both Foundation and Higher GCSE Maths?',
-        description: 'Yes. Support is available for Foundation students aiming for grades 4-5 and Higher students aiming for grades 6-9.',
+        description:
+          'Yes. Support is available for Foundation students aiming for grades 4-5 and Higher students aiming for grades 6-9.',
       },
       {
         title: 'Which exam boards are supported?',
@@ -118,7 +119,12 @@ const contactUrl = getPermalink('/contact');
     title="Need GCSE Maths Support in Manchester?"
     subtitle="Register interest or send a message with the student's year group, tier, current grade and target grade."
     actions={[
-      { variant: 'primary', text: ctaLabels.groupClassInterest, href: bookingLinks.groupClassInterest, icon: 'tabler:calendar-check' },
+      {
+        variant: 'primary',
+        text: ctaLabels.groupClassInterest,
+        href: bookingLinks.groupClassInterest,
+        icon: 'tabler:calendar-check',
+      },
       { text: 'Contact MathsTutorHelp', href: contactUrl, icon: 'tabler:send' },
     ]}
   />

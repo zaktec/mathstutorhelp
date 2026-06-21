@@ -29,6 +29,34 @@ npm run check
 npm run fix
 ```
 
+## Before Pushing To GitHub
+
+Run these before pushing changes:
+
+```bash
+npm run check
+npm run build
+```
+
+To make Git run them automatically before each push, enable the project hook once:
+
+```bash
+npm run setup-hooks
+```
+
+After that, `git push` will run the same checks GitHub runs. If formatting fails, use:
+
+```bash
+npm run fix:prettier
+npm run check
+```
+
+Only skip the hook when you are sure you need to:
+
+```bash
+git push --no-verify
+```
+
 Local development normally runs at:
 
 ```text

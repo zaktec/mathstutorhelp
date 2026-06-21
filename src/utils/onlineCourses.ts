@@ -32,9 +32,7 @@ export const packageIncludes = [
   'No contracts - cancel anytime',
 ];
 
-export const overviewPackageIncludes = [
-  ...packageIncludes,
-];
+export const overviewPackageIncludes = [...packageIncludes];
 
 export const packageFaqs = [
   {
@@ -148,8 +146,7 @@ export const onlineCourseCards = [
     faqs: [
       {
         title: 'Is this suitable for Year 7, Year 8 and Year 9?',
-        description:
-          "Yes. Lessons are matched to the student's year group, school curriculum and current ability.",
+        description: "Yes. Lessons are matched to the student's year group, school curriculum and current ability.",
       },
       {
         title: 'Can this help before GCSE?',
@@ -316,8 +313,7 @@ export const onlineCourseCards = [
     pageTitle: 'Functional Skills Maths Online Tuition',
     metaDescription:
       'Online Functional Skills Maths support for students and adult learners working towards Level 1 or Level 2 assessments, including apprenticeship and college requirements.',
-    description:
-      'Practical, exam-focused support for learners working towards Functional Skills Level 1 or Level 2.',
+    description: 'Practical, exam-focused support for learners working towards Functional Skills Level 1 or Level 2.',
     intro:
       'Practical, exam-focused maths support for students and adult learners working towards Functional Skills Level 1 or Level 2.',
     bullets: [
@@ -367,7 +363,8 @@ export const onlineCourseCards = [
       },
       {
         title: 'Do you support adult learners?',
-        description: 'Yes. Many Functional Skills students are adults returning to study, not just school-age students.',
+        description:
+          'Yes. Many Functional Skills students are adults returning to study, not just school-age students.',
       },
       {
         title: 'Can lessons fit around work or an apprenticeship?',
