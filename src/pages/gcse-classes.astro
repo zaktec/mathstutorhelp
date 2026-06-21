@@ -1,0 +1,174 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import Content from '~/components/widgets/Content.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { getAsset, getPermalink } from '~/utils/permalinks';
+import { bookingLinks, ctaLabels, tuitionPrices } from '~/utils/siteDetails';
+
+const metadata = {
+  title: 'GCSE Maths Classes Manchester',
+  description:
+    'Small GCSE Maths group classes in Levenshulme, Manchester for Foundation and Higher students, with limited places and weekly exam-focused support.',
+};
+
+const interestFormUrl = bookingLinks.groupClassInterest;
+const higherClassUrl = getPermalink('/gcse-revision-class-higher-manchester');
+const foundationClassUrl = getPermalink('/gcse-foundation-maths-tutoring-club-2025');
+const pricingUrl = getPermalink('/pricing');
+const contactUrl = getPermalink('/contact');
+const onlineTuitionUrl = getPermalink('/online-tuition');
+const classImageUrl = getAsset('/images/gallery/ks3-gcse-maths-classes-manchester.jpeg');
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="GCSE Group Classes"
+    title="GCSE Maths Classes in Levenshulme"
+    subtitle={`Small, teacher-led GCSE Maths group classes for Foundation and Higher students in Manchester. Sessions are ${tuitionPrices.smallGroup.display} and places are limited to keep support focused.`}
+    actions={[
+      {
+        variant: 'primary',
+        text: ctaLabels.groupClassInterest,
+        href: interestFormUrl,
+        target: '_blank',
+        icon: 'tabler:calendar-check',
+      },
+      { text: 'Compare Class Options', href: '#class-options' },
+    ]}
+    image={{
+      src: classImageUrl,
+      alt: 'GCSE Maths students in a small group class',
+    }}
+  />
+
+  <Features
+    title="Why Choose a GCSE Group Class?"
+    subtitle="A good fit for students who need routine, guided practice and a supportive class environment."
+    columns={3}
+    items={[
+      {
+        title: 'Small groups',
+        description: 'Classes are capped so students can ask questions and receive individual attention.',
+        icon: 'tabler:users-group',
+      },
+      {
+        title: 'Exam-focused practice',
+        description: 'Students work through GCSE-style questions, written methods and common exam mistakes.',
+        icon: 'tabler:file-check',
+      },
+      {
+        title: tuitionPrices.smallGroup.display,
+        description: 'A lower-cost route for regular maths support compared with one-to-one tuition.',
+        icon: 'tabler:coin-pound',
+      },
+    ]}
+  />
+
+  <Content
+    id="class-options"
+    isReversed
+    title="Choose Foundation or Higher"
+    items={[
+      {
+        title: 'GCSE Higher Maths Classes',
+        description: 'For Higher Tier students aiming for grades 6-9, with topic revision and exam technique.',
+        icon: 'tabler:chart-line',
+        callToAction: { text: 'View Higher Class', href: higherClassUrl },
+      },
+      {
+        title: 'GCSE Foundation Maths Tutoring',
+        description: 'For Foundation Tier students working towards grades 4-5 with clear methods and steady practice.',
+        icon: 'tabler:certificate',
+        callToAction: { text: 'View Foundation Class', href: foundationClassUrl },
+      },
+      {
+        title: 'Not sure which class?',
+        description: 'Send a short enquiry with the student year group, current grade and target grade.',
+        icon: 'tabler:message-question',
+        callToAction: { text: 'Ask About Classes', href: contactUrl },
+      },
+    ]}
+    image={{
+      src: getAsset('/images/gallery/classroom-circle-theorems.jpeg'),
+      alt: 'GCSE Maths classroom board work',
+    }}
+  >
+    <Fragment slot="content">
+      <p>
+        GCSE group classes are designed for students who benefit from a regular weekly routine, teacher-led explanations
+        and plenty of exam-style practice. Foundation and Higher routes are kept separate so students can work at the
+        right pace.
+      </p>
+    </Fragment>
+  </Content>
+
+  <Features
+    title="Class Details at a Glance"
+    subtitle="The class pages include the latest timings, course plans and booking details."
+    columns={3}
+    items={[
+      {
+        title: 'Location',
+        description: 'Levenshulme High School, Manchester, M19 1FS.',
+        icon: 'tabler:map-pin',
+      },
+      {
+        title: 'Limited places',
+        description: 'Register your interest early to ask about availability or join the waitlist.',
+        icon: 'tabler:calendar-check',
+      },
+      {
+        title: 'Other support available',
+        description: `One-to-one tuition is ${tuitionPrices.oneToOne.display}; online tuition is ${tuitionPrices.online.display}.`,
+        icon: 'tabler:device-laptop',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-brand-soft dark:bg-transparent"></div>
+    </Fragment>
+  </Features>
+
+  <FAQs
+    title="GCSE Class FAQs"
+    columns={2}
+    items={[
+      {
+        title: 'How much are GCSE group classes?',
+        description: `Small group classes are ${tuitionPrices.smallGroup.display}. Some class pages may mention advance block booking options where available.`,
+      },
+      {
+        title: 'Which class should my child choose?',
+        description:
+          'Foundation is usually for students working towards grades 4-5. Higher is usually for students aiming for grades 6-9.',
+      },
+      {
+        title: 'Can students join mid-year?',
+        description:
+          'Yes, where a suitable place is available. Register interest first so availability can be checked.',
+      },
+      {
+        title: 'Is online tuition available instead?',
+        description: `Yes. Students who prefer learning from home can view online tuition here: <a class="underline" href="${onlineTuitionUrl}">Online Maths Tuition</a>.`,
+      },
+    ]}
+  />
+
+  <CallToAction
+    title="Interested in GCSE Group Classes?"
+    subtitle="Register your interest for Foundation or Higher GCSE Maths classes and include the student's year group, current grade and target grade."
+    actions={[
+      {
+        variant: 'primary',
+        text: ctaLabels.groupClassInterest,
+        href: interestFormUrl,
+        target: '_blank',
+        icon: 'tabler:calendar-check',
+      },
+      { text: 'View Full Pricing', href: pricingUrl },
+    ]}
+  />
+</Layout>

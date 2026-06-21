@@ -13,7 +13,7 @@ export const headerData = {
     },
     {
       text: 'GCSE Classes',
-      href: `${getPermalink('/')}#group-classes`,
+      href: getPermalink('/gcse-classes'),
     },
     {
       text: 'About',
@@ -43,7 +43,7 @@ export const footerData = {
     {
       title: 'Classes',
       links: [
-        { text: 'GCSE Group Classes', href: `${getPermalink('/')}#group-classes` },
+        { text: 'GCSE Group Classes', href: getPermalink('/gcse-classes') },
         { text: 'GCSE Higher Class', href: getPermalink('/gcse-revision-class-higher-manchester') },
         { text: 'GCSE Foundation Class', href: getPermalink('/gcse-foundation-maths-tutoring-club-2025') },
         { text: 'Summer Coding Course', href: getPermalink('/manchestersummercodingclub') },
