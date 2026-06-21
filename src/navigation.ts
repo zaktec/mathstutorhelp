@@ -8,7 +8,11 @@ export const headerData = {
       href: getPermalink('/'),
     },
     {
-      text: 'Online Maths Tuition',
+      text: 'Maths Tuition',
+      href: getPermalink('/maths-tuition'),
+    },
+    {
+      text: 'Online Tuition',
       href: getPermalink('/online-tuition'),
     },
     {
