@@ -83,9 +83,9 @@ Avoid purple/indigo template gradients or bright mixed colours that make the sit
 
 Primary buttons are for the main action in a section:
 
-- Book a Free 1:1/Online Consultation
-- Register for GCSE Group Class Waitlist
-- Register Online Tuition Interest
+- Book a Free Consultation
+- Register for GCSE Classes
+- Register Interest
 - Open Hai-BL Form
 
 Secondary buttons are for supporting actions:

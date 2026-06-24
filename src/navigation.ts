@@ -75,7 +75,7 @@ export const footerData = {
         { text: 'Maths Resources', href: getPermalink('/resources') },
         { text: 'Blog', href: getPermalink('/blog') },
         { text: 'Gallery', href: getPermalink('/gallery') },
-        { text: 'Work with MTH', href: getPermalink('/work-with-mth') },
+        { text: 'Work with MathsTutorHelp', href: getPermalink('/work-with-mth') },
       ],
     },
     {

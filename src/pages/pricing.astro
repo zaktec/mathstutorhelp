@@ -10,7 +10,7 @@ import { bookingLinks, ctaLabels, tuitionPrices } from '~/utils/siteDetails';
 const metadata = {
   title: 'Maths Tuition Prices',
   description:
-    'Clear Maths Tutor Help pricing for online maths tuition, in-person tuition and group classes in Manchester.',
+    'Clear MathsTutorHelp pricing for online maths tuition, in-person tuition and group classes in Manchester.',
 };
 
 const consultationBookingUrl = bookingLinks.freeConsultation;
@@ -48,19 +48,19 @@ const mathsTuitionUrl = getPermalink('/maths-tuition');
         title: 'Online Tutoring',
         description: `<strong class="text-3xl text-gray-900 dark:text-white">${tuitionPrices.online.display}</strong><br />Flexible online maths tuition for GCSE, IGCSE, Functional Skills and A-Level students.`,
         icon: 'tabler:device-laptop',
-        callToAction: { text: 'Ask about online tuition', href: contactUrl },
+        callToAction: { text: 'Ask About Online Tuition', href: contactUrl },
       },
       {
         title: 'In-Person Tutoring',
         description: `<strong class="text-3xl text-gray-900 dark:text-white">${tuitionPrices.oneToOne.display}</strong><br />Manchester-based in-person support with clear explanations and personalised practice.`,
         icon: 'tabler:user-check',
-        callToAction: { text: 'Ask about in-person tuition', href: contactUrl },
+        callToAction: { text: 'Ask About In-Person Tuition', href: contactUrl },
       },
       {
         title: 'Group Session',
         description: `<strong class="text-3xl text-gray-900 dark:text-white">${tuitionPrices.smallGroup.display}</strong><br />Small group GCSE Maths classes in Levenshulme, Manchester. Limited places available.`,
         icon: 'tabler:users-group',
-        callToAction: { text: 'View group classes', href: higherClassUrl },
+        callToAction: { text: 'View GCSE Classes', href: higherClassUrl },
       },
     ]}
   />
@@ -124,6 +124,10 @@ const mathsTuitionUrl = getPermalink('/maths-tuition');
       {
         title: 'Can we switch between online and in-person tuition?',
         description: 'Yes, where availability allows. Many families choose the format that fits their timetable.',
+      },
+      {
+        title: 'How much is A-Level tuition?',
+        description: `One-to-one A-Level tuition follows the same standard rates: ${tuitionPrices.online.display} online or ${tuitionPrices.oneToOne.display} in person, subject to availability.`,
       },
       {
         title: 'How do I book?',

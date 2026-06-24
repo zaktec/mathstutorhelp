@@ -1,5 +1,5 @@
 site:
-  name: Maths Tutor Help
+  name: MathsTutorHelp
   site: 'https://zaktec.github.io'
   base: '/mathstutorhelp'
   trailingSlash: true
@@ -9,14 +9,14 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: Maths Tutor Help
-    template: '%s — Maths Tutor Help'
-  description: 'Personalised maths tutoring for GCSE, A-level, SATs and confidence building.'
+    default: MathsTutorHelp
+    template: '%s — MathsTutorHelp'
+  description: 'Qualified maths tuition in Manchester and online for KS3, GCSE, IGCSE, Functional Skills and A-Level students.'
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: Maths Tutor Help
+    site_name: MathsTutorHelp
     images:
       - url: '~/assets/images/default.png'
         width: 1200

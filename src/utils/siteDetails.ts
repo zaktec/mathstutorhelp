@@ -12,9 +12,9 @@ export const bookingLinks = {
 };
 
 export const ctaLabels = {
-  freeConsultation: 'Book a Free 1:1/Online Consultation',
-  groupClassInterest: 'Register for GCSE Group Class Waitlist',
-  onlineTuitionInterest: 'Register Online Tuition Interest',
+  freeConsultation: 'Book a Free Consultation',
+  groupClassInterest: 'Register for GCSE Classes',
+  onlineTuitionInterest: 'Register Interest',
   codingCourseInterest: 'Register Coding Course Interest',
 };
 

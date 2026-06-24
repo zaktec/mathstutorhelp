@@ -38,12 +38,12 @@ export const packageFaqs = [
   {
     title: 'Can I upgrade or downgrade my support level?',
     description:
-      'Please ask when registering interest. Support level changes depend on availability and will be confirmed before your child starts.',
+      'Please ask when registering interest. Support level changes depend on availability and will be confirmed before tuition starts.',
   },
   {
     title: 'Is Bronze suitable for every course?',
     description:
-      'Bronze is best for students who can work independently with course content and messaging support. If your child needs live teaching, Silver or Gold may be a better fit.',
+      'Bronze is best for learners who can work independently with course content and messaging support. If live teaching is needed, Silver or Gold may be a better fit.',
   },
 ];
 
@@ -530,8 +530,8 @@ export const onlineCourseCards = [
     ],
     faqs: [
       {
-        title: 'Does my child need to complete Part 1 first?',
-        description: 'Part 1 is helpful, but not essential if your child already understands simple Python basics.',
+        title: 'Does the learner need to complete Part 1 first?',
+        description: 'Part 1 is helpful, but not essential if the learner already understands simple Python basics.',
       },
       {
         title: 'Is this still beginner-friendly?',
