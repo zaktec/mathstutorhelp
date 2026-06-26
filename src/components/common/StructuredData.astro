@@ -2,8 +2,8 @@
 import { SITE } from 'astrowind:config';
 import { contactDetails, tuitionPrices } from '~/utils/siteDetails';
 
-const siteUrl = String(SITE.site || 'https://zaktec.github.io').replace(/\/$/, '');
-const basePath = SITE.base || '/mathstutorhelp';
+const siteUrl = String(SITE.site || 'https://mathstutorhelp.com').replace(/\/$/, '');
+const basePath = SITE.base && SITE.base !== '/' ? SITE.base : '';
 const homepageUrl = `${siteUrl}${basePath}/`;
 const logoUrl = `${siteUrl}${basePath}/images/maths-tutor-sheraz-cheema.jpeg`;
 

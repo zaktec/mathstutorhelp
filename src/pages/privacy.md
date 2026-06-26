@@ -17,7 +17,7 @@ MathsTutorHelp provides maths and coding tuition, including one-to-one, online a
 Contact:
 
 - Phone/WhatsApp: 07860 248525
-- Contact page: [mathstutorhelp.com/contact/](/mathstutorhelp/contact/)
+- Contact page: [mathstutorhelp.com/contact/](/contact/)
 - Address: Levenshulme, Manchester, UK
 
 ## What Personal Data We Collect
@@ -105,4 +105,4 @@ We may update this policy from time to time. Any changes will be posted on this 
 If you have any questions about this policy or how we handle your data:
 
 - Phone/WhatsApp: 07860 248525
-- Contact page: [mathstutorhelp.com/contact/](/mathstutorhelp/contact/)
+- Contact page: [mathstutorhelp.com/contact/](/contact/)

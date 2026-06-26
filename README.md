@@ -4,6 +4,15 @@ Astro website for MathsTutorHelp, a Manchester-based maths tuition service run b
 
 The project started from AstroWind, but the live source has been customised for MathsTutorHelp. Reference-only template and deployment extras are kept in `extra/`.
 
+## AI Context
+
+If you are giving this project to an AI assistant, start with:
+
+- `documents/ai-project-brief.md` - concise project context, rules, routes and workflow
+- `documents/branding.md` - brand, tone, colours and content direction
+- `documents/website-technical-analysis.md` - deeper technical notes
+- `documents/live-website-content-audit.md` - what can and cannot be reused from the old/live WordPress site
+
 ## Tech Stack
 
 - Astro 6
@@ -60,7 +69,7 @@ git push --no-verify
 Local development normally runs at:
 
 ```text
-http://localhost:4321/mathstutorhelp/
+http://localhost:4321/
 ```
 
 ## Main Folders
@@ -134,7 +143,7 @@ Hai-BL blocks iframe embedding, so the contact page links to the form instead of
 
 ## Deployment Notes
 
-The site is configured for the base path `/mathstutorhelp/`. Use `getPermalink()` for internal links and `getAsset()` for public assets so links work locally and on GitHub Pages.
+The site is configured for the custom domain root, `https://mathstutorhelp.com/`. Use `getPermalink()` for internal links and `getAsset()` for public assets so links keep working if the deployment base changes later.
 
 Build output is generated into `dist/`:
 

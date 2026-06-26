@@ -1,10 +1,12 @@
 # MathsTutorHelp Branding Guide
 
-_Last revised: 21 June 2026_
+_Last revised: 26 June 2026_
 
 ## Brand Position
 
 MathsTutorHelp should feel clear, trustworthy, calm and practical. The main audience is parents and students looking for reliable maths support from a qualified teacher.
+
+For a complete AI-ready project summary, start with `documents/ai-project-brief.md`.
 
 Core message:
 

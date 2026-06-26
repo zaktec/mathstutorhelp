@@ -43,7 +43,7 @@ Services are aimed at school-age students, and adult learners where relevant, an
 
 - We expect all students to behave respectfully towards the tutor and other students
 - We reserve the right to end tuition arrangements where behaviour consistently disrupts learning or creates safety concerns
-- See our [Safeguarding page](/mathstutorhelp/safeguarding/) for how we handle concerns about a student's welfare
+- See our [Safeguarding page](/safeguarding/) for how we handle concerns about a student's welfare
 
 ## Online Lessons
 
@@ -74,4 +74,4 @@ These terms are governed by the laws of England and Wales. Any disputes will be 
 If you have any questions about these terms:
 
 - Phone/WhatsApp: 07860 248525
-- Contact page: [mathstutorhelp.com/contact/](/mathstutorhelp/contact/)
+- Contact page: [mathstutorhelp.com/contact/](/contact/)

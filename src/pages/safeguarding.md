@@ -20,7 +20,7 @@ MathsTutorHelp is committed to providing a safe, respectful and supportive learn
 If you have any safeguarding concern about a lesson, a member of staff or anything else related to a student's welfare, please contact us directly and as soon as possible:
 
 - Phone/WhatsApp: 07860 248525
-- Contact page: [mathstutorhelp.com/contact/](/mathstutorhelp/contact/)
+- Contact page: [mathstutorhelp.com/contact/](/contact/)
 
 We take all concerns seriously and will respond promptly.
 
@@ -36,4 +36,4 @@ If you believe a child is at immediate risk of harm, please contact:
 
 - We follow the principle that safeguarding is everyone's responsibility
 - Any concern raised about a student's wellbeing, even if unrelated to tuition, will be taken seriously and, where appropriate, escalated to the relevant local authority or agency
-- We keep any safeguarding-related records securely and confidentially, in line with our [Privacy Policy](/mathstutorhelp/privacy/)
+- We keep any safeguarding-related records securely and confidentially, in line with our [Privacy Policy](/privacy/)

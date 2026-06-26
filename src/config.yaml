@@ -1,7 +1,7 @@
 site:
   name: MathsTutorHelp
-  site: 'https://zaktec.github.io'
-  base: '/mathstutorhelp'
+  site: 'https://mathstutorhelp.com'
+  base: '/'
   trailingSlash: true
 
   googleSiteVerificationId: orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M

@@ -1,6 +1,6 @@
 # MathsTutorHelp Website - Technical Analysis
 
-_Last revised: 21 June 2026_
+_Last revised: 26 June 2026_
 
 ## Project Overview
 
@@ -14,6 +14,8 @@ This is a static Astro website for MathsTutorHelp, a Manchester-based maths tuit
 - Beginner Python coding support
 
 The project began from AstroWind, but the active route tree, content, metadata, images, footer and legal pages have been customised for MathsTutorHelp.
+
+For a concise AI-ready briefing, use `documents/ai-project-brief.md` before making changes.
 
 ## Technology
 
@@ -42,23 +44,33 @@ Node requirement: `>=22.12.0`.
 
 ## Current Folder Structure
 
-| Folder            | Purpose                                                  |
-| ----------------- | -------------------------------------------------------- |
-| `src/pages/`      | Public routes and dynamic route templates                |
-| `src/components/` | UI, common and widget components                         |
-| `src/layouts/`    | Shared page wrappers                                     |
-| `src/utils/`      | Permalink helpers, shared site details and course data   |
-| `public/`         | Static files copied to build output                      |
-| `documents/`      | Project documentation                                    |
-| `extra/`          | Reference-only extras not needed for the live Astro site |
-| `vendor/`         | Active AstroWind integration support                     |
-| `dist/`           | Generated production output                              |
+| Folder            | Purpose                                                       |
+| ----------------- | ------------------------------------------------------------- |
+| `src/pages/`      | Public routes and dynamic route templates                     |
+| `src/components/` | UI, common and widget components                              |
+| `src/layouts/`    | Shared page wrappers                                          |
+| `src/utils/`      | Permalink helpers, shared site details and course data        |
+| `public/`         | Static files copied to build output                           |
+| `documents/`      | Project documentation                                         |
+| `extra/`          | Reference-only and archived files not needed by the live site |
+| `vendor/`         | Active AstroWind integration support                          |
+| `dist/`           | Generated production output                                   |
 
-`extra/` currently holds deployment/template extras, old archive notes and agent notes. Keep files there if they are useful for reference but not part of the live website.
+`extra/` currently holds deployment/template extras, editor references, agent notes, deduplicated AstroWind archive material and files moved out of the live site after an unused-file audit. Keep files there if they are useful for reference but not part of the live website.
+
+Important `extra/` folders:
+
+- `extra/agent-notes/` - archived AI-agent guidance files and skills.
+- `extra/deployment/` - archived deployment and template deployment files.
+- `extra/editor/` - archived VS Code/template editor configuration.
+- `extra/archive/unused-astrowind/` - deduplicated AstroWind template/demo material.
+- `extra/archive/unused-site-files/` - files moved from active folders after an import/reference audit.
+
+Do not restore files from `extra/` without checking current brand fit, route behaviour and base-path safety.
 
 ## Active Routes
 
-The site is served under `/mathstutorhelp/`, so internal links should use `getPermalink()` and public assets should use `getAsset()`.
+The site is configured for the custom domain root, `https://mathstutorhelp.com/`, so internal links should use `getPermalink()` and public assets should use `getAsset()`.
 
 | Route                                        | Source                                                     | Purpose                                                                                     |
 | -------------------------------------------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
