@@ -1,0 +1,53 @@
+---
+import { getAsset, getPermalink } from '~/utils/permalinks';
+import type { BlogPost } from '~/utils/blogPosts';
+
+interface Props {
+  post: BlogPost;
+}
+
+const { post } = Astro.props;
+---
+
+<article
+  class="flex h-full flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-slate-800"
+>
+  <a href={getPermalink(`/blog/${post.slug}`)} class="block bg-gray-100 dark:bg-slate-700">
+    <img
+      class="h-40 w-full object-cover"
+      src={getAsset(post.image)}
+      alt={post.imageAlt}
+      loading="lazy"
+      width="900"
+      height="298"
+    />
+  </a>
+  <div class="flex flex-1 flex-col p-6">
+    <div class="flex flex-wrap gap-2">
+      {
+        post.tags.map((tag) => (
+          <a
+            class="text-sm font-bold text-secondary underline-offset-4 hover:underline dark:text-teal-200"
+            href={getPermalink(`/blog/tag/${encodeURIComponent(tag.toLowerCase().replaceAll(' ', '-'))}`)}
+          >
+            {tag}
+          </a>
+        ))
+      }
+    </div>
+    <h2 class="mt-3 text-2xl font-bold text-gray-950 dark:text-white">{post.title}</h2>
+    <p class="mt-2 text-sm text-muted dark:text-slate-400">
+      {
+        new Date(post.date).toLocaleDateString('en-GB', {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric',
+        })
+      }
+    </p>
+    <p class="mt-4 flex-1 text-base leading-7 text-muted dark:text-slate-300">{post.excerpt}</p>
+    <a class="btn-secondary mt-6 w-full justify-center sm:w-auto" href={getPermalink(`/blog/${post.slug}`)}>
+      Read Article
+    </a>
+  </div>
+</article>

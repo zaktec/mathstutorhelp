@@ -1,8 +1,10 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import BlogCard from '~/components/blog/BlogCard.astro';
+import SocialShare from '~/components/blog/SocialShare.astro';
 import { getAsset, getPermalink } from '~/utils/permalinks';
-import { blogPosts } from '~/utils/blogPosts';
+import { blogPosts, getRelatedPosts } from '~/utils/blogPosts';
 
 export function getStaticPaths() {
   return blogPosts.map((post) => ({
@@ -12,6 +14,7 @@ export function getStaticPaths() {
 }
 
 const { post } = Astro.props;
+const relatedPosts = getRelatedPosts(post);
 
 const metadata = {
   title: post.title,
@@ -70,6 +73,19 @@ const articleSchema = {
       />
       <p class="mt-6 text-xl leading-8 text-muted dark:text-slate-300">{post.excerpt}</p>
 
+      <div class="mt-5 flex flex-wrap gap-2">
+        {
+          post.tags.map((tag) => (
+            <a
+              class="rounded-md bg-brand-soft px-3 py-2 text-sm font-semibold text-primary dark:bg-slate-800"
+              href={getPermalink(`/blog/tag/${tag.toLowerCase().replaceAll(' ', '-')}`)}
+            >
+              {tag}
+            </a>
+          ))
+        }
+      </div>
+
       <div class="mt-10 space-y-10">
         {
           post.content.map((section) => (
@@ -84,8 +100,18 @@ const articleSchema = {
           ))
         }
       </div>
+      <SocialShare title={post.title} url={Astro.url} />
     </div>
   </article>
+
+  <section class="bg-gray-50 py-12 dark:bg-slate-950" aria-labelledby="related-posts-title">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <h2 id="related-posts-title" class="text-3xl font-bold text-gray-950 dark:text-white">Related articles</h2>
+      <div class="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        {relatedPosts.map((relatedPost) => <BlogCard post={relatedPost} />)}
+      </div>
+    </div>
+  </section>
 
   <CallToAction
     title="Want Help With Maths?"

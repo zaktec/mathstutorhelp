@@ -11,4 +11,6 @@ This folder contains files that are useful for reference but are not required fo
 - `archive/unused-site-files/` - files moved out of the active site after an import/reference audit.
 - `agent-notes/` - AI-agent guidance files and skills kept for reference.
 
+Selected ideas restored to the active site include GitHub Actions checks, blog sharing, related posts, topic pages, pagination, RSS and the Decap CMS interface. Archived copies remain here only as historical reference.
+
 Keep active site files in the project root, `src/`, `public/`, `documents/`, or `vendor/`.

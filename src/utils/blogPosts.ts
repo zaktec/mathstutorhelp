@@ -1,4 +1,23 @@
-export const blogPosts = [
+export interface BlogSection {
+  heading: string;
+  paragraphs: string[];
+}
+
+export interface BlogPost {
+  slug: string;
+  title: string;
+  date: string;
+  image: string;
+  imageAlt: string;
+  excerpt: string;
+  category: string;
+  tags: string[];
+  content: BlogSection[];
+}
+
+export const BLOG_POSTS_PER_PAGE = 3;
+
+export const blogPosts: BlogPost[] = [
   {
     slug: '5-expert-tips-for-maths-revision',
     title: '5 Expert Tips for Maths Revision',
@@ -7,6 +26,7 @@ export const blogPosts = [
     imageAlt: 'Maths revision advice banner for GCSE students',
     excerpt: 'Simple, practical revision advice for students preparing for GCSE Maths exams, mocks or topic tests.',
     category: 'MathsTutorHelp Blog',
+    tags: ['GCSE Maths', 'Revision'],
     content: [
       {
         heading: 'Start with the topics that lose the most marks',
@@ -53,6 +73,7 @@ export const blogPosts = [
     imageAlt: 'Finding a maths tutor in Manchester banner',
     excerpt: 'What parents should look for when choosing maths tuition in Manchester, online or in person.',
     category: 'MathsTutorHelp Blog',
+    tags: ['Maths Tuition', 'Manchester'],
     content: [
       {
         heading: 'Choose the right type of support',
@@ -93,6 +114,7 @@ export const blogPosts = [
     excerpt:
       'A parent-friendly overview of why GCSE Maths now places so much emphasis on problem solving and exam technique.',
     category: 'MathsTutorHelp Blog',
+    tags: ['GCSE Maths', 'Exams'],
     content: [
       {
         heading: 'GCSE Maths is more problem-solving focused',
@@ -131,6 +153,7 @@ export const blogPosts = [
     imageAlt: 'Online maths tutoring benefits banner',
     excerpt: 'Why online maths tuition can work well for students who need flexible, structured and focused support.',
     category: 'MathsTutorHelp Blog',
+    tags: ['Online Tuition', 'Maths Tuition'],
     content: [
       {
         heading: 'Online tuition can be flexible',
@@ -168,6 +191,7 @@ export const blogPosts = [
     imageAlt: 'Five ways to improve your GCSE Maths grade banner',
     excerpt: 'Five practical ways GCSE students can improve confidence, accuracy and exam performance in maths.',
     category: 'MathsTutorHelp Blog',
+    tags: ['GCSE Maths', 'Revision'],
     content: [
       {
         heading: '1. Learn the high-value topics',
@@ -205,3 +229,16 @@ export const blogPosts = [
 ];
 
 export const getBlogPost = (slug: string) => blogPosts.find((post) => post.slug === slug);
+
+export const getBlogTags = () => [...new Set(blogPosts.flatMap((post) => post.tags))].sort();
+
+export const getRelatedPosts = (post: BlogPost, limit = 3) =>
+  blogPosts
+    .filter((candidate) => candidate.slug !== post.slug)
+    .map((candidate) => ({
+      post: candidate,
+      sharedTags: candidate.tags.filter((tag) => post.tags.includes(tag)).length,
+    }))
+    .sort((a, b) => b.sharedTags - a.sharedTags || Date.parse(b.post.date) - Date.parse(a.post.date))
+    .slice(0, limit)
+    .map(({ post: relatedPost }) => relatedPost);

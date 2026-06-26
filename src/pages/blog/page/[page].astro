@@ -1,0 +1,37 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import BlogCard from '~/components/blog/BlogCard.astro';
+import Pagination from '~/components/blog/Pagination.astro';
+import { BLOG_POSTS_PER_PAGE, blogPosts } from '~/utils/blogPosts';
+
+export function getStaticPaths() {
+  const totalPages = Math.ceil(blogPosts.length / BLOG_POSTS_PER_PAGE);
+  return Array.from({ length: Math.max(0, totalPages - 1) }, (_, index) => {
+    const page = index + 2;
+    return { params: { page: String(page) }, props: { page, totalPages } };
+  });
+}
+
+const { page, totalPages } = Astro.props;
+const start = (page - 1) * BLOG_POSTS_PER_PAGE;
+const posts = blogPosts.slice(start, start + BLOG_POSTS_PER_PAGE);
+const metadata = {
+  title: `Maths Blog - Page ${page} | MathsTutorHelp`,
+  description: 'More MathsTutorHelp articles about maths revision, tuition and exam preparation.',
+};
+---
+
+<Layout metadata={metadata}>
+  <section class="bg-brand-soft py-12 dark:bg-slate-900">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <h1 class="text-4xl font-bold text-gray-950 dark:text-white">Maths Blog</h1>
+      <p class="mt-3 text-lg text-muted dark:text-slate-300">Page {page} of {totalPages}</p>
+    </div>
+  </section>
+  <section class="bg-white py-12 dark:bg-slate-900">
+    <div class="mx-auto grid max-w-7xl gap-5 px-4 sm:px-6 md:grid-cols-2 xl:grid-cols-3">
+      {posts.map((post) => <BlogCard post={post} />)}
+    </div>
+    <Pagination currentPage={page} totalPages={totalPages} />
+  </section>
+</Layout>

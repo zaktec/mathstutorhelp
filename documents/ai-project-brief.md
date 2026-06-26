@@ -82,6 +82,8 @@ npm run fix
 
 - Run commands from `/home/sheraz/code/mathstutorhelp`.
 - The site is configured for the custom domain root, `https://mathstutorhelp.com/`.
+- Blog pages include topic filters, pagination, related articles, social sharing and an RSS feed at `/rss.xml`.
+- Decap CMS is mounted at `/admin/` for legal and safeguarding content. Production login requires a GitHub OAuth provider; local editing can use the Decap proxy.
 - Use `getPermalink()` for internal links.
 - Use `getAsset()` for public assets.
 - Avoid hardcoded internal URLs; prefer `getPermalink()` and `getAsset()` so links stay safe if the deployment base changes.

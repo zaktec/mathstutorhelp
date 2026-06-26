@@ -1,0 +1,54 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  title: string;
+  url: URL | string;
+}
+
+const { title, url } = Astro.props;
+const encodedTitle = encodeURIComponent(title);
+const encodedUrl = encodeURIComponent(String(url));
+const links = [
+  {
+    label: 'Share on WhatsApp',
+    icon: 'tabler:brand-whatsapp',
+    href: `https://wa.me/?text=${encodedTitle}%20${encodedUrl}`,
+  },
+  {
+    label: 'Share on Facebook',
+    icon: 'tabler:brand-facebook',
+    href: `https://www.facebook.com/sharer.php?u=${encodedUrl}`,
+  },
+  {
+    label: 'Share on LinkedIn',
+    icon: 'tabler:brand-linkedin',
+    href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+  },
+  {
+    label: 'Share by email',
+    icon: 'tabler:mail',
+    href: `mailto:?subject=${encodedTitle}&body=${encodedTitle}%20${encodedUrl}`,
+  },
+];
+---
+
+<div class="mt-10 border-t border-gray-200 pt-6 dark:border-gray-700">
+  <p class="text-sm font-bold text-gray-950 dark:text-white">Share this article</p>
+  <div class="mt-3 flex gap-2">
+    {
+      links.map((link) => (
+        <a
+          class="inline-flex h-11 w-11 items-center justify-center rounded-md border border-gray-300 text-gray-700 hover:border-primary hover:text-primary dark:border-gray-600 dark:text-gray-200"
+          href={link.href}
+          target={link.href.startsWith('mailto:') ? undefined : '_blank'}
+          rel={link.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+          aria-label={link.label}
+          title={link.label}
+        >
+          <Icon name={link.icon} class="h-5 w-5" aria-hidden="true" />
+        </a>
+      ))
+    }
+  </div>
+</div>

@@ -1,0 +1,30 @@
+backend:
+  name: github
+  repo: zaktec/mathstutorhelp
+  branch: main
+
+local_backend: true
+publish_mode: editorial_workflow
+media_folder: public/images
+public_folder: /images
+
+collections:
+  - name: legal
+    label: Legal and safeguarding
+    files:
+      - label: Privacy Policy
+        name: privacy
+        file: src/pages/privacy.md
+        fields: &page_fields
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: text }
+          - { label: Layout, name: layout, widget: hidden, default: '~/layouts/MarkdownLayout.astro' }
+          - { label: Content, name: body, widget: markdown }
+      - label: Terms and Conditions
+        name: terms
+        file: src/pages/terms.md
+        fields: *page_fields
+      - label: Safeguarding
+        name: safeguarding
+        file: src/pages/safeguarding.md
+        fields: *page_fields
