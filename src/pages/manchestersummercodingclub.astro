@@ -6,7 +6,7 @@ import Content from '~/components/widgets/Content.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { getAsset, getPermalink } from '~/utils/permalinks';
-import { bookingLinks, ctaLabels } from '~/utils/siteDetails';
+import { bookingLinks, contactDetails, ctaLabels } from '~/utils/siteDetails';
 
 const metadata = {
   title: 'Summer Coding Course Manchester | Python Ages 13-17',
@@ -17,9 +17,47 @@ const metadata = {
 const interestFormUrl = bookingLinks.groupClassInterest;
 const contactUrl = getPermalink('/contact');
 const onlineTuitionUrl = getPermalink('/online-tuition');
+const eventSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'EducationEvent',
+  name: 'Python Coding Course in Manchester for Ages 13-17',
+  description: metadata.description,
+  url: String(Astro.url),
+  startDate: '2026-07-26T11:00:00+01:00',
+  endDate: '2026-08-30T12:00:00+01:00',
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  eventStatus: 'https://schema.org/EventScheduled',
+  location: {
+    '@type': 'Place',
+    name: 'Levenshulme High School',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Crossley Road',
+      addressLocality: 'Levenshulme',
+      addressRegion: 'Manchester',
+      postalCode: 'M19 1FS',
+      addressCountry: 'GB',
+    },
+  },
+  organizer: {
+    '@type': 'EducationalOrganization',
+    name: 'MathsTutorHelp',
+    url: String(new URL(getPermalink('/'), Astro.site)),
+    telephone: contactDetails.phoneDisplay,
+  },
+  offers: {
+    '@type': 'Offer',
+    price: '100',
+    priceCurrency: 'GBP',
+    availability: 'https://schema.org/LimitedAvailability',
+    url: interestFormUrl,
+  },
+};
 ---
 
 <Layout metadata={metadata}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(eventSchema)} />
+
   <Hero
     tagline="Summer Coding Course"
     title="Python Coding Course in Manchester for Ages 13-17"

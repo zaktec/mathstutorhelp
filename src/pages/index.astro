@@ -5,13 +5,14 @@ import HomeHero from '~/components/widgets/HomeHero.astro';
 import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Content from '~/components/widgets/Content.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { getAsset, getPermalink } from '~/utils/permalinks';
 import { bookingLinks, ctaLabels, tuitionPrices } from '~/utils/siteDetails';
 
 const metadata = {
-  title: 'Maths Tutor Manchester | GCSE, IGCSE & A-Level Maths',
+  title: 'MathsTutorHelp | Maths Tutor Manchester',
   description:
     'Manchester maths tutor for GCSE, IGCSE, KS3, Functional Skills and A-Level. Small GCSE classes in Levenshulme plus online maths tuition.',
   ignoreTitleTemplate: true,
@@ -62,8 +63,8 @@ const priceOptions = [
   <Features2
     id="meet-your-tutor"
     tagline="Meet Your Tutor"
-    title="Qualified Maths Support From Mr Sheraz"
-    subtitle="Qualified, DBS-checked maths teacher based in Levenshulme, supporting students across Manchester and online."
+    title="Why Parents Choose MathsTutorHelp"
+    subtitle="MathsTutorHelp provides clear, structured maths tuition in Manchester and online, led by Mr Sheraz, a qualified and DBS-checked teacher with 15+ years' experience."
     columns={3}
     classes={compactSection}
     items={[
@@ -156,8 +157,8 @@ const priceOptions = [
 
   <Features
     id="tuition-options"
-    tagline="Tuition Services"
-    title="Tuition for the Stage Your Child Is At"
+    tagline="Tuition Options"
+    title="Maths Tuition for the Stage Your Child Is At"
     subtitle="GCSE, IGCSE, A-Level, Functional Skills, online tuition and local classes."
     columns={4}
     classes={compactSection}
@@ -246,6 +247,54 @@ const priceOptions = [
       </div>
     </div>
   </section>
+
+  <section class="bg-white py-8 dark:bg-slate-900 md:py-10 lg:py-12">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="rounded-lg border border-gray-200 bg-brand-soft p-6 dark:border-gray-700 dark:bg-slate-800">
+        <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Also Available</p>
+        <h2 class="mt-2 text-2xl font-bold text-gray-950 dark:text-white">Beginner Coding and Problem Solving</h2>
+        <p class="mt-3 max-w-3xl text-base leading-7 text-muted dark:text-slate-300">
+          Maths remains the main focus, with beginner Python coding support available for students who want to build
+          logical thinking, confidence and practical problem-solving skills.
+        </p>
+        <div class="mt-5">
+          <a class="btn-secondary justify-center" href={getPermalink('/manchestersummercodingclub')}>
+            View Coding Course
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Testimonials
+    tagline="Parent Feedback"
+    title="What Families Say"
+    subtitle="Short reflections from parents and students who value calm, structured maths support."
+    classes={{ container: 'py-8 md:py-10 lg:py-12' }}
+    testimonials={[
+      {
+        title: 'Clear and patient',
+        testimonial:
+          'Mr Sheraz explains topics clearly and gives my child the confidence to try exam questions independently.',
+        name: 'GCSE parent',
+        job: 'Manchester',
+      },
+      {
+        title: 'Confidence improved',
+        testimonial:
+          'The lessons are structured and calm. We can see better confidence and stronger exam technique each week.',
+        name: 'Year 11 parent',
+        job: 'Levenshulme',
+      },
+      {
+        title: 'Helpful exam practice',
+        testimonial:
+          'I understand the methods much better now, especially when working through past-paper questions step by step.',
+        name: 'A-Level student',
+        job: 'Online tuition',
+      },
+    ]}
+  />
 
   <FAQs
     title="Frequently Asked Questions"

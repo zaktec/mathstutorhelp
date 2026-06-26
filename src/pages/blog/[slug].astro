@@ -14,12 +14,37 @@ export function getStaticPaths() {
 const { post } = Astro.props;
 
 const metadata = {
-  title: `${post.title} | MathsTutorHelp Blog`,
+  title: post.title,
   description: post.excerpt,
+};
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: post.title,
+  description: post.excerpt,
+  image: String(new URL(getAsset(post.image), Astro.site)),
+  datePublished: post.date,
+  dateModified: post.date,
+  author: {
+    '@type': 'Person',
+    name: 'Mr Sheraz',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'MathsTutorHelp',
+    logo: {
+      '@type': 'ImageObject',
+      url: String(new URL(getAsset('/images/maths-tutor-sheraz-cheema.jpeg'), Astro.site)),
+    },
+  },
+  mainEntityOfPage: String(Astro.url),
 };
 ---
 
 <Layout metadata={metadata}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+
   <article class="bg-white py-12 dark:bg-slate-900 md:py-16">
     <div class="mx-auto max-w-3xl px-4 sm:px-6">
       <a class="text-sm font-bold text-primary underline-offset-4 hover:underline" href={getPermalink('/blog')}>

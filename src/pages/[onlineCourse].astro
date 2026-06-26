@@ -30,9 +30,31 @@ const metadata = {
 
 const courseLessonSteps = course.lessonSteps ?? lessonSteps;
 const courseFaqs = [...course.faqs, ...packageFaqs];
+const courseSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: course.pageTitle,
+  description: course.metaDescription ?? course.intro,
+  provider: {
+    '@type': 'EducationalOrganization',
+    name: 'MathsTutorHelp',
+    sameAs: String(new URL(getPermalink('/'), Astro.site)),
+  },
+  offers: onlinePackages.map((item) => ({
+    '@type': 'Offer',
+    name: `${course.title} ${item.title}`,
+    category: 'Online maths tuition',
+    priceCurrency: 'GBP',
+    price: item.price.replace(/[^0-9.]/g, ''),
+    availability: 'https://schema.org/InStock',
+    url: String(Astro.url),
+  })),
+};
 ---
 
 <Layout metadata={metadata}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(courseSchema)} />
+
   <section class="bg-brand-soft py-16 dark:bg-slate-900 md:py-20">
     <div class="mx-auto max-w-6xl px-4 sm:px-6">
       <div class="max-w-3xl">

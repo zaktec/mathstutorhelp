@@ -1,14 +1,16 @@
 ---
-import { getPermalink } from '~/utils/permalinks';
+import { getCanonical, getPermalink } from '~/utils/permalinks';
 
 const destination = getPermalink('/online-tuition');
+const canonical = String(getCanonical(destination));
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name="robots" content="noindex, follow" />
     <meta http-equiv="refresh" content={`0; url=${destination}`} />
-    <link rel="canonical" href={destination} />
+    <link rel="canonical" href={canonical} />
     <title>Redirecting to Online Maths Tuition</title>
   </head>
   <body>

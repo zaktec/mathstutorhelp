@@ -15,6 +15,11 @@ const data = {
   url: homepageUrl,
   image: logoUrl,
   telephone: contactDetails.phoneDisplay,
+  sameAs: [
+    'https://www.facebook.com/mathstutorhelp',
+    'https://www.linkedin.com/in/mathstutorhelp/',
+    'https://www.instagram.com/mathstutorhelp/',
+  ],
   priceRange: `${tuitionPrices.online.display} online, ${tuitionPrices.oneToOne.display} in-person, ${tuitionPrices.smallGroup.display} group`,
   address: {
     '@type': 'PostalAddress',
@@ -72,4 +77,4 @@ const data = {
 };
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(data)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(data)} />

@@ -128,7 +128,7 @@ const { images = [] } = Astro.props;
 
   let currentIndex = 0;
 
-  const showImage = (index) => {
+  const showImage = (index: number) => {
     if (!lightbox || !image || !title || !count || galleryItems.length === 0) return;
 
     currentIndex = (index + galleryItems.length) % galleryItems.length;

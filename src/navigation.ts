@@ -8,7 +8,7 @@ export const headerData = {
       href: getPermalink('/'),
     },
     {
-      text: 'Maths Tuition',
+      text: 'Tuition Options',
       href: getPermalink('/maths-tuition'),
     },
     {
@@ -20,7 +20,7 @@ export const headerData = {
       href: getPermalink('/gcse-classes'),
     },
     {
-      text: 'About',
+      text: 'About Mr Sheraz',
       href: getPermalink('/about'),
     },
     {

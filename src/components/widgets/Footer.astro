@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
+import { contactDetails } from '~/utils/siteDetails';
 
 interface Link {
   text?: string;
@@ -73,6 +74,28 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
             </div>
           ))
         }
+      </div>
+    </div>
+    <div class="grid gap-3 border-t border-white/10 py-5 text-sm leading-6 sm:grid-cols-[1fr_auto] sm:items-center">
+      <div>
+        <p class="font-semibold text-white">MathsTutorHelp - Mr Sheraz</p>
+        <p class="text-white/75">
+          Qualified maths tutor in Manchester and Levenshulme for GCSE, KS3, IGCSE, Functional Skills and A-Level.
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-2 sm:justify-end">
+        <a
+          class="rounded-md border border-white/20 px-3 py-2 font-bold text-white/90 hover:text-accent"
+          href={contactDetails.phoneHref}
+        >
+          {contactDetails.phoneDisplay}
+        </a>
+        <a
+          class="rounded-md border border-white/20 px-3 py-2 font-bold text-white/90 hover:text-accent"
+          href={contactDetails.whatsappHref}
+        >
+          WhatsApp
+        </a>
       </div>
     </div>
     <div

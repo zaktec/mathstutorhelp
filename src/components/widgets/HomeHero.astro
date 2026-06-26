@@ -1,18 +1,20 @@
 ---
 import { Icon } from 'astro-icon/components';
 import Button from '~/components/ui/Button.astro';
-import { getAsset, getPermalink } from '~/utils/permalinks';
+import Image from '~/components/common/Image.astro';
+import { getPermalink } from '~/utils/permalinks';
 import { contactDetails, ctaLabels } from '~/utils/siteDetails';
+import tutorImage from '~/assets/images/maths-tutor-sheraz-cheema.jpeg';
 
 const { groupClassInterestUrl, tuitionOptionsUrl = getPermalink('/maths-tuition/') } = Astro.props;
-const tutorImageUrl = getAsset('/images/maths-tutor-sheraz-cheema.jpeg');
 
 const trustPoints = [
-  { text: "15+ years' experience", icon: 'tabler:award' },
+  { text: 'Qualified teacher', icon: 'tabler:certificate' },
   { text: 'DBS checked', icon: 'tabler:shield-check' },
+  { text: "15+ years' experience", icon: 'tabler:award' },
+  { text: 'Manchester based', icon: 'tabler:map-pin' },
   { text: 'GCSE, IGCSE, Functional Skills and A-Level', icon: 'tabler:math-function' },
   { text: 'Online and in-person tuition', icon: 'tabler:device-laptop' },
-  { text: 'Manchester based', icon: 'tabler:map-pin' },
 ];
 ---
 
@@ -30,11 +32,11 @@ const trustPoints = [
         <h1
           class="font-heading text-4xl font-bold leading-tight text-gray-950 dark:text-white sm:text-5xl lg:text-[3.35rem]"
         >
-          Maths Tutor in Manchester for GCSE, IGCSE and A-Level
+          Maths Tutor in Manchester for GCSE, KS3 and A-Level
         </h1>
         <p class="mt-4 max-w-2xl text-lg font-semibold leading-relaxed text-primary dark:text-slate-100">
-          Small group GCSE classes in Levenshulme and online one-to-one maths tuition with a qualified, DBS-checked
-          teacher.
+          Clear, structured maths tuition in Manchester and online, led by Mr Sheraz, a qualified and DBS-checked
+          teacher with 15+ years' experience.
         </p>
         <div class="mt-6 flex flex-col gap-3 sm:flex-row">
           <Button
@@ -48,8 +50,20 @@ const trustPoints = [
             text="View Tuition Options"
             href={tuitionOptionsUrl}
             icon="tabler:chevron-right"
-            class="w-full border-2 border-primary bg-brand-soft text-primary hover:bg-primary hover:text-white sm:w-auto"
+            class="w-full sm:w-auto"
           />
+        </div>
+        <div
+          class="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm font-bold text-gray-800 dark:text-slate-200"
+          aria-label="Tutor credentials"
+        >
+          <span>Qualified Teacher</span>
+          <span class="text-secondary dark:text-teal-200" aria-hidden="true">•</span>
+          <span>DBS Checked</span>
+          <span class="text-secondary dark:text-teal-200" aria-hidden="true">•</span>
+          <span>15+ Years' Experience</span>
+          <span class="text-secondary dark:text-teal-200" aria-hidden="true">•</span>
+          <span>Manchester Based</span>
         </div>
       </div>
 
@@ -57,12 +71,14 @@ const trustPoints = [
         class="mx-auto w-full max-w-xs overflow-hidden rounded-lg border border-primary/15 bg-white shadow-xl shadow-slate-900/10 dark:border-slate-700 dark:bg-slate-900 md:max-w-sm lg:max-w-[340px]"
       >
         <div class="bg-brand-soft">
-          <img
-            src={tutorImageUrl}
+          <Image
+            src={tutorImage}
             alt="Mr Sheraz teaching GCSE Maths at a whiteboard"
             width={1448}
             height={1086}
+            widths={[320, 400, 680]}
             sizes="(max-width: 767px) 100vw, 340px"
+            format="webp"
             loading="eager"
             fetchpriority="high"
             decoding="async"
@@ -72,9 +88,7 @@ const trustPoints = [
 
         <div class="bg-brand-soft/70 px-4 pb-4 pt-4 dark:bg-slate-900">
           <p class="text-xl font-bold text-gray-950 dark:text-white">Mr Sheraz</p>
-          <p class="mt-1 font-semibold text-secondary dark:text-teal-200">
-            Qualified Maths Teacher & Computer Science Tutor
-          </p>
+          <p class="mt-1 font-semibold text-secondary dark:text-teal-200">Qualified Maths Teacher</p>
           <a
             class="mt-3 inline-flex items-center gap-2 rounded-md border border-primary/20 bg-white px-3 py-2 text-sm font-bold text-primary hover:bg-primary hover:text-white dark:border-slate-700 dark:bg-slate-800 dark:text-teal-200"
             href={contactDetails.phoneHref}

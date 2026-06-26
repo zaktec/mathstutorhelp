@@ -9,9 +9,9 @@ import { getAsset, getPermalink } from '~/utils/permalinks';
 import { bookingLinks, contactDetails, ctaLabels, tuitionPrices } from '~/utils/siteDetails';
 
 const metadata = {
-  title: 'GCSE Maths Foundation Tutoring Manchester | Grades 4-5',
+  title: 'MathsTutorHelp GCSE Maths Foundation Tutoring Manchester',
   description:
-    'GCSE Foundation Maths tutoring club in Levenshulme, Manchester for Year 10 and 11 students working towards grades 4-5.',
+    'MathsTutorHelp GCSE Foundation Maths tutoring club in Levenshulme, Manchester for Year 10 and 11 students working towards grades 4-5.',
 };
 
 const interestFormUrl = bookingLinks.groupClassInterest;
@@ -19,13 +19,51 @@ const contactUrl = getPermalink('/contact');
 const higherClassUrl = getPermalink('/gcse-revision-class-higher-manchester');
 const onlineTuitionUrl = getPermalink('/online-tuition');
 const phoneDisplay = contactDetails.phoneDisplay;
+const eventSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'EducationEvent',
+  name: 'MathsTutorHelp GCSE Maths Foundation Tutoring',
+  description: metadata.description,
+  url: String(Astro.url),
+  startDate: '2026-09-13T10:00:00+01:00',
+  endDate: '2027-05-30T11:00:00+01:00',
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  eventStatus: 'https://schema.org/EventScheduled',
+  location: {
+    '@type': 'Place',
+    name: 'Levenshulme High School',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Crossley Road',
+      addressLocality: 'Levenshulme',
+      addressRegion: 'Manchester',
+      postalCode: 'M19 1FS',
+      addressCountry: 'GB',
+    },
+  },
+  organizer: {
+    '@type': 'EducationalOrganization',
+    name: 'MathsTutorHelp',
+    url: String(new URL(getPermalink('/'), Astro.site)),
+    telephone: contactDetails.phoneDisplay,
+  },
+  offers: {
+    '@type': 'Offer',
+    price: '20',
+    priceCurrency: 'GBP',
+    availability: 'https://schema.org/LimitedAvailability',
+    url: interestFormUrl,
+  },
+};
 ---
 
 <Layout metadata={metadata}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(eventSchema)} />
+
   <Hero
-    tagline="Group Classes"
-    title="GCSE Maths Foundation Tutoring (Grades 4-5)"
-    subtitle="Small group GCSE Foundation Maths classes in Levenshulme, helping students move from grade 3 towards grade 5 with structured weekly exam practice."
+    tagline="MathsTutorHelp Group Classes"
+    title="MathsTutorHelp GCSE Maths Foundation Tutoring"
+    subtitle="Small group GCSE Foundation Maths classes from MathsTutorHelp in Levenshulme, helping students move from grade 3 towards grade 5 with structured weekly exam practice."
     actions={[
       {
         variant: 'primary',
