@@ -1,193 +1,251 @@
-# MathsTutorHelp Branding Guide
+# MathsTutorHelp Brand and Leaflet Guide
 
-_Last revised: 26 June 2026_
+_Last revised: 27 June 2026_
 
-## Brand Position
+This is a standalone, AI-ready brand brief. Upload it with approved MathsTutorHelp photos when asking an AI design tool to create a leaflet, poster, social graphic or other marketing material.
 
-MathsTutorHelp should feel clear, trustworthy, calm and practical. The main audience is parents and students looking for reliable maths support from a qualified teacher.
+## Brand Overview
 
-For a complete AI-ready project summary, start with `documents/ai-project-brief.md`.
+- **Brand name:** MathsTutorHelp
+- **Tutor:** Mr Sheraz
+- **Location:** Levenshulme, Manchester, with online tuition available
+- **Website:** https://mathstutorhelp.com
+- **Phone:** 07860 248 525
+- **WhatsApp:** https://wa.me/447860248525
+- **GCSE class registration:** https://hai-bl.com/onboarding/interest-form
 
-Core message:
+MathsTutorHelp provides clear, structured maths tuition in Manchester and online. The service is led by Mr Sheraz, a qualified and DBS-checked teacher with more than 15 years' experience.
 
-> Structured maths tuition in Manchester and online for KS3, GCSE, IGCSE, Functional Skills and A-Level students.
+### Core message
 
-Secondary offer:
+> Clear, structured maths tuition in Manchester and online.
 
-> Online maths and beginner coding courses are available, but the main brand should remain maths tuition first.
+### Brand promise
+
+Calm, step-by-step teaching that helps learners understand methods, practise exam questions and build confidence.
+
+### Brand priorities
+
+The brand should feel:
+
+- Clear and easy to understand
+- Calm and reassuring
+- Trustworthy and credible
+- Professional but approachable
+- Practical and parent-friendly
+- Focused on genuine teaching rather than exaggerated claims
+
+Maths tuition is the main offer. Online maths and beginner coding courses are secondary offers and should not dominate general marketing.
 
 ## Audience
 
+Primary audiences:
+
 - Parents looking for a reliable maths tutor in Manchester
-- GCSE and IGCSE students who need exam-focused support
-- KS3 students building foundations before GCSE
-- A-Level students needing structured topic help
+- GCSE and IGCSE students needing structured exam support
+- KS3 students building strong foundations before GCSE
+- A-Level students needing topic and problem-solving support
 - Functional Skills and adult learners needing practical maths support
 - Families looking for online one-to-one tuition
-- Students interested in beginner coding and logical problem solving
 
-## Tone Of Voice
+Secondary audience:
 
-Use writing that is:
+- Learners interested in online maths courses, beginner coding and logical problem solving
 
-- Clear
-- Professional
-- Parent-friendly
-- Calm
-- Trustworthy
-- Simple to understand
+## Services and Confirmed Pricing
 
-Use UK wording consistently:
+Keep the following offers distinct. Do not combine hourly tuition with online course memberships.
 
-- Maths
-- Tuition
+### One-to-one tuition
+
+- In-person one-to-one tuition: **£30 per hour**
+- Online one-to-one tuition: **£25 per hour**, pay as you go
+
+### GCSE group classes
+
+- GCSE Higher: grades **6-9**
+- GCSE Foundation: grades **4-5**
+- Pay-as-you-go rate: **£20 per session**
+- Advance block booking rate: **£16 per session**
+
+The £16 rate is a discount for paying for a term or block in advance. It is not a separate class or product.
+
+### Online learning platform memberships
+
+These memberships are a separate track for online course content and support:
+
+| Tier   | Price     | Included support                                                         |
+| ------ | --------- | ------------------------------------------------------------------------ |
+| Bronze | £15/month | Course content and WhatsApp messaging support; no live sessions          |
+| Silver | £30/month | 1 hour of live tutoring per month, course content and messaging support  |
+| Gold   | £60/month | 2 hours of live tutoring per month, course content and messaging support |
+
+Silver and Gold live tutoring works out at £30 per hour. For full membership details, direct readers to https://mathstutorhelp.com/online-tuition/.
+
+## Trust Messages
+
+Use only relevant claims and avoid overcrowding a design:
+
+- Qualified teacher
+- DBS checked
+- More than 15 years' teaching experience
+- Manchester based
+- Online and in-person tuition
+- GCSE, IGCSE, KS3, Functional Skills and A-Level support
+- Small, focused GCSE groups
+- Clear explanations and exam-style practice
+
+Do not use unsupported claims such as “the best tutor”, “guaranteed grades” or “100% success”.
+
+## Tone of Voice
+
+Write in plain, confident UK English. Keep sentences short enough to scan quickly on a leaflet.
+
+Use:
+
+- Maths, not “math”
+- Tuition, tutor and learner/student
 - Personalised
-- GCSE
-- IGCSE
-- A-Level
-- Functional Skills
+- GCSE, IGCSE, KS3, A-Level and Functional Skills
+- “Register for GCSE Classes” or “Book a Free Consultation” for calls to action
 
 Avoid:
 
-- “Math”
-- Overly salesy claims
-- “Best tutor” language without proof
-- Generic template copy
-- Mixing up online one-to-one tuition and online course packages
+- Hype, pressure or vague superlatives
+- American spelling
+- Dense paragraphs
+- Generic education-template slogans
+- Confusing online one-to-one tuition with Bronze, Silver and Gold memberships
+- Describing the £16 block rate as a different class
 
-## Colour Palette
+## Visual Identity
+
+### Colour palette
 
 | Purpose                  | Colour        | Hex       |
 | ------------------------ | ------------- | --------- |
 | Primary brand            | Navy          | `#00387D` |
 | Secondary brand          | Teal          | `#0F766E` |
-| Main accent              | Warm yellow   | `#F7B200` |
-| Accent hover             | Deeper yellow | `#D99800` |
-| Text heading             | Ink           | `#101828` |
+| Main accent and CTA      | Warm yellow   | `#F7B200` |
+| Accent hover/darker tone | Deeper yellow | `#D99800` |
+| Heading text             | Ink           | `#101828` |
 | Body text                | Slate         | `#1D2939` |
 | Muted text               | Soft slate    | `#475467` |
-| Light section background | Soft blue     | `#EFF6FF` |
-| Page background          | White         | `#FFFFFF` |
-| Footer background        | Ink navy      | `#0B1F3A` |
-| Footer border            | Soft navy     | `#123B63` |
+| Light panel background   | Soft blue     | `#EFF6FF` |
+| Main background          | White         | `#FFFFFF` |
+| Dark background/footer   | Ink navy      | `#0B1F3A` |
 
-## Colour Usage
+Use navy for headings and strong brand areas, teal for labels and supporting highlights, and warm yellow sparingly for the main call to action or a small price badge. Use white space generously. Do not use purple gradients, neon colours or a rainbow classroom-template palette.
 
-Primary navy should be used for headings, strong brand areas and footer background.
+### Typography
 
-Teal should be used for icons, labels, secondary highlights and supporting links.
+- Preferred typeface: **Inter**
+- Use bold or extra-bold Inter for headings
+- Use regular or medium Inter for body copy
+- If Inter is unavailable, use a clean sans-serif such as Arial, Helvetica or Aptos
+- Avoid decorative, handwritten and serif display fonts
 
-Warm yellow should be used sparingly for primary CTAs, badges and conversion-focused emphasis.
+### Imagery
 
-Avoid purple/indigo template gradients or bright mixed colours that make the site feel less professional.
+Prefer genuine, warm, well-lit photos of Mr Sheraz teaching, maths work on a whiteboard, or a real small-group classroom. The tutor should look approachable and professional. Avoid cartoon teachers, graduation caps, American school imagery and obviously artificial stock-photo scenes.
 
-## Buttons
+Approved project images that may be supplied to a design tool include:
 
-Primary buttons are for the main action in a section:
+- `public/images/maths-tutor-sheraz-cheema-home.jpeg`
+- `public/images/maths-tutor-sheraz-cheema.jpeg`
+- `public/images/gallery/ks3-gcse-maths-classes-manchester.jpeg`
+- `public/images/gallery/levenshulme-classroom.jpeg`
+- `public/images/online-maths-lesson-laptop.jpg`
 
-- Book a Free Consultation
-- Register for GCSE Classes
-- Register Interest
-- Open Hai-BL Form
+Do not ask an AI image generator to alter Mr Sheraz's face or invent a different tutor. Upload an approved photograph and instruct the tool to preserve it.
 
-Secondary buttons are for supporting actions:
+## Leaflet Design Direction
 
-- View Tuition Options
-- View GCSE Classes
-- View Full Pricing
-- Contact MathsTutorHelp
+### Recommended format
 
-Hai-BL interest form:
+Use an **A5 portrait, double-sided leaflet**. It provides enough room to explain the offer while remaining easy to print and hand out. Keep a 3 mm bleed and a safe margin of at least 5 mm. The design must remain legible when printed.
 
-- `https://hai-bl.com/onboarding/interest-form`
+### Front hierarchy
 
-Student login:
+1. MathsTutorHelp name
+2. Strong headline
+3. Short supporting sentence
+4. Genuine photograph of Mr Sheraz or a real class
+5. Three or four trust points
+6. One clear call to action with phone/WhatsApp
 
-- `https://hai-bl.com/auth/login`
+### Back hierarchy
 
-## Homepage Direction
+1. Tuition options
+2. GCSE group class pricing and block discount
+3. Levels supported
+4. Brief online membership signpost
+5. Website, phone and registration details
+6. Optional QR code pointing to https://mathstutorhelp.com/
 
-The homepage should be broad and parent-focused, not only about GCSE group classes.
+Do not squeeze all Bronze, Silver and Gold details onto a general tuition leaflet. Mention that course memberships start from £15/month and direct readers online for full details. A dedicated online-courses leaflet may show the complete tier table.
 
-Current structure:
+## Ready-to-Use General Leaflet Copy
 
-1. Hero
-2. Meet Your Tutor
-3. GCSE Group Classes
-4. Tuition Services
-5. Local Areas
-6. Simple Tuition Options
-7. FAQs
-8. Final CTA
+### Front
 
-Hero headline:
+**Maths Tutor in Manchester and Online**
 
-> Maths Tutor in Manchester for GCSE, IGCSE and A-Level
+Clear, structured tuition for KS3, GCSE, IGCSE, Functional Skills and A-Level learners.
 
-Supporting text:
+**Qualified teacher · DBS checked · 15+ years' experience**
 
-> Small group GCSE classes in Levenshulme and online one-to-one maths tuition with a qualified, DBS-checked teacher.
+Build confidence with patient explanations, guided practice and exam-style questions.
 
-## Navigation
+**Book a free consultation**
 
-Keep the top navigation simple:
+Call or WhatsApp **07860 248 525**
 
-- Home
-- Maths Tuition
-- Online Courses
-- GCSE Classes
-- About
-- Contact
-- Student Login
+Visit **mathstutorhelp.com**
 
-Avoid adding too many service links to the header. Put supporting links in the footer.
+### Back
 
-## Footer
+**Tuition options**
 
-The footer should be link-focused. The brand paragraph has been removed because the homepage and service pages already carry the trust content.
+- In-person one-to-one tuition — **£30/hr**
+- Online one-to-one tuition — **£25/hr**, pay as you go
+- Small GCSE group classes — **£20 per session** pay as you go
+- Advance GCSE class block booking — **£16 per session**
 
-Footer categories should stay balanced with the same number of links:
+**GCSE classes in Levenshulme**
 
-- Tuition
-- Classes
-- Local Areas
-- Booking
-- Resources
-- Legal
+- Foundation support for grades **4-5**
+- Higher support for grades **6-9**
+- Small groups with structured weekly exam practice
 
-Keep “Powered by ZakTec Solutions” subtle.
+**Online course memberships**
 
-## Pricing Language
+Bronze, Silver and Gold support options are available from **£15/month**. See full course and membership details at **mathstutorhelp.com/online-tuition/**.
 
-Use this distinction consistently:
+**Ready to discuss the right option?**
 
-- Online one-to-one tuition is `£25/hr`.
-- In-person one-to-one tuition is `£30/hr`.
-- GCSE group classes are `£20 per session`.
-- Online course packages use Bronze/Silver/Gold pricing.
+Call or WhatsApp **07860 248 525**
 
-Do not present online course packages as the same offer as online one-to-one tuition.
+Register for GCSE classes: **hai-bl.com/onboarding/interest-form**
 
-## Page-Specific Direction
+Website: **mathstutorhelp.com**
 
-### Maths Tuition
+## Paste-Ready Prompt for an AI Design Tool
 
-This page should explain routes without repeating full prices. Link to `/pricing/` for the price table.
+> Create a professional A5 portrait, double-sided leaflet for MathsTutorHelp, a Manchester maths tuition service led by Mr Sheraz. Follow the uploaded brand guide exactly. Use a clean, calm and parent-friendly layout with generous white space. Use Inter typography, navy #00387D as the main colour, teal #0F766E for supporting highlights, warm yellow #F7B200 for one main call to action, soft blue #EFF6FF for light panels, and white backgrounds. Use the uploaded genuine photo of Mr Sheraz without changing his face or identity. The leaflet should feel trustworthy and practical, not flashy or corporate. Use the “Ready-to-Use General Leaflet Copy” from the guide, keeping the pricing tracks distinct. Make phone number 07860 248 525, WhatsApp, and mathstutorhelp.com easy to find. Include space for a QR code linking to https://mathstutorhelp.com/. Avoid purple gradients, cartoon education graphics, fake testimonials, guaranteed-result claims, American spelling and overcrowded text. Produce a print-ready design with 3 mm bleed and safe margins.
 
-### Online Tuition
+## Final Accuracy Checklist
 
-This page is now an online courses hub. It should separate maths courses and coding courses, then show Bronze/Silver/Gold support levels.
+Before approving any AI-generated leaflet, confirm:
 
-### About
-
-The About page should feel personal and trustworthy. Keep Mr Sheraz near the top and avoid turning the page into another full services page.
-
-### Contact
-
-The Contact page should be short and enquiry-focused:
-
-- Phone
-- WhatsApp
-- Link to Hai-BL enquiry form
-- What to include in your message
-- What happens next
+- The phone number is **07860 248 525**
+- The website is **https://mathstutorhelp.com**
+- In-person one-to-one is **£30/hr**
+- Online one-to-one is **£25/hr**
+- GCSE groups are **£20/session**, or **£16/session with advance block booking**
+- Foundation is **grades 4-5** and Higher is **grades 6-9**
+- Bronze, Silver and Gold are clearly described as online course memberships
+- No invented email address, physical street address, qualifications or testimonials appear
+- UK English is used throughout
+- Mr Sheraz's supplied photograph has not been altered or replaced
+- Text is readable at actual A5 print size
