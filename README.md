@@ -14,7 +14,7 @@ Use this guide for human handover and as context when giving the project to an A
 
 ## Tech Stack
 
-- Astro 6
+- Astro 7
 - Tailwind CSS v4
 - TypeScript
 - AstroWind layout/widget foundation

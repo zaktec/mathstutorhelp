@@ -62,6 +62,7 @@ rest.decoding ??= 'async';
 
 // --- Resolve src (handles `~/assets/...` paths) ----------------------------
 const resolved = await findImage(src);
+const isDevelopmentLocalImage = import.meta.env.DEV && resolved && typeof resolved === 'object' && 'src' in resolved;
 
 const isCdnUrl =
   typeof resolved === 'string' &&
@@ -159,7 +160,9 @@ const cdnSrcSet =
 ---
 
 {
-  isCdnUrl ? (
+  isDevelopmentLocalImage ? (
+    <img src={resolved.src} width={w} height={h} alt={alt} {...rest} style={finalStyle} />
+  ) : isCdnUrl ? (
     <img
       src={cdnSrc}
       srcset={cdnSrcSet}
