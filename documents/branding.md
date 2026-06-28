@@ -1,8 +1,8 @@
-# MathsTutorHelp Brand and Leaflet Guide
+# MathsTutorHelp Brand, Website and Leaflet Guide
 
-_Last revised: 27 June 2026_
+_Last revised: 28 June 2026_
 
-This is a standalone, AI-ready brand brief. Upload it with approved MathsTutorHelp photos when asking an AI design tool to create a leaflet, poster, social graphic or other marketing material.
+This is the source of truth for MathsTutorHelp branding, website presentation and marketing materials. It can also be uploaded with approved MathsTutorHelp photos when asking an AI design tool to create a leaflet, poster or social graphic.
 
 ## Brand Overview
 
@@ -12,9 +12,9 @@ This is a standalone, AI-ready brand brief. Upload it with approved MathsTutorHe
 - **Website:** https://mathstutorhelp.com
 - **Phone:** 07860 248 525
 - **WhatsApp:** https://wa.me/447860248525
-- **GCSE class registration:** https://hai-bl.com/onboarding/interest-form
+- **Interest form:** https://hai-bl.com/onboarding/interest-form
 
-MathsTutorHelp provides clear, structured maths tuition in Manchester and online. The service is led by Mr Sheraz, a qualified and DBS-checked teacher with more than 15 years' experience.
+MathsTutorHelp is led by Mr Sheraz and offers local and online tuition.
 
 ### Core message
 
@@ -95,6 +95,10 @@ Use only relevant claims and avoid overcrowding a design:
 - Small, focused GCSE groups
 - Clear explanations and exam-style practice
 
+When three trust points are needed together, use the standard line:
+
+> Qualified teacher · DBS checked · 15+ years' experience
+
 Do not use unsupported claims such as “the best tutor”, “guaranteed grades” or “100% success”.
 
 ## Tone of Voice
@@ -107,7 +111,6 @@ Use:
 - Tuition, tutor and learner/student
 - Personalised
 - GCSE, IGCSE, KS3, A-Level and Functional Skills
-- “Register for GCSE Classes” or “Book a Free Consultation” for calls to action
 
 Avoid:
 
@@ -137,6 +140,27 @@ Avoid:
 
 Use navy for headings and strong brand areas, teal for labels and supporting highlights, and warm yellow sparingly for the main call to action or a small price badge. Use white space generously. Do not use purple gradients, neon colours or a rainbow classroom-template palette.
 
+### Logo and brand mark
+
+The primary website wordmark is the name **MathsTutorHelp**, set in bold Inter or a similar clean sans-serif. On the website it may be paired with the strapline **Unlock Maths with an Expert** in teal.
+
+The compact brand mark is the **MTH monogram**:
+
+- White `MTH` letterforms on a navy (`#00387D`) rounded square
+- A short teal (`#0F766E`) bar beneath the letters
+- Generous internal spacing so the mark remains clear at small sizes
+- No shadows, gradients, outlines or additional symbols
+
+Use the monogram for browser favicons, app icons, social profile images and other small square placements. Use the full MathsTutorHelp wordmark where there is enough horizontal space and brand recognition matters.
+
+Keep clear space around either mark. Do not stretch, rotate, recolour or place it over a visually busy image. The approved website assets are:
+
+- `src/assets/favicons/favicon.svg` — master scalable brand mark
+- `src/assets/favicons/favicon.png` — 32 × 32 browser fallback
+- `src/assets/favicons/apple-touch-icon.png` — 180 × 180 Apple touch icon
+
+The monogram should always contain all three letters, **MTH**. Keep the teal underline as part of the mark; warm yellow remains a call-to-action colour and should not replace it.
+
 ### Typography
 
 - Preferred typeface: **Inter**
@@ -145,9 +169,52 @@ Use navy for headings and strong brand areas, teal for labels and supporting hig
 - If Inter is unavailable, use a clean sans-serif such as Arial, Helvetica or Aptos
 - Avoid decorative, handwritten and serif display fonts
 
+### Website design language
+
+The website should feel calm, spacious and easy for parents to scan. Use these reusable patterns alongside the colour, typography and imagery rules in this guide:
+
+- White cards with rounded corners, fine light-grey borders and soft shadows
+- Soft-blue panels for supporting information and reassurance
+- Simple line icons inside navy, teal or soft-blue containers
+- Generous spacing between sections and concise text within cards
+
+Avoid heavy shadows, glass effects, excessive animation, tightly packed layouts and decorative elements that compete with the teaching message.
+
+### Calls to action
+
+Each page or design should have one obvious primary action. Use these approved labels:
+
+- **Book a Free Consultation** — general one-to-one tuition enquiries
+- **Register Your Interest** — GCSE group class enquiries
+- **Call or WhatsApp** — direct contact where a phone action is appropriate
+
+Use warm yellow with navy text for the primary button. Use a white or transparent background with a navy or teal border for a secondary button. Do not show several equally prominent actions together.
+
+### Standard content hierarchy
+
+Use this order for website hero sections, landing pages and campaign designs:
+
+1. Short category label or tagline
+2. Clear benefit-led heading
+3. One concise supporting sentence
+4. Primary call to action, with one optional secondary action
+5. The standard three-point trust line from **Trust Messages**
+6. Genuine tutor or classroom image
+
+### Accessibility and readability
+
+- Keep body text at a comfortable reading size and use strong contrast
+- Never place essential information over a busy photograph
+- Do not rely on colour alone to communicate meaning
+- Use descriptive link and button labels rather than “Click here”
+- Keep headings in a logical order and paragraphs short
+- Ensure buttons remain visually distinct in both light and dark website themes
+
 ### Imagery
 
-Prefer genuine, warm, well-lit photos of Mr Sheraz teaching, maths work on a whiteboard, or a real small-group classroom. The tutor should look approachable and professional. Avoid cartoon teachers, graduation caps, American school imagery and obviously artificial stock-photo scenes.
+Prefer genuine, warm, well-lit photos of Mr Sheraz teaching, maths work on a whiteboard or a real small-group classroom. Crop around the teaching activity while keeping faces and important details visible. Use natural colour, rounded corners and restrained shadows.
+
+Avoid cartoon teachers, graduation caps, American school imagery, artificial stock-photo scenes, strong filters, artificial backgrounds and decorative overlays.
 
 Approved project images that may be supplied to a design tool include:
 
@@ -157,7 +224,47 @@ Approved project images that may be supplied to a design tool include:
 - `public/images/gallery/levenshulme-classroom.jpeg`
 - `public/images/online-maths-lesson-laptop.jpg`
 
-Do not ask an AI image generator to alter Mr Sheraz's face or invent a different tutor. Upload an approved photograph and instruct the tool to preserve it.
+When using an AI design tool, upload an approved photograph and instruct it to preserve Mr Sheraz's face and identity.
+
+### Approved campaign artwork
+
+The following finished flyers are approved references for layout, colour balance, icon style, pricing hierarchy and calls to action:
+
+- `public/images/gallery/mth-gcse-classes-flyer-2026.jpeg`
+- `public/images/gallery/mth-summer-coding-flyer-2026.jpeg`
+
+Treat the people pictured in campaign artwork as illustrative students, not as Mr Sheraz or documentary classroom photography. Do not extract their images for unrelated designs. When creating new material, verify dates, prices, venues and availability against the website rather than assuming an older flyer is current.
+
+## Content and Enquiry Standards
+
+### Preferred message patterns
+
+Repeat a small set of recognisable phrases rather than inventing a new slogan for every page:
+
+- Calm, step-by-step teaching
+- Clear explanations and guided practice
+- Exam-style questions and regular feedback
+- Build confidence and make steady progress
+- Small, focused GCSE groups
+
+Use these naturally and avoid repeating several of them in the same paragraph.
+
+### Local positioning
+
+Lead with **Manchester and online** for general marketing. Use **Levenshulme, Manchester** when promoting local tuition or GCSE group classes. Nearby areas may be mentioned when relevant, but do not imply physical branches or venues that do not exist.
+
+### Enquiry information
+
+When inviting a parent or student to enquire, ask for only the details needed to recommend the right support:
+
+- Student's year group or qualification level
+- Current grade or working level
+- Target grade or main learning goal
+- Topics needing support
+- Preferred lesson format: in person, online or group
+- General availability where scheduling is relevant
+
+Keep the process reassuring. Registering interest is not the same as confirming a place or taking payment, so do not describe the interest form as a completed booking.
 
 ## Leaflet Design Direction
 
@@ -180,7 +287,7 @@ Use an **A5 portrait, double-sided leaflet**. It provides enough room to explain
 2. GCSE group class pricing and block discount
 3. Levels supported
 4. Brief online membership signpost
-5. Website, phone and registration details
+5. Website, phone and interest-form details
 6. Optional QR code pointing to https://mathstutorhelp.com/
 
 Do not squeeze all Bronze, Silver and Gold details onto a general tuition leaflet. Mention that course memberships start from £15/month and direct readers online for full details. A dedicated online-courses leaflet may show the complete tier table.
@@ -226,7 +333,7 @@ Bronze, Silver and Gold support options are available from **£15/month**. See f
 
 Call or WhatsApp **07860 248 525**
 
-Register for GCSE classes: **hai-bl.com/onboarding/interest-form**
+Register your interest: **hai-bl.com/onboarding/interest-form**
 
 Website: **mathstutorhelp.com**
 
@@ -247,5 +354,6 @@ Before approving any AI-generated leaflet, confirm:
 - Bronze, Silver and Gold are clearly described as online course memberships
 - No invented email address, physical street address, qualifications or testimonials appear
 - UK English is used throughout
+- GCSE class calls to action say **Register Your Interest**, not “book” or “register for classes”
 - Mr Sheraz's supplied photograph has not been altered or replaced
 - Text is readable at actual A5 print size

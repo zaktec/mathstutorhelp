@@ -91,13 +91,7 @@ const { images = [] } = Astro.props;
       >
         Prev
       </button>
-      <img
-        id="gallery-lightbox-image"
-        class="mx-auto h-full max-h-full w-full object-contain"
-        src=""
-        alt=""
-        loading="lazy"
-      />
+      <img id="gallery-lightbox-image" class="mx-auto h-full max-h-full w-full object-contain" alt="" loading="lazy" />
       <button
         type="button"
         class="absolute right-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/90 px-3 py-2 text-sm font-bold text-gray-950 shadow hover:bg-white"
@@ -146,7 +140,7 @@ const { images = [] } = Astro.props;
     if (!lightbox || !image) return;
 
     lightbox.classList.add('hidden');
-    image.setAttribute('src', '');
+    image.removeAttribute('src');
     document.body.classList.remove('overflow-hidden');
   };
 

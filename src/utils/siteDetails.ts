@@ -13,7 +13,7 @@ export const bookingLinks = {
 
 export const ctaLabels = {
   freeConsultation: 'Book a Free Consultation',
-  groupClassInterest: 'Register for GCSE Classes',
+  groupClassInterest: 'Register Your Interest',
   onlineTuitionInterest: 'Register Interest',
   codingCourseInterest: 'Register Coding Course Interest',
 };

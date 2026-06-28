@@ -3,7 +3,7 @@ import Layout from '~/layouts/PageLayout.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import BlogCard from '~/components/blog/BlogCard.astro';
 import Pagination from '~/components/blog/Pagination.astro';
-import { getPermalink } from '~/utils/permalinks';
+import { getAsset, getPermalink } from '~/utils/permalinks';
 import { BLOG_POSTS_PER_PAGE, blogPosts, getBlogTags } from '~/utils/blogPosts';
 
 const posts = blogPosts.slice(0, BLOG_POSTS_PER_PAGE);
@@ -39,7 +39,7 @@ const metadata = {
             </a>
           ))
         }
-        <a class="text-sm font-bold text-primary underline-offset-4 hover:underline" href={getPermalink('/rss.xml')}>
+        <a class="text-sm font-bold text-primary underline-offset-4 hover:underline" href={getAsset('/rss.xml')}>
           RSS feed
         </a>
       </div>

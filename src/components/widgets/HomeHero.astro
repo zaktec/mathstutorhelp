@@ -1,10 +1,8 @@
 ---
 import { Icon } from 'astro-icon/components';
 import Button from '~/components/ui/Button.astro';
-import Image from '~/components/common/Image.astro';
-import { getPermalink } from '~/utils/permalinks';
+import { getAsset, getPermalink } from '~/utils/permalinks';
 import { contactDetails, ctaLabels } from '~/utils/siteDetails';
-import tutorImage from '~/assets/images/maths-tutor-sheraz-cheema.jpeg';
 
 const { groupClassInterestUrl, tuitionOptionsUrl = getPermalink('/maths-tuition/') } = Astro.props;
 
@@ -71,18 +69,15 @@ const trustPoints = [
         class="mx-auto w-full max-w-xs overflow-hidden rounded-lg border border-primary/15 bg-white shadow-xl shadow-slate-900/10 dark:border-slate-700 dark:bg-slate-900 md:max-w-sm lg:max-w-[340px]"
       >
         <div class="bg-brand-soft">
-          <Image
-            src={tutorImage}
+          <img
+            src={getAsset('/images/maths-tutor-sheraz-cheema.jpeg')}
             alt="Mr Sheraz teaching GCSE Maths at a whiteboard"
             width={1448}
             height={1086}
-            widths={[320, 400, 680]}
-            sizes="(max-width: 767px) 100vw, 340px"
-            format="webp"
             loading="eager"
             fetchpriority="high"
             decoding="async"
-            class="w-full object-cover"
+            class="aspect-[4/3] w-full object-cover"
           />
         </div>
 

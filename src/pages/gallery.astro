@@ -6,10 +6,24 @@ import { getAsset, getPermalink } from '~/utils/permalinks';
 
 const metadata = {
   title: 'Gallery',
-  description: 'Gallery for MathsTutorHelp lessons, tutoring spaces and student learning resources.',
+  description: 'Gallery for MathsTutorHelp lessons, tutoring spaces, class flyers and student learning resources.',
 };
 
 const galleryImages = [
+  {
+    src: getAsset('/images/gallery/mth-gcse-classes-flyer-2026.jpeg'),
+    alt: 'MathsTutorHelp GCSE Maths classes flyer for Higher and Foundation students in Manchester',
+    title: 'GCSE Maths Classes 2026',
+    aspectClass: 'aspect-[2/3]',
+    objectFitClass: 'object-contain bg-gray-50',
+  },
+  {
+    src: getAsset('/images/gallery/mth-summer-coding-flyer-2026.jpeg'),
+    alt: 'MathsTutorHelp Manchester Summer Coding Club flyer for students aged 13 to 17',
+    title: 'Summer Coding Club 2026',
+    aspectClass: 'aspect-[5/7]',
+    objectFitClass: 'object-contain bg-gray-50',
+  },
   {
     src: getAsset('/images/gallery/levenshulme-classroom.jpeg'),
     alt: 'Levenshulme classroom set up for small group maths tuition',
@@ -74,7 +88,7 @@ const galleryImages = [
         MathsTutorHelp Gallery
       </h1>
       <p class="mt-3 max-w-3xl text-base leading-7 text-muted dark:text-slate-300">
-        Photos from MathsTutorHelp, including tutoring, learning spaces and class updates.
+        Photos and campaign artwork from MathsTutorHelp, including tutoring, learning spaces and class updates.
       </p>
     </div>
   </section>
