@@ -1,16 +1,9 @@
 ---
 import Image from '~/components/common/Image.astro';
-
-interface GalleryImage {
-  src: string;
-  alt: string;
-  title?: string;
-  aspectClass?: string;
-  objectFitClass?: string;
-}
+import type { GalleryItem } from '~/data/gallery';
 
 interface Props {
-  images: GalleryImage[];
+  images: GalleryItem[];
 }
 
 const { images = [] } = Astro.props;
@@ -31,7 +24,7 @@ const { images = [] } = Astro.props;
                 class="block w-full cursor-zoom-in text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-primary/40"
                 data-gallery-trigger
                 data-gallery-index={index}
-                data-gallery-src={image.src}
+                data-gallery-src={image.fullSrc}
                 data-gallery-alt={image.alt}
                 data-gallery-title={image.title || `Image ${index + 1}`}
                 aria-label={`Open ${image.title || `image ${index + 1}`}`}
@@ -75,7 +68,7 @@ const { images = [] } = Astro.props;
       </div>
       <button
         type="button"
-        class="rounded-full border border-white/30 px-4 py-2 text-sm font-bold text-white hover:bg-white hover:text-gray-950"
+        class="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-white/30 px-4 py-2 text-sm font-bold text-white hover:bg-white hover:text-gray-950"
         data-gallery-close
       >
         Close
@@ -85,16 +78,23 @@ const { images = [] } = Astro.props;
     <div class="relative min-h-0 flex-1">
       <button
         type="button"
-        class="absolute left-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/90 px-3 py-2 text-sm font-bold text-gray-950 shadow hover:bg-white"
+        class="absolute left-0 top-1/2 z-10 inline-flex min-h-11 min-w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 px-3 py-2 text-sm font-bold text-gray-950 shadow hover:bg-white"
         data-gallery-prev
         aria-label="Previous image"
       >
         Prev
       </button>
-      <img id="gallery-lightbox-image" class="mx-auto h-full max-h-full w-full object-contain" alt="" loading="lazy" />
+      <img
+        id="gallery-lightbox-image"
+        class="mx-auto h-full max-h-full w-full object-contain"
+        alt=""
+        width="1600"
+        height="1200"
+        loading="lazy"
+      />
       <button
         type="button"
-        class="absolute right-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/90 px-3 py-2 text-sm font-bold text-gray-950 shadow hover:bg-white"
+        class="absolute right-0 top-1/2 z-10 inline-flex min-h-11 min-w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 px-3 py-2 text-sm font-bold text-gray-950 shadow hover:bg-white"
         data-gallery-next
         aria-label="Next image"
       >

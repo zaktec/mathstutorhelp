@@ -5,8 +5,9 @@ import Features from '~/components/widgets/Features.astro';
 import Content from '~/components/widgets/Content.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import { getAsset, getPermalink } from '~/utils/permalinks';
+import { getPermalink } from '~/utils/permalinks';
 import { bookingLinks, contactDetails, ctaLabels } from '~/utils/siteDetails';
+import { siteImages } from '~/data/images';
 
 const metadata = {
   title: 'Summer Coding Course Manchester | Python Ages 13-17',
@@ -73,7 +74,7 @@ const eventSchema = {
       { text: 'Contact MathsTutorHelp', href: contactUrl },
     ]}
     image={{
-      src: getAsset('/images/online-maths-lesson-laptop.jpg'),
+      src: siteImages.onlineLesson,
       alt: 'Student learning online coding on a laptop',
     }}
   />
@@ -139,7 +140,7 @@ const eventSchema = {
       },
     ]}
     image={{
-      src: getAsset('/images/online-maths-tutoring-packages.jpg'),
+      src: siteImages.onlinePackages,
       alt: 'Python coding lesson on a laptop',
     }}
   >

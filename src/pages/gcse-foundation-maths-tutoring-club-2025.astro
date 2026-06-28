@@ -5,8 +5,9 @@ import Features from '~/components/widgets/Features.astro';
 import Content from '~/components/widgets/Content.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import { getAsset, getPermalink } from '~/utils/permalinks';
+import { getPermalink } from '~/utils/permalinks';
 import { bookingLinks, contactDetails, ctaLabels, tuitionPrices } from '~/utils/siteDetails';
+import { siteImages } from '~/data/images';
 
 const metadata = {
   title: 'MathsTutorHelp GCSE Maths Foundation Tutoring Manchester',
@@ -75,7 +76,7 @@ const eventSchema = {
       { text: 'Contact MathsTutorHelp', href: contactUrl },
     ]}
     image={{
-      src: getAsset('/images/gallery/ks3-gcse-maths-classes-manchester.jpeg'),
+      src: siteImages.gallery.classesPoster,
       alt: 'GCSE maths class poster for Manchester students',
     }}
   />
@@ -143,7 +144,7 @@ const eventSchema = {
       },
     ]}
     image={{
-      src: getAsset('/images/gallery/classroom-circle-theorems.jpeg'),
+      src: siteImages.gallery.circleTheorems,
       alt: 'GCSE Maths classroom board work',
     }}
   >

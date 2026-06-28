@@ -2,82 +2,13 @@
 import Layout from '~/layouts/PageLayout.astro';
 import Gallery from '~/components/widgets/Gallery.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import { getAsset, getPermalink } from '~/utils/permalinks';
+import { getPermalink } from '~/utils/permalinks';
+import { galleryItems } from '~/data/gallery';
 
 const metadata = {
   title: 'Gallery',
   description: 'Gallery for MathsTutorHelp lessons, tutoring spaces, class flyers and student learning resources.',
 };
-
-const galleryImages = [
-  {
-    src: getAsset('/images/gallery/mth-gcse-classes-flyer-2026.jpeg'),
-    alt: 'MathsTutorHelp GCSE Maths classes flyer for Higher and Foundation students in Manchester',
-    title: 'GCSE Maths Classes 2026',
-    aspectClass: 'aspect-[2/3]',
-    objectFitClass: 'object-contain bg-gray-50',
-  },
-  {
-    src: getAsset('/images/gallery/mth-summer-coding-flyer-2026.jpeg'),
-    alt: 'MathsTutorHelp Manchester Summer Coding Club flyer for students aged 13 to 17',
-    title: 'Summer Coding Club 2026',
-    aspectClass: 'aspect-[5/7]',
-    objectFitClass: 'object-contain bg-gray-50',
-  },
-  {
-    src: getAsset('/images/gallery/levenshulme-classroom.jpeg'),
-    alt: 'Levenshulme classroom set up for small group maths tuition',
-    title: 'Small Group Classroom',
-  },
-  {
-    src: getAsset('/images/gallery/classroom-circle-theorems.jpeg'),
-    alt: 'Classroom screen showing circle theorem maths questions',
-    title: 'GCSE Maths Teaching Space',
-  },
-  {
-    src: getAsset('/images/gallery/levenshulme-high-school-building.jpeg'),
-    alt: 'Levenshulme High School building',
-    title: 'Levenshulme High School',
-    aspectClass: 'aspect-[4/3]',
-    objectFitClass: 'object-contain bg-gray-50',
-  },
-  {
-    src: getAsset('/images/gallery/ks3-gcse-maths-classes-manchester.jpeg'),
-    alt: 'KS3 and GCSE Maths Classes Manchester poster',
-    title: 'KS3 and GCSE Maths Classes',
-    aspectClass: 'aspect-[3/4]',
-    objectFitClass: 'object-contain bg-gray-50',
-  },
-  {
-    src: getAsset('/images/gallery/enrol-now-revision-classes.jpeg'),
-    alt: 'Enrol now poster for Maths Revision Classes in Manchester',
-    title: 'Maths Revision Classes',
-    aspectClass: 'aspect-[3/4]',
-    objectFitClass: 'object-contain bg-gray-50',
-  },
-  {
-    src: getAsset('/images/manchesterrevisionclass.jpeg'),
-    alt: 'MathsTutorHelp GCSE Maths Revision Course poster',
-    title: 'GCSE Maths Revision Course',
-    aspectClass: 'aspect-[3/4]',
-    objectFitClass: 'object-contain bg-gray-50',
-  },
-  {
-    src: getAsset('/images/gallery/mth-tutor-character.jpeg'),
-    alt: 'MathsTutorHelp tutor character illustration',
-    title: 'MathsTutorHelp Character',
-  },
-  {
-    src: getAsset('/images/maths-tutor-sheraz-cheema-home.jpeg'),
-    alt: 'Mr Sheraz from MathsTutorHelp',
-    title: 'MathsTutorHelp',
-  },
-  {
-    src: getAsset('/images/maths-tutor-sheraz-cheema.jpeg'),
-    alt: 'Mr Sheraz teaching maths',
-    title: 'Maths Teaching',
-  },
-];
 ---
 
 <Layout metadata={metadata}>
@@ -93,7 +24,7 @@ const galleryImages = [
     </div>
   </section>
 
-  <Gallery images={galleryImages} />
+  <Gallery images={galleryItems} />
 
   <CallToAction
     title="Want to Learn More?"

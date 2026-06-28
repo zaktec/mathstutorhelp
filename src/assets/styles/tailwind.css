@@ -87,10 +87,10 @@
 
 #header.expanded nav {
   position: fixed;
-  top: 70px;
+  top: var(--aw-mobile-header-height, 70px);
   left: 0;
   right: 0;
-  bottom: 70px !important;
+  bottom: var(--aw-mobile-actions-height, 70px) !important;
   padding: 0 5px;
 }
 

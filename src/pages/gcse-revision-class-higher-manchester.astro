@@ -5,8 +5,9 @@ import Features from '~/components/widgets/Features.astro';
 import Content from '~/components/widgets/Content.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import { getAsset, getPermalink } from '~/utils/permalinks';
+import { getPermalink } from '~/utils/permalinks';
 import { bookingLinks, contactDetails, ctaLabels, tuitionPrices } from '~/utils/siteDetails';
+import { siteImages } from '~/data/images';
 
 const metadata = {
   title: 'MathsTutorHelp GCSE Higher Maths Classes Manchester',
@@ -75,7 +76,7 @@ const eventSchema = {
       { text: 'Contact MathsTutorHelp', href: contactUrl },
     ]}
     image={{
-      src: getAsset('/images/gallery/classroom-circle-theorems.jpeg'),
+      src: siteImages.gallery.circleTheorems,
       alt: 'GCSE Maths board work from a real class',
     }}
   />
@@ -145,7 +146,7 @@ const eventSchema = {
       },
     ]}
     image={{
-      src: getAsset('/images/gcse-higher-maths-notes.jpg'),
+      src: siteImages.higherMathsNotes,
       alt: 'GCSE Higher Maths revision notes',
     }}
   >
@@ -216,7 +217,7 @@ const eventSchema = {
       },
     ]}
     image={{
-      src: getAsset('/images/gallery/levenshulme-classroom.jpeg'),
+      src: siteImages.gallery.classroom,
       alt: 'Levenshulme classroom set up for small group maths tuition',
     }}
   >

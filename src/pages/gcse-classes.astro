@@ -5,8 +5,9 @@ import Features from '~/components/widgets/Features.astro';
 import Content from '~/components/widgets/Content.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import { getAsset, getPermalink } from '~/utils/permalinks';
+import { getPermalink } from '~/utils/permalinks';
 import { bookingLinks, ctaLabels, tuitionPrices } from '~/utils/siteDetails';
+import { siteImages } from '~/data/images';
 
 const metadata = {
   title: 'MathsTutorHelp GCSE Maths Classes Manchester',
@@ -20,7 +21,7 @@ const foundationClassUrl = getPermalink('/gcse-foundation-maths-tutoring-club-20
 const pricingUrl = getPermalink('/pricing');
 const contactUrl = getPermalink('/contact');
 const onlineTuitionUrl = getPermalink('/online-tuition');
-const classImageUrl = getAsset('/images/gallery/ks3-gcse-maths-classes-manchester.jpeg');
+const classImageUrl = siteImages.gallery.classesPoster;
 ---
 
 <Layout metadata={metadata}>
@@ -95,7 +96,7 @@ const classImageUrl = getAsset('/images/gallery/ks3-gcse-maths-classes-mancheste
       },
     ]}
     image={{
-      src: getAsset('/images/gallery/classroom-circle-theorems.jpeg'),
+      src: siteImages.gallery.circleTheorems,
       alt: 'GCSE Maths classroom board work',
     }}
   >

@@ -1,5 +1,7 @@
 ---
-import { getAsset, getPermalink } from '~/utils/permalinks';
+import { getPermalink } from '~/utils/permalinks';
+import Image from '~/components/common/Image.astro';
+import { getBlogImage } from '~/data/images';
 import type { BlogPost } from '~/utils/blogPosts';
 
 interface Props {
@@ -13,13 +15,16 @@ const { post } = Astro.props;
   class="flex h-full flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-slate-800"
 >
   <a href={getPermalink(`/blog/${post.slug}`)} class="block bg-gray-100 dark:bg-slate-700">
-    <img
+    <Image
       class="h-40 w-full object-cover"
-      src={getAsset(post.image)}
+      src={getBlogImage(post.image)}
       alt={post.imageAlt}
       loading="lazy"
-      width="900"
-      height="298"
+      widths={[400, 640, 900]}
+      sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+      width={900}
+      height={298}
+      format="webp"
     />
   </a>
   <div class="flex flex-1 flex-col p-6">
@@ -27,7 +32,7 @@ const { post } = Astro.props;
       {
         post.tags.map((tag) => (
           <a
-            class="text-sm font-bold text-secondary underline-offset-4 hover:underline dark:text-teal-200"
+            class="inline-flex min-h-11 items-center py-2 text-sm font-bold text-secondary underline-offset-4 hover:underline dark:text-teal-200"
             href={getPermalink(`/blog/tag/${encodeURIComponent(tag.toLowerCase().replaceAll(' ', '-'))}`)}
           >
             {tag}

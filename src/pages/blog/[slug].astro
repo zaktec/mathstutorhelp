@@ -3,8 +3,10 @@ import Layout from '~/layouts/PageLayout.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import BlogCard from '~/components/blog/BlogCard.astro';
 import SocialShare from '~/components/blog/SocialShare.astro';
+import Image from '~/components/common/Image.astro';
 import { getAsset, getPermalink } from '~/utils/permalinks';
 import { blogPosts, getRelatedPosts } from '~/utils/blogPosts';
+import { getBlogImage } from '~/data/images';
 
 export function getStaticPaths() {
   return blogPosts.map((post) => ({
@@ -50,7 +52,10 @@ const articleSchema = {
 
   <article class="bg-white py-12 dark:bg-slate-900 md:py-16">
     <div class="mx-auto max-w-3xl px-4 sm:px-6">
-      <a class="text-sm font-bold text-primary underline-offset-4 hover:underline" href={getPermalink('/blog')}>
+      <a
+        class="inline-flex min-h-11 items-center py-2 text-sm font-bold text-primary underline-offset-4 hover:underline"
+        href={getPermalink('/blog')}
+      >
         Back to Blog
       </a>
       <p class="mt-6 text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">{post.category}</p>
@@ -64,12 +69,16 @@ const articleSchema = {
           })
         }
       </p>
-      <img
+      <Image
         class="mt-8 w-full rounded-lg border border-gray-200 object-cover shadow-sm dark:border-gray-700"
-        src={getAsset(post.image)}
+        src={getBlogImage(post.image)}
         alt={post.imageAlt}
-        width="900"
-        height="298"
+        widths={[400, 640, 900]}
+        sizes="(max-width: 767px) 100vw, 768px"
+        width={900}
+        height={298}
+        layout="responsive"
+        format="webp"
       />
       <p class="mt-6 text-xl leading-8 text-muted dark:text-slate-300">{post.excerpt}</p>
 
@@ -77,7 +86,7 @@ const articleSchema = {
         {
           post.tags.map((tag) => (
             <a
-              class="rounded-md bg-brand-soft px-3 py-2 text-sm font-semibold text-primary dark:bg-slate-800"
+              class="inline-flex min-h-11 items-center rounded-md bg-brand-soft px-3 py-2 text-sm font-semibold text-primary dark:bg-slate-800"
               href={getPermalink(`/blog/tag/${tag.toLowerCase().replaceAll(' ', '-')}`)}
             >
               {tag}

@@ -1,8 +1,10 @@
 ---
 import { Icon } from 'astro-icon/components';
 import Button from '~/components/ui/Button.astro';
+import Image from '~/components/common/Image.astro';
 import { getAsset, getPermalink } from '~/utils/permalinks';
 import { contactDetails, ctaLabels } from '~/utils/siteDetails';
+import { siteImages } from '~/data/images';
 
 const { groupClassInterestUrl, tuitionOptionsUrl = getPermalink('/maths-tuition/') } = Astro.props;
 
@@ -52,7 +54,7 @@ const trustPoints = [
           />
         </div>
         <div
-          class="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm font-bold text-gray-800 dark:text-slate-200"
+          class="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 text-base font-bold leading-6 text-gray-800 dark:text-slate-200"
           aria-label="Tutor credentials"
         >
           <span>Qualified Teacher</span>
@@ -69,14 +71,19 @@ const trustPoints = [
         class="mx-auto w-full max-w-xs overflow-hidden rounded-lg border border-primary/15 bg-white shadow-xl shadow-slate-900/10 dark:border-slate-700 dark:bg-slate-900 md:max-w-sm lg:max-w-[340px]"
       >
         <div class="bg-brand-soft">
-          <img
-            src={getAsset('/images/maths-tutor-sheraz-cheema.jpeg')}
+          <Image
+            src={siteImages.tutor}
             alt="Mr Sheraz teaching GCSE Maths at a whiteboard"
             width={1448}
             height={1086}
+            widths={[320, 400, 680]}
+            sizes="(max-width: 767px) 100vw, 340px"
+            format="webp"
+            layout="responsive"
             loading="eager"
             fetchpriority="high"
             decoding="async"
+            onerror={`this.onerror=null;this.src='${getAsset('/images/maths-tutor-sheraz-cheema.jpeg')}';this.srcset=''`}
             class="aspect-[4/3] w-full object-cover"
           />
         </div>
@@ -95,7 +102,7 @@ const trustPoints = [
           <ul class="mt-4 grid gap-2">
             {
               trustPoints.map((point) => (
-                <li class="flex gap-2 text-sm leading-5 text-muted dark:text-slate-300">
+                <li class="flex gap-2 text-base leading-6 text-muted dark:text-slate-300">
                   <Icon name={point.icon} class="mt-0.5 h-4 w-4 shrink-0 text-secondary dark:text-teal-200" />
                   <span>{point.text}</span>
                 </li>

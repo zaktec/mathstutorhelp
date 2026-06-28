@@ -4,14 +4,13 @@ Astro website for MathsTutorHelp, a Manchester-based maths tuition service run b
 
 The project started from AstroWind, but the live source has been customised for MathsTutorHelp. Reference-only template and deployment extras are kept in `extra/`.
 
-## AI Context
+## Project Guide
 
-If you are giving this project to an AI assistant, start with:
+The single source of truth for the business, brand, website content and maintenance is:
 
-- `documents/ai-project-brief.md` - concise project context, rules, routes and workflow
-- `documents/branding.md` - brand, tone, colours and content direction
-- `documents/website-technical-analysis.md` - deeper technical notes
-- `documents/live-website-content-audit.md` - what can and cannot be reused from the old/live WordPress site
+- `documents/branding.md`
+
+Use this guide for human handover and as context when giving the project to an AI assistant.
 
 ## Tech Stack
 

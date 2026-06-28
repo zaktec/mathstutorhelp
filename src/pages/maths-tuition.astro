@@ -6,8 +6,9 @@ import Content from '~/components/widgets/Content.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { Icon } from 'astro-icon/components';
-import { getAsset, getPermalink } from '~/utils/permalinks';
+import { getPermalink } from '~/utils/permalinks';
 import { bookingLinks, contactDetails, ctaLabels } from '~/utils/siteDetails';
+import { siteImages } from '~/data/images';
 
 const metadata = {
   title: 'Maths Tuition Manchester | 1-to-1, Online & GCSE Classes',
@@ -74,7 +75,7 @@ const tuitionCards = [
       { text: 'View Full Pricing', href: pricingUrl },
     ]}
     image={{
-      src: getAsset('/images/maths-tuition-courses.jpg'),
+      src: siteImages.tuition,
       alt: 'Online, group and revision maths courses',
     }}
   />
@@ -110,8 +111,8 @@ const tuitionCards = [
                 )}
               </div>
               <h3 class="mt-5 text-xl font-bold text-gray-950 dark:text-white">{option.title}</h3>
-              <p class="mt-4 text-sm leading-6 text-muted dark:text-slate-300">{option.description}</p>
-              <p class="mt-4 rounded-md bg-brand-soft p-3 text-sm font-semibold leading-6 text-gray-800 dark:bg-slate-900 dark:text-slate-200">
+              <p class="mt-4 text-base leading-7 text-muted dark:text-slate-300">{option.description}</p>
+              <p class="mt-4 rounded-md bg-brand-soft p-3 text-base font-semibold leading-7 text-gray-800 dark:bg-slate-900 dark:text-slate-200">
                 Best for: {option.bestFor}
               </p>
               <div class="mt-auto pt-5">
@@ -181,7 +182,7 @@ const tuitionCards = [
       },
     ]}
     image={{
-      src: getAsset('/images/online-maths-lesson-laptop.jpg'),
+      src: siteImages.onlineLesson,
       alt: 'Student using an online learning platform',
     }}
   >
