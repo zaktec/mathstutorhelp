@@ -84,7 +84,7 @@ import { UI } from 'astrowind:config';
         if (event.key !== 'Tab' || !header) return;
 
         const focusable = Array.from(
-          header.querySelectorAll<HTMLElement>('a[href], button:not([disabled]), input:not([disabled]), [tabindex="0"]')
+          header.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), [tabindex="0"]')
         ).filter((element) => element.getClientRects().length > 0);
         const first = focusable.at(0);
         const last = focusable.at(-1);
