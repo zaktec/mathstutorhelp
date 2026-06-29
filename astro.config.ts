@@ -56,7 +56,9 @@ export default defineConfig({
     ),
 
     compress({
-      CSS: true,
+      // Vite already minifies Tailwind's layered CSS. A second csso pass
+      // removes Tailwind 4 responsive media queries from production builds.
+      CSS: false,
       HTML: {
         'html-minifier-terser': {
           removeAttributeQuotes: false,
