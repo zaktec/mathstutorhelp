@@ -15,7 +15,7 @@ This is the single guide for MathsTutorHelp. It explains the business, prices, b
 | Phone             | 07860 248 525                                 |
 | WhatsApp          | https://wa.me/447860248525                    |
 | Free consultation | https://calendar.app.google/VJ6tgEKfsUZAncDe9 |
-| Register interest | https://hai-bl.com/onboarding/interest-form   |
+| Register interest | https://hai-bl.com/onboarding/brands/mathstutorhelp/interest |
 | Student login     | https://hai-bl.com/auth/login                 |
 
 ### Main message

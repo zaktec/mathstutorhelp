@@ -1,0 +1,29 @@
+{
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/.next/**": true,
+    "**/dist/**": true,
+    "**/build/**": true,
+    "**/.git/**": true,
+    "**/.vercel/**": true,
+    "**/coverage/**": true,
+    "**/.turbo/**": true,
+    "**/tmp/**": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/.next": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/.git": true,
+    "**/.vercel": true,
+    "**/coverage": true,
+    "**/.turbo": true,
+    "**/tmp": true
+  },
+  "files.exclude": {
+    "**/.next": true,
+    "**/dist": true,
+    "**/build": true
+  }
+}

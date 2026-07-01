@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="MathsTutorHelp logo">
+  <rect width="128" height="128" rx="26" fill="#00387D"/>
+  <path d="M16 83V39h10l10 17 10-17h10v44H45V58l-9 15-9-15v25H16Z" fill="#FFF"/>
+  <path d="M60 39h28v10h-9v34H68V49h-8V39Z" fill="#FFF"/>
+  <path d="M92 39h11v16h10V39h11v44h-11V66h-10v17H92V39Z" fill="#FFF"/>
+  <rect x="16" y="98" width="108" height="9" rx="4.5" fill="#0F766E"/>
+</svg>
