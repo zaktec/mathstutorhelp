@@ -2,7 +2,6 @@
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
 import Features from '~/components/widgets/Features.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
 import { bookingLinks, contactDetails } from '~/utils/siteDetails';
 
 const metadata = {
@@ -18,7 +17,7 @@ const haiBlInterestFormUrl = bookingLinks.groupClassInterest;
   <HeroText
     tagline="Contact MathsTutorHelp"
     title="Contact MathsTutorHelp"
-    subtitle="Get in touch to ask about one-to-one maths tuition, online lessons or GCSE group classes. Please include the student's year group, current level and preferred lesson format."
+    subtitle="Ask about one-to-one, online or GCSE group tuition. Call, WhatsApp or use the enquiry form below."
     callToAction={{
       variant: 'primary',
       text: `Call ${contactDetails.phoneDisplay}`,
@@ -32,64 +31,24 @@ const haiBlInterestFormUrl = bookingLinks.groupClassInterest;
     }}
   />
 
-  <Features
-    title="Speak to MathsTutorHelp"
-    subtitle="Phone, WhatsApp and online enquiries are available for parents and students."
-    columns={3}
-    items={[
-      {
-        title: 'Phone',
-        description: `${contactDetails.phoneDisplay}<br />Call to ask about availability, tuition options or GCSE group classes.`,
-        icon: 'tabler:phone',
-        callToAction: {
-          text: 'Call now',
-          href: contactDetails.phoneHref,
-        },
-      },
-      {
-        title: 'WhatsApp',
-        description: 'Send a message with the student’s year group, topic needs and preferred lesson option.',
-        icon: 'tabler:brand-whatsapp',
-        callToAction: {
-          text: 'Message on WhatsApp',
-          href: contactDetails.whatsappHref,
-        },
-      },
-      {
-        title: 'Contact Form',
-        description: 'Use the online form below if you prefer to send the details in writing.',
-        icon: 'tabler:forms',
-        callToAction: {
-          text: 'Go to form',
-          href: '#form',
-        },
-      },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-brand-soft dark:bg-transparent"></div>
-    </Fragment>
-  </Features>
-
   <section id="form" class="bg-white py-12 dark:bg-slate-900">
     <div class="mx-auto max-w-5xl px-4 sm:px-6">
       <div class="mx-auto max-w-3xl text-center">
         <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Enquiry Form</p>
         <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-950 dark:text-white md:text-4xl">
-          Send an Enquiry Online
+          Send an Enquiry
         </h2>
         <p class="mt-4 text-lg leading-8 text-muted dark:text-slate-300">
-          Use the secure Hai-BL form below to register your interest. Include the student's year group, exam board if
-          known, and whether you prefer online, in-person or group tuition.
+          Use the secure Hai-BL form to tell me what support you need.
         </p>
       </div>
 
       <div
         class="mx-auto mt-8 max-w-2xl rounded-lg border border-gray-200 bg-brand-soft p-6 text-center shadow-sm dark:border-gray-700 dark:bg-slate-800"
       >
-        <h3 class="text-2xl font-bold text-gray-950 dark:text-white">Open the Secure Enquiry Form</h3>
+        <h3 class="text-2xl font-bold text-gray-950 dark:text-white">Secure Enquiry Form</h3>
         <p class="mt-3 text-base leading-7 text-muted dark:text-slate-300">
-          Hai-BL opens in its own secure page, so your browser may block it from appearing inside this website.
+          The form opens on Hai-BL in a new secure page.
         </p>
         <a class="btn-primary mt-5" href={haiBlInterestFormUrl}> Open Hai-BL Form </a>
       </div>
@@ -98,78 +57,23 @@ const haiBlInterestFormUrl = bookingLinks.groupClassInterest;
 
   <Features
     title="What to Include in Your Message"
-    subtitle="A few details help me recommend the right support more quickly."
-    columns={5}
-    items={[
-      {
-        title: 'Year group',
-        description: 'For example Year 8, Year 11, college, adult learner or A-Level.',
-        icon: 'tabler:school',
-      },
-      {
-        title: 'Current level',
-        description: 'Share recent grades, confidence level or target grade if you know it.',
-        icon: 'tabler:chart-line',
-      },
-      {
-        title: 'Exam board',
-        description: 'For GCSE or IGCSE, include Edexcel, AQA, OCR or Cambridge if known.',
-        icon: 'tabler:certificate',
-      },
-      {
-        title: 'Topic needs',
-        description: 'Mention topics the student finds difficult, such as algebra, ratio or exam technique.',
-        icon: 'tabler:list-check',
-      },
-      {
-        title: 'Lesson preference',
-        description: 'Tell me whether you prefer online, in-person, one-to-one or group tuition.',
-        icon: 'tabler:users',
-      },
-    ]}
-  />
-
-  <Features
-    title="What Happens Next?"
-    subtitle="The next step is simple and parent-friendly."
+    subtitle="These details help me recommend the right tuition option."
     columns={3}
     items={[
       {
-        title: 'I review your enquiry',
-        description: 'I look at the student’s level, goals and preferred lesson option.',
-        icon: 'tabler:search',
+        title: 'Student details',
+        description: 'Include the year group, current level and exam board if known.',
+        icon: 'tabler:school',
       },
       {
-        title: 'We discuss availability',
-        description: 'I will reply with suitable options for one-to-one tuition, online lessons or group classes.',
-        icon: 'tabler:calendar',
+        title: 'Goals and topics',
+        description: 'Mention target grades and any topics or skills that need support.',
+        icon: 'tabler:chart-line',
       },
       {
-        title: 'We choose the right support',
-        description: 'If suitable, we can arrange a consultation or first session.',
-        icon: 'tabler:circle-check',
-      },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-brand-soft dark:bg-transparent"></div>
-    </Fragment>
-  </Features>
-
-  <CallToAction
-    title="Ready to Ask About Tuition?"
-    subtitle="Call, WhatsApp or send the Hai-BL form and I will help you choose the right MathsTutorHelp option."
-    actions={[
-      {
-        variant: 'primary',
-        text: `Call ${contactDetails.phoneDisplay}`,
-        href: contactDetails.phoneHref,
-        icon: 'tabler:phone',
-      },
-      {
-        text: 'WhatsApp MathsTutorHelp',
-        href: contactDetails.whatsappHref,
-        icon: 'tabler:brand-whatsapp',
+        title: 'Lesson preference',
+        description: 'Choose online, in-person, one-to-one or group tuition.',
+        icon: 'tabler:users',
       },
     ]}
   />

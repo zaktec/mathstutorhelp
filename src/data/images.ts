@@ -14,8 +14,7 @@ import classesPoster from '~/assets/images/gallery/ks3-gcse-maths-classes-manche
 import revisionPoster from '~/assets/images/gallery/enrol-now-revision-classes.jpeg';
 import revisionCourse from '~/assets/images/gallery/manchesterrevisionclass.jpeg';
 import tutorCharacter from '~/assets/images/gallery/mth-tutor-character.jpeg';
-import tutorPortrait from '~/assets/images/gallery/maths-tutor-sheraz-cheema-home.jpeg';
-import tutorTeaching from '~/assets/images/gallery/maths-tutor-sheraz-cheema.jpeg';
+import tutorPortrait from '~/assets/images/maths-tutor-sheraz-cheema-home.jpeg';
 import gcseFlyer from '~/assets/images/gallery/mth-gcse-classes-flyer-2026.jpeg';
 import codingFlyer from '~/assets/images/gallery/mth-summer-coding-flyer-2026.jpeg';
 
@@ -41,7 +40,7 @@ export const siteImages = {
     revisionCourse,
     tutorCharacter,
     tutorPortrait,
-    tutorTeaching,
+    tutorTeaching: tutor,
     gcseFlyer,
     codingFlyer,
   },

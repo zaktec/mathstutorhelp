@@ -5,31 +5,56 @@ export const registerInterestUrl = bookingLinks.groupClassInterest;
 export const onlinePackages = [
   {
     title: 'Bronze',
-    detail: 'Course content and WhatsApp messaging support only',
-    price: '£15/month',
-    note: 'No live sessions',
+    subtitle: 'Course Access',
+    detail: 'Best for independent learners who need structure and light support.',
+    price: '£19/month',
+    features: [
+      'Access to one selected course',
+      'New lessons released weekly',
+      'Worksheets and practice tasks',
+      'Topic checklist',
+      'Limited WhatsApp support for short questions',
+      'No live lesson included',
+    ],
+    cta: 'Choose Bronze',
   },
   {
     title: 'Silver',
-    detail: '1 hour of live tutoring per month, plus course content and messaging support',
-    price: '£30/month',
-    note: '£30/hr',
+    subtitle: 'Guided Support',
+    detail: 'Best for students who need occasional tutor guidance and personalised help.',
+    price: '£49/month',
+    features: [
+      'Everything in Bronze',
+      '1 × 55-minute live online lesson per month',
+      'Personalised practice after the lesson',
+      'Progress guidance',
+      'Better for students who need help staying on track',
+    ],
+    cta: 'Choose Silver',
   },
   {
     title: 'Gold',
-    detail: '2 hours of live tutoring per month, plus course content and messaging support',
-    price: '£60/month',
-    note: '£30/hr',
+    subtitle: 'Regular Support',
+    detail: 'Best for GCSE students who need more regular support and exam preparation.',
+    price: '£89/month',
+    features: [
+      'Everything in Bronze',
+      '2 × 55-minute live online lessons per month',
+      'More personalised support',
+      'Regular progress guidance',
+      'Better for GCSE exam preparation',
+    ],
+    cta: 'Choose Gold',
   },
 ];
 
 export const packageIncludes = [
-  'Access to the selected course content and learner resources',
-  'WhatsApp messaging support for questions between sessions',
-  'Custom worksheet or practice task linked to the course',
-  'Option to include live one-to-one tutoring on Silver and Gold',
+  'Access to one selected online course',
+  'New lessons released weekly with worksheets and practice tasks',
+  'Limited WhatsApp support for short questions and guidance',
+  'Live online lessons included with Silver and Gold',
   'Fully qualified and DBS-checked tutor support',
-  'No contracts - cancel anytime',
+  'No long-term contract - cancel anytime',
 ];
 
 export const overviewPackageIncludes = [...packageIncludes];
@@ -50,7 +75,7 @@ export const packageFaqs = [
 export const onlineCourseCards = [
   {
     slug: 'year-6-maths',
-    title: 'Challenge Maths Club (Year 6)',
+    title: 'Year 6 / Transition Maths',
     pageTitle: 'Challenge Maths Club (Year 6) Online Tuition',
     description:
       'Support for Year 6 students preparing for secondary school, with a focus on confidence, number skills and problem solving.',
@@ -420,7 +445,7 @@ export const onlineCourseCards = [
   },
   {
     slug: 'coding-problem-solving',
-    title: 'Coding and Problem Solving',
+    title: 'Coding / Python',
     pageTitle: 'Coding and Problem Solving - Part 1 (Beginner Python)',
     metaDescription:
       'Teacher-led beginner Python coding lessons covering the basics in around 6-8 sessions, building logical thinking and problem-solving skills before progressing to Part 2.',

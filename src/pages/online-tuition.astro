@@ -1,53 +1,104 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import { getPermalink } from '~/utils/permalinks';
-import {
-  onlineCourseCards,
-  onlinePackages,
-  overviewPackageIncludes,
-  packageFaqs,
-  registerInterestUrl,
-} from '~/utils/onlineCourses';
-import { ctaLabels } from '~/utils/siteDetails';
+import CourseGrid from '~/components/widgets/CourseGrid.astro';
+import { onlineCourseCards, onlinePackages, registerInterestUrl } from '~/utils/onlineCourses';
 import { siteImages } from '~/data/images';
 
 const metadata = {
-  title: 'MathsTutorHelp Online Maths Tuition UK',
+  title: 'Online Maths Tuition & Course Support',
   description:
-    'MathsTutorHelp online maths tuition and courses for Year 6, KS3, GCSE, IGCSE, Functional Skills, A-Level and beginner Python students across the UK.',
+    'Flexible online maths support for GCSE, KS3, IGCSE and Functional Skills students. Choose one course, access weekly lessons, worksheets and optional live tutor support.',
 };
 
-const contactUrl = getPermalink('/contact');
-const groupClassesUrl = getPermalink('/online-group-classes');
-const mathsCourseCards = onlineCourseCards.filter((course) => !course.slug.startsWith('coding-'));
-const codingCourseCards = onlineCourseCards.filter((course) => course.slug.startsWith('coding-'));
-
-const courseCardClass =
-  'flex h-full flex-col rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-slate-800';
+const courseOrder = [
+  'gcse-foundation-maths',
+  'gcse-higher-maths',
+  'ks3-maths',
+  'year-6-maths',
+  'functional-skills-maths',
+  'igcse-maths',
+  'a-level-maths',
+  'coding-problem-solving',
+];
+const orderedCourseCards = courseOrder
+  .map((slug) => onlineCourseCards.find((course) => course.slug === slug))
+  .filter((course): course is (typeof onlineCourseCards)[number] => Boolean(course));
 ---
 
 <Layout metadata={metadata}>
   <Hero
     tagline="MathsTutorHelp Online"
-    title="MathsTutorHelp Online Maths and Coding Courses"
-    subtitle="Flexible online maths and coding courses from MathsTutorHelp for students who need clear teaching, regular practice and calm support from home."
+    title="Online Maths Tuition & Course Support"
+    subtitle="Structured online maths support for students who need regular guidance, weekly practice and expert tutor help — without committing to weekly one-to-one lessons."
+    content={`<ul class="mx-auto mt-6 grid max-w-2xl gap-2 text-left text-sm font-medium text-gray-800 dark:text-slate-200 sm:text-base"><li>✓ One selected course matched to your child’s level</li><li>✓ New lessons released weekly to support steady progress</li><li>✓ Optional live online tutor support available</li></ul>`}
     actions={[
       {
         variant: 'primary',
-        text: ctaLabels.onlineTuitionInterest,
-        href: registerInterestUrl,
-        icon: 'tabler:calendar-check',
+        text: 'Choose Your Online Support Plan',
+        href: '#plans',
+        icon: 'tabler:arrow-down',
       },
-      { text: 'Contact MathsTutorHelp', href: contactUrl },
+      { text: 'Ask About Online Tuition', href: registerInterestUrl },
     ]}
     image={{
       src: siteImages.onlinePackages,
       alt: 'Online maths tutoring packages',
     }}
   />
+
+  <Features
+    tagline="Three Simple Steps"
+    title="How online support works"
+    subtitle="One selected course. Weekly lesson release. Clear support. Flexible monthly learning."
+    columns={3}
+    items={[
+      {
+        title: '1. Choose a course',
+        description:
+          'Select the course that matches the student’s level, such as GCSE Foundation, GCSE Higher, KS3, IGCSE or Functional Skills.',
+        icon: 'tabler:books',
+      },
+      {
+        title: '2. Learn week by week',
+        description:
+          'Lessons, worksheets and practice tasks are released gradually so students build confidence step by step.',
+        icon: 'tabler:list-check',
+      },
+      {
+        title: '3. Get the right support',
+        description: 'Choose self-study support, one live lesson or two live lessons per month.',
+        icon: 'tabler:video',
+      },
+    ]}
+  />
+
+  <section class="bg-brand-soft py-12 dark:bg-slate-900">
+    <div class="mx-auto grid max-w-6xl gap-5 px-4 sm:px-6 md:grid-cols-2">
+      <article class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-slate-800">
+        <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Stay Focused</p>
+        <h2 class="mt-2 text-2xl font-bold text-gray-950 dark:text-white">Course access</h2>
+        <p class="mt-3 leading-7 text-muted dark:text-slate-300">
+          Each membership includes access to <strong>one selected course</strong>. Students do not get unlimited access
+          to every course, keeping the work focused and matched to their level.
+        </p>
+        <p class="mt-3 font-semibold leading-7 text-gray-800 dark:text-slate-200">
+          Extra course access can be added if needed for a small additional monthly fee.
+        </p>
+      </article>
+      <article class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-slate-800">
+        <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Steady Progress</p>
+        <h2 class="mt-2 text-2xl font-bold text-gray-950 dark:text-white">Weekly lesson release</h2>
+        <p class="mt-3 leading-7 text-muted dark:text-slate-300">
+          Course content is released gradually to encourage regular practice and better understanding.
+          <strong>Bronze, Silver and Gold include weekly lesson release, not instant full-course access.</strong>
+        </p>
+      </article>
+    </div>
+  </section>
 
   <section class="bg-white py-14 dark:bg-slate-900">
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
@@ -57,183 +108,194 @@ const courseCardClass =
           Choose Your Course
         </h2>
         <p class="mt-4 text-lg leading-8 text-muted dark:text-slate-300">
-          Browse the courses below to find the right fit for the learner's level. Once you've chosen a course, pick the
-          Bronze, Silver or Gold support level that suits your budget and how much live support you'd like.
+          Start with the student's level, then choose how much monthly tutor support they need.
         </p>
       </div>
 
-      <div class="mt-10">
-        <h3 class="text-2xl font-bold text-gray-950 dark:text-white">Maths Courses</h3>
-        <div class="mt-5 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {
-            mathsCourseCards.map((course) => (
-              <article class={courseCardClass}>
-                <h3 class="text-xl font-bold text-gray-950 dark:text-white">{course.title}</h3>
-                <p class="mt-3 text-base leading-7 text-muted dark:text-slate-300">{course.description}</p>
-                <ul class="mt-4 space-y-2 text-base leading-7 text-muted dark:text-slate-300">
-                  {course.bullets.map((item) => (
-                    <li class="flex gap-2">
-                      <span class="mt-2 size-1.5 rounded-full bg-secondary" aria-hidden="true" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div class="mt-auto pt-5">
-                  <a class="btn-secondary w-full justify-center sm:w-auto" href={getPermalink(`/${course.slug}`)}>
-                    {course.buttonText}
-                  </a>
-                </div>
-              </article>
-            ))
-          }
-        </div>
-      </div>
-
-      <div class="mt-12">
-        <h3 class="text-2xl font-bold text-gray-950 dark:text-white">Coding Courses</h3>
-        <div class="mt-5 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {
-            codingCourseCards.map((course) => (
-              <article class={courseCardClass}>
-                <h3 class="text-xl font-bold text-gray-950 dark:text-white">{course.title}</h3>
-                <p class="mt-3 text-base leading-7 text-muted dark:text-slate-300">{course.description}</p>
-                <ul class="mt-4 space-y-2 text-base leading-7 text-muted dark:text-slate-300">
-                  {course.bullets.map((item) => (
-                    <li class="flex gap-2">
-                      <span class="mt-2 size-1.5 rounded-full bg-secondary" aria-hidden="true" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div class="mt-auto pt-5">
-                  <a class="btn-secondary w-full justify-center sm:w-auto" href={getPermalink(`/${course.slug}`)}>
-                    {course.buttonText}
-                  </a>
-                </div>
-              </article>
-            ))
-          }
-        </div>
-      </div>
+      <CourseGrid
+        title="Online Courses"
+        courses={orderedCourseCards}
+        featuredSlugs={['gcse-foundation-maths', 'gcse-higher-maths']}
+      />
     </div>
   </section>
 
-  <section class="bg-brand-soft py-14 dark:bg-slate-900">
+  <section id="plans" class="scroll-mt-24 bg-brand-soft py-14 dark:bg-slate-900">
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
       <div class="mx-auto max-w-3xl text-center">
         <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Support Levels</p>
         <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-950 dark:text-white md:text-4xl">
-          Then Choose Your Support Level
+          Choose Your Monthly Membership
         </h2>
         <p class="mt-4 text-lg leading-8 text-muted dark:text-slate-300">
-          Choose between self-paced course access with messaging support, or add live one-to-one tutoring each month.
+          All packages are monthly, with no long-term contract. Choose the level of live support that suits your child.
         </p>
       </div>
 
       <div class="mt-10 grid gap-5 md:grid-cols-3">
         {
           onlinePackages.map((item) => (
-            <article class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-slate-800">
-              <h3 class="text-xl font-bold text-gray-950 dark:text-white">{item.title} Package</h3>
+            <article
+              class:list={[
+                'flex h-full flex-col rounded-lg border bg-white p-6 shadow-sm dark:bg-slate-800',
+                item.title === 'Silver'
+                  ? 'border-primary ring-2 ring-primary/15 dark:border-teal-300'
+                  : 'border-gray-200 dark:border-gray-700',
+              ]}
+            >
+              {item.title === 'Silver' && (
+                <p class="mb-2 text-xs font-bold uppercase tracking-wide text-secondary dark:text-teal-200">
+                  Most popular
+                </p>
+              )}
+              <h3 class="text-xl font-bold text-gray-950 dark:text-white">
+                {item.title} — {item.subtitle}
+              </h3>
               <p class="mt-3 text-muted dark:text-slate-300">{item.detail}</p>
               <p class="mt-6 text-3xl font-extrabold text-primary">{item.price}</p>
-              {item.note && <p class="mt-3 text-sm font-semibold text-secondary dark:text-teal-200">{item.note}</p>}
+              <ul class="mt-5 space-y-3 text-sm leading-6 text-muted dark:text-slate-300">
+                {item.features.map((feature) => (
+                  <li class="flex gap-2">
+                    <span class="font-bold text-secondary dark:text-teal-200" aria-hidden="true">
+                      ✓
+                    </span>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              <a class="btn-primary mt-6 w-full justify-center" href={registerInterestUrl}>
+                {item.cta}
+              </a>
             </article>
           ))
         }
       </div>
+      <p class="mx-auto mt-7 max-w-3xl text-center text-sm font-medium leading-6 text-muted dark:text-slate-300">
+        <strong>WhatsApp support</strong> is for short maths questions, guidance and checking understanding. It is not unlimited
+        live tutoring and does not replace live lessons.
+      </p>
     </div>
   </section>
 
-  <section class="bg-white py-14 dark:bg-slate-900">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6">
-      <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-        <div>
-          <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Included</p>
-          <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-950 dark:text-white">
-            What Every Support Level Includes
-          </h2>
-          <p class="mt-4 text-lg leading-8 text-muted dark:text-slate-300">
-            Every support level is designed to give students structured course access, clear resources and a simple way
-            to ask for help.
-          </p>
-        </div>
-        <ul class="grid gap-3 sm:grid-cols-2">
-          {
-            overviewPackageIncludes.map((item) => (
-              <li class="rounded-lg border border-gray-200 bg-gray-50 p-4 text-base font-medium leading-7 text-gray-800 dark:border-gray-700 dark:bg-slate-800 dark:text-slate-200">
-                {item}
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="bg-brand-soft py-10 dark:bg-slate-900">
-    <div class="mx-auto max-w-5xl px-4 sm:px-6">
-      <div class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-slate-800">
-        <div class="grid gap-5 md:grid-cols-[1fr_auto] md:items-center">
+  <section class="bg-white py-12 dark:bg-slate-900">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6">
+      <div
+        class="rounded-lg border border-gray-200 bg-gray-50 p-6 shadow-sm dark:border-gray-700 dark:bg-slate-800 sm:p-8"
+      >
+        <div class="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
           <div>
-            <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Also Available</p>
-            <h2 class="mt-2 text-2xl font-bold text-gray-950 dark:text-white">Online Group Classes</h2>
-            <p class="mt-3 text-base leading-7 text-muted dark:text-slate-300">
-              Small online group classes may be available for GCSE Maths and beginner coding. These are suitable for
-              students who want regular support at a lower cost than one-to-one tuition.
+            <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Optional Extra</p>
+            <h2 class="mt-2 text-2xl font-bold text-gray-950 dark:text-white">Want instant full-course access?</h2>
+            <p class="mt-3 leading-7 text-muted dark:text-slate-300">
+              For families who prefer self-paced learning, full-course access can be purchased separately.
             </p>
-            <ul class="mt-4 grid gap-2 text-base leading-7 text-muted dark:text-slate-300 sm:grid-cols-2">
-              <li>Small groups</li>
-              <li>Guided practice</li>
-              <li>Topic revision</li>
-              <li>Exam-style questions</li>
+            <h3 class="mt-5 text-lg font-bold text-gray-950 dark:text-white">Full Course Access includes:</h3>
+            <ul class="mt-3 grid gap-2 text-sm leading-6 text-muted dark:text-slate-300 sm:grid-cols-2">
+              <li>✓ One selected course unlocked immediately</li>
+              <li>✓ Self-paced learning</li>
+              <li>✓ Worksheets and practice tasks</li>
+              <li>✓ No live lesson included</li>
+              <li>✓ No monthly subscription required</li>
             </ul>
           </div>
-          <a class="btn-secondary justify-center" href={groupClassesUrl}>Ask About Group Classes</a>
+          <div class="md:min-w-56 md:text-center">
+            <p class="text-3xl font-extrabold text-primary">£99 one-off</p>
+            <a class="btn-secondary mt-4 w-full justify-center" href={registerInterestUrl}
+              >Ask About Full Course Access</a
+            >
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <Features
+    tagline="Trusted Support"
+    title="Why parents choose MathsTutorHelp"
+    columns={3}
+    items={[
+      {
+        title: 'Experienced tutor',
+        description: 'Taught by an experienced Maths and Computing tutor.',
+        icon: 'tabler:award',
+      },
+      {
+        title: 'Wide curriculum support',
+        description: 'Support for GCSE, KS3, IGCSE and Functional Skills.',
+        icon: 'tabler:books',
+      },
+      {
+        title: 'Clear learning structure',
+        description: 'Weekly structure to avoid rushed learning.',
+        icon: 'tabler:list-details',
+      },
+      {
+        title: 'Flexible each month',
+        description: 'Choose course access or add live lessons when needed.',
+        icon: 'tabler:calendar',
+      },
+      {
+        title: 'Online tutor access',
+        description: 'Live online lessons are included in Silver and Gold.',
+        icon: 'tabler:device-laptop',
+      },
+      {
+        title: 'Parent-friendly guidance',
+        description: 'Clear progress guidance without unnecessary jargon.',
+        icon: 'tabler:users',
+      },
+    ]}
+  >
+    <Fragment slot="bg"><div class="absolute inset-0 bg-white dark:bg-slate-900"></div></Fragment>
+  </Features>
+
   <FAQs
-    title="Online Courses FAQs"
+    title="Online Tuition FAQs"
     columns={2}
     items={[
       {
-        title: 'Which levels can be taught online?',
+        title: 'Do students get access to every course?',
         description:
-          'Online maths tuition is available for Year 6, KS3, GCSE, IGCSE, Functional Skills and A-Level. Beginner Python coding lessons are also available for students aged 10+.',
+          'No. Each membership includes access to one selected course. Extra course access can be added if needed.',
       },
       {
-        title: 'How long is each lesson?',
-        description: 'Each live online booking is a 55-minute session, for both maths and coding courses.',
+        title: 'Why are lessons released weekly?',
+        description:
+          'Weekly release helps students build understanding gradually and avoids rushing through the course without enough practice.',
       },
       {
-        title: 'Does online tuition include exam practice?',
+        title: 'Is Bronze enough?',
         description:
-          'Yes. GCSE, IGCSE, A-Level and Functional Skills lessons can include topic revision, past papers and exam-style questions.',
+          'Bronze is best for independent learners who mainly need structure, worksheets and light support. Students who need live tutor help should choose Silver or Gold.',
       },
       {
-        title: 'Is coding tuition the same format as maths tuition?',
+        title: 'Is Silver or Gold better for GCSE?',
         description:
-          'Yes. Coding lessons follow the same structure - a diagnostic check, guided practice, and a worksheet or coding task after each session.',
+          'Silver is suitable for light monthly guidance. Gold is better for students who need more regular GCSE exam preparation and personalised support.',
       },
       {
-        title: 'What does the student need?',
+        title: 'Is WhatsApp support unlimited?',
         description:
-          'A reliable internet connection, a quiet place to work, and a device suitable for video lessons. A laptop is recommended for coding lessons.',
+          'No. WhatsApp support is for short questions and guidance. It is not a replacement for live tutoring.',
       },
-      ...packageFaqs,
+      {
+        title: 'Can my child book extra lessons?',
+        description: 'Yes. Extra one-to-one lessons can be booked separately if more support is needed.',
+      },
+      {
+        title: 'Can I cancel?',
+        description: 'Yes. There is no long-term contract, and you can cancel anytime.',
+      },
     ]}
   />
 
   <CallToAction
-    title="Ready to Get Started?"
-    subtitle="Register your interest and I will get back to you with the most suitable support option."
+    title="Not Sure Which Package to Choose?"
+    subtitle="Tell me what support your child needs and I will help you choose the right monthly option."
     actions={[
       {
         variant: 'primary',
-        text: ctaLabels.onlineTuitionInterest,
+        text: 'Ask About Online Tuition',
         href: registerInterestUrl,
         icon: 'tabler:calendar-check',
       },

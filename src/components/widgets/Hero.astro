@@ -63,9 +63,10 @@ const isHomepage = normalizedPath === '/' || normalizedPath === basePath;
               />
             )
           }
+          {content && <Fragment set:html={content} />}
           {
             actions && (
-              <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
+              <div class="max-w-xs sm:max-w-md mx-auto mt-6 flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
                 {Array.isArray(actions) ? (
                   actions.map((action) => (
                     <div class="flex w-full sm:w-auto">
@@ -79,7 +80,6 @@ const isHomepage = normalizedPath === '/' || normalizedPath === basePath;
             )
           }
         </div>
-        {content && <Fragment set:html={content} />}
       </div>
       <div
         class="intersect-once intersect-no-queue intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
