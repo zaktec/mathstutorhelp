@@ -3,7 +3,7 @@ import { Icon } from 'astro-icon/components';
 import Button from '~/components/ui/Button.astro';
 import Image from '~/components/common/Image.astro';
 import { getAsset, getPermalink } from '~/utils/permalinks';
-import { contactDetails, ctaLabels } from '~/utils/siteDetails';
+import { contactDetails } from '~/utils/siteDetails';
 import { siteImages } from '~/data/images';
 
 const { groupClassInterestUrl, tuitionOptionsUrl = getPermalink('/maths-tuition/') } = Astro.props;
@@ -12,9 +12,7 @@ const trustPoints = [
   { text: 'Qualified teacher', icon: 'tabler:certificate' },
   { text: 'DBS checked', icon: 'tabler:shield-check' },
   { text: "15+ years' experience", icon: 'tabler:award' },
-  { text: 'Manchester based', icon: 'tabler:map-pin' },
-  { text: 'GCSE, IGCSE, Functional Skills and A-Level', icon: 'tabler:math-function' },
-  { text: 'Online and in-person tuition', icon: 'tabler:device-laptop' },
+  { text: 'Manchester and online', icon: 'tabler:map-pin' },
 ];
 ---
 
@@ -32,22 +30,22 @@ const trustPoints = [
         <h1
           class="font-heading text-4xl font-bold leading-tight text-gray-950 dark:text-white sm:text-5xl lg:text-[3.35rem]"
         >
-          Maths Tutor in Manchester for GCSE, KS3 and A-Level
+          Maths Tutor Manchester for GCSE, KS3 and Online Support
         </h1>
         <p class="mt-4 max-w-2xl text-lg font-semibold leading-relaxed text-primary dark:text-slate-100">
-          Clear, structured maths tuition in Manchester and online, led by Mr Sheraz, a qualified and DBS-checked
-          teacher with 15+ years' experience.
+          MathsTutorHelp provides GCSE Maths tuition, KS3 Maths support, one-to-one lessons, small group classes in
+          Levenshulme and Online Maths tuition with Mr Sheraz.
         </p>
         <div class="mt-6 flex flex-col gap-3 sm:flex-row">
           <Button
             variant="primary"
-            text={ctaLabels.groupClassInterest}
+            text="Register Interest"
             href={groupClassInterestUrl}
             icon="tabler:calendar-check"
             class="w-full sm:w-auto"
           />
           <Button
-            text="View Tuition Options"
+            text="View Courses / Tuition Options"
             href={tuitionOptionsUrl}
             icon="tabler:chevron-right"
             class="w-full sm:w-auto"
@@ -62,8 +60,6 @@ const trustPoints = [
           <span>DBS Checked</span>
           <span class="text-secondary dark:text-teal-200" aria-hidden="true">•</span>
           <span>15+ Years' Experience</span>
-          <span class="text-secondary dark:text-teal-200" aria-hidden="true">•</span>
-          <span>Manchester Based</span>
         </div>
       </div>
 

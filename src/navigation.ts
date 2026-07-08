@@ -16,7 +16,7 @@ export const headerData = {
       href: getPermalink('/online-tuition'),
     },
     {
-      text: 'GCSE Classes',
+      text: 'Group Classes',
       href: getPermalink('/gcse-classes'),
     },
     {
@@ -45,7 +45,7 @@ export const footerData = {
     {
       title: 'Classes',
       links: [
-        { text: 'GCSE Group Classes', href: getPermalink('/gcse-classes') },
+        { text: 'Group Classes', href: getPermalink('/gcse-classes') },
         { text: 'GCSE Higher Class', href: getPermalink('/gcse-revision-class-higher-manchester') },
         { text: 'GCSE Foundation Class', href: getPermalink('/gcse-foundation-maths-tutoring-club-2025') },
         { text: 'Summer Coding Course', href: getPermalink('/manchestersummercodingclub') },
@@ -57,7 +57,7 @@ export const footerData = {
         { text: 'Maths Tutor Levenshulme', href: getPermalink('/maths-tutor-levenshulme') },
         { text: 'GCSE Maths Tutor Manchester', href: getPermalink('/gcse-maths-tutor-manchester') },
         { text: 'Manchester Tuition', href: getPermalink('/maths-tuition') },
-        { text: 'GCSE Classes Manchester', href: getPermalink('/gcse-classes') },
+        { text: 'Group Classes Manchester', href: getPermalink('/gcse-classes') },
       ],
     },
     {
