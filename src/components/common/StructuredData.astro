@@ -5,7 +5,9 @@ import { contactDetails, tuitionPrices } from '~/utils/siteDetails';
 const siteUrl = String(SITE.site || 'https://mathstutorhelp.com').replace(/\/$/, '');
 const basePath = SITE.base && SITE.base !== '/' ? SITE.base : '';
 const homepageUrl = `${siteUrl}${basePath}/`;
+const contactUrl = `${siteUrl}${basePath}/contact/`;
 const logoUrl = `${siteUrl}${basePath}/images/maths-tutor-sheraz-cheema.jpeg`;
+const schemaPhone = contactDetails.phoneHref.replace('tel:', '');
 
 const data = {
   '@context': 'https://schema.org',
@@ -14,7 +16,15 @@ const data = {
   name: 'MathsTutorHelp',
   url: homepageUrl,
   image: logoUrl,
-  telephone: contactDetails.phoneDisplay,
+  telephone: schemaPhone,
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: schemaPhone,
+    contactType: 'customer service',
+    areaServed: 'GB',
+    availableLanguage: ['en'],
+    url: contactUrl,
+  },
   sameAs: [
     'https://www.facebook.com/mathstutorhelp',
     'https://www.linkedin.com/in/mathstutorhelp/',
@@ -74,6 +84,48 @@ const data = {
       },
     },
   ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'MathsTutorHelp Tuition Options',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'GCSE Maths tuition',
+          serviceType: 'GCSE Maths tuition',
+          areaServed: ['Manchester', 'Levenshulme', 'Online'],
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'KS3 Maths support',
+          serviceType: 'KS3 Maths support',
+          areaServed: ['Manchester', 'Online'],
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Online Maths tuition',
+          serviceType: 'Online Maths tuition',
+          areaServed: 'United Kingdom',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Beginner coding and problem-solving classes',
+          serviceType: 'Coding tuition',
+          areaServed: ['Manchester', 'Levenshulme'],
+        },
+      },
+    ],
+  },
 };
 ---
 

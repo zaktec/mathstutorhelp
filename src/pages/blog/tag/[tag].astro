@@ -13,8 +13,12 @@ export function getStaticPaths() {
 const { tag } = Astro.props;
 const posts = blogPosts.filter((post) => post.tags.includes(tag));
 const metadata = {
-  title: `${tag} Articles | MathsTutorHelp`,
+  title: `${tag} Articles`,
   description: `MathsTutorHelp articles about ${tag.toLowerCase()}.`,
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 ---
 

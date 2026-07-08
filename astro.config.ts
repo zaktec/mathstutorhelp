@@ -29,7 +29,8 @@ export default defineConfig({
 
   integrations: [
     sitemap({
-      filter: (page) => !page.endsWith('/online-tuitions/'),
+      filter: (page) =>
+        !page.endsWith('/online-tuitions/') && !page.includes('/blog/tag/') && !page.includes('/blog/page/'),
     }),
     mdx(),
     icon({

@@ -16,8 +16,12 @@ const { page, totalPages } = Astro.props;
 const start = (page - 1) * BLOG_POSTS_PER_PAGE;
 const posts = blogPosts.slice(start, start + BLOG_POSTS_PER_PAGE);
 const metadata = {
-  title: `Maths Blog - Page ${page} | MathsTutorHelp`,
+  title: `Maths Blog - Page ${page}`,
   description: 'More MathsTutorHelp articles about maths revision, tuition and exam preparation.',
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 ---
 

@@ -4,13 +4,10 @@ import Layout from '~/layouts/PageLayout.astro';
 import HomeHero from '~/components/widgets/HomeHero.astro';
 import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
-import Content from '~/components/widgets/Content.astro';
 import Testimonials from '~/components/widgets/Testimonials.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import Image from '~/components/common/Image.astro';
 import { getPermalink } from '~/utils/permalinks';
 import { bookingLinks, ctaLabels, tuitionPrices } from '~/utils/siteDetails';
-import { siteImages } from '~/data/images';
 
 const metadata = {
   title: 'MathsTutorHelp | Maths Tutor Manchester',
@@ -23,8 +20,6 @@ const consultationBookingUrl = bookingLinks.freeConsultation;
 const groupClassInterestUrl = bookingLinks.groupClassInterest;
 const gcseClassesUrl = getPermalink('/gcse-classes');
 const onlineTuitionUrl = getPermalink('/online-tuition');
-const gcseTutorManchesterUrl = getPermalink('/gcse-maths-tutor-manchester');
-const mathsTuitionUrl = getPermalink('/maths-tuition');
 const codingCourseUrl = getPermalink('/manchestersummercodingclub');
 const pricingUrl = getPermalink('/pricing');
 const compactSection = { container: 'py-8 md:py-10 lg:py-12' };
@@ -159,47 +154,6 @@ const priceOptions = [
       </div>
     </div>
   </section>
-
-  <Content
-    id="meet-mr-sheraz"
-    tagline="Meet Mr Sheraz"
-    title="Qualified Maths Support in Manchester and Online"
-    classes={compactSection}
-  >
-    <Fragment slot="image">
-      <Image
-        class="mx-auto w-full rounded-lg bg-gray-500 shadow-lg"
-        src={siteImages.tutor}
-        alt="Mr Sheraz from MathsTutorHelp"
-        width={500}
-        height={500}
-        widths={[400, 500, 768]}
-        sizes="(max-width: 767px) 100vw, 50vw"
-        layout="responsive"
-        format="webp"
-        loading="lazy"
-      />
-    </Fragment>
-
-    <Fragment slot="content">
-      <p>
-        Welcome to MathsTutorHelp. I’m Mr Sheraz, a fully qualified and DBS-checked Maths tutor with over 15 years of
-        teaching experience.
-      </p>
-      <p>
-        I help students build confidence, improve exam technique and strengthen their understanding of Maths through
-        clear, structured and supportive lessons.
-      </p>
-      <p>
-        MathsTutorHelp offers GCSE, IGCSE, KS3, Functional Skills and A-Level support through small group classes,
-        1-to-1 tuition and online learning.
-      </p>
-      <div class="mt-6 flex flex-col gap-3 sm:flex-row">
-        <a class="btn-secondary justify-center" href={mathsTuitionUrl}>View Tuition Options</a>
-        <a class="btn-secondary justify-center" href={gcseTutorManchesterUrl}>GCSE Maths Tutor Manchester</a>
-      </div>
-    </Fragment>
-  </Content>
 
   <section id="prices" class="bg-brand-soft py-8 dark:bg-slate-900 md:py-10 lg:py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6">

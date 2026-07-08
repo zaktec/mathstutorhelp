@@ -37,7 +37,6 @@ export const footerData = {
       title: 'Tuition',
       links: [
         { text: 'Maths Tuition', href: getPermalink('/maths-tuition') },
-        { text: 'Maths Levels', href: getPermalink('/maths-level') },
         { text: 'Online Courses', href: getPermalink('/online-tuition') },
         { text: 'Tuition Prices', href: getPermalink('/pricing') },
       ],
@@ -52,21 +51,10 @@ export const footerData = {
       ],
     },
     {
-      title: 'Local Areas',
-      links: [
-        { text: 'Maths Tutor Levenshulme', href: getPermalink('/maths-tutor-levenshulme') },
-        { text: 'GCSE Maths Tutor Manchester', href: getPermalink('/gcse-maths-tutor-manchester') },
-        { text: 'Manchester Tuition', href: getPermalink('/maths-tuition') },
-        { text: 'Group Classes Manchester', href: getPermalink('/gcse-classes') },
-      ],
-    },
-    {
       title: 'Booking',
       links: [
         { text: ctaLabels.freeConsultation, href: bookingLinks.freeConsultation },
         { text: ctaLabels.groupClassInterest, href: bookingLinks.groupClassInterest },
-        { text: 'Contact', href: getPermalink('/contact') },
-        { text: 'Student Login', href: bookingLinks.studentLogin },
       ],
     },
     {
@@ -87,14 +75,6 @@ export const footerData = {
         { text: 'Terms', href: getPermalink('/terms') },
       ],
     },
-  ],
-  secondaryLinks: [
-    { text: 'Home', href: getPermalink('/') },
-    { text: 'About', href: getPermalink('/about') },
-    { text: 'Contact', href: getPermalink('/contact') },
-    { text: 'Terms', href: getPermalink('/terms') },
-    { text: 'Privacy Policy', href: getPermalink('/privacy') },
-    { text: 'Safeguarding', href: getPermalink('/safeguarding') },
   ],
   socialLinks: [
     { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://www.facebook.com/mathstutorhelp' },
