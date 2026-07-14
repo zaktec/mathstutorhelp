@@ -9,14 +9,15 @@ export const onlinePackages = [
     detail: 'Best for independent learners who need structure and light support.',
     price: '£19/month',
     features: [
-      'Access to one selected course',
+      'Access to one selected course or pathway level',
       'New lessons released weekly',
       'Worksheets and practice tasks',
       'Topic checklist',
-      'Limited WhatsApp support for short questions',
+      'Tutor reviews completed work and monitors progress',
+      'Limited WhatsApp support for short course questions',
       'No live lesson included',
     ],
-    cta: 'Choose Bronze',
+    cta: 'Enquire About Bronze',
   },
   {
     title: 'Silver',
@@ -27,31 +28,32 @@ export const onlinePackages = [
       'Everything in Bronze',
       '1 × 55-minute live online lesson per month',
       'Personalised practice after the lesson',
-      'Progress guidance',
-      'Better for students who need help staying on track',
+      'Tutor reviews completed work and provides progress guidance',
+      'Suitable for students who need help staying on track',
     ],
-    cta: 'Choose Silver',
+    cta: 'Enquire About Silver',
   },
   {
     title: 'Gold',
     subtitle: 'Regular Support',
-    detail: 'Best for GCSE students who need more regular support and exam preparation.',
+    detail: 'Best for students who need more regular support, deeper guidance or exam preparation.',
     price: '£89/month',
     features: [
       'Everything in Bronze',
       '2 × 55-minute live online lessons per month',
       'More personalised support',
-      'Regular progress guidance',
-      'Better for GCSE exam preparation',
+      'Tutor reviews completed work and provides regular progress guidance',
+      'Suitable for exam preparation and more challenging course work',
     ],
-    cta: 'Choose Gold',
+    cta: 'Enquire About Gold',
   },
 ];
 
 export const packageIncludes = [
-  'Access to one selected online course',
+  'Access to one selected online course or pathway level',
   'New lessons released weekly with worksheets and practice tasks',
-  'Limited WhatsApp support for short questions and guidance',
+  'Tutor monitoring of completed work and progress',
+  'Limited WhatsApp support for short course questions and guidance',
   'Live online lessons included with Silver and Gold',
   'Fully qualified and DBS-checked tutor support',
   'No long-term contract - cancel anytime',
@@ -68,7 +70,7 @@ export const packageFaqs = [
   {
     title: 'Is Bronze suitable for every course?',
     description:
-      'Bronze is best for learners who can work independently with course content and messaging support. If live teaching is needed, Silver or Gold may be a better fit.',
+      'Bronze is best for students who can work independently with course content and messaging support. If live teaching is needed, Silver or Gold may be a better fit.',
   },
 ];
 
@@ -187,6 +189,61 @@ export const onlineCourseCards = [
         title: 'What if my child is ahead of their year group?',
         description:
           'Lessons can move at the right pace - some students use KS3 tuition to get a head start on early GCSE topics.',
+      },
+    ],
+  },
+  {
+    slug: 'maths-challenge-problem-solving-club',
+    title: 'Maths Challenge & Problem-Solving Club',
+    pageTitle: 'Maths Challenge & Problem-Solving Club Online',
+    metaDescription:
+      'Online maths challenge and problem-solving club for students in Years 6-11, with Junior, Intermediate and GCSE Advanced levels matched to age, confidence and ability.',
+    description:
+      'Build confidence, reasoning and problem-solving skills through challenging maths tasks, puzzles and exam-style questions at Junior, Intermediate or GCSE Advanced level.',
+    intro:
+      'Our Maths Challenge & Problem-Solving Club helps students develop confidence, reasoning and problem-solving skills through challenging maths tasks, puzzles and exam-style questions. Three levels ensure each student can work at the right level for their age, confidence and ability.',
+    note: 'Junior | Intermediate | GCSE Advanced',
+    bullets: [
+      'Junior: Years 6-7 | Upper KS2 / Early KS3',
+      'Intermediate: Years 7-9 | KS3',
+      'GCSE Advanced: Years 10-11 | KS4',
+    ],
+    buttonText: 'View Maths Challenge Club',
+    whoFor: [
+      'Junior Level — Years 6-7 students who enjoy puzzles, number challenges and mathematical thinking',
+      'Intermediate Level — Years 7-9 students ready for deeper mathematical thinking and multi-step problems',
+      'GCSE Advanced Level — Years 10-11 students aiming to improve Grade 7-9 problem-solving skills',
+      'Students who want to build confidence with unfamiliar, competition-style and exam-style questions',
+    ],
+    learn: [
+      'Junior — number puzzles, patterns and sequences',
+      'Junior — fractions, bar models and ratio basics',
+      'Junior — shape and angle reasoning, logic problems and working backwards',
+      'Junior Maths Challenge-style questions',
+      'Intermediate — number theory and advanced sequences',
+      'Intermediate — algebraic thinking, ratio and proportion',
+      'Intermediate — geometry reasoning, probability and combinations',
+      'Intermediate — logic, deduction and UKMT-style challenge questions',
+      'GCSE Advanced — Grade 7-9 problem-solving, algebra and equations',
+      'GCSE Advanced — ratio, proportion, percentages, graphs and functions',
+      'GCSE Advanced — geometry, circle theorems, trigonometry and Pythagoras',
+      'GCSE Advanced — probability and Higher GCSE exam-style questions',
+    ],
+    faqs: [
+      {
+        title: 'Which level is right for my child?',
+        description:
+          'The level is matched to the student’s age, confidence and current ability: Junior for Years 6-7, Intermediate for Years 7-9 and GCSE Advanced for Years 10-11.',
+      },
+      {
+        title: 'Does a student need competition maths experience?',
+        description:
+          'No. The club develops reasoning and problem-solving step by step, so students can build confidence with unfamiliar questions.',
+      },
+      {
+        title: 'Does the GCSE Advanced level support exam preparation?',
+        description:
+          'Yes. It includes Grade 7-9 reasoning, exam technique and multi-step Higher GCSE exam-style questions.',
       },
     ],
   },
@@ -445,78 +502,71 @@ export const onlineCourseCards = [
   },
   {
     slug: 'coding-problem-solving',
-    title: 'Coding / Python',
-    pageTitle: 'Coding and Problem Solving - Part 1 (Beginner Python)',
+    title: 'Three-Level Python Course Pathway',
+    pageTitle: 'Three-Level Python Course Pathway Online',
     metaDescription:
-      'Teacher-led beginner Python coding lessons covering the basics in around 6-8 sessions, building logical thinking and problem-solving skills before progressing to Part 2.',
+      'A progressive three-level Python coding programme for students aged around 13-17, from beginner basics to GCSE Computer Science and real-world programming skills.',
     description:
-      'Teacher-led beginner coding lessons that help students develop logical thinking, problem-solving skills and confidence with programming.',
+      'A progressive coding programme for students aged around 13-17, starting with Python basics and moving towards GCSE Computer Science and real-world programming skills.',
     intro:
-      'Teacher-led beginner coding lessons that help students develop logical thinking, programming confidence and problem-solving skills.',
+      'This progressive three-level Python pathway is designed for students aged around 13-17. Learners can start from the basics and progress towards GCSE Computer Science and practical, real-world programming skills.',
     bullets: [
-      'Python basics',
-      'If statements and loops',
-      'Functions',
-      'Simple projects',
-      'Debugging and computational thinking',
+      'Level 1 — Python Starter Lab',
+      'Level 2 — Python Problem Solvers',
+      'Level 3 — Python Developer Challenge',
     ],
-    note: 'Separate from maths tuition, but useful for students who enjoy logic, puzzles and problem solving.',
-    buttonText: 'View Coding and Problem Solving',
+    note: 'Level 1 | Level 2 | Level 3',
+    buttonText: 'View Python Course Pathway',
     whoFor: [
-      'Students aged 10+',
-      'Complete beginners - no coding experience needed',
-      'Students who enjoy logic, puzzles and problem solving',
-      'Students preparing for Computer Science at school',
+      'Students aged around 13-17 who want a progressive coding programme',
+      'Level 1 — beginners and students who are completely new to coding',
+      'Level 2 — students who already understand the Python basics',
+      'Level 3 — confident students and those preparing for GCSE Computer Science',
     ],
     learn: [
-      'Getting started: setting up Python, writing and running a first program',
-      'Variables and data types: numbers, text and storing information',
-      'If statements: making decisions in code',
-      'Loops: repeating actions with for and while loops',
-      'Functions: writing reusable blocks of code',
-      'Simple projects: building small programs such as quizzes and calculators',
-      'Debugging skills: finding and fixing common errors',
-      'Computational thinking: breaking problems into logical steps',
+      'Level 1: Python Starter Lab',
+      'Learn basic Python and create simple programs',
+      'Level 2: Python Problem Solvers',
+      'Build logic, functions, lists and bigger programs',
+      'Level 3: Python Developer Challenge',
+      'Build structured apps using files, dictionaries and object-oriented programming basics',
     ],
     lessonSteps: [
-      "Diagnostic check - a quick conversation to confirm the student's starting point",
-      'Clear explanation - each new coding concept explained step by step',
-      'Guided practice - students write code with support before independent tasks',
-      "Mini challenges - short coding problems that apply what's just been learned",
-      'Worksheet or take-home task - a small coding exercise before the next session',
-      "Feedback and next steps - a note on progress and what's coming up next",
+      'Starting-level check — identify whether Level 1, Level 2 or Level 3 is the right entry point',
+      'Clear explanation — learn each new Python concept step by step',
+      'Guided coding — write and test programs with teacher support',
+      'Problem-solving challenges — apply logic through practical coding tasks',
+      'Project development — combine skills to create progressively larger programs and apps',
+      'Feedback and progression — review skills and prepare for the next pathway level',
     ],
     packageIncludes: [
-      'A relaxed first session to confirm experience level and pace',
+      'A starting-level check to select the most suitable pathway level',
       'Access to the online platform and learner resources',
       'Custom worksheet or coding task after every session',
       'Fully qualified and DBS-checked tutor',
       'No contracts - cancel anytime',
-      'A certificate-ready final project on completion of Part 1',
+      'A progressive route from beginner Python to structured app development',
     ],
     faqs: [
       {
         title: 'Is this suitable for complete beginners?',
-        description: 'Yes. No previous coding experience is required - most students start from scratch.',
-      },
-      {
-        title: 'What software is used?',
-        description: 'Students use Thonny, a free, beginner-friendly Python editor.',
-      },
-      {
-        title: 'How long does Part 1 take?',
         description:
-          'Most students complete Part 1 in around 6-8 sessions, depending on the package chosen and how quickly they progress.',
+          'Yes. Python Starter Lab is Level 1 of the pathway and is designed for beginners and students who are new to coding.',
       },
       {
-        title: 'Does coding help with maths?',
+        title: 'Does every student need to start at Level 1?',
         description:
-          'Yes. Coding builds logical thinking, sequencing and problem-solving skills that carry over directly into maths topics like algebra and patterns.',
+          'No. Students who already know the basics can start with Python Problem Solvers, while confident students may be ready for Python Developer Challenge.',
       },
       {
-        title: 'What happens after Part 1?',
+        title: 'What is covered at each level?',
         description:
-          'Students can continue to Part 2 for more advanced Python projects, or move toward GCSE Computer Science support.',
+          'Level 1 covers basic Python and simple programs. Level 2 develops logic, functions, lists and bigger programs. Level 3 introduces structured apps, files, dictionaries and object-oriented programming basics.',
+      },
+      {
+        title: 'Does the pathway support GCSE Computer Science?',
+        description:
+          'Yes. The pathway builds programming and problem-solving skills that support GCSE Computer Science, particularly at Level 3.',
       },
     ],
   },

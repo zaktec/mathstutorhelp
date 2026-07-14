@@ -9,12 +9,12 @@ import { onlineCourseCards, onlinePackages, registerInterestUrl } from '~/utils/
 import { siteImages } from '~/data/images';
 
 const metadata = {
-  title: 'Online Maths Tuition & Course Support',
+  title: 'Online Maths, Problem-Solving & Python Courses',
   description:
-    'Flexible online maths support for GCSE, KS3, IGCSE and Functional Skills students. Choose one course, access weekly lessons, worksheets and optional live tutor support.',
+    'Online courses for Year 6, KS3, GCSE, IGCSE, Functional Skills and A-Level Maths, plus Maths Challenge and Python pathways with tutor-monitored progress.',
 };
 
-const courseOrder = [
+const coreMathsCourseOrder = [
   'gcse-foundation-maths',
   'gcse-higher-maths',
   'ks3-maths',
@@ -22,19 +22,22 @@ const courseOrder = [
   'functional-skills-maths',
   'igcse-maths',
   'a-level-maths',
-  'coding-problem-solving',
 ];
-const orderedCourseCards = courseOrder
-  .map((slug) => onlineCourseCards.find((course) => course.slug === slug))
-  .filter((course): course is (typeof onlineCourseCards)[number] => Boolean(course));
+const enrichmentCourseOrder = ['maths-challenge-problem-solving-club', 'coding-problem-solving'];
+const getCourses = (courseOrder: string[]) =>
+  courseOrder
+    .map((slug) => onlineCourseCards.find((course) => course.slug === slug))
+    .filter((course): course is (typeof onlineCourseCards)[number] => Boolean(course));
+const coreMathsCourses = getCourses(coreMathsCourseOrder);
+const enrichmentCourses = getCourses(enrichmentCourseOrder);
 ---
 
 <Layout metadata={metadata}>
   <Hero
     tagline="MathsTutorHelp Online"
-    title="Online Maths Tuition & Course Support"
-    subtitle="Structured online maths support for students who need regular guidance, weekly practice and expert tutor help — without committing to weekly one-to-one lessons."
-    content={`<ul class="mx-auto mt-6 grid max-w-2xl gap-2 text-left text-sm font-medium text-gray-800 dark:text-slate-200 sm:text-base"><li>✓ One selected course matched to your child’s level</li><li>✓ New lessons released weekly to support steady progress</li><li>✓ Optional live online tutor support available</li></ul>`}
+    title="Online Maths, Problem-Solving & Python Courses"
+    subtitle="Structured online courses for students who need regular guidance, weekly practice and expert tutor support — without committing to weekly one-to-one lessons."
+    content={`<ul class="mx-auto mt-6 grid max-w-2xl gap-2 text-left text-sm font-medium text-gray-800 dark:text-slate-200 sm:text-base"><li>✓ One selected course or pathway level matched to the student</li><li>✓ New lessons released weekly to support steady progress</li><li>✓ Tutor-monitored progress in every package</li><li>✓ Live online tutor support included with Silver and Gold</li></ul>`}
     actions={[
       {
         variant: 'primary',
@@ -53,13 +56,12 @@ const orderedCourseCards = courseOrder
   <Features
     tagline="Three Simple Steps"
     title="How online support works"
-    subtitle="One selected course. Weekly lesson release. Clear support. Flexible monthly learning."
+    subtitle="One selected course or pathway level. Weekly lesson release. Tutor-monitored progress. Flexible monthly learning."
     columns={3}
     items={[
       {
         title: '1. Choose a course',
-        description:
-          'Select the course that matches the student’s level, such as GCSE Foundation, GCSE Higher, KS3, IGCSE or Functional Skills.',
+        description: 'Select the right maths course, Maths Challenge level or Python pathway level for the student.',
         icon: 'tabler:books',
       },
       {
@@ -70,7 +72,7 @@ const orderedCourseCards = courseOrder
       },
       {
         title: '3. Get the right support',
-        description: 'Choose self-study support, one live lesson or two live lessons per month.',
+        description: 'Every package includes tutor progress monitoring; Silver and Gold also include live lessons.',
         icon: 'tabler:video',
       },
     ]}
@@ -82,8 +84,8 @@ const orderedCourseCards = courseOrder
         <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Stay Focused</p>
         <h2 class="mt-2 text-2xl font-bold text-gray-950 dark:text-white">Course access</h2>
         <p class="mt-3 leading-7 text-muted dark:text-slate-300">
-          Each membership includes access to <strong>one selected course</strong>. Students do not get unlimited access
-          to every course, keeping the work focused and matched to their level.
+          Each membership includes access to <strong>one selected course or pathway level</strong>. Students do not get
+          unlimited access to every course, keeping the work focused and matched to their level.
         </p>
         <p class="mt-3 font-semibold leading-7 text-gray-800 dark:text-slate-200">
           Extra course access can be added if needed for a small additional monthly fee.
@@ -108,15 +110,18 @@ const orderedCourseCards = courseOrder
           Choose Your Course
         </h2>
         <p class="mt-4 text-lg leading-8 text-muted dark:text-slate-300">
-          Start with the student's level, then choose how much monthly tutor support they need.
+          Start with the student’s subject and level, then choose how much monthly tutor support they need.
         </p>
       </div>
 
-      <CourseGrid
-        title="Online Courses"
-        courses={orderedCourseCards}
-        featuredSlugs={['gcse-foundation-maths', 'gcse-higher-maths']}
-      />
+      <div class="mt-10 space-y-12">
+        <CourseGrid title="Core Maths Courses" courses={coreMathsCourses} />
+        <CourseGrid
+          title="Challenge & Enrichment Courses"
+          courses={enrichmentCourses}
+          featuredSlugs={['maths-challenge-problem-solving-club']}
+        />
+      </div>
     </div>
   </section>
 
@@ -128,7 +133,7 @@ const orderedCourseCards = courseOrder
           Choose Your Monthly Membership
         </h2>
         <p class="mt-4 text-lg leading-8 text-muted dark:text-slate-300">
-          All packages are monthly, with no long-term contract. Choose the level of live support that suits your child.
+          All packages are monthly, with no long-term contract. Every option includes tutor progress monitoring.
         </p>
       </div>
 
@@ -171,7 +176,7 @@ const orderedCourseCards = courseOrder
         }
       </div>
       <p class="mx-auto mt-7 max-w-3xl text-center text-sm font-medium leading-6 text-muted dark:text-slate-300">
-        <strong>WhatsApp support</strong> is for short maths questions, guidance and checking understanding. It is not unlimited
+        <strong>WhatsApp support</strong> is for short course questions, guidance and checking understanding. It is not unlimited
         live tutoring and does not replace live lessons.
       </p>
     </div>
@@ -187,11 +192,12 @@ const orderedCourseCards = courseOrder
             <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Optional Extra</p>
             <h2 class="mt-2 text-2xl font-bold text-gray-950 dark:text-white">Want instant full-course access?</h2>
             <p class="mt-3 leading-7 text-muted dark:text-slate-300">
-              For families who prefer self-paced learning, full-course access can be purchased separately.
+              For families who prefer self-paced learning, access to one selected course or pathway level can be
+              purchased separately.
             </p>
             <h3 class="mt-5 text-lg font-bold text-gray-950 dark:text-white">Full Course Access includes:</h3>
             <ul class="mt-3 grid gap-2 text-sm leading-6 text-muted dark:text-slate-300 sm:grid-cols-2">
-              <li>✓ One selected course unlocked immediately</li>
+              <li>✓ One selected course or pathway level unlocked immediately</li>
               <li>✓ Self-paced learning</li>
               <li>✓ Worksheets and practice tasks</li>
               <li>✓ No live lesson included</li>
@@ -221,7 +227,7 @@ const orderedCourseCards = courseOrder
       },
       {
         title: 'Wide curriculum support',
-        description: 'Support for GCSE, KS3, IGCSE and Functional Skills.',
+        description: 'Maths from Year 6 to A-Level, plus Maths Challenge and Python pathways.',
         icon: 'tabler:books',
       },
       {
@@ -241,7 +247,7 @@ const orderedCourseCards = courseOrder
       },
       {
         title: 'Parent-friendly guidance',
-        description: 'Clear progress guidance without unnecessary jargon.',
+        description: 'The tutor reviews completed work and gives clear guidance on the next steps.',
         icon: 'tabler:users',
       },
     ]}
@@ -256,12 +262,17 @@ const orderedCourseCards = courseOrder
       {
         title: 'Do students get access to every course?',
         description:
-          'No. Each membership includes access to one selected course. Extra course access can be added if needed.',
+          'No. Each membership includes one selected course or one level from a multi-level pathway. Extra access can be added if needed.',
       },
       {
         title: 'Why are lessons released weekly?',
         description:
           'Weekly release helps students build understanding gradually and avoids rushing through the course without enough practice.',
+      },
+      {
+        title: 'How does the tutor monitor progress?',
+        description:
+          'The tutor reviews completed lessons and practice work, checks understanding and uses this information to guide the student’s next steps.',
       },
       {
         title: 'Is Bronze enough?',
@@ -276,7 +287,7 @@ const orderedCourseCards = courseOrder
       {
         title: 'Is WhatsApp support unlimited?',
         description:
-          'No. WhatsApp support is for short questions and guidance. It is not a replacement for live tutoring.',
+          'No. WhatsApp support is for short course questions and guidance. It is not a replacement for live tutoring.',
       },
       {
         title: 'Can my child book extra lessons?',
