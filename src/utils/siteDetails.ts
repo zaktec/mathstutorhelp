@@ -8,6 +8,7 @@ export const contactDetails = {
 export const bookingLinks = {
   freeConsultation: 'https://calendar.app.google/VJ6tgEKfsUZAncDe9',
   groupClassInterest: 'https://hai-bl.com/onboarding/contact?brand=mathstutorhelp',
+  onlineCourseInterest: 'https://hai-bl.com/onboarding/brands/mathstutorhelp/online-course',
   studentLogin: 'https://hai-bl.com/auth/login',
 };
 

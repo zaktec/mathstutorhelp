@@ -1,6 +1,6 @@
 import { bookingLinks } from './siteDetails';
 
-export const registerInterestUrl = bookingLinks.groupClassInterest;
+export const registerInterestUrl = bookingLinks.onlineCourseInterest;
 
 export const onlinePackages = [
   {
