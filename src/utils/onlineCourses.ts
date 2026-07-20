@@ -2,6 +2,8 @@ import { bookingLinks } from './siteDetails';
 
 export const registerInterestUrl = bookingLinks.onlineCourseInterest;
 
+// TODO(owner-confirmation): README.md and documents/branding.md still list £15/£30/£60.
+// Keep the currently published website prices below until the owner confirms which set is authoritative.
 export const onlinePackages = [
   {
     title: 'Bronze',

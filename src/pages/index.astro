@@ -2,12 +2,13 @@
 import Layout from '~/layouts/PageLayout.astro';
 
 import HomeHero from '~/components/widgets/HomeHero.astro';
+import TrustStrip from '~/components/widgets/TrustStrip.astro';
 import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Testimonials from '~/components/widgets/Testimonials.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { getPermalink } from '~/utils/permalinks';
-import { bookingLinks, ctaLabels, tuitionPrices } from '~/utils/siteDetails';
+import { bookingLinks, courseSchedule, ctaLabels, tuitionPrices } from '~/utils/siteDetails';
 
 const metadata = {
   title: 'MathsTutorHelp | Maths Tutor Manchester',
@@ -19,6 +20,7 @@ const metadata = {
 const consultationBookingUrl = bookingLinks.freeConsultation;
 const groupClassInterestUrl = bookingLinks.groupClassInterest;
 const gcseClassesUrl = getPermalink('/gcse-classes');
+const mathsTuitionUrl = getPermalink('/maths-tuition');
 const onlineTuitionUrl = getPermalink('/online-tuition');
 const codingCourseUrl = getPermalink('/manchestersummercodingclub');
 const pricingUrl = getPermalink('/pricing');
@@ -54,14 +56,28 @@ const priceOptions = [
 ---
 
 <Layout metadata={metadata}>
-  <HomeHero groupClassInterestUrl={groupClassInterestUrl} />
+  <HomeHero interestUrl={groupClassInterestUrl} />
+
+  <TrustStrip
+    id="why-parents-choose"
+    tagline="Why Parents Choose MathsTutorHelp"
+    title="Trusted, Structured Support"
+    items={[
+      { title: 'Qualified Teacher', icon: 'tabler:certificate' },
+      { title: 'DBS Checked', icon: 'tabler:shield-check' },
+      { title: "15+ Years' Experience", icon: 'tabler:award' },
+      { title: 'Maximum 7 Per Group', icon: 'tabler:users-group' },
+      { title: 'Manchester and Online', icon: 'tabler:map-pin' },
+      { title: 'Clear, Patient Teaching', icon: 'tabler:message-check' },
+    ]}
+  />
 
   <Features2
     id="choose-your-support"
     tagline="Tuition Options"
     title="Choose Your Support"
     subtitle="Pick the route that best matches your child: group GCSE Maths tuition, private lessons, online learning or coding support."
-    columns={4}
+    columns={3}
     classes={compactSection}
     items={[
       {
@@ -72,58 +88,30 @@ const priceOptions = [
         callToAction: { text: 'View Group Classes', href: gcseClassesUrl },
       },
       {
-        title: '1-to-1 Tuition',
-        description:
-          'Personalised GCSE, IGCSE, KS3, Functional Skills or A-Level support focused on the student’s gaps and goals.',
+        title: 'One-to-One Tuition',
+        description: `Personalised GCSE, IGCSE, KS3, Functional Skills or A-Level support focused on the student’s gaps and goals. In-person lessons are ${tuitionPrices.oneToOne.display}.`,
         icon: 'tabler:user-check',
-        callToAction: { text: 'Ask About Tuition', href: consultationBookingUrl },
+        callToAction: { text: 'View Tuition', href: mathsTuitionUrl },
       },
       {
-        title: 'Online Courses',
-        description: 'Online Maths tuition and course options for families who want structured support from home.',
+        title: 'Live Online Tuition',
+        description: `Live one-to-one lessons with Mr Sheraz for students who need personalised support from home. ${tuitionPrices.online.display}.`,
         icon: 'tabler:device-laptop',
-        callToAction: { text: 'View Online Options', href: onlineTuitionUrl },
+        callToAction: { text: 'View Live Tuition', href: `${mathsTuitionUrl}#tuition-options` },
+      },
+      {
+        title: 'Online Course Memberships',
+        description:
+          'Platform-based courses with weekly content release and tutor monitoring. Silver and Gold include live online lessons.',
+        icon: 'tabler:books',
+        callToAction: { text: 'Compare Plans', href: onlineTuitionUrl },
       },
       {
         title: 'Coding & Problem-Solving',
         description:
           'Beginner coding support for students who want to build logic, confidence and problem-solving skills.',
         icon: 'tabler:code',
-        callToAction: { text: 'View Coding Course', href: codingCourseUrl },
-      },
-    ]}
-  />
-
-  <Features
-    id="why-parents-choose"
-    tagline="Why Parents Choose MathsTutorHelp"
-    title="Trusted, Structured Support"
-    columns={3}
-    classes={compactSection}
-    items={[
-      {
-        title: 'Qualified teacher',
-        icon: 'tabler:certificate',
-      },
-      {
-        title: 'DBS checked',
-        icon: 'tabler:shield-check',
-      },
-      {
-        title: "15+ years' experience",
-        icon: 'tabler:award',
-      },
-      {
-        title: 'Small group classes',
-        icon: 'tabler:users-group',
-      },
-      {
-        title: 'Exam-focused lessons',
-        icon: 'tabler:file-check',
-      },
-      {
-        title: 'Clear progress support',
-        icon: 'tabler:list-check',
+        callToAction: { text: 'View Course', href: codingCourseUrl },
       },
     ]}
   />
@@ -139,12 +127,19 @@ const priceOptions = [
             GCSE Classes Starting September 2026
           </h2>
           <p class="mt-3 max-w-3xl text-base leading-7 text-muted dark:text-slate-300">
-            Small GCSE Foundation and Higher classes begin on Sunday 13 September 2026 at Levenshulme High School.
+            Small GCSE Foundation and Higher classes begin on Sunday {courseSchedule.gcse.startDate} at
+            {courseSchedule.venue.name}.
           </p>
           <div class="mt-4 flex flex-wrap gap-2 text-sm font-bold text-gray-800 dark:text-slate-200">
-            <span class="rounded-full bg-white px-3 py-1 dark:bg-slate-900">Foundation: 10:00–11:00 am</span>
-            <span class="rounded-full bg-white px-3 py-1 dark:bg-slate-900">Higher: 11:00 am–12:00 pm</span>
-            <span class="rounded-full bg-white px-3 py-1 dark:bg-slate-900">Maximum seven students per class</span>
+            <span class="rounded-full bg-white px-3 py-1 dark:bg-slate-900"
+              >Foundation: {courseSchedule.gcse.foundationTime}</span
+            >
+            <span class="rounded-full bg-white px-3 py-1 dark:bg-slate-900"
+              >Higher: {courseSchedule.gcse.higherTime}</span
+            >
+            <span class="rounded-full bg-white px-3 py-1 dark:bg-slate-900"
+              >Maximum {courseSchedule.gcse.maximumStudents} students per class</span
+            >
           </div>
         </div>
         <div class="flex flex-col gap-3 sm:flex-row md:flex-col">
@@ -154,6 +149,34 @@ const priceOptions = [
       </div>
     </div>
   </section>
+
+  <Features
+    id="learner-support"
+    tagline="Included Where Relevant"
+    title="What Learners Can Receive"
+    subtitle="The exact resources depend on the chosen service; these are the three main ways learning is supported."
+    columns={3}
+    classes={compactSection}
+    items={[
+      {
+        title: 'Assessment and planning',
+        description: 'Relevant tuition begins by identifying the learner’s current level, priorities and next steps.',
+        icon: 'tabler:clipboard-check',
+      },
+      {
+        title: 'Resources and practice',
+        description:
+          'Learners receive the worksheets, course tasks or practice materials included in their chosen service.',
+        icon: 'tabler:file-pencil',
+      },
+      {
+        title: 'Progress support',
+        description:
+          'The tutor reviews relevant work and provides clear guidance on what the learner should focus on next.',
+        icon: 'tabler:chart-line',
+      },
+    ]}
+  />
 
   <section id="prices" class="bg-brand-soft py-8 dark:bg-slate-900 md:py-10 lg:py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
@@ -206,11 +229,11 @@ const priceOptions = [
   <Testimonials
     tagline="Parent Feedback"
     title="What Families Say"
-    subtitle="Short reflections from parents and students who value calm, structured maths support."
+    subtitle="Short reflections from parents and students who value calm, structured maths support. Names are withheld for student and family privacy."
     classes={{ container: 'py-8 md:py-10 lg:py-12' }}
     testimonials={[
       {
-        title: 'Clear and patient',
+        title: 'More confidence with exam questions',
         testimonial:
           'Mr Sheraz explains topics clearly and gives my child the confidence to try exam questions independently.',
         name: 'GCSE parent',

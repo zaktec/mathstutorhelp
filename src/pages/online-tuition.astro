@@ -5,8 +5,10 @@ import Features from '~/components/widgets/Features.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import CourseGrid from '~/components/widgets/CourseGrid.astro';
+import MembershipComparison from '~/components/widgets/MembershipComparison.astro';
 import { onlineCourseCards, onlinePackages, registerInterestUrl } from '~/utils/onlineCourses';
 import { siteImages } from '~/data/images';
+import { bookingLinks } from '~/utils/siteDetails';
 
 const metadata = {
   title: 'Online Maths, Problem-Solving & Python Courses',
@@ -41,16 +43,50 @@ const enrichmentCourses = getCourses(enrichmentCourseOrder);
     actions={[
       {
         variant: 'primary',
-        text: 'Choose Your Online Support Plan',
+        text: 'Register Interest',
         href: registerInterestUrl,
       },
-      { text: 'Ask About Online Tuition', href: registerInterestUrl },
+      { text: 'Compare Plans', href: '#plans' },
     ]}
     image={{
       src: siteImages.onlinePackages,
       alt: 'Online maths tutoring packages',
     }}
   />
+
+  <section class="bg-brand-soft py-12 dark:bg-slate-900">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">
+          Choose the Right Format
+        </p>
+        <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-950 dark:text-white">
+          Live Tuition or an Online Course Membership?
+        </h2>
+      </div>
+      <div class="mt-8 grid gap-5 md:grid-cols-2">
+        <article
+          class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-slate-800"
+        >
+          <h3 class="text-xl font-bold text-gray-950 dark:text-white">Live Online Tuition</h3>
+          <p class="mt-3 leading-7 text-muted dark:text-slate-300">
+            A scheduled one-to-one lesson with Mr Sheraz, adapted in real time to the student’s questions and goals.
+          </p>
+          <a class="btn-secondary mt-5 justify-center" href={bookingLinks.freeConsultation}>Book a Free Consultation</a>
+        </article>
+        <article
+          class="rounded-lg border border-primary/30 bg-white p-6 shadow-sm dark:border-teal-300 dark:bg-slate-800"
+        >
+          <h3 class="text-xl font-bold text-gray-950 dark:text-white">Online Course Memberships</h3>
+          <p class="mt-3 leading-7 text-muted dark:text-slate-300">
+            A selected platform course released week by week, with tutor monitoring. Silver and Gold also include a
+            fixed number of live online lessons each month.
+          </p>
+          <a class="btn-primary mt-5 justify-center" href="#plans">Compare Plans</a>
+        </article>
+      </div>
+    </div>
+  </section>
 
   <Features
     tagline="Three Simple Steps"
@@ -124,62 +160,7 @@ const enrichmentCourses = getCourses(enrichmentCourseOrder);
     </div>
   </section>
 
-  <section id="plans" class="scroll-mt-24 bg-brand-soft py-14 dark:bg-slate-900">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6">
-      <div class="mx-auto max-w-3xl text-center">
-        <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Support Levels</p>
-        <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-950 dark:text-white md:text-4xl">
-          Choose Your Monthly Membership
-        </h2>
-        <p class="mt-4 text-lg leading-8 text-muted dark:text-slate-300">
-          All packages are monthly, with no long-term contract. Every option includes tutor progress monitoring.
-        </p>
-      </div>
-
-      <div class="mt-10 grid gap-5 md:grid-cols-3">
-        {
-          onlinePackages.map((item) => (
-            <article
-              class:list={[
-                'flex h-full flex-col rounded-lg border bg-white p-6 shadow-sm dark:bg-slate-800',
-                item.title === 'Silver'
-                  ? 'border-primary ring-2 ring-primary/15 dark:border-teal-300'
-                  : 'border-gray-200 dark:border-gray-700',
-              ]}
-            >
-              {item.title === 'Silver' && (
-                <p class="mb-2 text-xs font-bold uppercase tracking-wide text-secondary dark:text-teal-200">
-                  Most popular
-                </p>
-              )}
-              <h3 class="text-xl font-bold text-gray-950 dark:text-white">
-                {item.title} — {item.subtitle}
-              </h3>
-              <p class="mt-3 text-muted dark:text-slate-300">{item.detail}</p>
-              <p class="mt-6 text-3xl font-extrabold text-primary">{item.price}</p>
-              <ul class="mt-5 space-y-3 text-sm leading-6 text-muted dark:text-slate-300">
-                {item.features.map((feature) => (
-                  <li class="flex gap-2">
-                    <span class="font-bold text-secondary dark:text-teal-200" aria-hidden="true">
-                      ✓
-                    </span>
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <a class="btn-primary mt-6 w-full justify-center" href={registerInterestUrl}>
-                {item.cta}
-              </a>
-            </article>
-          ))
-        }
-      </div>
-      <p class="mx-auto mt-7 max-w-3xl text-center text-sm font-medium leading-6 text-muted dark:text-slate-300">
-        <strong>WhatsApp support</strong> is for short course questions, guidance and checking understanding. It is not unlimited
-        live tutoring and does not replace live lessons.
-      </p>
-    </div>
-  </section>
+  <MembershipComparison packages={onlinePackages} enquiryUrl={registerInterestUrl} />
 
   <section class="bg-white py-12 dark:bg-slate-900">
     <div class="mx-auto max-w-4xl px-4 sm:px-6">

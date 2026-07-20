@@ -8,19 +8,23 @@ export const headerData = {
       href: getPermalink('/'),
     },
     {
-      text: 'Tuition Options',
+      text: 'Tuition',
       href: getPermalink('/maths-tuition'),
-    },
-    {
-      text: 'Online Courses',
-      href: getPermalink('/online-tuition'),
     },
     {
       text: 'Group Classes',
       href: getPermalink('/gcse-classes'),
     },
     {
-      text: 'About Mr Sheraz',
+      text: 'Online Courses',
+      href: getPermalink('/online-tuition'),
+    },
+    {
+      text: 'Coding',
+      href: getPermalink('/manchestersummercodingclub'),
+    },
+    {
+      text: 'About',
       href: getPermalink('/about'),
     },
     {
@@ -37,7 +41,7 @@ export const footerData = {
       title: 'Tuition',
       links: [
         { text: 'Maths Tuition', href: getPermalink('/maths-tuition') },
-        { text: 'Online Courses', href: getPermalink('/online-tuition') },
+        { text: 'Live Online Tuition', href: getPermalink('/maths-tuition') + '#tuition-options' },
         { text: 'Tuition Prices', href: getPermalink('/pricing') },
       ],
     },
@@ -51,25 +55,24 @@ export const footerData = {
       ],
     },
     {
-      title: 'Booking',
+      title: 'Online & Coding',
       links: [
-        { text: ctaLabels.freeConsultation, href: bookingLinks.freeConsultation },
-        { text: ctaLabels.groupClassInterest, href: bookingLinks.groupClassInterest },
+        { text: 'Online Course Memberships', href: getPermalink('/online-tuition') },
+        { text: 'Python Coding Classes', href: getPermalink('/manchestersummercodingclub') },
+        { text: 'Student Login', href: bookingLinks.studentLogin },
       ],
     },
     {
-      title: 'Resources',
+      title: 'About & Contact',
       links: [
-        { text: 'Maths Resources', href: getPermalink('/resources') },
-        { text: 'Blog', href: getPermalink('/blog') },
-        { text: 'Gallery', href: getPermalink('/gallery') },
-        { text: 'Work with MathsTutorHelp', href: getPermalink('/work-with-mth') },
+        { text: 'About', href: getPermalink('/about') },
+        { text: 'Contact', href: getPermalink('/contact') },
+        { text: ctaLabels.freeConsultation, href: bookingLinks.freeConsultation },
       ],
     },
     {
       title: 'Legal',
       links: [
-        { text: 'About', href: getPermalink('/about') },
         { text: 'Safeguarding', href: getPermalink('/safeguarding') },
         { text: 'Privacy Policy', href: getPermalink('/privacy') },
         { text: 'Terms', href: getPermalink('/terms') },

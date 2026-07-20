@@ -6,7 +6,7 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Image from '~/components/common/Image.astro';
 import { getPermalink } from '~/utils/permalinks';
-import { bookingLinks, ctaLabels, tuitionPrices } from '~/utils/siteDetails';
+import { bookingLinks, courseSchedule, ctaLabels, tuitionPrices } from '~/utils/siteDetails';
 import { siteImages } from '~/data/images';
 
 const metadata = {
@@ -27,7 +27,7 @@ const codingCourseUrl = getPermalink('/manchestersummercodingclub');
   <Hero
     tagline="MathsTutorHelp Group Classes"
     title="Group Classes in Levenshulme"
-    subtitle={`New GCSE classes begin Sunday 13 September 2026 at Levenshulme High School.<br /><strong>Foundation: 10:00–11:00 am <span aria-hidden="true">|</span> Higher: 11:00 am–12:00 pm</strong>`}
+    subtitle={`New GCSE classes begin Sunday ${courseSchedule.gcse.startDate} at ${courseSchedule.venue.name}.<br /><strong>Foundation: ${courseSchedule.gcse.foundationTime} <span aria-hidden="true">|</span> Higher: ${courseSchedule.gcse.higherTime}</strong>`}
     actions={[
       {
         variant: 'primary',
@@ -86,7 +86,7 @@ const codingCourseUrl = getPermalink('/manchestersummercodingclub');
           <h3 class="mt-2 text-2xl font-bold text-gray-950 dark:text-white">Coding Group Class</h3>
           <p class="mt-3 text-base leading-7 text-muted dark:text-slate-300">
             Beginner Python coding courses are available during selected school holiday periods. The next six-week
-            course runs from 2 August to 6 September 2026.
+            course runs from {courseSchedule.coding.startDate} to {courseSchedule.coding.endDate}.
           </p>
           <a class="btn-secondary mt-5 w-full justify-center sm:w-auto" href={codingCourseUrl}
             >View Coding Group Class</a
@@ -147,7 +147,7 @@ const codingCourseUrl = getPermalink('/manchestersummercodingclub');
       },
       {
         title: 'Other support available',
-        description: `The next beginner Python coding course runs from 2 August to 6 September 2026. One-to-one tuition is ${tuitionPrices.oneToOne.display}; online tuition is ${tuitionPrices.online.display}.`,
+        description: `The next beginner Python coding course runs from ${courseSchedule.coding.startDate} to ${courseSchedule.coding.endDate}. One-to-one tuition is ${tuitionPrices.oneToOne.display}; online tuition is ${tuitionPrices.online.display}.`,
         icon: 'tabler:code',
       },
     ]}
@@ -163,7 +163,7 @@ const codingCourseUrl = getPermalink('/manchestersummercodingclub');
     items={[
       {
         title: 'How much are GCSE group classes?',
-        description: `Small group classes are ${tuitionPrices.smallGroup.display}. Some class pages may mention advance block booking options where available.`,
+        description: `Small group classes are ${tuitionPrices.smallGroup.display}, or ${tuitionPrices.smallGroup.advanceBlock} with advance block booking.`,
       },
       {
         title: 'Which class should my child choose?',

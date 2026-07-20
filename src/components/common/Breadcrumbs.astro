@@ -43,12 +43,14 @@ const toTitle = (slug: string) =>
     .join(' ');
 
 const segments = cleanPath.split('/').filter(Boolean);
+const nonRouteParents = new Set(['blog/page', 'blog/tag']);
 const crumbs = segments.map((segment, index) => {
   const href = getPermalink(`/${segments.slice(0, index + 1).join('/')}`);
   return {
     label: toTitle(segment),
     href,
     isCurrent: index === segments.length - 1,
+    isLink: !nonRouteParents.has(segments.slice(0, index + 1).join('/')),
   };
 });
 
@@ -62,12 +64,14 @@ const jsonLd = {
       name: 'Home',
       item: new URL(getHomePermalink(), SITE.site).toString(),
     },
-    ...crumbs.map((crumb, index) => ({
-      '@type': 'ListItem',
-      position: index + 2,
-      name: crumb.label,
-      item: new URL(crumb.href, SITE.site).toString(),
-    })),
+    ...crumbs
+      .filter((crumb) => crumb.isLink)
+      .map((crumb, index) => ({
+        '@type': 'ListItem',
+        position: index + 2,
+        name: crumb.label,
+        item: new URL(crumb.href, SITE.site).toString(),
+      })),
   ],
 };
 ---
@@ -88,8 +92,11 @@ const jsonLd = {
         {crumbs.map((crumb) => (
           <li class="flex items-center gap-1">
             <Icon name="tabler:chevron-right" class="h-4 w-4 text-gray-400" />
-            {crumb.isCurrent ? (
-              <span class="rounded-md px-2 py-1 font-medium text-gray-900 dark:text-white" aria-current="page">
+            {crumb.isCurrent || !crumb.isLink ? (
+              <span
+                class="rounded-md px-2 py-1 font-medium text-gray-900 dark:text-white"
+                aria-current={crumb.isCurrent ? 'page' : undefined}
+              >
                 {crumb.label}
               </span>
             ) : (

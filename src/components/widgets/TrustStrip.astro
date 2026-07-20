@@ -1,0 +1,36 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface TrustItem {
+  title: string;
+  icon: string;
+}
+
+interface Props {
+  id?: string;
+  tagline?: string;
+  title: string;
+  items: TrustItem[];
+}
+
+const { id, tagline, title, items } = Astro.props;
+---
+
+<section id={id} class="bg-white py-7 dark:bg-slate-900 md:py-9">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6">
+    <div class="text-center">
+      {tagline && <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">{tagline}</p>}
+      <h2 class="mt-2 text-2xl font-bold tracking-tight text-gray-950 dark:text-white md:text-3xl">{title}</h2>
+    </div>
+    <ul class="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+      {
+        items.map((item) => (
+          <li class="flex min-h-20 flex-col items-center justify-center rounded-lg border border-primary/15 bg-brand-soft px-3 py-4 text-center dark:border-slate-700 dark:bg-slate-800">
+            <Icon name={item.icon} class="h-6 w-6 text-secondary dark:text-teal-200" />
+            <span class="mt-2 text-sm font-bold leading-5 text-gray-900 dark:text-white">{item.title}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

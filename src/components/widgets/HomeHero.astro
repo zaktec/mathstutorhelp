@@ -6,14 +6,7 @@ import { getAsset, getPermalink } from '~/utils/permalinks';
 import { contactDetails } from '~/utils/siteDetails';
 import { siteImages } from '~/data/images';
 
-const { groupClassInterestUrl, tuitionOptionsUrl = getPermalink('/maths-tuition/') } = Astro.props;
-
-const trustPoints = [
-  { text: 'Qualified teacher', icon: 'tabler:certificate' },
-  { text: 'DBS checked', icon: 'tabler:shield-check' },
-  { text: "15+ years' experience", icon: 'tabler:award' },
-  { text: 'Manchester and online', icon: 'tabler:map-pin' },
-];
+const { interestUrl, tuitionOptionsUrl = getPermalink('/maths-tuition/') } = Astro.props;
 ---
 
 <section class="relative md:-mt-[76px] not-prose overflow-hidden">
@@ -43,27 +36,20 @@ const trustPoints = [
           <Button
             variant="primary"
             text="Register Interest"
-            href={groupClassInterestUrl}
+            href={interestUrl}
             icon="tabler:calendar-check"
             class="w-full sm:w-auto"
           />
           <Button
-            text="View Courses / Tuition Options"
+            text="View Tuition Options"
             href={tuitionOptionsUrl}
             icon="tabler:chevron-right"
             class="w-full sm:w-auto"
           />
         </div>
-        <div
-          class="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 text-base font-bold leading-6 text-gray-800 dark:text-slate-200"
-          aria-label="Tutor credentials"
-        >
-          <span>Qualified Teacher</span>
-          <span class="text-secondary dark:text-teal-200" aria-hidden="true">•</span>
-          <span>DBS Checked</span>
-          <span class="text-secondary dark:text-teal-200" aria-hidden="true">•</span>
-          <span>15+ Years' Experience</span>
-        </div>
+        <p class="mt-3 text-sm leading-6 text-muted dark:text-slate-300">
+          Register Interest opens a short learner enquiry form for any tuition option.
+        </p>
       </div>
 
       <aside
@@ -97,17 +83,6 @@ const trustPoints = [
             <Icon name="tabler:phone" class="h-4 w-4" />
             Call {contactDetails.phoneDisplay}
           </a>
-
-          <ul class="mt-4 grid gap-2">
-            {
-              trustPoints.map((point) => (
-                <li class="flex gap-2 text-base leading-6 text-muted dark:text-slate-300">
-                  <Icon name={point.icon} class="mt-0.5 h-4 w-4 shrink-0 text-secondary dark:text-teal-200" />
-                  <span>{point.text}</span>
-                </li>
-              ))
-            }
-          </ul>
         </div>
       </aside>
     </div>

@@ -6,7 +6,7 @@ import Content from '~/components/widgets/Content.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { getPermalink } from '~/utils/permalinks';
-import { bookingLinks, ctaLabels } from '~/utils/siteDetails';
+import { bookingLinks, courseSchedule, ctaLabels } from '~/utils/siteDetails';
 import { siteImages } from '~/data/images';
 import { createEducationEventSchema } from '~/utils/educationEvent';
 
@@ -65,22 +65,22 @@ const eventSchema = createEducationEventSchema({
     columns={3}
     items={[
       {
-        title: 'Ages 13-17',
+        title: `Ages ${courseSchedule.coding.ages}`,
         description: 'Suitable for complete beginners and students interested in coding, maths or technology.',
         icon: 'tabler:users',
       },
       {
-        title: 'Sundays 11:00am-12:00pm',
-        description: 'Six sessions from 2 August to 6 September at Levenshulme High School.',
+        title: `${courseSchedule.coding.day}, ${courseSchedule.coding.time}`,
+        description: `${courseSchedule.coding.sessions} sessions from ${courseSchedule.coding.startDate} to ${courseSchedule.coding.endDate} at ${courseSchedule.venue.name}.`,
         icon: 'tabler:clock',
       },
       {
-        title: '£100 for 6 sessions',
+        title: `${courseSchedule.coding.price} for ${courseSchedule.coding.sessions} sessions`,
         description: 'Approximately £17 per session, with no payment required to register interest.',
         icon: 'tabler:coin-pound',
       },
       {
-        title: 'Max 7 students',
+        title: `Maximum ${courseSchedule.coding.maximumStudents} students`,
         description:
           'Small-group teaching from a qualified maths teacher and computer science tutor gives students focused support while they build projects.',
         icon: 'tabler:users-group',

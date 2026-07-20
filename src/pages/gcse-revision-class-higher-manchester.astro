@@ -6,7 +6,7 @@ import Content from '~/components/widgets/Content.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { getPermalink } from '~/utils/permalinks';
-import { bookingLinks, contactDetails, ctaLabels, tuitionPrices } from '~/utils/siteDetails';
+import { bookingLinks, contactDetails, courseSchedule, ctaLabels, tuitionPrices } from '~/utils/siteDetails';
 import { siteImages } from '~/data/images';
 import { createEducationEventSchema } from '~/utils/educationEvent';
 
@@ -64,28 +64,28 @@ const eventSchema = createEducationEventSchema({
     columns={3}
     items={[
       {
-        title: 'Year 10 and Year 11',
-        description: 'For Higher Tier students aiming for grades 6-9.',
+        title: 'Working towards grades 4–9',
+        description: 'Especially suitable for Higher Tier students aiming for grades 6–9.',
         icon: 'tabler:users',
       },
       {
-        title: 'Sundays, 11:00am-12:00pm',
-        description: 'Weekly classes from 13 September 2026 to May 2027.',
+        title: `${courseSchedule.gcse.day}, ${courseSchedule.gcse.higherTime}`,
+        description: `Weekly classes from ${courseSchedule.gcse.startDate} to ${courseSchedule.gcse.endMonth}.`,
         icon: 'tabler:clock',
       },
       {
-        title: 'Levenshulme High School',
+        title: courseSchedule.venue.name,
         description: 'Manchester, M19 1FS. Local in-person support in a structured classroom setting.',
         icon: 'tabler:map-pin',
       },
       {
-        title: 'Maximum 7 students',
+        title: `Maximum ${courseSchedule.gcse.maximumStudents} students`,
         description: 'Small group size for personalised attention and a calmer learning environment.',
         icon: 'tabler:users-group',
       },
       {
         title: 'Flexible pricing',
-        description: `${tuitionPrices.smallGroup.display} pay-as-you-go, or £16 per lesson with advance block booking.`,
+        description: `${tuitionPrices.smallGroup.display} pay-as-you-go, or ${tuitionPrices.smallGroup.advanceBlock} with advance block booking.`,
         icon: 'tabler:coin-pound',
       },
       {
@@ -266,7 +266,7 @@ const eventSchema = createEducationEventSchema({
 
   <CallToAction
     title="Book a GCSE Higher Maths Place"
-    subtitle={`Limited spaces are available. Book early to ask about the £16 advance block booking rate, or call/WhatsApp ${phoneDisplay} if you have questions.`}
+    subtitle={`Limited spaces are available. Book early to ask about the ${tuitionPrices.smallGroup.advanceBlock} advance block booking rate, or call/WhatsApp ${phoneDisplay} if you have questions.`}
     actions={[
       {
         variant: 'primary',

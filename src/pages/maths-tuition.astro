@@ -18,18 +18,17 @@ const metadata = {
 
 const consultationBookingUrl = bookingLinks.freeConsultation;
 const contactUrl = getPermalink('/contact');
-const onlineTuitionUrl = getPermalink('/online-tuition');
 const gcseClassesUrl = getPermalink('/gcse-classes');
 const pricingUrl = getPermalink('/pricing');
 
 const tuitionCards = [
   {
-    title: 'Online Tuition',
+    title: 'Live Online Tuition',
     icon: 'tabler:device-laptop',
     description: 'Live one-to-one maths tuition from home.',
     bestFor: 'Students who need regular support without travel.',
-    action: 'View Online Tuition',
-    href: onlineTuitionUrl,
+    action: 'Book a Free Consultation',
+    href: consultationBookingUrl,
   },
   {
     title: 'In-Person Tuition',
@@ -80,7 +79,7 @@ const tuitionCards = [
     }}
   />
 
-  <section class="bg-white py-12 dark:bg-slate-900">
+  <section id="tuition-options" class="scroll-mt-24 bg-white py-12 dark:bg-slate-900">
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
       <div class="mx-auto max-w-3xl text-center">
         <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Tuition Options</p>
