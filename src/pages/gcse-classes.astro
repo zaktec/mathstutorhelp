@@ -12,7 +12,7 @@ import { siteImages } from '~/data/images';
 const metadata = {
   title: 'Group Classes Levenshulme',
   description:
-    'MathsTutorHelp group classes in Levenshulme, Manchester, including GCSE Foundation, GCSE Higher and beginner coding where available.',
+    'MathsTutorHelp group classes in Levenshulme, Manchester, including GCSE Foundation, GCSE Higher and beginner Python coding during selected school holidays.',
 };
 
 const interestFormUrl = bookingLinks.groupClassInterest;
@@ -27,7 +27,7 @@ const codingCourseUrl = getPermalink('/manchestersummercodingclub');
   <Hero
     tagline="MathsTutorHelp Group Classes"
     title="Group Classes in Levenshulme"
-    subtitle={`Small, teacher-led MathsTutorHelp group classes in Levenshulme, Manchester. Options include GCSE Foundation, GCSE Higher and beginner coding courses when available.`}
+    subtitle={`New GCSE classes begin Sunday 13 September 2026 at Levenshulme High School.<br /><strong>Foundation: 10:00–11:00 am <span aria-hidden="true">|</span> Higher: 11:00 am–12:00 pm</strong>`}
     actions={[
       {
         variant: 'primary',
@@ -85,7 +85,8 @@ const codingCourseUrl = getPermalink('/manchestersummercodingclub');
           <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Beginner coding</p>
           <h3 class="mt-2 text-2xl font-bold text-gray-950 dark:text-white">Coding Group Class</h3>
           <p class="mt-3 text-base leading-7 text-muted dark:text-slate-300">
-            For students who want to learn beginner Python, build logic and improve practical problem-solving skills.
+            Beginner Python coding courses are available during selected school holiday periods. The next six-week
+            course runs from 2 August to 6 September 2026.
           </p>
           <a class="btn-secondary mt-5 w-full justify-center sm:w-auto" href={codingCourseUrl}
             >View Coding Group Class</a
@@ -146,7 +147,7 @@ const codingCourseUrl = getPermalink('/manchestersummercodingclub');
       },
       {
         title: 'Other support available',
-        description: `Beginner coding group classes may run in Levenshulme. One-to-one tuition is ${tuitionPrices.oneToOne.display}; online tuition is ${tuitionPrices.online.display}.`,
+        description: `The next beginner Python coding course runs from 2 August to 6 September 2026. One-to-one tuition is ${tuitionPrices.oneToOne.display}; online tuition is ${tuitionPrices.online.display}.`,
         icon: 'tabler:code',
       },
     ]}
