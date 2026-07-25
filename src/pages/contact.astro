@@ -1,7 +1,7 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
-import Features from '~/components/widgets/Features.astro';
+import { Icon } from 'astro-icon/components';
 import { bookingLinks, contactDetails } from '~/utils/siteDetails';
 
 const metadata = {
@@ -10,74 +10,148 @@ const metadata = {
     'Contact MathsTutorHelp in Manchester by phone, WhatsApp or online form for GCSE, IGCSE, Functional Skills, A-Level and group maths tuition.',
 };
 
-const enquiryFormUrl = bookingLinks.groupClassInterest;
+const enquiryFormUrl = bookingLinks.contactEnquiry;
+
+const contactOptions = [
+  {
+    title: 'Send a WhatsApp',
+    description: 'Best for a quick question. I normally reply within 24 hours.',
+    action: 'Message me',
+    href: contactDetails.whatsappHref,
+    icon: 'tabler:brand-whatsapp',
+  },
+  {
+    title: 'Call MathsTutorHelp',
+    description: `Speak to me directly on ${contactDetails.phoneDisplay}.`,
+    action: 'Call now',
+    href: contactDetails.phoneHref,
+    icon: 'tabler:phone',
+  },
+  {
+    title: 'Book a consultation',
+    description: 'Choose a convenient time for a free introductory conversation.',
+    action: 'Choose a time',
+    href: bookingLinks.freeConsultation,
+    icon: 'tabler:calendar-event',
+  },
+];
+
+const applicationForms = [
+  {
+    title: 'Group maths classes',
+    description: 'Register a student for KS3 or GCSE small-group tuition.',
+    action: 'Open group class form',
+    href: bookingLinks.groupClassForm,
+  },
+  {
+    title: 'One-to-one tuition',
+    description: 'Tell me about the student and the individual support they need.',
+    action: 'Open one-to-one form',
+    href: bookingLinks.oneToOneForm,
+  },
+  {
+    title: 'Online course',
+    description: 'Register interest in structured online maths support.',
+    action: 'Open online course form',
+    href: bookingLinks.onlineCourseForm,
+    isExternal: true,
+  },
+  {
+    title: 'Work with MathsTutorHelp',
+    description: 'Tutors and other talented people can introduce themselves on our dedicated work page.',
+    action: 'View opportunities',
+    href: '/work-with-mth/',
+    isExternal: false,
+  },
+];
 ---
 
 <Layout metadata={metadata}>
   <HeroText
     tagline="Get in Touch"
     title="Contact MathsTutorHelp"
-    subtitle="Tell me the student’s year group, current level and the support they need. Enquire online, call or send a WhatsApp."
+    subtitle="Have a question or want to discuss tuition? Send a message, call, use WhatsApp or choose a specialist form."
     callToAction={{
       variant: 'primary',
-      text: 'Start Your Enquiry',
-      href: enquiryFormUrl,
+      text: 'Choose a Contact Option',
+      href: '#contact-options',
       icon: 'tabler:message-circle',
-    }}
-    callToAction2={{
-      text: `Call ${contactDetails.phoneDisplay}`,
-      href: contactDetails.phoneHref,
-      icon: 'tabler:phone',
     }}
   />
 
-  <section id="form" class="bg-white py-12 dark:bg-slate-900">
-    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+  <section id="contact-options" aria-labelledby="contact-options-title" class="bg-brand-soft py-12 dark:bg-slate-950">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
       <div class="mx-auto max-w-3xl text-center">
-        <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Enquiry Form</p>
-        <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-950 dark:text-white md:text-4xl">
-          Send an Enquiry
+        <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Contact hub</p>
+        <h2 id="contact-options-title" class="mt-2 text-3xl font-bold tracking-tight text-gray-950 dark:text-white">
+          How would you like to get in touch?
         </h2>
-        <p class="mt-4 text-lg leading-8 text-muted dark:text-slate-300">
-          Complete the secure online form to tell me what support you need.
-        </p>
       </div>
 
       <div
-        class="mx-auto mt-8 max-w-2xl rounded-lg border border-gray-200 bg-brand-soft p-6 text-center shadow-sm dark:border-gray-700 dark:bg-slate-800"
+        class="mx-auto mt-8 flex max-w-4xl flex-col gap-5 rounded-xl border border-primary/20 bg-white p-6 shadow-sm sm:flex-row sm:items-center sm:justify-between sm:p-8 dark:border-primary/30 dark:bg-slate-900"
       >
-        <h3 class="text-2xl font-bold text-gray-950 dark:text-white">Online Enquiry Form</h3>
-        <p class="mt-3 text-base leading-7 text-muted dark:text-slate-300">
-          You will continue to our secure enquiry page to provide the student’s details and tuition preferences.
-        </p>
-        <div class="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <a class="btn-primary justify-center" href={enquiryFormUrl}>Start Your Enquiry</a>
-          <a class="btn-secondary justify-center" href={contactDetails.whatsappHref}> Send a WhatsApp </a>
+        <div class="max-w-2xl">
+          <div class="flex items-center gap-3">
+            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+              <Icon name="tabler:message-circle" class="h-6 w-6" />
+            </span>
+            <h3 class="text-2xl font-bold text-gray-950 dark:text-white">General question or enquiry</h3>
+          </div>
+          <p class="mt-3 leading-7 text-muted dark:text-slate-300">
+            Send a secure message through the MathsTutorHelp enquiry form. I normally reply within 24 hours.
+          </p>
         </div>
+        <a class="btn-primary shrink-0 justify-center" href={enquiryFormUrl}>
+          Open enquiry form
+          <Icon name="tabler:external-link" class="ml-2 h-4 w-4" />
+        </a>
+      </div>
+
+      <div class="mt-8 grid gap-5 md:grid-cols-3">
+        {
+          contactOptions.map(({ title, description, action, href, icon }) => (
+            <a
+              href={href}
+              class="group rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-primary hover:shadow-md dark:border-gray-700 dark:bg-slate-900"
+            >
+              <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                <Icon name={icon} class="h-6 w-6" />
+              </span>
+              <h3 class="mt-5 text-xl font-bold text-gray-950 dark:text-white">{title}</h3>
+              <p class="mt-2 leading-7 text-muted dark:text-slate-300">{description}</p>
+              <span class="mt-5 inline-flex items-center gap-2 font-semibold text-primary">
+                {action}
+                <Icon name="tabler:arrow-right" class="h-5 w-5 transition group-hover:translate-x-1" />
+              </span>
+            </a>
+          ))
+        }
+      </div>
+
+      <div class="mt-10 rounded-xl border border-gray-200 bg-white p-5 sm:p-8 dark:border-gray-700 dark:bg-slate-900">
+        <div class="max-w-2xl">
+          <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Registration forms</p>
+          <h3 class="mt-2 text-2xl font-bold text-gray-950 dark:text-white">Choose a specialist form</h3>
+        </div>
+        <div class="mt-6 grid gap-4 md:grid-cols-2">
+          {
+            applicationForms.map(({ title, description, action, href, isExternal = true }) => (
+              <div class="flex flex-col rounded-lg border border-gray-200 p-5 dark:border-gray-700">
+                <h4 class="text-lg font-bold text-gray-950 dark:text-white">{title}</h4>
+                <p class="mt-2 grow text-sm leading-6 text-muted dark:text-slate-300">{description}</p>
+                <a class="mt-4 inline-flex items-center gap-2 font-semibold text-primary hover:underline" href={href}>
+                  {action}
+                  <Icon name={isExternal ? 'tabler:external-link' : 'tabler:arrow-right'} class="h-4 w-4" />
+                </a>
+              </div>
+            ))
+          }
+        </div>
+        <p class="mt-5 text-sm text-muted dark:text-slate-400">
+          Forms marked with the external-link icon continue securely to the Hai‑BL platform.
+        </p>
       </div>
     </div>
   </section>
-
-  <Features
-    title="What to Include in Your Message"
-    subtitle="These details help me recommend the right tuition option."
-    columns={3}
-    items={[
-      {
-        title: 'Student details',
-        description: 'Include the year group, current level and exam board if known.',
-        icon: 'tabler:school',
-      },
-      {
-        title: 'Goals and topics',
-        description: 'Mention target grades and any topics or skills that need support.',
-        icon: 'tabler:chart-line',
-      },
-      {
-        title: 'Lesson preference',
-        description: 'Choose online, in-person, one-to-one or group tuition.',
-        icon: 'tabler:users',
-      },
-    ]}
-  />
 </Layout>

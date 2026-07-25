@@ -7,8 +7,12 @@ export const contactDetails = {
 
 export const bookingLinks = {
   freeConsultation: 'https://calendar.app.google/VJ6tgEKfsUZAncDe9',
-  groupClassInterest: 'https://hai-bl.com/onboarding/contact?brand=mathstutorhelp',
-  onlineCourseInterest: 'https://hai-bl.com/onboarding/brands/mathstutorhelp/online-course',
+  contactEnquiry: 'https://hai-bl.com/onboarding/contact?brand=mathstutorhelp',
+  groupClassInterest: '/contact/',
+  onlineCourseInterest: '/contact/',
+  groupClassForm: 'https://hai-bl.com/onboarding/group-classes?brand=mathstutorhelp',
+  oneToOneForm: 'https://hai-bl.com/onboarding/one-to-one?brand=mathstutorhelp',
+  onlineCourseForm: 'https://hai-bl.com/onboarding/brands/mathstutorhelp/online-course',
   studentLogin: 'https://hai-bl.com/auth/login',
 };
 
