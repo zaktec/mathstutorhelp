@@ -86,7 +86,9 @@ const applicationForms = [
         </h2>
       </div>
 
-      <div class="mx-auto mt-8 max-w-4xl rounded-xl border border-primary/20 bg-white p-6 shadow-sm sm:p-8 dark:border-primary/30 dark:bg-slate-900">
+      <div
+        class="mx-auto mt-8 max-w-4xl rounded-xl border border-primary/20 bg-white p-6 shadow-sm sm:p-8 dark:border-primary/30 dark:bg-slate-900"
+      >
         <div class="flex items-center gap-3">
           <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
             <Icon name="tabler:message-circle" class="h-6 w-6" />
@@ -183,8 +185,7 @@ const applicationForms = [
               id="message"
               name="message"
               rows="6"
-              required
-            ></textarea>
+              required></textarea>
           </div>
 
           <div class="mt-5 flex items-start gap-3">
@@ -207,7 +208,8 @@ const applicationForms = [
             role="alert"
             aria-live="assertive"
             tabindex="-1"
-          ></div>
+          >
+          </div>
 
           <button id="contact-submit" class="btn-primary mt-6 min-h-12 w-full justify-center" type="submit">
             Send enquiry
