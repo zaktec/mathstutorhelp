@@ -2,7 +2,7 @@
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
 import { Icon } from 'astro-icon/components';
-import { bookingLinks, contactDetails } from '~/utils/siteDetails';
+import { bookingLinks, contactDetails, courseSchedule } from '~/utils/siteDetails';
 
 const metadata = {
   title: 'Contact Manchester Maths Tutor',
@@ -37,9 +37,16 @@ const contactOptions = [
 const applicationForms = [
   {
     title: 'Group maths classes',
-    description: 'Register a student for KS3 or GCSE small-group tuition.',
+    description: 'Register interest in Foundation, Higher or other KS3 and GCSE small-group maths tuition.',
     action: 'Open group class form',
     href: bookingLinks.groupClassForm,
+  },
+  {
+    title: 'Manchester Coding Club',
+    description: 'Register interest in the small-group Python coding course for students aged 13–17.',
+    action: 'Ask about coding club',
+    href: '/contact/?enquiry=coding',
+    isExternal: false,
   },
   {
     title: 'One-to-one tuition',
@@ -86,8 +93,29 @@ const applicationForms = [
         </h2>
       </div>
 
+      <div class="mt-8 grid gap-5 md:grid-cols-3">
+        {
+          contactOptions.map(({ title, description, action, href, icon }) => (
+            <a
+              href={href}
+              class="group rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-primary hover:shadow-md dark:border-gray-700 dark:bg-slate-900"
+            >
+              <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                <Icon name={icon} class="h-6 w-6" />
+              </span>
+              <h3 class="mt-5 text-xl font-bold text-gray-950 dark:text-white">{title}</h3>
+              <p class="mt-2 leading-7 text-muted dark:text-slate-300">{description}</p>
+              <span class="mt-5 inline-flex items-center gap-2 font-semibold text-primary">
+                {action}
+                <Icon name="tabler:arrow-right" class="h-5 w-5 transition group-hover:translate-x-1" />
+              </span>
+            </a>
+          ))
+        }
+      </div>
+
       <div
-        class="mx-auto mt-8 max-w-4xl rounded-xl border border-primary/20 bg-white p-6 shadow-sm sm:p-8 dark:border-primary/30 dark:bg-slate-900"
+        class="mx-auto mt-10 max-w-4xl rounded-xl border border-primary/20 bg-white p-6 shadow-sm sm:p-8 dark:border-primary/30 dark:bg-slate-900"
       >
         <div class="flex items-center gap-3">
           <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
@@ -163,18 +191,89 @@ const applicationForms = [
               />
             </div>
             <div>
-              <label for="subject" class="block text-sm font-semibold text-gray-900 dark:text-white">
-                Subject <span class="text-red-700 dark:text-red-300" aria-hidden="true">*</span>
+              <label for="enquiry-type" class="block text-sm font-semibold text-gray-900 dark:text-white">
+                Enquiry type <span class="text-red-700 dark:text-red-300" aria-hidden="true">*</span>
               </label>
-              <input
+              <select
                 class="mt-2 min-h-12 w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-950 shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-gray-600 dark:bg-slate-800 dark:text-white"
-                type="text"
-                id="subject"
-                name="subject"
+                id="enquiry-type"
+                name="enquiryType"
                 required
-              />
+              >
+                <option value="">Choose an option</option>
+                <option value="foundation">Foundation group class</option>
+                <option value="higher">Higher group class</option>
+                <option value="coding">Manchester Coding Club</option>
+                <option value="group-maths">Other group maths tuition</option>
+                <option value="one-to-one">One-to-one tuition</option>
+                <option value="online">Online tuition</option>
+                <option value="general">General question</option>
+              </select>
             </div>
           </div>
+
+          <fieldset class="mt-5 rounded-lg border border-gray-200 p-4 dark:border-gray-700">
+            <legend class="px-1 text-sm font-semibold text-gray-900 dark:text-white">
+              Student details <span class="font-normal text-muted dark:text-slate-400">(optional)</span>
+            </legend>
+            <p class="mb-4 text-sm leading-6 text-muted dark:text-slate-400">
+              Please do not include the student’s full name at this enquiry stage.
+            </p>
+            <div class="grid gap-5 sm:grid-cols-2">
+              <div>
+                <label for="year-group" class="block text-sm font-semibold text-gray-900 dark:text-white"
+                  >Year group</label
+                >
+                <input
+                  class="mt-2 min-h-12 w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-950 shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-gray-600 dark:bg-slate-800 dark:text-white"
+                  type="text"
+                  id="year-group"
+                  name="yearGroup"
+                  placeholder="e.g. Year 11"
+                />
+              </div>
+              <div>
+                <label for="working-grade" class="block text-sm font-semibold text-gray-900 dark:text-white"
+                  >Current grade</label
+                >
+                <input
+                  class="mt-2 min-h-12 w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-950 shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-gray-600 dark:bg-slate-800 dark:text-white"
+                  type="text"
+                  id="working-grade"
+                  name="workingGrade"
+                  placeholder="e.g. Grade 4"
+                />
+              </div>
+              <div>
+                <label for="exam-board" class="block text-sm font-semibold text-gray-900 dark:text-white"
+                  >Exam board</label
+                >
+                <input
+                  class="mt-2 min-h-12 w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-950 shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-gray-600 dark:bg-slate-800 dark:text-white"
+                  type="text"
+                  id="exam-board"
+                  name="examBoard"
+                  placeholder="e.g. AQA"
+                />
+              </div>
+              <div id="online-plan-field" class="hidden">
+                <label for="online-plan" class="block text-sm font-semibold text-gray-900 dark:text-white"
+                  >Preferred online plan</label
+                >
+                <select
+                  class="mt-2 min-h-12 w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-950 shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-gray-600 dark:bg-slate-800 dark:text-white"
+                  id="online-plan"
+                  name="onlinePlan"
+                >
+                  <option value="">Not sure yet</option>
+                  <option value="bronze">Bronze — £19/month</option>
+                  <option value="silver">Silver — £49/month</option>
+                  <option value="gold">Gold — £89/month</option>
+                  <option value="full-course">Full course — £99 one-off</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
 
           <div class="mt-5">
             <label for="message" class="block text-sm font-semibold text-gray-900 dark:text-white">
@@ -197,7 +296,11 @@ const applicationForms = [
               required
             />
             <label for="consent" class="cursor-pointer text-sm leading-6 text-gray-700 dark:text-slate-300">
-              I agree for MathsTutorHelp to contact me about my enquiry.
+              I agree for MathsTutorHelp to use these details to respond to my enquiry. Information submitted here is
+              processed using Hai-BL as explained in the <a
+                class="font-semibold text-primary underline"
+                href="/privacy/">privacy policy</a
+              >.
               <span class="text-red-700 dark:text-red-300" aria-hidden="true">*</span>
             </label>
           </div>
@@ -214,28 +317,19 @@ const applicationForms = [
           <button id="contact-submit" class="btn-primary mt-6 min-h-12 w-full justify-center" type="submit">
             Send enquiry
           </button>
-        </form>
-      </div>
-
-      <div class="mt-8 grid gap-5 md:grid-cols-3">
-        {
-          contactOptions.map(({ title, description, action, href, icon }) => (
-            <a
-              href={href}
-              class="group rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-primary hover:shadow-md dark:border-gray-700 dark:bg-slate-900"
+          <p class="mt-4 text-center text-sm text-muted dark:text-slate-400">
+            There is no payment or obligation to book when you send an enquiry.
+          </p>
+          <p class="mt-2 text-center text-sm text-muted dark:text-slate-400">
+            If the form does not work, <a
+              class="font-semibold text-primary underline"
+              href={contactDetails.whatsappHref}>send a WhatsApp</a
             >
-              <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                <Icon name={icon} class="h-6 w-6" />
-              </span>
-              <h3 class="mt-5 text-xl font-bold text-gray-950 dark:text-white">{title}</h3>
-              <p class="mt-2 leading-7 text-muted dark:text-slate-300">{description}</p>
-              <span class="mt-5 inline-flex items-center gap-2 font-semibold text-primary">
-                {action}
-                <Icon name="tabler:arrow-right" class="h-5 w-5 transition group-hover:translate-x-1" />
-              </span>
-            </a>
-          ))
-        }
+            or call <a class="font-semibold text-primary underline" href={contactDetails.phoneHref}>
+              {contactDetails.phoneDisplay}</a
+            >.
+          </p>
+        </form>
       </div>
 
       <div class="mt-10 rounded-xl border border-gray-200 bg-white p-5 sm:p-8 dark:border-gray-700 dark:bg-slate-900">
@@ -258,7 +352,20 @@ const applicationForms = [
           }
         </div>
         <p class="mt-5 text-sm text-muted dark:text-slate-400">
-          Forms marked with the external-link icon continue securely to the Hai‑BL platform.
+          Forms marked with the external-link icon leave MathsTutorHelp and continue to the Hai‑BL registration
+          platform.
+        </p>
+      </div>
+
+      <div
+        class="mx-auto mt-8 max-w-4xl rounded-xl border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-slate-900"
+      >
+        <h3 class="text-xl font-bold text-gray-950 dark:text-white">Manchester tuition enquiries</h3>
+        <p class="mt-2 leading-7 text-muted dark:text-slate-300">
+          MathsTutorHelp provides one-to-one, online and small-group tuition. In-person group classes are held at {
+            courseSchedule.venue.name
+          }, Manchester, M19 1FS. WhatsApp and form enquiries normally receive a reply within 24 hours; telephone calls
+          that cannot be answered can be followed up by WhatsApp.
         </p>
       </div>
     </div>
@@ -270,6 +377,33 @@ const applicationForms = [
   const submitButton = document.querySelector<HTMLButtonElement>('#contact-submit');
   const errorMessage = document.querySelector<HTMLElement>('#contact-error');
   const successMessage = document.querySelector<HTMLElement>('#contact-success');
+  const enquiryType = document.querySelector<HTMLSelectElement>('#enquiry-type');
+  const onlinePlan = document.querySelector<HTMLSelectElement>('#online-plan');
+  const onlinePlanField = document.querySelector<HTMLElement>('#online-plan-field');
+
+  const enquiryLabels: Record<string, string> = {
+    foundation: 'Foundation group class',
+    higher: 'Higher group class',
+    coding: 'Manchester Coding Club',
+    'group-maths': 'Other group maths tuition',
+    'one-to-one': 'One-to-one tuition',
+    online: 'Online tuition',
+    general: 'General question',
+  };
+
+  const requestedEnquiry = new URLSearchParams(window.location.search).get('enquiry');
+  if (enquiryType && requestedEnquiry && requestedEnquiry in enquiryLabels) {
+    enquiryType.value = requestedEnquiry;
+  }
+  const requestedPlan = new URLSearchParams(window.location.search).get('plan');
+  if (onlinePlan && requestedPlan && [...onlinePlan.options].some((option) => option.value === requestedPlan)) {
+    onlinePlan.value = requestedPlan;
+  }
+  const updateOnlinePlanVisibility = () => {
+    onlinePlanField?.classList.toggle('hidden', enquiryType?.value !== 'online');
+  };
+  enquiryType?.addEventListener('change', updateOnlinePlanVisibility);
+  updateOnlinePlanVisibility();
 
   let formStartedAt = Date.now();
   let isSubmitting = false;
@@ -291,27 +425,46 @@ const applicationForms = [
     if (errorMessage) errorMessage.textContent = '';
 
     const formData = new FormData(contactForm);
+    const selectedEnquiry = String(formData.get('enquiryType') ?? '');
+    const studentDetails = [
+      ['Year group', String(formData.get('yearGroup') ?? '').trim()],
+      ['Current grade', String(formData.get('workingGrade') ?? '').trim()],
+      ['Exam board', String(formData.get('examBoard') ?? '').trim()],
+      ['Preferred online plan', String(formData.get('onlinePlan') ?? '').trim()],
+    ]
+      .filter(([, value]) => value)
+      .map(([label, value]) => `${label}: ${value}`)
+      .join('\n');
+    const originalMessage = String(formData.get('message') ?? '');
     const payload = {
       name: String(formData.get('name') ?? ''),
       email: String(formData.get('email') ?? ''),
       phone: String(formData.get('phone') ?? ''),
-      subject: String(formData.get('subject') ?? ''),
-      message: String(formData.get('message') ?? ''),
+      subject: enquiryLabels[selectedEnquiry] ?? 'General question',
+      message: studentDetails ? `${originalMessage}\n\n${studentDetails}` : originalMessage,
       consent: formData.get('consent') === 'on',
       website: String(formData.get('website') ?? ''),
       formStartedAt,
     };
 
     try {
+      const controller = new AbortController();
+      const timeoutId = window.setTimeout(() => controller.abort(), 15000);
       const response = await fetch('https://hai-bl.com/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(payload),
+        signal: controller.signal,
       });
+      window.clearTimeout(timeoutId);
 
-      const result = (await response.json()) as { success?: boolean; message?: string; error?: string };
+      const result = (await response.json().catch(() => ({}))) as {
+        success?: boolean;
+        message?: string;
+        error?: string;
+      };
 
       if (!response.ok || !result.success) {
         throw new Error(result.error || 'Your enquiry could not be sent. Please try again.');
@@ -323,7 +476,12 @@ const applicationForms = [
       successMessage?.focus();
       formStartedAt = Date.now();
     } catch (error) {
-      const message = error instanceof Error ? error.message : 'Your enquiry could not be sent. Please try again.';
+      const message =
+        error instanceof DOMException && error.name === 'AbortError'
+          ? 'The request took too long. Please try again or use WhatsApp.'
+          : error instanceof Error
+            ? error.message
+            : 'Your enquiry could not be sent. Please try again or use WhatsApp.';
       if (errorMessage) {
         errorMessage.textContent = message;
         errorMessage.classList.remove('hidden');

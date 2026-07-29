@@ -5,7 +5,7 @@ import Features from '~/components/widgets/Features.astro';
 import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { getPermalink } from '~/utils/permalinks';
-import { bookingLinks, ctaLabels } from '~/utils/siteDetails';
+import { bookingLinks, contactDetails, courseSchedule, ctaLabels } from '~/utils/siteDetails';
 import { siteImages } from '~/data/images';
 
 const metadata = {
@@ -16,7 +16,7 @@ const metadata = {
 
 const consultationBookingUrl = bookingLinks.freeConsultation;
 const tuitionUrl = getPermalink('/maths-tuition');
-const groupClassesUrl = getPermalink('/gcse-revision-class-higher-manchester');
+const safeguardingUrl = getPermalink('/safeguarding');
 const tutorImageUrl = siteImages.tutor;
 ---
 
@@ -60,12 +60,12 @@ const tutorImageUrl = siteImages.tutor;
   >
     <Fragment slot="content">
       <p>
-        My name is Mr Sheraz. I founded MathsTutorHelp to give students calm, structured and focused maths support that
-        helps them understand the method, practise with purpose and build confidence over time.
+        My name is Mr Sheraz. I founded MathsTutorHelp to give students calm, structured support with clear
+        explanations, purposeful practice and individual attention.
       </p>
       <p>
-        Many students do not struggle because they lack ability. Often they need clearer explanations, more individual
-        attention and a regular routine for practice. MathsTutorHelp is built around that kind of support.
+        I bring more than 15 years of experience across schools, colleges, international settings and private tuition.
+        My background includes classroom maths, exam preparation and computer science teaching.
       </p>
     </Fragment>
   </Content>
@@ -91,19 +91,9 @@ const tutorImageUrl = siteImages.tutor;
         icon: 'tabler:file-check',
       },
       {
-        title: 'Confidence building',
-        description: 'Lessons give students space to ask questions, revisit gaps and make steady progress.',
-        icon: 'tabler:mood-smile',
-      },
-      {
         title: 'Personalised support',
-        description: 'Support is adapted to the student’s level, goals, confidence and areas of difficulty.',
+        description: 'Lessons are adapted to the student’s level, goals and areas of difficulty.',
         icon: 'tabler:user-check',
-      },
-      {
-        title: 'Clear next steps',
-        description: 'Students can receive targeted practice and guidance on what to improve next.',
-        icon: 'tabler:list-check',
       },
     ]}
   >
@@ -118,9 +108,14 @@ const tutorImageUrl = siteImages.tutor;
     columns={3}
     items={[
       {
+        title: 'Year 6 and transition',
+        description: 'Number confidence, problem solving and preparation for secondary school.',
+        icon: 'tabler:school',
+      },
+      {
         title: 'KS3 Maths',
         description: 'Years 7-9 foundations before GCSE.',
-        icon: 'tabler:school',
+        icon: 'tabler:books',
       },
       {
         title: 'GCSE Maths',
@@ -150,27 +145,21 @@ const tutorImageUrl = siteImages.tutor;
     ]}
   />
 
-  {
-    /*
-    TODO: Replace this "Local and Online Maths Tuition" Content image with a real photo of Mr Sheraz
-    teaching or his actual tutoring setup when that asset is available.
-  */
-  }
   <Content
     isReversed
     title="Local and Online Maths Tuition"
     items={[
       {
-        title: 'Manchester based',
-        description: 'Based in Levenshulme, supporting students from Manchester and nearby areas.',
+        title: 'One-to-one tuition',
+        description: 'Available online or in person from Levenshulme, Manchester.',
       },
       {
-        title: 'Online tuition',
-        description: 'Flexible online maths lessons are available for students who prefer learning from home.',
+        title: 'In-person GCSE groups',
+        description: `Foundation and Higher classes are held at ${courseSchedule.venue.name} with a maximum of ${courseSchedule.gcse.maximumStudents} students.`,
       },
       {
-        title: 'Small group classes',
-        description: 'GCSE group classes are available for students who benefit from routine and guided practice.',
+        title: 'Online courses and coding',
+        description: 'Structured online memberships plus beginner Python support for ages 13–17.',
       },
     ]}
     image={{
@@ -179,39 +168,36 @@ const tutorImageUrl = siteImages.tutor;
     }}
   >
     <Fragment slot="content">
-      <p>
-        MathsTutorHelp supports families looking for structured maths tuition in Manchester and online. Lessons can be
-        one-to-one, online, in person or in small groups depending on availability and the student’s needs.
-      </p>
+      <p>Choose from one-to-one tuition, small GCSE groups or structured online support.</p>
     </Fragment>
   </Content>
 
   <Features
     title="Why Families Choose MathsTutorHelp"
-    subtitle="Parents often want tuition that feels professional, steady and easy for students to follow."
+    subtitle="Professional support with clear communication and safeguarding."
     columns={3}
     items={[
       {
-        title: 'Teacher-led support',
-        description: 'Students are supported by a qualified maths teacher with computer science teaching experience.',
-        icon: 'tabler:award',
+        title: 'Small, focused groups',
+        description: `In-person groups are capped at ${courseSchedule.gcse.maximumStudents} students.`,
+        icon: 'tabler:users-group',
       },
       {
-        title: 'Calm learning environment',
-        description: 'Lessons are supportive and structured, helping students feel more confident with maths.',
-        icon: 'tabler:heart-handshake',
+        title: 'Direct parent communication',
+        description: 'Parents can ask questions and request clear feedback through WhatsApp or email.',
+        icon: 'tabler:message-circle',
       },
       {
-        title: 'Regular practice',
-        description: 'Students can receive worksheets, revision tasks and clear guidance for independent study.',
-        icon: 'tabler:book',
+        title: 'Safeguarding-conscious support',
+        description: `Professional, DBS-checked support with a clear <a class="underline" href="${safeguardingUrl}">safeguarding policy</a>.`,
+        icon: 'tabler:shield-check',
       },
     ]}
   />
 
   <CallToAction
-    title="Ready to Talk About Maths Support?"
-    subtitle="Tell me the student's level, goals and preferred lesson format. I will help you choose the right next step."
+    title="Ready to Discuss Maths or Coding Support?"
+    subtitle="Tell me the student’s age or year group, current level, goals and preferred learning format. I will help you choose the right next step."
     actions={[
       {
         variant: 'primary',
@@ -219,7 +205,11 @@ const tutorImageUrl = siteImages.tutor;
         href: consultationBookingUrl,
         icon: 'tabler:calendar-check',
       },
-      { text: 'View Group Classes', href: groupClassesUrl },
+      {
+        text: 'WhatsApp MathsTutorHelp',
+        href: contactDetails.whatsappHref,
+        icon: 'tabler:brand-whatsapp',
+      },
     ]}
   />
 </Layout>

@@ -49,11 +49,14 @@ The £16 rate is a discount for paying for a block or term in advance. It is not
 
 These memberships are separate from one-to-one tuition.
 
-| Package |     Price | Included support                                         |
-| ------- | --------: | -------------------------------------------------------- |
-| Bronze  | £15/month | Course content and WhatsApp messaging; no live session   |
-| Silver  | £30/month | One live tutoring hour per month, content and messaging  |
-| Gold    | £60/month | Two live tutoring hours per month, content and messaging |
+| Package |     Price | Included support                                            |
+| ------- | --------: | ----------------------------------------------------------- |
+| Bronze  | £19/month | Course content and limited WhatsApp support; no live lesson |
+| Silver  | £49/month | One 55-minute live lesson per month, content and support    |
+| Gold    | £89/month | Two 55-minute live lessons per month, content and support   |
+
+Full access to one selected online course is available separately for £99 one-off. Online memberships, live online
+one-to-one tuition and in-person group classes are distinct services with separate prices.
 
 ### Levels supported
 

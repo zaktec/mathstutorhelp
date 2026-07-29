@@ -89,7 +89,7 @@ http://localhost:4321/
 - `/about/` - about Mr Sheraz and MathsTutorHelp
 - `/contact/` - phone, WhatsApp and Hai-BL enquiry form link
 - `/maths-tuition/` - overview of maths tuition options
-- `/online-tuition/` - online maths and coding course hub
+- `/online-tuition/` - online course memberships and live online tuition comparison
 - `/pricing/` - pricing page
 - `/gallery/` - image gallery
 - `/maths-level/` - supported maths levels
@@ -98,7 +98,7 @@ http://localhost:4321/
 - `/gcse-foundation-maths-tutoring-club-2025/` - GCSE Foundation group class
 - `/maths-tutor-levenshulme/` - local SEO page
 - `/gcse-maths-tutor-manchester/` - local GCSE SEO page
-- `/manchestersummercodingclub/` - summer coding course
+- `/manchestersummercodingclub/` - Manchester Coding Club
 - `/online-group-classes/` - online group class enquiry page
 - `/privacy/`, `/terms/`, `/safeguarding/` - legal and safeguarding pages
 
@@ -121,20 +121,23 @@ Current main pricing is stored in `src/utils/siteDetails.ts`:
 - In-person one-to-one tuition: `£30/hr`
 - Online one-to-one tuition: `£25/hr`
 - GCSE group classes: `£20 per session`
+- GCSE group classes with advance block booking: `£16 per session`
 
 Online course package pricing is stored separately in `src/utils/onlineCourses.ts`:
 
-- Bronze: `£15/month`
-- Silver: `£30/month`
-- Gold: `£60/month`
+- Bronze: `£19/month`
+- Silver: `£49/month`
+- Gold: `£89/month`
+- Full access to one selected online course: `£99 one-off`
 
-Keep online one-to-one tuition and online course packages separate in wording.
+These are separate services. Keep live online one-to-one tuition, online course memberships and in-person group-class
+pricing distinct in all parent-facing wording.
 
 ## Enquiry Paths
 
 - Phone: `07860 248 525`
 - WhatsApp: `https://wa.me/447860248525`
-- Hai-BL enquiry form: `https://hai-bl.com/onboarding/interest-form`
+- Contact and enquiry hub: `/contact/`
 - Student login: `https://hai-bl.com/auth/login`
 - Consultation booking: `https://calendar.app.google/VJ6tgEKfsUZAncDe9`
 

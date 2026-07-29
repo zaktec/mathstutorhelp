@@ -6,7 +6,7 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Image from '~/components/common/Image.astro';
 import { getPermalink } from '~/utils/permalinks';
-import { bookingLinks, courseSchedule, ctaLabels, tuitionPrices } from '~/utils/siteDetails';
+import { courseSchedule, ctaLabels, tuitionPrices } from '~/utils/siteDetails';
 import { siteImages } from '~/data/images';
 
 const metadata = {
@@ -15,7 +15,7 @@ const metadata = {
     'MathsTutorHelp group classes in Levenshulme, Manchester, including GCSE Foundation, GCSE Higher and beginner Python coding during selected school holidays.',
 };
 
-const interestFormUrl = bookingLinks.groupClassInterest;
+const interestFormUrl = '/contact/?enquiry=group-maths';
 const higherClassUrl = getPermalink('/gcse-revision-class-higher-manchester');
 const foundationClassUrl = getPermalink('/gcse-foundation-maths-tutoring-club-2025');
 const contactUrl = getPermalink('/contact');
@@ -85,8 +85,8 @@ const codingCourseUrl = getPermalink('/manchestersummercodingclub');
           <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Beginner coding</p>
           <h3 class="mt-2 text-2xl font-bold text-gray-950 dark:text-white">Coding Group Class</h3>
           <p class="mt-3 text-base leading-7 text-muted dark:text-slate-300">
-            Beginner Python coding courses are available during selected school holiday periods. The next six-week
-            course runs from {courseSchedule.coding.startDate} to {courseSchedule.coding.endDate}.
+            The next six-session beginner Python coding club is coming soon. Register your interest to receive the
+            confirmed start date and time.
           </p>
           <a class="btn-secondary mt-5 w-full justify-center sm:w-auto" href={codingCourseUrl}
             >View Coding Group Class</a
@@ -147,7 +147,7 @@ const codingCourseUrl = getPermalink('/manchestersummercodingclub');
       },
       {
         title: 'Other support available',
-        description: `The next beginner Python coding course runs from ${courseSchedule.coding.startDate} to ${courseSchedule.coding.endDate}. One-to-one tuition is ${tuitionPrices.oneToOne.display}; online tuition is ${tuitionPrices.online.display}.`,
+        description: `The next beginner Python coding club is coming soon. One-to-one tuition is ${tuitionPrices.oneToOne.display}; online tuition is ${tuitionPrices.online.display}.`,
         icon: 'tabler:code',
       },
     ]}
@@ -199,7 +199,7 @@ const codingCourseUrl = getPermalink('/manchestersummercodingclub');
         <Image
           class="mx-auto w-full rounded-lg border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-slate-800"
           src={siteImages.gallery.codingFlyer}
-          alt="MathsTutorHelp Manchester Summer Coding Club flyer for students aged 13 to 17"
+          alt="MathsTutorHelp Manchester Coding Club flyer for students aged 13 to 17"
           width={720}
           height={874}
           widths={[400, 720, 960]}

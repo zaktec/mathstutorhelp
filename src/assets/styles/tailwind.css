@@ -87,7 +87,7 @@
 }
 .dark #header.scroll > div:first-child,
 #header.scroll.dark > div:first-child {
-  @apply bg-page md:bg-page-dark/90 border-b border-gray-500/20;
+  @apply bg-footer md:bg-footer/95 border-b border-footer-border md:backdrop-blur-md;
   box-shadow: none;
 }
 
@@ -98,6 +98,10 @@
   right: 0;
   bottom: var(--aw-mobile-actions-height, 70px) !important;
   padding: 0 5px;
+}
+
+#header.dark.expanded nav {
+  @apply bg-footer text-white;
 }
 
 .dropdown:focus .dropdown-menu,

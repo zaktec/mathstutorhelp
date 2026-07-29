@@ -16,7 +16,8 @@ MathsTutorHelp provides:
 
 - One-to-one online and in-person maths tuition
 - Small group GCSE maths classes
-- A summer coding course
+- Manchester Coding Club
+- Online course memberships and one-off course access
 - Related learning resources and worksheets
 
 Services are aimed at school-age students, and adult learners where relevant, and are delivered by a qualified, DBS-checked teacher.
@@ -49,6 +50,18 @@ Services are aimed at school-age students, and adult learners where relevant, an
 
 - Online sessions require a stable internet connection and a quiet space to learn
 - We are not responsible for connection issues caused by your equipment or internet provider, but we will do our best to reschedule where a technical issue prevents a lesson from going ahead
+- The video platform, scheduling and any recording arrangements are confirmed before live lessons begin
+
+## Online Course Memberships
+
+- Online course memberships are separate from live one-to-one tuition and in-person group classes
+- Each membership includes one selected course or pathway level unless additional access is agreed
+- Memberships are monthly with no long-term contract
+- The selected course, start date, billing date, renewal arrangements and cancellation effective date are confirmed before payment
+- Silver and Gold live lessons are scheduled subject to tutor availability
+- Rescheduling, missed-lesson, unused-lesson and refund arrangements are confirmed before the first payment
+- WhatsApp support is limited to short course questions and guidance and does not replace a live lesson
+- For students under 18, a parent or guardian should manage the initial enquiry and booking
 
 ## Use of This Website
 

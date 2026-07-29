@@ -24,7 +24,7 @@ Completed: 20 July 2026
 
 - `src/navigation.ts` — shared header and footer navigation
 - `src/utils/siteDetails.ts` — shared live prices and course schedules
-- `src/utils/onlineCourses.ts` — owner-confirmation TODO for disputed membership prices
+- `src/utils/onlineCourses.ts` — authoritative online membership prices and course details
 - `src/components/common/Breadcrumbs.astro` — valid links and structured data
 - `src/components/widgets/HomeHero.astro` — clearer secondary CTA
 - `src/components/widgets/MembershipComparison.astro` — reusable membership plans
@@ -46,7 +46,7 @@ The existing `/online-tuitions/` compatibility page remains because removing it 
 
 ## Content decisions
 
-- Retained the published £19/£49/£89 membership prices because the repository does not establish whether those or the documented £15/£30/£60 prices are current.
+- Confirmed £19/£49/£89 as the authoritative Bronze, Silver and Gold monthly membership prices.
 - Retained the £99 one-off full-course option but flagged it for confirmation.
 - Retained anonymous testimonial wording and added a names-withheld privacy explanation; source verification remains an owner task.
 - Did not rename old but indexed routes because permanent redirects cannot be guaranteed on the current host.
@@ -54,11 +54,9 @@ The existing `/online-tuitions/` compatibility page remains because removing it 
 
 ## Items requiring owner confirmation
 
-1. Bronze, Silver and Gold monthly prices: £19/£49/£89 on the site versus £15/£30/£60 in README and the brand guide.
-2. Whether £99 remains the approved one-off full-course price.
-3. The amount described as a “small additional monthly fee” for extra course access, or whether that sentence should be removed until priced.
-4. Original records/approval for the three homepage testimonials.
-5. Whether `/feed/` has historic traffic that justifies redirecting it to `/rss.xml`.
+1. The amount charged for optional additional course access.
+2. Original records/approval for the three homepage testimonials.
+3. Whether `/feed/` has historic traffic that justifies redirecting it to `/rss.xml`.
 
 ## Verification performed
 
@@ -80,4 +78,4 @@ There is no separate `lint` or `test` script in `package.json`; linting is part 
 - Automated Firefox screenshots failed because the environment’s software compositor could not create a framebuffer. Responsive CSS and rendered markup were inspected, but final visual QA at 320px, 375px, 390px and 768px should still be completed in a normal browser.
 - External links can change after this review.
 - GitHub Pages cannot send true permanent redirects for legacy paths without an upstream CDN/domain rule.
-- Commercial ambiguity remains until the owner confirms membership and full-course prices.
+- Optional additional-course pricing should be confirmed before it is offered to a family.

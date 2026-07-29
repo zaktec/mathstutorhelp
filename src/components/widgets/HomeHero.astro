@@ -20,7 +20,7 @@ const { interestUrl, tuitionOptionsUrl = getPermalink('/maths-tuition/') } = Ast
     >
       <div class="max-w-3xl">
         <p class="mb-3 text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">
-          Expert Maths Tuition Made Simple
+          Qualified Maths Teacher in Manchester
         </p>
         <h1
           class="font-heading text-4xl font-bold leading-tight text-gray-950 dark:text-white sm:text-5xl lg:text-[3.35rem]"
@@ -37,7 +37,7 @@ const { interestUrl, tuitionOptionsUrl = getPermalink('/maths-tuition/') } = Ast
         <div class="mt-6 flex flex-col gap-3 sm:flex-row">
           <Button
             variant="primary"
-            text="Register Interest"
+            text="Find the Right Tuition"
             href={interestUrl}
             icon="tabler:calendar-check"
             class="w-full sm:w-auto"
@@ -50,7 +50,7 @@ const { interestUrl, tuitionOptionsUrl = getPermalink('/maths-tuition/') } = Ast
           />
         </div>
         <p class="mt-3 text-sm leading-6 text-muted dark:text-slate-300">
-          Register Interest opens the contact hub, where you can choose the right enquiry form.
+          Tell me what support you need and the contact hub will guide you to the right enquiry option.
         </p>
       </div>
 
@@ -78,13 +78,22 @@ const { interestUrl, tuitionOptionsUrl = getPermalink('/maths-tuition/') } = Ast
         <div class="bg-brand-soft/70 px-4 pb-4 pt-4 dark:bg-slate-900">
           <p class="text-xl font-bold text-gray-950 dark:text-white">Mr Sheraz</p>
           <p class="mt-1 font-semibold text-secondary dark:text-teal-200">Qualified Maths Teacher</p>
-          <a
-            class="mt-3 inline-flex items-center gap-2 rounded-md border border-primary/20 bg-white px-3 py-2 text-sm font-bold text-primary hover:bg-primary hover:text-white dark:border-slate-700 dark:bg-slate-800 dark:text-teal-200"
-            href={contactDetails.phoneHref}
-          >
-            <Icon name="tabler:phone" class="h-4 w-4" />
-            Call {contactDetails.phoneDisplay}
-          </a>
+          <div class="mt-3 flex flex-wrap gap-2">
+            <a
+              class="inline-flex items-center gap-2 rounded-md border border-primary/20 bg-white px-3 py-2 text-sm font-bold text-primary hover:bg-primary hover:text-white dark:border-slate-700 dark:bg-slate-800 dark:text-teal-200"
+              href={contactDetails.phoneHref}
+            >
+              <Icon name="tabler:phone" class="h-4 w-4" />
+              Call {contactDetails.phoneDisplay}
+            </a>
+            <a
+              class="inline-flex items-center gap-2 rounded-md border border-primary/20 bg-white px-3 py-2 text-sm font-bold text-primary hover:bg-primary hover:text-white dark:border-slate-700 dark:bg-slate-800 dark:text-teal-200"
+              href={contactDetails.whatsappHref}
+            >
+              <Icon name="tabler:brand-whatsapp" class="h-4 w-4" />
+              WhatsApp
+            </a>
+          </div>
         </div>
       </aside>
     </div>

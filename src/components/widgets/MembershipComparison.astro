@@ -59,7 +59,7 @@ const { packages, enquiryUrl } = Astro.props;
                 </li>
               ))}
             </ul>
-            <a class="btn-primary mt-6 w-full justify-center" href={enquiryUrl}>
+            <a class="btn-primary mt-6 w-full justify-center" href={`${enquiryUrl}&plan=${item.title.toLowerCase()}`}>
               {item.cta}
             </a>
           </article>

@@ -23,9 +23,9 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     src: siteImages.gallery.codingFlyer,
-    fullSrc: publicImage('gallery/mth-summer-coding-flyer-2026.jpeg'),
-    alt: 'MathsTutorHelp Manchester Summer Coding Club flyer for students aged 13 to 17',
-    title: 'Summer Coding Club 2026',
+    fullSrc: publicImage('gallery/mth-manchester-coding-club-flyer-2026.png'),
+    alt: 'MathsTutorHelp Manchester Coding Club flyer for students aged 13 to 17',
+    title: 'Manchester Coding Club 2026',
     aspectClass: 'aspect-[5/7]',
     objectFitClass: 'object-contain bg-gray-50',
   },

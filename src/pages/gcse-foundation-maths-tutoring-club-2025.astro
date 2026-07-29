@@ -6,7 +6,7 @@ import Content from '~/components/widgets/Content.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { getPermalink } from '~/utils/permalinks';
-import { bookingLinks, contactDetails, courseSchedule, ctaLabels, tuitionPrices } from '~/utils/siteDetails';
+import { contactDetails, courseSchedule, ctaLabels, tuitionPrices } from '~/utils/siteDetails';
 import { siteImages } from '~/data/images';
 import { createEducationEventSchema } from '~/utils/educationEvent';
 
@@ -16,7 +16,7 @@ const metadata = {
     'MathsTutorHelp GCSE Foundation Maths tutoring club in Levenshulme, Manchester for Year 10 and 11 students working towards grades 4-5.',
 };
 
-const interestFormUrl = bookingLinks.groupClassInterest;
+const interestFormUrl = '/contact/?enquiry=foundation';
 const contactUrl = getPermalink('/contact');
 const higherClassUrl = getPermalink('/gcse-revision-class-higher-manchester');
 const onlineTuitionUrl = getPermalink('/online-tuition');
@@ -27,7 +27,7 @@ const eventSchema = createEducationEventSchema({
   pageUrl: Astro.url,
   siteUrl: Astro.site,
   startDate: '2026-09-13T10:00:00+01:00',
-  endDate: '2027-05-30T11:00:00+01:00',
+  endDate: '2027-06-13T11:00:00+01:00',
   image: '/images/gallery/ks3-gcse-maths-classes-manchester.jpeg',
   price: '20',
   bookingUrl: interestFormUrl,
@@ -64,8 +64,9 @@ const eventSchema = createEducationEventSchema({
     columns={3}
     items={[
       {
-        title: 'Working towards grades 1–5',
-        description: 'Especially suitable for Foundation Tier students aiming to secure grades 4–5.',
+        title: 'Working towards grades 4–5',
+        description:
+          'Suitable for Foundation Tier students building from lower starting points and aiming to secure grades 4–5.',
         icon: 'tabler:certificate',
       },
       {
@@ -134,6 +135,53 @@ const eventSchema = createEducationEventSchema({
   </Content>
 
   <Features
+    title="Course Plan"
+    subtitle="A phased programme from September 2026 to June 2027, adjusted using diagnostic results and each student’s exam-board specification."
+    columns={3}
+    items={[
+      {
+        title: 'September–October',
+        description:
+          'Diagnostic assessment, number fluency, place value, fractions and the core skills needed for Foundation Maths.',
+        icon: 'tabler:clipboard-check',
+      },
+      {
+        title: 'November–December',
+        description:
+          'Ratio, proportion, percentages, introductory algebra and geometry, followed by a progress review.',
+        icon: 'tabler:math',
+      },
+      {
+        title: 'January–February',
+        description: 'Equations, graphs, area and volume, probability and multi-step questions targeting grades 4–5.',
+        icon: 'tabler:function',
+      },
+      {
+        title: 'March–April',
+        description:
+          'Full-specification review, timed topic tests and targeted teaching based on gaps found in mock papers.',
+        icon: 'tabler:target-arrow',
+      },
+      {
+        title: 'May–June',
+        description:
+          'Timed papers, calculator and non-calculator technique, error analysis and focused final preparation.',
+        icon: 'tabler:stopwatch',
+      },
+      {
+        title: 'Personalised sequencing',
+        description:
+          'The topic order may change to match diagnostic evidence, school progress and the AQA, Edexcel or OCR specification.',
+        icon: 'tabler:route',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-brand-soft dark:bg-transparent"></div>
+    </Fragment>
+  </Features>
+
+  <Features
     title="Booking and Attendance"
     subtitle="A calm, focused Foundation class with flexible attendance once your child’s place is reserved."
     columns={3}
@@ -149,9 +197,9 @@ const eventSchema = createEducationEventSchema({
         icon: 'tabler:coin-pound',
       },
       {
-        title: 'No joining fee',
-        description: 'Flexible pay-as-you-go access is available where spaces remain.',
-        icon: 'tabler:circle-check',
+        title: 'Join during the year',
+        description: 'Students can join during the year where spaces remain, beginning with a diagnostic check.',
+        icon: 'tabler:user-plus',
       },
       {
         title: 'Exam board support',
@@ -164,9 +212,10 @@ const eventSchema = createEducationEventSchema({
         icon: 'tabler:file-pencil',
       },
       {
-        title: 'Parent updates',
-        description: 'Progress updates can be shared by WhatsApp on request.',
-        icon: 'tabler:message-circle',
+        title: 'Term-time and holidays',
+        description:
+          'The regular timetable covers scheduled Sundays. Any additional holiday sessions are confirmed separately.',
+        icon: 'tabler:calendar-time',
       },
     ]}
   >
@@ -206,7 +255,13 @@ const eventSchema = createEducationEventSchema({
       },
       {
         title: 'Do you run sessions during school holidays?',
-        description: 'Holiday class dates are shared by WhatsApp when available.',
+        description:
+          'Additional holiday sessions may be offered. Dates, availability and pricing are confirmed separately by WhatsApp and email.',
+      },
+      {
+        title: 'How many sessions are included?',
+        description:
+          'The class runs on scheduled Sundays from 13 September 2026 to 13 June 2027. Your booking confirmation lists the included dates, planned breaks and the sessions covered by your payment.',
       },
       {
         title: 'Can parents get feedback?',

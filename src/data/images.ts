@@ -16,7 +16,7 @@ import revisionCourse from '~/assets/images/gallery/manchesterrevisionclass.jpeg
 import tutorCharacter from '~/assets/images/gallery/mth-tutor-character.jpeg';
 import tutorPortrait from '~/assets/images/maths-tutor-sheraz-cheema-home.jpeg';
 import gcseFlyer from '~/assets/images/gallery/mth-gcse-classes-flyer-2026.jpeg';
-import codingFlyer from '~/assets/images/gallery/mth-summer-coding-flyer-2026.jpeg';
+import codingFlyer from '~/assets/images/gallery/mth-manchester-coding-club-flyer-2026.png';
 
 import revisionTips from '~/assets/images/blog/5-expert-tips-for-maths-revision.jpg';
 import findingTutor from '~/assets/images/blog/finding-a-maths-tutor-in-manchester.jpg';

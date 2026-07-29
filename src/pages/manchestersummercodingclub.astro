@@ -6,39 +6,24 @@ import Content from '~/components/widgets/Content.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { getPermalink } from '~/utils/permalinks';
-import { bookingLinks, courseSchedule, ctaLabels } from '~/utils/siteDetails';
+import { courseSchedule, ctaLabels } from '~/utils/siteDetails';
 import { siteImages } from '~/data/images';
-import { createEducationEventSchema } from '~/utils/educationEvent';
 
 const metadata = {
-  title: 'Summer Coding Course Manchester | Python Ages 13-17',
+  title: 'Manchester Coding Club | Python Ages 13-17',
   description:
-    'Summer Python coding course in Manchester for ages 13-17. Build real apps, boost problem-solving and learn Python with a qualified teacher in a calm small group.',
+    'Manchester Python coding club for ages 13-17. Build real apps, boost problem-solving and learn Python with a qualified teacher in a calm small group.',
 };
 
-const interestFormUrl = bookingLinks.groupClassInterest;
+const interestFormUrl = '/contact/?enquiry=coding';
 const contactUrl = getPermalink('/contact');
 const onlineTuitionUrl = getPermalink('/online-tuition');
-const eventSchema = createEducationEventSchema({
-  name: 'Python Coding Course in Manchester for Ages 13-17',
-  description: metadata.description,
-  pageUrl: Astro.url,
-  siteUrl: Astro.site,
-  startDate: '2026-08-02T11:00:00+01:00',
-  endDate: '2026-09-06T12:00:00+01:00',
-  image: '/images/gallery/mth-summer-coding-flyer-2026.jpeg',
-  price: '100',
-  bookingUrl: interestFormUrl,
-  validFrom: '2026-07-01T00:00:00+01:00',
-});
 ---
 
 <Layout metadata={metadata}>
-  <script is:inline type="application/ld+json" set:html={JSON.stringify(eventSchema)} />
-
   <Hero
-    tagline="Summer Coding Course"
-    title="Python Coding Course"
+    tagline="Manchester Coding Club"
+    title="Learn Python Coding"
     subtitle="A small-group Manchester coding course for ages 13-17. Build real apps, boost problem-solving and learn Python from scratch with a qualified teacher."
     actions={[
       {
@@ -52,7 +37,7 @@ const eventSchema = createEducationEventSchema({
     ]}
     image={{
       src: siteImages.gallery.codingFlyer,
-      alt: 'MathsTutorHelp Manchester Summer Coding Club flyer for students aged 13 to 17',
+      alt: 'MathsTutorHelp Manchester Coding Club flyer for students aged 13 to 17',
       width: 720,
       height: 874,
       style: 'object-fit:contain;max-height:520px;height:auto;max-width:100%;width:auto;background-color:#f4efd8',
@@ -70,8 +55,8 @@ const eventSchema = createEducationEventSchema({
         icon: 'tabler:users',
       },
       {
-        title: `${courseSchedule.coding.day}, ${courseSchedule.coding.time}`,
-        description: `${courseSchedule.coding.sessions} sessions from ${courseSchedule.coding.startDate} to ${courseSchedule.coding.endDate} at ${courseSchedule.venue.name}.`,
+        title: 'Start date and time coming soon',
+        description: `${courseSchedule.coding.sessions} sessions at ${courseSchedule.venue.name}, Manchester. Register interest to receive the schedule when it is announced.`,
         icon: 'tabler:clock',
       },
       {
@@ -126,8 +111,8 @@ const eventSchema = createEducationEventSchema({
   >
     <Fragment slot="content">
       <p>
-        Give your child a powerful head start in coding this summer in a calm, focused, small-group environment.
-        Students learn step by step, build real programs and practise problem-solving through coding.
+        Give your child a powerful head start in coding in a calm, focused, small-group environment. Students learn step
+        by step, build real programs and practise problem-solving through coding.
       </p>
     </Fragment>
   </Content>
@@ -241,7 +226,7 @@ const eventSchema = createEducationEventSchema({
 
   <CallToAction
     title="Only 7 Spaces Available"
-    subtitle="Register interest now for the Manchester summer Python course. No payment is required to register interest."
+    subtitle="Register interest now for the Manchester Python coding club. No payment is required and the start date and time are coming soon."
     actions={[
       {
         variant: 'primary',
