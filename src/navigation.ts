@@ -50,7 +50,7 @@ export const footerData = {
       links: [
         { text: 'Group Classes', href: getPermalink('/gcse-classes') },
         { text: 'GCSE Higher Class', href: getPermalink('/gcse-revision-class-higher-manchester') },
-        { text: 'GCSE Foundation Class', href: getPermalink('/gcse-foundation-maths-tutoring-club-2025') },
+        { text: 'GCSE Foundation Class', href: getPermalink('/gcse-foundation-maths-classes-manchester') },
         { text: 'Manchester Coding Club', href: getPermalink('/manchestersummercodingclub') },
       ],
     },
@@ -85,7 +85,7 @@ export const footerData = {
     { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://www.instagram.com/mathstutorhelp/' },
   ],
   footNote: `
-    Copyright &copy; 2026 <a class="text-accent underline" href="${getPermalink('/')}">MathsTutorHelp</a>. All rights reserved.<br />Powered by <a class="text-accent underline" href="https://hai-bl.com">Hai-BL.com</a>.
+    Copyright &copy; 2026 <a class="text-accent underline" href="${getPermalink('/')}">MathsTutorHelp</a>. All rights reserved.<br />Website by ZakTec Solutions. <a class="text-accent underline" href="${bookingLinks.studentLogin}">HAiBL student platform</a>.
   `,
   theme: 'dark',
 };

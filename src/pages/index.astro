@@ -10,7 +10,7 @@ import { getPermalink } from '~/utils/permalinks';
 import { bookingLinks, courseSchedule, ctaLabels, tuitionPrices } from '~/utils/siteDetails';
 
 const metadata = {
-  title: 'MathsTutorHelp | Maths Tutor Manchester',
+  title: 'Maths Tutor Manchester | GCSE & Online Maths Tuition',
   description:
     'Qualified maths tutor in Manchester offering GCSE, IGCSE, KS3 and A-Level tuition. Online lessons and small-group classes in Levenshulme.',
   ignoreTitleTemplate: true,
@@ -19,7 +19,7 @@ const metadata = {
 const consultationBookingUrl = bookingLinks.freeConsultation;
 const groupClassInterestUrl = '/contact/?enquiry=group-maths';
 const gcseClassesUrl = getPermalink('/gcse-classes');
-const foundationClassUrl = getPermalink('/gcse-foundation-maths-tutoring-club-2025');
+const foundationClassUrl = getPermalink('/gcse-foundation-maths-classes-manchester');
 const higherClassUrl = getPermalink('/gcse-revision-class-higher-manchester');
 const mathsTuitionUrl = getPermalink('/maths-tuition');
 const onlineTuitionUrl = getPermalink('/online-tuition');
@@ -50,11 +50,11 @@ const compactSection = { container: 'py-8 md:py-10 lg:py-12' };
         <div>
           <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Upcoming Classes</p>
           <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-950 dark:text-white">
-            GCSE Classes Starting September 2026
+            GCSE Maths Classes — September 2026
           </h2>
           <p class="mt-3 max-w-3xl text-base leading-7 text-muted dark:text-slate-300">
             Small GCSE Foundation and Higher classes begin on Sunday {courseSchedule.gcse.startDate} at{' '}
-            {courseSchedule.venue.name} and run on scheduled Sundays until {courseSchedule.gcse.endMonth}.
+            {courseSchedule.venue.name} and run on scheduled Sundays until {courseSchedule.gcse.endDate}.
           </p>
           <div class="mt-4 flex flex-wrap gap-2 text-sm font-bold text-gray-800 dark:text-slate-200">
             <span class="rounded-full bg-white px-3 py-1 dark:bg-slate-900"
@@ -67,7 +67,7 @@ const compactSection = { container: 'py-8 md:py-10 lg:py-12' };
               >Maximum {courseSchedule.gcse.maximumStudents} students per class</span
             >
             <span class="rounded-full bg-white px-3 py-1 dark:bg-slate-900"
-              >{tuitionPrices.smallGroup.display} or {tuitionPrices.smallGroup.advanceBlock} with advance booking</span
+              >PAYG: {tuitionPrices.smallGroup.display}; block rate: {tuitionPrices.smallGroup.advanceBlock}</span
             >
           </div>
           <p class="mt-4 text-sm font-semibold text-gray-700 dark:text-slate-300">

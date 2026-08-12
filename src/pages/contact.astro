@@ -44,8 +44,8 @@ const applicationForms = [
   {
     title: 'Manchester Coding Club',
     description: 'Register interest in the small-group Python coding course for students aged 13–17.',
-    action: 'Ask about coding club',
-    href: '/contact/?enquiry=coding',
+    action: 'Use the general enquiry form',
+    href: '/contact/?enquiry=coding#general-enquiry',
     isExternal: false,
   },
   {
@@ -78,7 +78,7 @@ const applicationForms = [
     subtitle="Have a question or want to discuss tuition? Send a message, call, use WhatsApp or choose a specialist form."
     callToAction={{
       variant: 'primary',
-      text: 'Choose a Contact Option',
+      text: 'View Contact and Registration Options',
       href: '#contact-options',
       icon: 'tabler:message-circle',
     }}
@@ -114,7 +114,36 @@ const applicationForms = [
         }
       </div>
 
+      <div class="mt-10 rounded-xl border border-gray-200 bg-white p-5 sm:p-8 dark:border-gray-700 dark:bg-slate-900">
+        <div class="max-w-2xl">
+          <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Registration forms</p>
+          <h3 class="mt-2 text-2xl font-bold text-gray-950 dark:text-white">Choose the right form</h3>
+          <p class="mt-2 leading-7 text-muted dark:text-slate-300">
+            Already know which service you need? Use the relevant form so your enquiry reaches the right place.
+          </p>
+        </div>
+        <div class="mt-6 grid gap-4 md:grid-cols-2">
+          {
+            applicationForms.map(({ title, description, action, href, isExternal = true }) => (
+              <div class="flex flex-col rounded-lg border border-gray-200 p-5 dark:border-gray-700">
+                <h4 class="text-lg font-bold text-gray-950 dark:text-white">{title}</h4>
+                <p class="mt-2 grow text-sm leading-6 text-muted dark:text-slate-300">{description}</p>
+                <a class="mt-4 inline-flex items-center gap-2 font-semibold text-primary hover:underline" href={href}>
+                  {action}
+                  <Icon name={isExternal ? 'tabler:external-link' : 'tabler:arrow-right'} class="h-4 w-4" />
+                </a>
+              </div>
+            ))
+          }
+        </div>
+        <p class="mt-5 text-sm text-muted dark:text-slate-400">
+          Forms marked with the external-link icon leave MathsTutorHelp and continue to the Hai‑BL registration
+          platform.
+        </p>
+      </div>
+
       <div
+        id="general-enquiry"
         class="mx-auto mt-10 max-w-4xl rounded-xl border border-primary/20 bg-white p-6 shadow-sm sm:p-8 dark:border-primary/30 dark:bg-slate-900"
       >
         <div class="flex items-center gap-3">
@@ -122,7 +151,7 @@ const applicationForms = [
             <Icon name="tabler:message-circle" class="h-6 w-6" />
           </span>
           <div>
-            <h3 class="text-2xl font-bold text-gray-950 dark:text-white">General question or enquiry</h3>
+            <h3 class="text-2xl font-bold text-gray-950 dark:text-white">Not sure? Send a general enquiry</h3>
             <p class="mt-1 leading-7 text-muted dark:text-slate-300">
               Send a message using the form below. I normally reply within 24 hours.
             </p>
@@ -212,7 +241,10 @@ const applicationForms = [
             </div>
           </div>
 
-          <fieldset class="mt-5 rounded-lg border border-gray-200 p-4 dark:border-gray-700">
+          <fieldset
+            id="student-details-field"
+            class="mt-5 hidden rounded-lg border border-gray-200 p-4 dark:border-gray-700"
+          >
             <legend class="px-1 text-sm font-semibold text-gray-900 dark:text-white">
               Student details <span class="font-normal text-muted dark:text-slate-400">(optional)</span>
             </legend>
@@ -332,31 +364,6 @@ const applicationForms = [
         </form>
       </div>
 
-      <div class="mt-10 rounded-xl border border-gray-200 bg-white p-5 sm:p-8 dark:border-gray-700 dark:bg-slate-900">
-        <div class="max-w-2xl">
-          <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Registration forms</p>
-          <h3 class="mt-2 text-2xl font-bold text-gray-950 dark:text-white">Choose a specialist form</h3>
-        </div>
-        <div class="mt-6 grid gap-4 md:grid-cols-2">
-          {
-            applicationForms.map(({ title, description, action, href, isExternal = true }) => (
-              <div class="flex flex-col rounded-lg border border-gray-200 p-5 dark:border-gray-700">
-                <h4 class="text-lg font-bold text-gray-950 dark:text-white">{title}</h4>
-                <p class="mt-2 grow text-sm leading-6 text-muted dark:text-slate-300">{description}</p>
-                <a class="mt-4 inline-flex items-center gap-2 font-semibold text-primary hover:underline" href={href}>
-                  {action}
-                  <Icon name={isExternal ? 'tabler:external-link' : 'tabler:arrow-right'} class="h-4 w-4" />
-                </a>
-              </div>
-            ))
-          }
-        </div>
-        <p class="mt-5 text-sm text-muted dark:text-slate-400">
-          Forms marked with the external-link icon leave MathsTutorHelp and continue to the Hai‑BL registration
-          platform.
-        </p>
-      </div>
-
       <div
         class="mx-auto mt-8 max-w-4xl rounded-xl border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-slate-900"
       >
@@ -380,6 +387,7 @@ const applicationForms = [
   const enquiryType = document.querySelector<HTMLSelectElement>('#enquiry-type');
   const onlinePlan = document.querySelector<HTMLSelectElement>('#online-plan');
   const onlinePlanField = document.querySelector<HTMLElement>('#online-plan-field');
+  const studentDetailsField = document.querySelector<HTMLFieldSetElement>('#student-details-field');
 
   const enquiryLabels: Record<string, string> = {
     foundation: 'Foundation group class',
@@ -399,11 +407,19 @@ const applicationForms = [
   if (onlinePlan && requestedPlan && [...onlinePlan.options].some((option) => option.value === requestedPlan)) {
     onlinePlan.value = requestedPlan;
   }
-  const updateOnlinePlanVisibility = () => {
-    onlinePlanField?.classList.toggle('hidden', enquiryType?.value !== 'online');
+  const tuitionEnquiries = new Set(['foundation', 'higher', 'group-maths', 'one-to-one', 'online']);
+  const updateConditionalFields = () => {
+    const selectedEnquiry = enquiryType?.value ?? '';
+    const showStudentDetails = tuitionEnquiries.has(selectedEnquiry);
+    studentDetailsField?.classList.toggle('hidden', !showStudentDetails);
+    if (studentDetailsField) studentDetailsField.disabled = !showStudentDetails;
+
+    const showOnlinePlan = selectedEnquiry === 'online';
+    onlinePlanField?.classList.toggle('hidden', !showOnlinePlan);
+    if (onlinePlan) onlinePlan.disabled = !showOnlinePlan;
   };
-  enquiryType?.addEventListener('change', updateOnlinePlanVisibility);
-  updateOnlinePlanVisibility();
+  enquiryType?.addEventListener('change', updateConditionalFields);
+  updateConditionalFields();
 
   let formStartedAt = Date.now();
   let isSubmitting = false;

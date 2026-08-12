@@ -6,7 +6,7 @@ import { getAsset, getPermalink } from '~/utils/permalinks';
 import { contactDetails } from '~/utils/siteDetails';
 import { siteImages } from '~/data/images';
 
-const { interestUrl, tuitionOptionsUrl = getPermalink('/maths-tuition/') } = Astro.props;
+const { interestUrl, pricesUrl = getPermalink('/pricing/') } = Astro.props;
 ---
 
 <section class="relative md:-mt-[76px] not-prose overflow-hidden">
@@ -42,12 +42,7 @@ const { interestUrl, tuitionOptionsUrl = getPermalink('/maths-tuition/') } = Ast
             icon="tabler:calendar-check"
             class="w-full sm:w-auto"
           />
-          <Button
-            text="View Tuition Options"
-            href={tuitionOptionsUrl}
-            icon="tabler:chevron-right"
-            class="w-full sm:w-auto"
-          />
+          <Button text="View Prices" href={pricesUrl} icon="tabler:chevron-right" class="w-full sm:w-auto" />
         </div>
         <p class="mt-3 text-sm leading-6 text-muted dark:text-slate-300">
           Tell me what support you need and the contact hub will guide you to the right enquiry option.

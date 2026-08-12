@@ -5,6 +5,7 @@ import Features from '~/components/widgets/Features.astro';
 import Content from '~/components/widgets/Content.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import Button from '~/components/ui/Button.astro';
 import { getPermalink } from '~/utils/permalinks';
 import { contactDetails, courseSchedule, ctaLabels, tuitionPrices } from '~/utils/siteDetails';
 import { siteImages } from '~/data/images';
@@ -14,11 +15,14 @@ const metadata = {
   title: 'GCSE Higher Maths Classes Manchester',
   description:
     'MathsTutorHelp structured weekly GCSE Higher Maths sessions in Manchester for Year 10 and 11 students aiming for grades 6-9.',
+  openGraph: {
+    images: [{ url: '/images/gallery/classroom-circle-theorems.jpeg', width: 1200, height: 675 }],
+  },
 };
 
-const interestFormUrl = '/contact/?enquiry=higher';
+const interestFormUrl = 'https://hai-bl.com/onboarding/group-classes?brand=mathstutorhelp';
 const contactUrl = getPermalink('/contact');
-const foundationClassUrl = getPermalink('/gcse-foundation-maths-tutoring-club-2025');
+const foundationClassUrl = getPermalink('/gcse-foundation-maths-classes-manchester');
 const onlineTuitionUrl = getPermalink('/online-tuition');
 const phoneDisplay = contactDetails.phoneDisplay;
 const eventSchema = createEducationEventSchema({
@@ -26,12 +30,12 @@ const eventSchema = createEducationEventSchema({
   description: metadata.description,
   pageUrl: Astro.url,
   siteUrl: Astro.site,
-  startDate: '2026-09-13T11:00:00+01:00',
-  endDate: '2027-06-13T12:00:00+01:00',
+  startDate: courseSchedule.gcse.higherStartDateTime,
+  endDate: courseSchedule.gcse.higherEndDateTime,
   image: '/images/gallery/classroom-circle-theorems.jpeg',
   price: '20',
   bookingUrl: interestFormUrl,
-  validFrom: '2026-07-01T00:00:00+01:00',
+  validFrom: courseSchedule.gcse.bookingValidFrom,
 });
 ---
 
@@ -41,13 +45,12 @@ const eventSchema = createEducationEventSchema({
   <Hero
     tagline="MathsTutorHelp GCSE Higher Maths"
     title="MathsTutorHelp GCSE Higher Maths Classes Manchester"
-    subtitle="Structured weekly MathsTutorHelp sessions in Manchester designed to help Year 10 and 11 Higher Tier students master key topics, build confidence and succeed in GCSE Maths."
+    subtitle={`Structured GCSE Higher revision for grades 6–9. ${courseSchedule.gcse.day}, ${courseSchedule.gcse.higherTime} in Manchester · Maximum ${courseSchedule.gcse.maximumStudents} students · From ${tuitionPrices.smallGroup.advanceBlock}.`}
     actions={[
       {
         variant: 'primary',
         text: ctaLabels.groupClassInterest,
         href: interestFormUrl,
-        target: '_blank',
         icon: 'tabler:calendar-check',
       },
       { text: 'Contact MathsTutorHelp', href: contactUrl },
@@ -70,7 +73,7 @@ const eventSchema = createEducationEventSchema({
       },
       {
         title: `${courseSchedule.gcse.day}, ${courseSchedule.gcse.higherTime}`,
-        description: `Weekly classes from ${courseSchedule.gcse.startDate} to ${courseSchedule.gcse.endMonth}.`,
+        description: `Weekly classes from ${courseSchedule.gcse.startDate} to ${courseSchedule.gcse.endDate}.`,
         icon: 'tabler:clock',
       },
       {
@@ -113,10 +116,6 @@ const eventSchema = createEducationEventSchema({
         description: 'Students practise GCSE-style questions, learn how to show working and review common mistakes.',
       },
       {
-        title: 'Paper-based learning',
-        description: 'No screens in class, just structured, focused study that reflects real exam conditions.',
-      },
-      {
         title: 'Homework and materials',
         description:
           'Students can bring schoolwork, use tutor-provided materials or access bonus tasks and past papers.',
@@ -137,7 +136,7 @@ const eventSchema = createEducationEventSchema({
 
   <Features
     title="Course Plan"
-    subtitle="A phased programme from September 2026 to June 2027, adjusted using diagnostic results and each student’s exam-board specification."
+    subtitle="37 taught lessons from September 2026 to June 2027. Book by blocks for £592 instead of £740 pay-as-you-go—a saving of £148."
     columns={3}
     items={[
       {
@@ -178,6 +177,16 @@ const eventSchema = createEducationEventSchema({
       },
     ]}
   >
+    <div class="mt-10 text-center">
+      <p class="mb-5 text-muted">View every lesson date, classroom topic, block and price in the detailed programme.</p>
+      <Button
+        variant="primary"
+        text="Download the full course plan (PDF)"
+        href="/downloads/MathsTutorHelp-GCSE-Higher-Revision-Programme-2026-27.pdf"
+        download
+        icon="tabler:download"
+      />
+    </div>
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-brand-soft dark:bg-transparent"></div>
     </Fragment>
@@ -211,8 +220,8 @@ const eventSchema = createEducationEventSchema({
   >
     <Fragment slot="content">
       <p>
-        Book the full term to secure your child’s place, or attend flexibly once a space has been reserved. Places are
-        limited because the class is kept small for focused support.
+        Book a block or the full programme to secure your child’s place, or attend flexibly once a space has been
+        reserved.
       </p>
     </Fragment>
   </Content>
@@ -227,16 +236,8 @@ const eventSchema = createEducationEventSchema({
         description: 'Let us know in advance. Where possible, your child can attend the next suitable session.',
       },
       {
-        title: 'Is homework given?',
-        description: 'Yes. Optional worksheets are provided, and students can also bring schoolwork for support.',
-      },
-      {
         title: 'How is progress tracked?',
         description: 'Progress is tracked with mock tasks, diagnostic reviews and regular tutor feedback.',
-      },
-      {
-        title: 'Do students use computers in class?',
-        description: 'No. Work is paper-based to reflect real exam conditions and reduce distractions.',
       },
       {
         title: 'Can my child join mid-way through the term?',
@@ -250,29 +251,6 @@ const eventSchema = createEducationEventSchema({
       {
         title: 'Is this suitable for Foundation Tier students?',
         description: `This class is for Higher Tier. Foundation students can view the Foundation group here: <a class="underline" href="${foundationClassUrl}">GCSE Foundation class</a>.`,
-      },
-      {
-        title: 'Do you run sessions during school holidays?',
-        description:
-          'Additional holiday sessions may be offered. Dates, availability and pricing are confirmed separately by WhatsApp and email.',
-      },
-      {
-        title: 'How many sessions are included?',
-        description:
-          'The class runs on scheduled Sundays from 13 September 2026 to 13 June 2027. Your booking confirmation lists the included dates, planned breaks and the sessions covered by your payment.',
-      },
-      {
-        title: 'What are the 2027 Maths exam dates?',
-        description:
-          'The common AQA, Edexcel and OCR dates are Friday 14 May, Thursday 27 May and Monday 14 June 2027, all in the morning. Students should confirm their personal timetable with their school and remain available until the contingency day on Wednesday 23 June.',
-      },
-      {
-        title: 'Can parents get feedback?',
-        description: 'Yes. Updates can be shared by WhatsApp or email on request.',
-      },
-      {
-        title: 'Is there a free trial?',
-        description: 'Ask about current trial or first-session arrangements when you register interest.',
       },
       {
         title: 'Who teaches the class?',
@@ -294,7 +272,6 @@ const eventSchema = createEducationEventSchema({
         variant: 'primary',
         text: ctaLabels.groupClassInterest,
         href: interestFormUrl,
-        target: '_blank',
         icon: 'tabler:calendar-check',
       },
       { text: 'Ask About One-to-One Tuition', href: contactUrl },

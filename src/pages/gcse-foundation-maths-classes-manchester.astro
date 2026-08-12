@@ -5,6 +5,7 @@ import Features from '~/components/widgets/Features.astro';
 import Content from '~/components/widgets/Content.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import Button from '~/components/ui/Button.astro';
 import { getPermalink } from '~/utils/permalinks';
 import { contactDetails, courseSchedule, ctaLabels, tuitionPrices } from '~/utils/siteDetails';
 import { siteImages } from '~/data/images';
@@ -14,9 +15,12 @@ const metadata = {
   title: 'GCSE Foundation Maths Tutoring Manchester',
   description:
     'MathsTutorHelp GCSE Foundation Maths tutoring club in Levenshulme, Manchester for Year 10 and 11 students working towards grades 4-5.',
+  openGraph: {
+    images: [{ url: '/images/gallery/ks3-gcse-maths-classes-manchester.jpeg', width: 1200, height: 675 }],
+  },
 };
 
-const interestFormUrl = '/contact/?enquiry=foundation';
+const interestFormUrl = 'https://hai-bl.com/onboarding/group-classes?brand=mathstutorhelp';
 const contactUrl = getPermalink('/contact');
 const higherClassUrl = getPermalink('/gcse-revision-class-higher-manchester');
 const onlineTuitionUrl = getPermalink('/online-tuition');
@@ -26,12 +30,12 @@ const eventSchema = createEducationEventSchema({
   description: metadata.description,
   pageUrl: Astro.url,
   siteUrl: Astro.site,
-  startDate: '2026-09-13T10:00:00+01:00',
-  endDate: '2027-06-13T11:00:00+01:00',
+  startDate: courseSchedule.gcse.foundationStartDateTime,
+  endDate: courseSchedule.gcse.foundationEndDateTime,
   image: '/images/gallery/ks3-gcse-maths-classes-manchester.jpeg',
   price: '20',
   bookingUrl: interestFormUrl,
-  validFrom: '2026-07-01T00:00:00+01:00',
+  validFrom: courseSchedule.gcse.bookingValidFrom,
 });
 ---
 
@@ -41,21 +45,16 @@ const eventSchema = createEducationEventSchema({
   <Hero
     tagline="MathsTutorHelp Group Classes"
     title="MathsTutorHelp GCSE Maths Foundation Tutoring"
-    subtitle="Small group GCSE Foundation Maths classes from MathsTutorHelp in Levenshulme, helping students move from grade 3 towards grade 5 with structured weekly exam practice."
+    subtitle={`Structured GCSE Foundation revision for grades 3–5. ${courseSchedule.gcse.day}, ${courseSchedule.gcse.foundationTime} in Manchester · Maximum ${courseSchedule.gcse.maximumStudents} students · From ${tuitionPrices.smallGroup.advanceBlock}.`}
     actions={[
       {
         variant: 'primary',
         text: ctaLabels.groupClassInterest,
         href: interestFormUrl,
-        target: '_blank',
         icon: 'tabler:calendar-check',
       },
       { text: 'Contact MathsTutorHelp', href: contactUrl },
     ]}
-    image={{
-      src: siteImages.gallery.classesPoster,
-      alt: 'GCSE maths class poster for Manchester students',
-    }}
   />
 
   <Features
@@ -71,7 +70,7 @@ const eventSchema = createEducationEventSchema({
       },
       {
         title: `${courseSchedule.gcse.day}, ${courseSchedule.gcse.foundationTime}`,
-        description: `Weekly sessions from ${courseSchedule.gcse.startDate} to ${courseSchedule.gcse.endMonth}, covering the full exam preparation period.`,
+        description: `Weekly lessons from ${courseSchedule.gcse.startDate} to ${courseSchedule.gcse.endDate}, covering the full exam preparation period.`,
         icon: 'tabler:clock',
       },
       {
@@ -136,7 +135,7 @@ const eventSchema = createEducationEventSchema({
 
   <Features
     title="Course Plan"
-    subtitle="A phased programme from September 2026 to June 2027, adjusted using diagnostic results and each student’s exam-board specification."
+    subtitle="37 taught lessons from September 2026 to June 2027. Book by blocks for £592 instead of £740 pay-as-you-go—a saving of £148."
     columns={3}
     items={[
       {
@@ -176,6 +175,16 @@ const eventSchema = createEducationEventSchema({
       },
     ]}
   >
+    <div class="mt-10 text-center">
+      <p class="mb-5 text-muted">View every lesson date, classroom topic, block and price in the detailed programme.</p>
+      <Button
+        variant="primary"
+        text="Download the full course plan (PDF)"
+        href="/downloads/MathsTutorHelp-GCSE-Foundation-Revision-Programme-2026-27.pdf"
+        download
+        icon="tabler:download"
+      />
+    </div>
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-brand-soft dark:bg-transparent"></div>
     </Fragment>
@@ -184,7 +193,7 @@ const eventSchema = createEducationEventSchema({
   <Features
     title="Booking and Attendance"
     subtitle="A calm, focused Foundation class with flexible attendance once your child’s place is reserved."
-    columns={3}
+    columns={2}
     items={[
       {
         title: 'Reserve a place first',
@@ -202,20 +211,9 @@ const eventSchema = createEducationEventSchema({
         icon: 'tabler:user-plus',
       },
       {
-        title: 'Exam board support',
-        description: 'AQA, Edexcel and OCR tasks can be adapted to the student’s specification.',
-        icon: 'tabler:clipboard-check',
-      },
-      {
-        title: 'Paper-based lessons',
-        description: 'No screens in class, just structured study and exam-style written practice.',
-        icon: 'tabler:file-pencil',
-      },
-      {
-        title: 'Term-time and holidays',
-        description:
-          'The regular timetable covers scheduled Sundays. Any additional holiday sessions are confirmed separately.',
-        icon: 'tabler:calendar-time',
+        title: 'Block booking',
+        description: 'Book an eight-lesson block for £128, equivalent to £16 per lesson.',
+        icon: 'tabler:calendar-dollar',
       },
     ]}
   >
@@ -233,10 +231,6 @@ const eventSchema = createEducationEventSchema({
         description: 'Let us know in advance. Where possible, your child can attend the next suitable session.',
       },
       {
-        title: 'Can my child bring schoolwork?',
-        description: 'Yes. Students can bring schoolwork or use tutor-provided worksheets and practice questions.',
-      },
-      {
         title: 'How is progress tracked?',
         description: 'Progress is tracked through diagnostic tasks, mock-style practice and tutor feedback.',
       },
@@ -245,31 +239,9 @@ const eventSchema = createEducationEventSchema({
         description: 'AQA, Edexcel and OCR can be supported, with tasks adapted to the student specification.',
       },
       {
-        title: 'Do students use computers in class?',
-        description: 'No. Work is paper-based to reflect real exam conditions and reduce distractions.',
-      },
-      {
         title: 'Can my child join mid-way through the term?',
         description:
           'Yes. Students can join mid-way if a place is available. The first session includes a diagnostic check.',
-      },
-      {
-        title: 'Do you run sessions during school holidays?',
-        description:
-          'Additional holiday sessions may be offered. Dates, availability and pricing are confirmed separately by WhatsApp and email.',
-      },
-      {
-        title: 'How many sessions are included?',
-        description:
-          'The class runs on scheduled Sundays from 13 September 2026 to 13 June 2027. Your booking confirmation lists the included dates, planned breaks and the sessions covered by your payment.',
-      },
-      {
-        title: 'Can parents get feedback?',
-        description: 'Yes. Updates can be shared by WhatsApp on request.',
-      },
-      {
-        title: 'Is there a free trial?',
-        description: 'Ask about current trial or first-session arrangements when you register interest.',
       },
       {
         title: 'Who teaches the class?',
@@ -295,7 +267,6 @@ const eventSchema = createEducationEventSchema({
         variant: 'primary',
         text: ctaLabels.groupClassInterest,
         href: interestFormUrl,
-        target: '_blank',
         icon: 'tabler:calendar-check',
       },
       { text: 'Contact MathsTutorHelp', href: contactUrl },

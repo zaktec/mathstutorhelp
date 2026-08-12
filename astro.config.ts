@@ -26,6 +26,9 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
 export default defineConfig({
   output: 'static',
   site: 'https://mathstutorhelp.com',
+  redirects: {
+    '/gcse-foundation-maths-tutoring-club-2025': '/gcse-foundation-maths-classes-manchester',
+  },
 
   integrations: [
     sitemap({

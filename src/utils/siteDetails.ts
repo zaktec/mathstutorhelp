@@ -31,9 +31,9 @@ export const tuitionPrices = {
   },
   smallGroup: {
     amount: '£20',
-    unit: 'per session',
-    display: '£20 per session',
-    advanceBlock: '£16 per session',
+    unit: 'per lesson',
+    display: '£20 per lesson',
+    advanceBlock: '£16 per lesson',
   },
   online: {
     amount: '£25',
@@ -49,7 +49,12 @@ export const courseSchedule = {
   },
   gcse: {
     startDate: '13 September 2026',
-    endMonth: '13 June 2027',
+    endDate: '13 June 2027',
+    foundationStartDateTime: '2026-09-13T10:00:00+01:00',
+    foundationEndDateTime: '2027-06-13T11:00:00+01:00',
+    higherStartDateTime: '2026-09-13T11:00:00+01:00',
+    higherEndDateTime: '2027-06-13T12:00:00+01:00',
+    bookingValidFrom: '2026-07-01T00:00:00+01:00',
     day: 'Sundays',
     foundationTime: '10:00–11:00 am',
     higherTime: '11:00 am–12:00 pm',
