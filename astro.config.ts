@@ -28,6 +28,7 @@ export default defineConfig({
   site: 'https://mathstutorhelp.com',
   redirects: {
     '/gcse-foundation-maths-tutoring-club-2025': '/gcse-foundation-maths-classes-manchester',
+    '/manchestersummercodingclub': '/manchester-coding-club',
   },
 
   integrations: [

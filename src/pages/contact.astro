@@ -5,7 +5,7 @@ import { Icon } from 'astro-icon/components';
 import { bookingLinks, contactDetails, courseSchedule } from '~/utils/siteDetails';
 
 const metadata = {
-  title: 'Contact Manchester Maths Tutor',
+  title: 'Contact MathsTutorHelp | Manchester Maths Tutor',
   description:
     'Contact MathsTutorHelp in Manchester by phone, WhatsApp or online form for GCSE, IGCSE, Functional Skills, A-Level and group maths tuition.',
 };
@@ -15,15 +15,15 @@ const contactOptions = [
     title: 'Send a WhatsApp',
     description: 'Best for a quick question. I normally reply within 24 hours.',
     action: 'Message me',
-    href: contactDetails.whatsappHref,
+    href: '',
     icon: 'tabler:brand-whatsapp',
   },
   {
-    title: 'Call MathsTutorHelp',
-    description: `Speak to me directly on ${contactDetails.phoneDisplay}.`,
-    action: 'Call now',
-    href: contactDetails.phoneHref,
-    icon: 'tabler:phone',
+    title: 'Send a general enquiry',
+    description: 'Tell me the student’s level and goals so I can suggest the right option.',
+    action: 'Use the enquiry form',
+    href: '#general-enquiry',
+    icon: 'tabler:message-circle',
   },
   {
     title: 'Book a consultation',
@@ -44,9 +44,8 @@ const applicationForms = [
   {
     title: 'Manchester Coding Club',
     description: 'Register interest in the small-group Python coding course for students aged 13–17.',
-    action: 'Use the general enquiry form',
-    href: '/contact/?enquiry=coding#general-enquiry',
-    isExternal: false,
+    action: 'Open coding class form',
+    href: bookingLinks.codingClassForm,
   },
   {
     title: 'One-to-one tuition',
@@ -61,25 +60,34 @@ const applicationForms = [
     href: bookingLinks.onlineCourseForm,
     isExternal: true,
   },
-  {
-    title: 'Work with MathsTutorHelp',
-    description: 'Tutors and other talented people can introduce themselves on our dedicated work page.',
-    action: 'View opportunities',
-    href: '/work-with-mth/',
-    isExternal: false,
-  },
 ];
+const whatsappMessage = encodeURIComponent(
+  "Hi Mr Sheraz, I'm looking for maths tuition. The student is in Year __ and needs help with __."
+);
+const whatsappUrl = `${contactDetails.whatsappHref}?text=${whatsappMessage}`;
+contactOptions[0].href = whatsappUrl;
+const contactPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  '@id': 'https://mathstutorhelp.com/contact/#contact-page',
+  name: 'Contact MathsTutorHelp',
+  url: 'https://mathstutorhelp.com/contact/',
+  mainEntity: { '@id': 'https://mathstutorhelp.com/#mathstutorhelp' },
+  description: metadata.description,
+};
 ---
 
 <Layout metadata={metadata}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(contactPageSchema)} />
+
   <HeroText
     tagline="Get in Touch"
     title="Contact MathsTutorHelp"
     subtitle="Have a question or want to discuss tuition? Send a message, call, use WhatsApp or choose a specialist form."
     callToAction={{
       variant: 'primary',
-      text: 'View Contact and Registration Options',
-      href: '#contact-options',
+      text: 'Discuss Tuition Options',
+      href: '#general-enquiry',
       icon: 'tabler:message-circle',
     }}
   />
@@ -114,6 +122,12 @@ const applicationForms = [
         }
       </div>
 
+      <p class="mt-5 text-center text-sm text-muted dark:text-slate-300">
+        Prefer to speak by phone? Call <a class="font-semibold text-primary underline" href={contactDetails.phoneHref}
+          >{contactDetails.phoneDisplay}</a
+        >. If I cannot answer, please leave a message or use WhatsApp.
+      </p>
+
       <div class="mt-10 rounded-xl border border-gray-200 bg-white p-5 sm:p-8 dark:border-gray-700 dark:bg-slate-900">
         <div class="max-w-2xl">
           <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Registration forms</p>
@@ -130,6 +144,7 @@ const applicationForms = [
                 <p class="mt-2 grow text-sm leading-6 text-muted dark:text-slate-300">{description}</p>
                 <a class="mt-4 inline-flex items-center gap-2 font-semibold text-primary hover:underline" href={href}>
                   {action}
+                  {isExternal && <span class="sr-only"> (opens the Hai-BL registration platform)</span>}
                   <Icon name={isExternal ? 'tabler:external-link' : 'tabler:arrow-right'} class="h-4 w-4" />
                 </a>
               </div>
@@ -166,16 +181,43 @@ const applicationForms = [
           tabindex="-1"
         >
           <p class="text-lg font-bold">Thank you for getting in touch.</p>
-          <p class="mt-1">Your enquiry has been received successfully. I’ll get back to you as soon as possible.</p>
+          <p class="mt-1">
+            Your enquiry has been received. I normally respond within 24 hours by email, phone or WhatsApp.
+          </p>
+          <a class="mt-3 inline-flex font-semibold text-primary underline" href="/">Return to the homepage</a>
         </div>
 
         <form id="contact-form" class="mt-6" novalidate={false}>
+          <p class="mb-5 text-sm text-muted dark:text-slate-400">
+            Fields marked <span class="font-bold text-red-700 dark:text-red-300">*</span> are required.
+          </p>
           <div class="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden="true">
             <label for="website">Website</label>
             <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
           </div>
 
-          <div class="grid gap-5 sm:grid-cols-2">
+          <div>
+            <label for="enquiry-type" class="block text-sm font-semibold text-gray-900 dark:text-white">
+              Enquiry type <span class="text-red-700 dark:text-red-300" aria-hidden="true">*</span>
+            </label>
+            <select
+              class="mt-2 min-h-12 w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-950 shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-gray-600 dark:bg-slate-800 dark:text-white"
+              id="enquiry-type"
+              name="enquiryType"
+              required
+            >
+              <option value="">Choose an option</option>
+              <option value="foundation">Foundation group class</option>
+              <option value="higher">Higher group class</option>
+              <option value="coding">Manchester Coding Club</option>
+              <option value="group-maths">Other group maths tuition</option>
+              <option value="one-to-one">One-to-one tuition</option>
+              <option value="online">Online tuition</option>
+              <option value="general">General question</option>
+            </select>
+          </div>
+
+          <div class="mt-5 grid gap-5 sm:grid-cols-2">
             <div>
               <label for="name" class="block text-sm font-semibold text-gray-900 dark:text-white">
                 Name <span class="text-red-700 dark:text-red-300" aria-hidden="true">*</span>
@@ -205,7 +247,7 @@ const applicationForms = [
             </div>
           </div>
 
-          <div class="mt-5 grid gap-5 sm:grid-cols-2">
+          <div class="mt-5">
             <div>
               <label for="phone" class="block text-sm font-semibold text-gray-900 dark:text-white">
                 Phone number <span class="font-normal text-muted dark:text-slate-400">(optional)</span>
@@ -218,26 +260,6 @@ const applicationForms = [
                 autocomplete="tel"
                 inputmode="tel"
               />
-            </div>
-            <div>
-              <label for="enquiry-type" class="block text-sm font-semibold text-gray-900 dark:text-white">
-                Enquiry type <span class="text-red-700 dark:text-red-300" aria-hidden="true">*</span>
-              </label>
-              <select
-                class="mt-2 min-h-12 w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-950 shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-gray-600 dark:bg-slate-800 dark:text-white"
-                id="enquiry-type"
-                name="enquiryType"
-                required
-              >
-                <option value="">Choose an option</option>
-                <option value="foundation">Foundation group class</option>
-                <option value="higher">Higher group class</option>
-                <option value="coding">Manchester Coding Club</option>
-                <option value="group-maths">Other group maths tuition</option>
-                <option value="one-to-one">One-to-one tuition</option>
-                <option value="online">Online tuition</option>
-                <option value="general">General question</option>
-              </select>
             </div>
           </div>
 
@@ -256,13 +278,23 @@ const applicationForms = [
                 <label for="year-group" class="block text-sm font-semibold text-gray-900 dark:text-white"
                   >Year group</label
                 >
-                <input
+                <select
                   class="mt-2 min-h-12 w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-950 shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-gray-600 dark:bg-slate-800 dark:text-white"
-                  type="text"
                   id="year-group"
                   name="yearGroup"
-                  placeholder="e.g. Year 11"
-                />
+                >
+                  <option value="">Choose a year group</option>
+                  <option>Year 6</option>
+                  <option>Year 7</option>
+                  <option>Year 8</option>
+                  <option>Year 9</option>
+                  <option>Year 10</option>
+                  <option>Year 11</option>
+                  <option>Year 12</option>
+                  <option>Year 13</option>
+                  <option>Adult learner</option>
+                  <option>Other</option>
+                </select>
               </div>
               <div>
                 <label for="working-grade" class="block text-sm font-semibold text-gray-900 dark:text-white"
@@ -277,16 +309,33 @@ const applicationForms = [
                 />
               </div>
               <div>
-                <label for="exam-board" class="block text-sm font-semibold text-gray-900 dark:text-white"
-                  >Exam board</label
+                <label for="target-grade" class="block text-sm font-semibold text-gray-900 dark:text-white"
+                  >Target grade</label
                 >
                 <input
                   class="mt-2 min-h-12 w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-950 shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-gray-600 dark:bg-slate-800 dark:text-white"
                   type="text"
+                  id="target-grade"
+                  name="targetGrade"
+                  placeholder="e.g. Grade 6"
+                />
+              </div>
+              <div>
+                <label for="exam-board" class="block text-sm font-semibold text-gray-900 dark:text-white"
+                  >Exam board</label
+                >
+                <select
+                  class="mt-2 min-h-12 w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-950 shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-gray-600 dark:bg-slate-800 dark:text-white"
                   id="exam-board"
                   name="examBoard"
-                  placeholder="e.g. AQA"
-                />
+                >
+                  <option value="">Not sure</option>
+                  <option>AQA</option>
+                  <option>Edexcel</option>
+                  <option>OCR</option>
+                  <option>Cambridge IGCSE</option>
+                  <option>Other</option>
+                </select>
               </div>
               <div id="online-plan-field" class="hidden">
                 <label for="online-plan" class="block text-sm font-semibold text-gray-900 dark:text-white"
@@ -316,7 +365,11 @@ const applicationForms = [
               id="message"
               name="message"
               rows="6"
+              aria-describedby="message-help"
               required></textarea>
+            <p id="message-help" class="mt-2 text-sm text-muted dark:text-slate-400">
+              For example: topics the student finds difficult, their goals and preferred lesson format.
+            </p>
           </div>
 
           <div class="mt-5 flex items-start gap-3">
@@ -353,9 +406,8 @@ const applicationForms = [
             There is no payment or obligation to book when you send an enquiry.
           </p>
           <p class="mt-2 text-center text-sm text-muted dark:text-slate-400">
-            If the form does not work, <a
-              class="font-semibold text-primary underline"
-              href={contactDetails.whatsappHref}>send a WhatsApp</a
+            If the form does not work, <a class="font-semibold text-primary underline" href={whatsappUrl}
+              >send a WhatsApp</a
             >
             or call <a class="font-semibold text-primary underline" href={contactDetails.phoneHref}>
               {contactDetails.phoneDisplay}</a
@@ -407,7 +459,7 @@ const applicationForms = [
   if (onlinePlan && requestedPlan && [...onlinePlan.options].some((option) => option.value === requestedPlan)) {
     onlinePlan.value = requestedPlan;
   }
-  const tuitionEnquiries = new Set(['foundation', 'higher', 'group-maths', 'one-to-one', 'online']);
+  const tuitionEnquiries = new Set(['foundation', 'higher', 'coding', 'group-maths', 'one-to-one', 'online']);
   const updateConditionalFields = () => {
     const selectedEnquiry = enquiryType?.value ?? '';
     const showStudentDetails = tuitionEnquiries.has(selectedEnquiry);
@@ -423,16 +475,55 @@ const applicationForms = [
 
   let formStartedAt = Date.now();
   let isSubmitting = false;
+  let rateLimitedUntil = 0;
+  let rateLimitTimer: number | undefined;
+
+  const formatWait = (seconds: number) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes}:${String(remainingSeconds).padStart(2, '0')}`;
+  };
+
+  const showRateLimitCountdown = (retryAfterSeconds: number) => {
+    rateLimitedUntil = Date.now() + retryAfterSeconds * 1000;
+    if (rateLimitTimer) window.clearInterval(rateLimitTimer);
+
+    const updateMessage = () => {
+      const secondsRemaining = Math.max(0, Math.ceil((rateLimitedUntil - Date.now()) / 1000));
+      if (secondsRemaining === 0) {
+        if (rateLimitTimer) window.clearInterval(rateLimitTimer);
+        rateLimitTimer = undefined;
+        if (submitButton) submitButton.disabled = false;
+        if (errorMessage) {
+          errorMessage.textContent = 'You can now try sending your enquiry again.';
+        }
+        return;
+      }
+
+      if (submitButton) submitButton.disabled = true;
+      if (errorMessage) {
+        errorMessage.textContent = `You’ve made several submission attempts. Please wait ${formatWait(secondsRemaining)} before trying again, or WhatsApp me on 07860 248 525.`;
+        errorMessage.classList.remove('hidden');
+      }
+    };
+
+    updateMessage();
+    rateLimitTimer = window.setInterval(updateMessage, 1000);
+  };
 
   contactForm?.addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    if (isSubmitting || !contactForm.checkValidity()) {
+    if (isSubmitting || Date.now() < rateLimitedUntil) return;
+
+    if (!contactForm.checkValidity()) {
       contactForm.reportValidity();
+      contactForm.querySelector<HTMLElement>(':invalid')?.focus();
       return;
     }
 
     isSubmitting = true;
+    contactForm.setAttribute('aria-busy', 'true');
     if (submitButton) {
       submitButton.disabled = true;
       submitButton.textContent = 'Sending enquiry...';
@@ -445,6 +536,7 @@ const applicationForms = [
     const studentDetails = [
       ['Year group', String(formData.get('yearGroup') ?? '').trim()],
       ['Current grade', String(formData.get('workingGrade') ?? '').trim()],
+      ['Target grade', String(formData.get('targetGrade') ?? '').trim()],
       ['Exam board', String(formData.get('examBoard') ?? '').trim()],
       ['Preferred online plan', String(formData.get('onlinePlan') ?? '').trim()],
     ]
@@ -480,10 +572,22 @@ const applicationForms = [
         success?: boolean;
         message?: string;
         error?: string;
+        retryAfter?: number;
       };
 
+      if (response.status === 429) {
+        const retryAfterHeader = Number.parseInt(response.headers.get('Retry-After') ?? '', 10);
+        const retryAfterSeconds = Number.isFinite(retryAfterHeader)
+          ? retryAfterHeader
+          : typeof result.retryAfter === 'number'
+            ? result.retryAfter
+            : 900;
+        showRateLimitCountdown(Math.max(1, retryAfterSeconds));
+        return;
+      }
+
       if (!response.ok || !result.success) {
-        throw new Error(result.error || 'Your enquiry could not be sent. Please try again.');
+        throw new Error('The enquiry service is temporarily unavailable. Please try again or use WhatsApp.');
       }
 
       contactForm.reset();
@@ -495,7 +599,7 @@ const applicationForms = [
       const message =
         error instanceof DOMException && error.name === 'AbortError'
           ? 'The request took too long. Please try again or use WhatsApp.'
-          : error instanceof Error
+          : error instanceof Error && error.message.startsWith('The enquiry service')
             ? error.message
             : 'Your enquiry could not be sent. Please try again or use WhatsApp.';
       if (errorMessage) {
@@ -505,8 +609,9 @@ const applicationForms = [
       }
     } finally {
       isSubmitting = false;
+      contactForm.removeAttribute('aria-busy');
       if (submitButton) {
-        submitButton.disabled = false;
+        submitButton.disabled = Date.now() < rateLimitedUntil;
         submitButton.textContent = 'Send enquiry';
       }
     }

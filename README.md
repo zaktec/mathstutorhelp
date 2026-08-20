@@ -98,7 +98,7 @@ http://localhost:4321/
 - `/gcse-foundation-maths-tutoring-club-2025/` - GCSE Foundation group class
 - `/maths-tutor-levenshulme/` - local SEO page
 - `/gcse-maths-tutor-manchester/` - local GCSE SEO page
-- `/manchestersummercodingclub/` - Manchester Coding Club
+- `/manchester-coding-club/` - Manchester Coding Club
 - `/online-group-classes/` - online group class enquiry page
 - `/privacy/`, `/terms/`, `/safeguarding/` - legal and safeguarding pages
 

@@ -18,7 +18,7 @@ export const onlinePackages = [
       'Limited WhatsApp support for short course questions',
       'No live lesson included',
     ],
-    cta: 'Enquire About Bronze',
+    cta: 'Discuss Bronze',
   },
   {
     title: 'Silver',
@@ -32,7 +32,7 @@ export const onlinePackages = [
       'Tutor reviews completed work and provides progress guidance',
       'Suitable for students who need help staying on track',
     ],
-    cta: 'Enquire About Silver',
+    cta: 'Discuss Silver',
   },
   {
     title: 'Gold',
@@ -46,7 +46,7 @@ export const onlinePackages = [
       'Tutor reviews completed work and provides regular progress guidance',
       'Suitable for exam preparation and more challenging course work',
     ],
-    cta: 'Enquire About Gold',
+    cta: 'Discuss Gold',
   },
 ];
 

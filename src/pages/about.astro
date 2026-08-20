@@ -4,35 +4,70 @@ import Hero from '~/components/widgets/Hero.astro';
 import Features from '~/components/widgets/Features.astro';
 import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
 import { getPermalink } from '~/utils/permalinks';
 import { bookingLinks, contactDetails, courseSchedule, ctaLabels } from '~/utils/siteDetails';
 import { siteImages } from '~/data/images';
 
 const metadata = {
-  title: 'About Mr Sheraz',
+  title: 'About Mr Sheraz | Qualified Maths Teacher Manchester',
   description:
     'Learn about MathsTutorHelp and Mr Sheraz, a qualified and DBS-checked maths teacher providing GCSE, IGCSE, Functional Skills, A-Level maths tuition and beginner coding support in Manchester and online.',
 };
 
 const consultationBookingUrl = bookingLinks.freeConsultation;
-const tuitionUrl = getPermalink('/maths-tuition');
+const contactUrl = getPermalink('/contact');
 const safeguardingUrl = getPermalink('/safeguarding');
 const tutorImageUrl = siteImages.tutor;
+const whatsappMessage = encodeURIComponent(
+  "Hi Mr Sheraz, I'm looking for maths tuition. The student is in Year __ and needs help with __."
+);
+const whatsappUrl = `${contactDetails.whatsappHref}?text=${whatsappMessage}`;
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': 'https://mathstutorhelp.com/about/#mr-sheraz',
+  name: 'Mr Sheraz',
+  url: 'https://mathstutorhelp.com/about/',
+  image: 'https://mathstutorhelp.com/images/maths-tutor-sheraz-cheema.jpeg',
+  jobTitle: 'Qualified Maths Teacher and Computer Science Tutor',
+  worksFor: { '@id': 'https://mathstutorhelp.com/#mathstutorhelp' },
+  workLocation: {
+    '@type': 'Place',
+    name: 'Manchester and online',
+  },
+  knowsAbout: [
+    'GCSE Maths',
+    'IGCSE Maths',
+    'KS3 Maths',
+    'Functional Skills Maths',
+    'A-Level Maths',
+    'Online Maths Tuition',
+    'Python coding',
+  ],
+  sameAs: [
+    'https://www.facebook.com/mathstutorhelp',
+    'https://www.linkedin.com/in/mathstutorhelp/',
+    'https://www.instagram.com/mathstutorhelp/',
+  ],
+};
 ---
 
 <Layout metadata={metadata}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+
   <Hero
     tagline="About MathsTutorHelp"
     title="About Mr Sheraz and MathsTutorHelp"
-    subtitle="Qualified, DBS-checked maths and coding support for students in Manchester and online, with lessons built around clear explanations, confidence and steady progress."
+    subtitle="Qualified, DBS-checked maths tuition for students in Manchester and online, with lessons built around clear explanations, confidence and steady progress."
     actions={[
       {
         variant: 'primary',
-        text: ctaLabels.freeConsultation,
-        href: consultationBookingUrl,
-        icon: 'tabler:calendar-check',
+        text: 'Discuss Tuition Options',
+        href: contactUrl,
+        icon: 'tabler:message-circle',
       },
-      { text: 'View Tuition Options', href: tuitionUrl },
+      { text: ctaLabels.freeConsultation, href: consultationBookingUrl, icon: 'tabler:calendar-check' },
     ]}
   />
 
@@ -67,13 +102,21 @@ const tutorImageUrl = siteImages.tutor;
         I bring more than 15 years of experience across schools, colleges, international settings and private tuition.
         My background includes classroom maths, exam preparation and computer science teaching.
       </p>
+      <p>
+        MathsTutorHelp is designed for students who need more than another set of questions. Lessons give them time to
+        understand why a method works, practise it with support and build the confidence to use it independently.
+      </p>
+      <p>
+        My aim is to make lessons calm and purposeful. I identify the student’s current gaps, explain ideas in
+        manageable steps and use focused practice to help them make steady progress towards their goals.
+      </p>
     </Fragment>
   </Content>
 
   <Features
     title="My Teaching Approach"
     subtitle="Lessons are clear, patient and exam-aware without feeling rushed or overwhelming."
-    columns={3}
+    columns={2}
     items={[
       {
         title: 'Clear explanations',
@@ -103,74 +146,72 @@ const tutorImageUrl = siteImages.tutor;
   </Features>
 
   <Features
-    title="Who I Support"
-    subtitle="Support is available for students who need confidence, exam preparation or structured help with school topics."
+    title="Who I Support and How"
+    subtitle="Flexible support for different stages, goals and preferred ways of learning."
     columns={3}
     items={[
       {
-        title: 'Year 6 and transition',
-        description: 'Number confidence, problem solving and preparation for secondary school.',
+        title: 'Year 6 and KS3',
+        description: 'Number confidence, problem solving, secondary transition and strong foundations before GCSE.',
         icon: 'tabler:school',
       },
       {
-        title: 'KS3 Maths',
-        description: 'Years 7-9 foundations before GCSE.',
-        icon: 'tabler:books',
-      },
-      {
-        title: 'GCSE Maths',
-        description: 'Foundation and Higher support with exam practice.',
+        title: 'GCSE and IGCSE Maths',
+        description: 'Foundation and Higher topic support, worked examples, written methods and exam practice.',
         icon: 'tabler:certificate',
       },
       {
-        title: 'IGCSE Maths',
-        description: 'Topic revision, worked examples and exam technique.',
-        icon: 'tabler:calculator',
-      },
-      {
-        title: 'Functional Skills',
-        description: 'Practical maths for everyday use and assessments.',
+        title: 'Functional Skills and A-Level',
+        description: 'Practical assessment preparation plus Pure Maths, Statistics, Mechanics and problem solving.',
         icon: 'tabler:clipboard-check',
       },
       {
-        title: 'A-Level Maths',
-        description: 'Pure maths, statistics, mechanics and problem solving.',
-        icon: 'tabler:function',
+        title: 'One-to-one tuition',
+        description: 'Personalised support available online or in person from Levenshulme, Manchester.',
+        icon: 'tabler:user-check',
       },
       {
-        title: 'Coding',
-        description: 'Beginner Python and problem-solving support.',
-        icon: 'tabler:code',
+        title: 'Small GCSE groups',
+        description: `Foundation and Higher classes at ${courseSchedule.venue.name}, capped at ${courseSchedule.gcse.maximumStudents} students.`,
+        icon: 'tabler:users-group',
+      },
+      {
+        title: 'Online learning',
+        description: 'Live online tuition and structured course memberships for students learning from home.',
+        icon: 'tabler:device-laptop',
       },
     ]}
   />
 
-  <Content
-    isReversed
-    title="Local and Online Maths Tuition"
-    items={[
+  <Testimonials
+    tagline="Parent and Student Feedback"
+    title="What Families Say"
+    subtitle="Feedback shared with permission. Names are withheld for student and family privacy."
+    classes={{ container: 'py-8 md:py-10 lg:py-12' }}
+    testimonials={[
       {
-        title: 'One-to-one tuition',
-        description: 'Available online or in person from Levenshulme, Manchester.',
+        title: 'More confidence with exam questions',
+        testimonial:
+          'Mr Sheraz explains topics clearly and gives my child the confidence to try exam questions independently.',
+        name: 'GCSE parent',
+        job: 'Manchester',
       },
       {
-        title: 'In-person GCSE groups',
-        description: `Foundation and Higher classes are held at ${courseSchedule.venue.name} with a maximum of ${courseSchedule.gcse.maximumStudents} students.`,
+        title: 'Confidence improved',
+        testimonial:
+          'The lessons are structured and calm. We can see better confidence and stronger exam technique each week.',
+        name: 'Year 11 parent',
+        job: 'Levenshulme',
       },
       {
-        title: 'Online courses and coding',
-        description: 'Structured online memberships plus beginner Python support for ages 13–17.',
+        title: 'Helpful exam practice',
+        testimonial:
+          'I understand the methods much better now, especially when working through past-paper questions step by step.',
+        name: 'A-Level student',
+        job: 'Online tuition',
       },
     ]}
-    image={{
-      src: siteImages.gallery.classroom,
-      alt: 'Levenshulme classroom set up for small group maths tuition',
-    }}
-  >
-    <Fragment slot="content">
-      <p>Choose from one-to-one tuition, small GCSE groups or structured online support.</p>
-    </Fragment>
-  </Content>
+  />
 
   <Features
     title="Why Families Choose MathsTutorHelp"
@@ -196,18 +237,18 @@ const tutorImageUrl = siteImages.tutor;
   />
 
   <CallToAction
-    title="Ready to Discuss Maths or Coding Support?"
+    title="Ready to Discuss Maths Tuition?"
     subtitle="Tell me the student’s age or year group, current level, goals and preferred learning format. I will help you choose the right next step."
     actions={[
       {
         variant: 'primary',
-        text: ctaLabels.freeConsultation,
-        href: consultationBookingUrl,
-        icon: 'tabler:calendar-check',
+        text: 'Discuss Tuition Options',
+        href: contactUrl,
+        icon: 'tabler:message-circle',
       },
       {
-        text: 'WhatsApp MathsTutorHelp',
-        href: contactDetails.whatsappHref,
+        text: `WhatsApp me — ${contactDetails.phoneDisplay}`,
+        href: whatsappUrl,
         icon: 'tabler:brand-whatsapp',
       },
     ]}

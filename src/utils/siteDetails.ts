@@ -11,6 +11,7 @@ export const bookingLinks = {
   groupClassInterest: '/contact/',
   onlineCourseInterest: '/contact/',
   groupClassForm: 'https://hai-bl.com/onboarding/group-classes?brand=mathstutorhelp',
+  codingClassForm: 'https://hai-bl.com/onboarding/group-classes-computer?brand=mathstutorhelp',
   oneToOneForm: 'https://hai-bl.com/onboarding/one-to-one?brand=mathstutorhelp',
   onlineCourseForm: 'https://hai-bl.com/onboarding/brands/mathstutorhelp/online-course',
   studentLogin: 'https://hai-bl.com/auth/login',

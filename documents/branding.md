@@ -255,7 +255,7 @@ Use this order for important landing pages and campaigns:
 | `/gcse-revision-class-higher-manchester/`    | GCSE Higher class                   |
 | `/gcse-foundation-maths-tutoring-club-2025/` | GCSE Foundation class               |
 | `/online-tuition/`                           | Online courses and memberships      |
-| `/manchestersummercodingclub/`               | Summer coding course                |
+| `/manchester-coding-club/`                   | Manchester coding course            |
 | `/resources/`                                | Useful external learning resources  |
 | `/gallery/`                                  | Photographs and campaign artwork    |
 | `/blog/`                                     | Maths advice articles               |

@@ -6,45 +6,58 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import CourseGrid from '~/components/widgets/CourseGrid.astro';
 import MembershipComparison from '~/components/widgets/MembershipComparison.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
 import { onlineCourseCards, onlinePackages, registerInterestUrl } from '~/utils/onlineCourses';
 import { siteImages } from '~/data/images';
-import { bookingLinks, tuitionPrices } from '~/utils/siteDetails';
+import { bookingLinks, contactDetails, tuitionPrices } from '~/utils/siteDetails';
 
 const metadata = {
-  title: 'Online Course Memberships & Live Maths Tuition',
+  title: 'Online Maths Tuition & Courses',
   description:
     'Online course memberships and live tuition for Year 6, KS3, GCSE, IGCSE, Functional Skills and A-Level Maths, plus Maths Challenge and Python pathways.',
 };
 
-const coreMathsCourseOrder = [
-  'gcse-foundation-maths',
-  'gcse-higher-maths',
-  'ks3-maths',
-  'year-6-maths',
-  'functional-skills-maths',
-  'igcse-maths',
-  'a-level-maths',
-];
-const enrichmentCourseOrder = ['maths-challenge-problem-solving-club', 'coding-problem-solving'];
-const getCourses = (courseOrder: string[]) =>
-  courseOrder
-    .map((slug) => onlineCourseCards.find((course) => course.slug === slug))
-    .filter((course): course is (typeof onlineCourseCards)[number] => Boolean(course));
-const coreMathsCourses = getCourses(coreMathsCourseOrder);
-const enrichmentCourses = getCourses(enrichmentCourseOrder);
+const popularCourseSlugs = ['gcse-foundation-maths', 'gcse-higher-maths', 'ks3-maths', 'a-level-maths'];
+const popularCourses = onlineCourseCards.filter((course) => popularCourseSlugs.includes(course.slug));
+const moreCourses = onlineCourseCards.filter((course) => !popularCourseSlugs.includes(course.slug));
+const onlineEnquiryUrl = '/contact/?enquiry=online#general-enquiry';
+const liveTuitionEnquiryUrl = '/contact/?enquiry=one-to-one#general-enquiry';
+const whatsappMessage = encodeURIComponent(
+  "Hi Mr Sheraz, I'm interested in online maths tuition. The student is in Year __ and needs help with __."
+);
+const whatsappUrl = `${contactDetails.whatsappHref}?text=${whatsappMessage}`;
+const onlineServiceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  '@id': 'https://mathstutorhelp.com/online-tuition/#service',
+  name: 'Online Maths Tuition and Course Memberships',
+  url: 'https://mathstutorhelp.com/online-tuition/',
+  provider: { '@id': 'https://mathstutorhelp.com/#mathstutorhelp' },
+  areaServed: 'United Kingdom',
+  serviceType: 'Online maths tuition',
+  offers: [
+    { '@type': 'Offer', name: 'Bronze monthly membership', price: '19', priceCurrency: 'GBP' },
+    { '@type': 'Offer', name: 'Silver monthly membership', price: '49', priceCurrency: 'GBP' },
+    { '@type': 'Offer', name: 'Gold monthly membership', price: '89', priceCurrency: 'GBP' },
+    { '@type': 'Offer', name: 'Full course access', price: '99', priceCurrency: 'GBP' },
+    { '@type': 'Offer', name: 'Live one-to-one online tuition', price: '25', priceCurrency: 'GBP' },
+  ],
+};
 ---
 
 <Layout metadata={metadata}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(onlineServiceSchema)} />
+
   <Hero
     tagline="MathsTutorHelp Online"
-    title="Online Course Memberships & Live Maths Tuition"
+    title="Online Maths Tuition & Course Memberships"
     subtitle="Structured online courses for students who need regular guidance, weekly practice and expert tutor support — without committing to weekly one-to-one lessons."
     content={`<ul class="mx-auto mt-6 grid max-w-2xl gap-2 text-left text-sm font-medium text-gray-800 dark:text-slate-200 sm:text-base"><li>✓ One selected course or pathway level matched to the student</li><li>✓ New lessons released weekly to support steady progress</li><li>✓ Tutor-monitored progress in every package</li><li>✓ Live online tutor support included with Silver and Gold</li></ul>`}
     actions={[
       {
         variant: 'primary',
-        text: 'Register Interest',
-        href: registerInterestUrl,
+        text: 'Discuss Online Tuition',
+        href: onlineEnquiryUrl,
       },
       { text: 'Compare Plans', href: '#plans' },
     ]}
@@ -73,7 +86,7 @@ const enrichmentCourses = getCourses(enrichmentCourseOrder);
             A scheduled one-to-one lesson with Mr Sheraz, adapted in real time to the student’s questions and goals,
             priced separately at <strong>{tuitionPrices.online.display}</strong>.
           </p>
-          <a class="btn-secondary mt-5 justify-center" href={bookingLinks.freeConsultation}>Book a Free Consultation</a>
+          <a class="btn-secondary mt-5 justify-center" href={liveTuitionEnquiryUrl}>Discuss Live Tuition</a>
         </article>
         <article
           class="rounded-lg border border-primary/30 bg-white p-6 shadow-sm dark:border-teal-300 dark:bg-slate-800"
@@ -86,57 +99,89 @@ const enrichmentCourses = getCourses(enrichmentCourseOrder);
           <a class="btn-primary mt-5 justify-center" href="#plans">Compare Plans</a>
         </article>
       </div>
+
+      <div
+        class="mt-8 overflow-x-auto rounded-lg border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-slate-800"
+      >
+        <table class="w-full min-w-[760px] text-left text-sm">
+          <caption class="sr-only">Comparison of online maths tuition and course options</caption>
+          <thead class="bg-gray-50 text-gray-950 dark:bg-slate-950 dark:text-white">
+            <tr>
+              <th class="p-4 font-bold" scope="col">Option</th>
+              <th class="p-4 font-bold" scope="col">Best for</th>
+              <th class="p-4 font-bold" scope="col">Course access</th>
+              <th class="p-4 font-bold" scope="col">Live lessons</th>
+              <th class="p-4 font-bold" scope="col">Price</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200 text-muted dark:divide-gray-700 dark:text-slate-300">
+            <tr
+              ><th class="p-4 text-gray-950 dark:text-white" scope="row">Live one-to-one</th><td class="p-4"
+                >Personal teaching</td
+              ><td class="p-4">Not included</td><td class="p-4">Book as needed</td><td class="p-4 font-semibold"
+                >{tuitionPrices.online.display}</td
+              ></tr
+            >
+            <tr
+              ><th class="p-4 text-gray-950 dark:text-white" scope="row">Bronze</th><td class="p-4"
+                >Independent learners</td
+              ><td class="p-4">One course, weekly release</td><td class="p-4">None</td><td class="p-4 font-semibold"
+                >£19/month</td
+              ></tr
+            >
+            <tr
+              ><th class="p-4 text-gray-950 dark:text-white" scope="row">Silver</th><td class="p-4"
+                >Guided monthly support</td
+              ><td class="p-4">One course, weekly release</td><td class="p-4">One 55-minute lesson/month</td><td
+                class="p-4 font-semibold">£49/month</td
+              ></tr
+            >
+            <tr
+              ><th class="p-4 text-gray-950 dark:text-white" scope="row">Gold</th><td class="p-4"
+                >Regular personalised support</td
+              ><td class="p-4">One course, weekly release</td><td class="p-4">Two 55-minute lessons/month</td><td
+                class="p-4 font-semibold">£89/month</td
+              ></tr
+            >
+            <tr
+              ><th class="p-4 text-gray-950 dark:text-white" scope="row">Full course</th><td class="p-4"
+                >Self-paced learning</td
+              ><td class="p-4">One course immediately</td><td class="p-4">None</td><td class="p-4 font-semibold"
+                >£99 once</td
+              ></tr
+            >
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
+
+  <MembershipComparison packages={onlinePackages} enquiryUrl={registerInterestUrl} />
 
   <Features
     tagline="Three Simple Steps"
     title="How online support works"
-    subtitle="One selected course or pathway level. Weekly lesson release. Tutor-monitored progress. Flexible monthly learning."
+    subtitle="Choose the support level first, then I’ll help match the student to one suitable course or pathway level."
     columns={3}
     items={[
       {
-        title: '1. Choose a course',
-        description: 'Select the right maths course, Maths Challenge level or Python pathway level for the student.',
+        title: '1. Choose support',
+        description: 'Compare independent course access, monthly live guidance or one-to-one tuition.',
         icon: 'tabler:books',
       },
       {
-        title: '2. Learn week by week',
-        description:
-          'Lessons, worksheets and practice tasks are released gradually so students build confidence step by step.',
+        title: '2. Match the course',
+        description: 'I’ll help select one maths course or pathway level matched to the student’s stage and goals.',
         icon: 'tabler:list-check',
       },
       {
-        title: '3. Get the right support',
-        description: 'Every package includes tutor progress monitoring; Silver and Gold also include live lessons.',
+        title: '3. Learn week by week',
+        description:
+          'Membership lessons are released gradually, with monitoring in every plan and live help in Silver and Gold.',
         icon: 'tabler:video',
       },
     ]}
   />
-
-  <section class="bg-brand-soft py-12 dark:bg-slate-900">
-    <div class="mx-auto grid max-w-6xl gap-5 px-4 sm:px-6 md:grid-cols-2">
-      <article class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-slate-800">
-        <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Stay Focused</p>
-        <h2 class="mt-2 text-2xl font-bold text-gray-950 dark:text-white">Course access</h2>
-        <p class="mt-3 leading-7 text-muted dark:text-slate-300">
-          Each membership includes access to <strong>one selected course or pathway level</strong>. Students do not get
-          unlimited access to every course, keeping the work focused and matched to their level.
-        </p>
-        <p class="mt-3 font-semibold leading-7 text-gray-800 dark:text-slate-200">
-          Extra course access can be added if needed. The additional price is confirmed before it is added.
-        </p>
-      </article>
-      <article class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-slate-800">
-        <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Steady Progress</p>
-        <h2 class="mt-2 text-2xl font-bold text-gray-950 dark:text-white">Weekly lesson release</h2>
-        <p class="mt-3 leading-7 text-muted dark:text-slate-300">
-          Course content is released gradually to encourage regular practice and better understanding.
-          <strong>Bronze, Silver and Gold include weekly lesson release, not instant full-course access.</strong>
-        </p>
-      </article>
-    </div>
-  </section>
 
   <section class="bg-white py-14 dark:bg-slate-900">
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
@@ -151,17 +196,20 @@ const enrichmentCourses = getCourses(enrichmentCourseOrder);
       </div>
 
       <div class="mt-10 space-y-12">
-        <CourseGrid title="Core Maths Courses" courses={coreMathsCourses} />
-        <CourseGrid
-          title="Challenge & Enrichment Courses"
-          courses={enrichmentCourses}
-          featuredSlugs={['maths-challenge-problem-solving-club']}
-        />
+        <CourseGrid title="Popular Maths Courses" courses={popularCourses} />
+        <details class="rounded-lg border border-gray-200 bg-gray-50 p-5 dark:border-gray-700 dark:bg-slate-800">
+          <summary class="cursor-pointer text-lg font-bold text-primary">View all other online courses</summary>
+          <div class="mt-6">
+            <CourseGrid
+              title="More Maths, Challenge and Coding Courses"
+              courses={moreCourses}
+              featuredSlugs={['maths-challenge-problem-solving-club']}
+            />
+          </div>
+        </details>
       </div>
     </div>
   </section>
-
-  <MembershipComparison packages={onlinePackages} enquiryUrl={registerInterestUrl} />
 
   <section class="bg-white py-12 dark:bg-slate-900">
     <div class="mx-auto max-w-6xl px-4 sm:px-6">
@@ -199,6 +247,36 @@ const enrichmentCourses = getCourses(enrichmentCourseOrder);
     </div>
   </section>
 
+  <Testimonials
+    tagline="Student Feedback"
+    title="What Online Learners Say"
+    subtitle="Feedback shared with permission. Names are withheld for student and family privacy."
+    classes={{ container: 'py-8 md:py-10 lg:py-12' }}
+    testimonials={[
+      {
+        title: 'Helpful exam practice',
+        testimonial:
+          'I understand the methods much better now, especially when working through past-paper questions step by step.',
+        name: 'A-Level student',
+        job: 'Online tuition',
+      },
+      {
+        title: 'Clear explanations',
+        testimonial:
+          'Mr Sheraz explains topics clearly and gives my child the confidence to try exam questions independently.',
+        name: 'GCSE parent',
+        job: 'Manchester',
+      },
+      {
+        title: 'Confidence improved',
+        testimonial:
+          'The lessons are structured and calm. We can see better confidence and stronger exam technique each week.',
+        name: 'Year 11 parent',
+        job: 'Levenshulme',
+      },
+    ]}
+  />
+
   <section class="bg-white py-12 dark:bg-slate-900">
     <div class="mx-auto max-w-4xl px-4 sm:px-6">
       <div
@@ -224,7 +302,7 @@ const enrichmentCourses = getCourses(enrichmentCourseOrder);
           <div class="md:min-w-56 md:text-center">
             <p class="text-3xl font-extrabold text-primary">£99 one-off</p>
             <a class="btn-secondary mt-4 w-full justify-center" href={`${registerInterestUrl}&plan=full-course`}
-              >Ask About Full Course Access</a
+              >Discuss Full Course Access</a
             >
             <p class="mt-3 text-sm leading-6 text-muted dark:text-slate-400">
               The access period and included materials are confirmed before purchase.
@@ -234,46 +312,6 @@ const enrichmentCourses = getCourses(enrichmentCourseOrder);
       </div>
     </div>
   </section>
-
-  <Features
-    tagline="Trusted Support"
-    title="Why parents choose MathsTutorHelp"
-    columns={3}
-    items={[
-      {
-        title: 'Experienced tutor',
-        description: 'Support from Mr Sheraz, a qualified and DBS-checked Maths teacher and Computing tutor.',
-        icon: 'tabler:award',
-      },
-      {
-        title: 'Wide curriculum support',
-        description: 'Maths from Year 6 to A-Level, plus Maths Challenge and Python pathways.',
-        icon: 'tabler:books',
-      },
-      {
-        title: 'Clear learning structure',
-        description: 'Weekly structure to avoid rushed learning.',
-        icon: 'tabler:list-details',
-      },
-      {
-        title: 'Flexible each month',
-        description: 'Choose course access or add live lessons when needed.',
-        icon: 'tabler:calendar',
-      },
-      {
-        title: 'Online tutor access',
-        description: 'Live online lessons are included in Silver and Gold.',
-        icon: 'tabler:device-laptop',
-      },
-      {
-        title: 'Parent-friendly guidance',
-        description: 'The tutor reviews completed work and gives clear guidance on the next steps.',
-        icon: 'tabler:users',
-      },
-    ]}
-  >
-    <Fragment slot="bg"><div class="absolute inset-0 bg-white dark:bg-slate-900"></div></Fragment>
-  </Features>
 
   <FAQs
     title="Online Tuition FAQs"
@@ -326,21 +364,23 @@ const enrichmentCourses = getCourses(enrichmentCourseOrder);
       {
         title: 'How are under-18s supported safely?',
         description:
-          'A parent or guardian manages the initial enquiry and booking. Communication and any lesson-recording arrangements follow the safeguarding policy and are agreed before tuition begins.',
+          'A parent or guardian manages the initial enquiry and booking. Communication and any lesson-recording arrangements follow the <a class="underline" href="/safeguarding/">safeguarding policy</a> and are agreed before tuition begins.',
       },
     ]}
   />
 
   <CallToAction
-    title="Not Sure Which Package to Choose?"
+    title="Not Sure Which Online Option to Choose?"
     subtitle="Tell me what support your child needs and I will help you choose the right monthly option."
     actions={[
       {
         variant: 'primary',
-        text: 'Ask About Online Tuition',
-        href: registerInterestUrl,
-        icon: 'tabler:calendar-check',
+        text: 'Discuss Online Tuition',
+        href: onlineEnquiryUrl,
+        icon: 'tabler:message-circle',
       },
+      { text: `WhatsApp me — ${contactDetails.phoneDisplay}`, href: whatsappUrl, icon: 'tabler:brand-whatsapp' },
+      { text: 'Book a Free Consultation', href: bookingLinks.freeConsultation, icon: 'tabler:calendar-check' },
     ]}
   />
 </Layout>

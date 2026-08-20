@@ -4,30 +4,78 @@ import Hero from '~/components/widgets/Hero.astro';
 import Features from '~/components/widgets/Features.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
 import Image from '~/components/common/Image.astro';
 import { getPermalink } from '~/utils/permalinks';
-import { courseSchedule, ctaLabels, tuitionPrices } from '~/utils/siteDetails';
+import { bookingLinks, contactDetails, courseSchedule, ctaLabels, tuitionPrices } from '~/utils/siteDetails';
 import { siteImages } from '~/data/images';
 
 const metadata = {
-  title: 'Group Classes Levenshulme',
+  title: 'GCSE Maths Group Classes Levenshulme',
   description:
-    'MathsTutorHelp group classes in Levenshulme, Manchester, including GCSE Foundation, GCSE Higher and beginner Python coding during selected school holidays.',
+    'Small GCSE Maths group classes in Levenshulme, Manchester. Foundation and Higher tuition at Levenshulme High School with a maximum of seven students.',
 };
 
-const interestFormUrl = '/contact/?enquiry=group-maths';
+const interestFormUrl = bookingLinks.groupClassForm;
 const higherClassUrl = getPermalink('/gcse-revision-class-higher-manchester');
 const foundationClassUrl = getPermalink('/gcse-foundation-maths-classes-manchester');
 const contactUrl = getPermalink('/contact');
 const onlineTuitionUrl = getPermalink('/online-tuition');
-const codingCourseUrl = getPermalink('/manchestersummercodingclub');
+const codingCourseUrl = getPermalink('/manchester-coding-club');
+const whatsappMessage = encodeURIComponent(
+  "Hi Mr Sheraz, I'm interested in the GCSE Maths group classes. The student is in Year __, currently working at grade __ and targeting grade __."
+);
+const whatsappUrl = `${contactDetails.whatsappHref}?text=${whatsappMessage}`;
+const courseSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Course',
+      name: 'GCSE Foundation Maths Group Class',
+      description: 'Small-group GCSE Foundation Maths tuition for students working towards grades 4–5.',
+      provider: { '@id': 'https://mathstutorhelp.com/#mathstutorhelp' },
+      offers: { '@type': 'Offer', price: '20', priceCurrency: 'GBP', category: 'Pay as you go' },
+      hasCourseInstance: {
+        '@type': 'CourseInstance',
+        courseMode: 'onsite',
+        startDate: courseSchedule.gcse.foundationStartDateTime,
+        endDate: courseSchedule.gcse.foundationEndDateTime,
+        location: {
+          '@type': 'Place',
+          name: courseSchedule.venue.name,
+          address: courseSchedule.venue.address,
+        },
+      },
+    },
+    {
+      '@type': 'Course',
+      name: 'GCSE Higher Maths Group Class',
+      description: 'Small-group GCSE Higher Maths tuition for students working towards grades 6–9.',
+      provider: { '@id': 'https://mathstutorhelp.com/#mathstutorhelp' },
+      offers: { '@type': 'Offer', price: '20', priceCurrency: 'GBP', category: 'Pay as you go' },
+      hasCourseInstance: {
+        '@type': 'CourseInstance',
+        courseMode: 'onsite',
+        startDate: courseSchedule.gcse.higherStartDateTime,
+        endDate: courseSchedule.gcse.higherEndDateTime,
+        location: {
+          '@type': 'Place',
+          name: courseSchedule.venue.name,
+          address: courseSchedule.venue.address,
+        },
+      },
+    },
+  ],
+};
 ---
 
 <Layout metadata={metadata}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(courseSchema)} />
+
   <Hero
     tagline="MathsTutorHelp Group Classes"
-    title="Group Classes in Levenshulme"
-    subtitle={`New GCSE classes begin Sunday ${courseSchedule.gcse.startDate} at ${courseSchedule.venue.name}.<br /><strong>Foundation: ${courseSchedule.gcse.foundationTime} <span aria-hidden="true">|</span> Higher: ${courseSchedule.gcse.higherTime}</strong>`}
+    title="GCSE Maths Group Classes in Levenshulme"
+    subtitle={`New GCSE classes begin Sunday ${courseSchedule.gcse.startDate} at ${courseSchedule.venue.name}. Maximum ${courseSchedule.gcse.maximumStudents} students per class, and no payment is required to register interest.<br /><strong>Foundation: ${courseSchedule.gcse.foundationTime} <span aria-hidden="true">|</span> Higher: ${courseSchedule.gcse.higherTime}</strong>`}
     actions={[
       {
         variant: 'primary',
@@ -52,44 +100,48 @@ const codingCourseUrl = getPermalink('/manchestersummercodingclub');
         </p>
       </div>
 
-      <div class="mt-8 grid gap-5 lg:grid-cols-3">
-        <article
-          class="rounded-lg border border-gray-200 bg-brand-soft p-6 shadow-sm dark:border-gray-700 dark:bg-slate-800"
-        >
-          <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Grades 6-9</p>
-          <h3 class="mt-2 text-2xl font-bold text-gray-950 dark:text-white">GCSE Higher Maths Classes</h3>
-          <p class="mt-3 text-base leading-7 text-muted dark:text-slate-300">
-            For Higher Tier students who need topic revision, harder exam questions and clearer problem-solving methods.
-          </p>
-          <a class="btn-secondary mt-5 w-full justify-center sm:w-auto" href={higherClassUrl}>View Higher Class</a>
-        </article>
-
+      <div class="mt-8 grid gap-5 lg:grid-cols-2">
         <article
           class="rounded-lg border border-gray-200 bg-brand-soft p-6 shadow-sm dark:border-gray-700 dark:bg-slate-800"
         >
           <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Grades 4-5</p>
-          <h3 class="mt-2 text-2xl font-bold text-gray-950 dark:text-white">GCSE Foundation Maths Tutoring</h3>
+          <h3 class="mt-2 text-2xl font-bold text-gray-950 dark:text-white">GCSE Foundation Maths Class</h3>
           <p class="mt-3 text-base leading-7 text-muted dark:text-slate-300">
             For Foundation Tier students who need stronger core methods, steady practice and confidence with exam-style
             questions.
           </p>
-          <a class="btn-secondary mt-5 w-full justify-center sm:w-auto" href={foundationClassUrl}
-            >View Foundation Class</a
-          >
+          <ul class="mt-4 space-y-2 text-sm font-semibold text-gray-800 dark:text-slate-200">
+            <li>Sundays, {courseSchedule.gcse.foundationTime}</li>
+            <li>Starts {courseSchedule.gcse.startDate}</li>
+            <li>Maximum {courseSchedule.gcse.maximumStudents} students</li>
+            <li>{tuitionPrices.smallGroup.display} PAYG · {tuitionPrices.smallGroup.advanceBlock} block rate</li>
+            <li>{courseSchedule.venue.address}</li>
+          </ul>
+          <div class="mt-5 flex flex-col gap-3 sm:flex-row">
+            <a class="btn-primary justify-center" href={interestFormUrl}>Register Interest</a>
+            <a class="btn-secondary justify-center" href={foundationClassUrl}>View Class Details</a>
+          </div>
         </article>
 
         <article
           class="rounded-lg border border-gray-200 bg-brand-soft p-6 shadow-sm dark:border-gray-700 dark:bg-slate-800"
         >
-          <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Beginner coding</p>
-          <h3 class="mt-2 text-2xl font-bold text-gray-950 dark:text-white">Coding Group Class</h3>
+          <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Grades 6-9</p>
+          <h3 class="mt-2 text-2xl font-bold text-gray-950 dark:text-white">GCSE Higher Maths Class</h3>
           <p class="mt-3 text-base leading-7 text-muted dark:text-slate-300">
-            The next six-session beginner Python coding club is coming soon. Register your interest to receive the
-            confirmed start date and time.
+            For Higher Tier students who need topic revision, harder exam questions and clearer problem-solving methods.
           </p>
-          <a class="btn-secondary mt-5 w-full justify-center sm:w-auto" href={codingCourseUrl}
-            >View Coding Group Class</a
-          >
+          <ul class="mt-4 space-y-2 text-sm font-semibold text-gray-800 dark:text-slate-200">
+            <li>Sundays, {courseSchedule.gcse.higherTime}</li>
+            <li>Starts {courseSchedule.gcse.startDate}</li>
+            <li>Maximum {courseSchedule.gcse.maximumStudents} students</li>
+            <li>{tuitionPrices.smallGroup.display} PAYG · {tuitionPrices.smallGroup.advanceBlock} block rate</li>
+            <li>{courseSchedule.venue.address}</li>
+          </ul>
+          <div class="mt-5 flex flex-col gap-3 sm:flex-row">
+            <a class="btn-primary justify-center" href={interestFormUrl}>Register Interest</a>
+            <a class="btn-secondary justify-center" href={higherClassUrl}>View Class Details</a>
+          </div>
         </article>
       </div>
 
@@ -101,7 +153,10 @@ const codingCourseUrl = getPermalink('/manchestersummercodingclub');
           Send the student's year group, current grade and target grade, and MathsTutorHelp will suggest the best next
           step.
         </p>
-        <a class="btn-secondary mt-4 justify-center" href={contactUrl}>Ask About Classes</a>
+        <div class="mt-4 flex flex-col justify-center gap-3 sm:flex-row">
+          <a class="btn-secondary justify-center" href={contactUrl}>Ask About Classes</a>
+          <a class="btn-secondary justify-center" href={whatsappUrl}>WhatsApp me on {contactDetails.phoneDisplay}</a>
+        </div>
       </div>
     </div>
   </section>
@@ -113,7 +168,7 @@ const codingCourseUrl = getPermalink('/manchestersummercodingclub');
     items={[
       {
         title: 'Small groups',
-        description: 'Classes are capped so students can ask questions and receive individual attention.',
+        description: `Classes are capped at ${courseSchedule.gcse.maximumStudents} students so they can ask questions and receive individual attention.`,
         icon: 'tabler:users-group',
       },
       {
@@ -156,6 +211,36 @@ const codingCourseUrl = getPermalink('/manchestersummercodingclub');
     </Fragment>
   </Features>
 
+  <Testimonials
+    tagline="Parent and Student Feedback"
+    title="What Families Say"
+    subtitle="Feedback shared with permission. Names are withheld for student and family privacy."
+    classes={{ container: 'py-8 md:py-10 lg:py-12' }}
+    testimonials={[
+      {
+        title: 'More confidence with exam questions',
+        testimonial:
+          'Mr Sheraz explains topics clearly and gives my child the confidence to try exam questions independently.',
+        name: 'GCSE parent',
+        job: 'Manchester',
+      },
+      {
+        title: 'Confidence improved',
+        testimonial:
+          'The lessons are structured and calm. We can see better confidence and stronger exam technique each week.',
+        name: 'Year 11 parent',
+        job: 'Levenshulme',
+      },
+      {
+        title: 'Helpful exam practice',
+        testimonial:
+          'I understand the methods much better now, especially when working through past-paper questions step by step.',
+        name: 'A-Level student',
+        job: 'Online tuition',
+      },
+    ]}
+  />
+
   <FAQs
     title="Group Class FAQs"
     columns={2}
@@ -170,6 +255,23 @@ const codingCourseUrl = getPermalink('/manchestersummercodingclub');
           'Foundation is usually for students working towards grades 4-5. Higher is usually for students aiming for grades 6-9.',
       },
       {
+        title: 'When do the GCSE classes start?',
+        description: `Foundation and Higher classes begin on Sunday ${courseSchedule.gcse.startDate} and run on scheduled Sundays until ${courseSchedule.gcse.endDate}.`,
+      },
+      {
+        title: 'Where are the classes held?',
+        description: `${courseSchedule.venue.address}.`,
+      },
+      {
+        title: 'How many students are in each class?',
+        description: `Each GCSE Maths group is limited to a maximum of ${courseSchedule.gcse.maximumStudents} students.`,
+      },
+      {
+        title: 'Do I need to pay when registering?',
+        description:
+          'No payment is required to register your interest. MathsTutorHelp will contact you about availability and the next step.',
+      },
+      {
         title: 'Are online classes available instead?',
         description: `Students who prefer learning from home can view online tuition here: <a class="underline" href="${onlineTuitionUrl}">Online Maths Tuition</a>.`,
       },
@@ -182,7 +284,7 @@ const codingCourseUrl = getPermalink('/manchestersummercodingclub');
         <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Class Images</p>
         <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-950 dark:text-white">Group Class Flyers</h2>
       </div>
-      <div class="mt-8 grid gap-6 md:grid-cols-2">
+      <div class="mx-auto mt-8 max-w-2xl">
         <Image
           class="mx-auto w-full rounded-lg border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-slate-800"
           src={siteImages.gallery.gcseFlyer}
@@ -195,19 +297,18 @@ const codingCourseUrl = getPermalink('/manchestersummercodingclub');
           format="webp"
           loading="lazy"
         />
-        <Image
-          class="mx-auto w-full rounded-lg border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-slate-800"
-          src={siteImages.gallery.codingFlyer}
-          alt="MathsTutorHelp Manchester Coding Club flyer for students aged 13 to 17"
-          width={720}
-          height={874}
-          widths={[400, 720, 960]}
-          sizes="(max-width: 767px) 100vw, 50vw"
-          layout="responsive"
-          format="webp"
-          loading="lazy"
-        />
       </div>
+    </div>
+  </section>
+
+  <section class="bg-brand-soft py-8 dark:bg-slate-900 md:py-10">
+    <div class="mx-auto flex max-w-4xl flex-col items-center gap-4 px-4 text-center sm:px-6">
+      <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-teal-200">Also Available</p>
+      <h2 class="text-2xl font-bold text-gray-950 dark:text-white">Interested in beginner Python coding?</h2>
+      <p class="max-w-2xl text-muted dark:text-slate-300">
+        The Manchester Coding Club is a separate six-session course for ages {courseSchedule.coding.ages}.
+      </p>
+      <a class="btn-secondary justify-center" href={codingCourseUrl}>View Manchester Coding Club</a>
     </div>
   </section>
 
@@ -221,7 +322,7 @@ const codingCourseUrl = getPermalink('/manchestersummercodingclub');
         href: interestFormUrl,
         icon: 'tabler:calendar-check',
       },
-      { text: 'View Coding Group Class', href: codingCourseUrl },
+      { text: 'WhatsApp me', href: whatsappUrl, icon: 'tabler:brand-whatsapp' },
     ]}
   />
 </Layout>

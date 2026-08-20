@@ -16,12 +16,12 @@ export const headerData = {
       href: getPermalink('/gcse-classes'),
     },
     {
-      text: 'Online Courses',
+      text: 'Online Maths Courses',
       href: getPermalink('/online-tuition'),
     },
     {
       text: 'Coding',
-      href: getPermalink('/manchestersummercodingclub'),
+      href: getPermalink('/manchester-coding-club'),
     },
     {
       text: 'About',
@@ -51,14 +51,14 @@ export const footerData = {
         { text: 'Group Classes', href: getPermalink('/gcse-classes') },
         { text: 'GCSE Higher Class', href: getPermalink('/gcse-revision-class-higher-manchester') },
         { text: 'GCSE Foundation Class', href: getPermalink('/gcse-foundation-maths-classes-manchester') },
-        { text: 'Manchester Coding Club', href: getPermalink('/manchestersummercodingclub') },
+        { text: 'Manchester Coding Club', href: getPermalink('/manchester-coding-club') },
       ],
     },
     {
       title: 'Online & Coding',
       links: [
         { text: 'Online Course Memberships', href: getPermalink('/online-tuition') },
-        { text: 'Python Coding Classes', href: getPermalink('/manchestersummercodingclub') },
+        { text: 'Python Coding Classes', href: getPermalink('/manchester-coding-club') },
         { text: 'Student Login', href: bookingLinks.studentLogin },
       ],
     },

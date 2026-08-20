@@ -5,48 +5,69 @@ import Features from '~/components/widgets/Features.astro';
 import Content from '~/components/widgets/Content.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import Image from '~/components/common/Image.astro';
 import { getPermalink } from '~/utils/permalinks';
-import { courseSchedule, ctaLabels } from '~/utils/siteDetails';
+import { bookingLinks, contactDetails, courseSchedule } from '~/utils/siteDetails';
 import { siteImages } from '~/data/images';
 
 const metadata = {
-  title: 'Manchester Coding Club | Python Ages 13-17',
+  title: 'Manchester Coding Club | Python Ages 13–17',
   description:
-    'Manchester Python coding club for ages 13-17. Build real apps, boost problem-solving and learn Python with a qualified teacher in a calm small group.',
+    'Manchester Python coding club for ages 13–17. Build practical programs, strengthen problem-solving and learn Python with a qualified teacher in a calm small group.',
 };
 
-const interestFormUrl = 'https://hai-bl.com/onboarding/group-classes-computer?brand=mathstutorhelp';
-const contactUrl = getPermalink('/contact');
+const interestFormUrl = bookingLinks.codingClassForm;
+const contactUrl = '/contact/?enquiry=coding#general-enquiry';
 const onlineTuitionUrl = getPermalink('/online-tuition');
+const safeguardingUrl = getPermalink('/safeguarding');
+const whatsappMessage = encodeURIComponent(
+  "Hi Mr Sheraz, I'm interested in the Manchester Coding Club. The student is aged __ and has __ coding experience."
+);
+const whatsappUrl = `${contactDetails.whatsappHref}?text=${whatsappMessage}`;
+const courseSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  '@id': 'https://mathstutorhelp.com/manchester-coding-club/#course',
+  name: 'Manchester Python Coding Club for Ages 13–17',
+  description: metadata.description,
+  provider: { '@id': 'https://mathstutorhelp.com/#mathstutorhelp' },
+  educationalLevel: 'Beginner',
+  teaches: ['Python programming', 'Logical reasoning', 'Problem solving', 'Variables', 'Conditions', 'Loops'],
+  offers: {
+    '@type': 'Offer',
+    price: '100',
+    priceCurrency: 'GBP',
+    url: interestFormUrl,
+  },
+};
 ---
 
 <Layout metadata={metadata}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(courseSchema)} />
+
   <Hero
     tagline="Manchester Coding Club"
-    title="Learn Python Coding"
-    subtitle="A small-group Manchester coding course for ages 13-17. Build real apps, boost problem-solving and learn Python from scratch with a qualified teacher."
+    title="Manchester Python Coding Club for Ages 13–17"
+    subtitle="A small-group Manchester coding course for ages 13–17. Build practical Python programs, strengthen problem-solving and learn from scratch with a qualified teacher."
     actions={[
       {
         variant: 'primary',
-        text: ctaLabels.codingCourseInterest,
+        text: 'Join the Interest List',
         href: interestFormUrl,
         icon: 'tabler:code',
       },
-      { text: 'Contact MathsTutorHelp', href: contactUrl },
+      { text: `WhatsApp me — ${contactDetails.phoneDisplay}`, href: whatsappUrl, icon: 'tabler:brand-whatsapp' },
     ]}
     image={{
-      src: siteImages.gallery.codingFlyer,
-      alt: 'MathsTutorHelp Manchester Coding Club flyer for students aged 13 to 17',
-      width: 720,
-      height: 874,
-      style: 'object-fit:contain;max-height:520px;height:auto;max-width:100%;width:auto;background-color:#f4efd8',
+      src: siteImages.onlineLesson,
+      alt: 'Student learning with a laptop during an online lesson',
     }}
   />
 
   <Features
     title="Course Details"
-    subtitle="A practical six-week course for beginners who want to learn coding with calm, teacher-led support."
-    columns={3}
+    subtitle="A practical six-session course for beginners who want to learn coding with calm, teacher-led support."
+    columns={2}
     items={[
       {
         title: `Ages ${courseSchedule.coding.ages}`,
@@ -55,7 +76,7 @@ const onlineTuitionUrl = getPermalink('/online-tuition');
       },
       {
         title: 'Start date and time coming soon',
-        description: `${courseSchedule.coding.sessions} sessions at ${courseSchedule.venue.name}, Manchester. Register interest to receive the schedule when it is announced.`,
+        description: `${courseSchedule.coding.sessions} sessions at ${courseSchedule.venue.address}. Register interest to receive the schedule when it is announced.`,
         icon: 'tabler:clock',
       },
       {
@@ -68,16 +89,6 @@ const onlineTuitionUrl = getPermalink('/online-tuition');
         description:
           'Small-group teaching from a qualified maths teacher and computer science tutor gives students focused support while they build projects.',
         icon: 'tabler:users-group',
-      },
-      {
-        title: 'Laptop required',
-        description: 'Students use free Python software, with setup completed before the course starts.',
-        icon: 'tabler:device-laptop',
-      },
-      {
-        title: 'Final project',
-        description: 'Students build a complete Python program and receive a certificate.',
-        icon: 'tabler:award',
       },
     ]}
   />
@@ -104,8 +115,8 @@ const onlineTuitionUrl = getPermalink('/online-tuition');
       },
     ]}
     image={{
-      src: siteImages.onlinePackages,
-      alt: 'Python coding lesson on a laptop',
+      src: siteImages.tutor,
+      alt: 'Mr Sheraz teaching at a whiteboard',
     }}
   >
     <Fragment slot="content">
@@ -132,24 +143,9 @@ const onlineTuitionUrl = getPermalink('/online-tuition');
         icon: 'tabler:repeat',
       },
       {
-        title: 'Averages and percentages',
-        description: 'Projects can include mean, minimum, maximum, percentages and simple calculations.',
-        icon: 'tabler:percentage',
-      },
-      {
         title: 'Logical reasoning',
         description: 'Students practise if statements, loops and step-by-step decision making.',
         icon: 'tabler:bulb',
-      },
-      {
-        title: 'GCSE Maths thinking',
-        description: 'Coding supports careful working, accuracy and problem-solving habits.',
-        icon: 'tabler:certificate',
-      },
-      {
-        title: 'Real scenarios',
-        description: 'Students apply maths ideas inside quizzes, mini tools and simple app-style projects.',
-        icon: 'tabler:apps',
       },
     ]}
   >
@@ -159,9 +155,9 @@ const onlineTuitionUrl = getPermalink('/online-tuition');
   </Features>
 
   <Features
-    title="Requirements and Final Outcome"
-    subtitle="Students finish with a practical project and a clearer route for future coding progress."
-    columns={3}
+    title="Requirements, Outcome and Safeguarding"
+    subtitle="Clear practical arrangements for students and parents before the course begins."
+    columns={2}
     items={[
       {
         title: 'Laptop required',
@@ -184,14 +180,10 @@ const onlineTuitionUrl = getPermalink('/online-tuition');
         icon: 'tabler:award',
       },
       {
-        title: 'Future progression',
-        description: 'Students can move on to advanced coding, web development or GCSE Computer Science support.',
-        icon: 'tabler:route',
-      },
-      {
-        title: 'Small group support',
-        description: 'The group is capped at 7 students so learners can ask questions and get help.',
-        icon: 'tabler:users-group',
+        title: 'Parent-managed communication',
+        description:
+          'A parent or guardian manages the initial enquiry and booking. Course communication follows the safeguarding policy.',
+        icon: 'tabler:shield-check',
       },
     ]}
   />
@@ -220,20 +212,47 @@ const onlineTuitionUrl = getPermalink('/online-tuition');
         title: 'Is payment required to register interest?',
         description: 'No. Payment is not required to register interest.',
       },
+      {
+        title: 'How are students supported safely?',
+        description: `A parent or guardian manages the initial enquiry and booking. Communication follows the <a class="underline" href="${safeguardingUrl}">MathsTutorHelp safeguarding policy</a>.`,
+      },
     ]}
   />
 
+  <section class="bg-white py-8 dark:bg-slate-900 md:py-10">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6">
+      <details class="rounded-lg border border-gray-200 bg-brand-soft p-5 dark:border-gray-700 dark:bg-slate-800">
+        <summary class="cursor-pointer text-lg font-bold text-primary">View the Manchester Coding Club flyer</summary>
+        <div class="mx-auto mt-5 max-w-xl">
+          <Image
+            src={siteImages.gallery.codingFlyer}
+            alt="MathsTutorHelp Manchester Coding Club flyer for students aged 13 to 17"
+            width={720}
+            height={874}
+            widths={[400, 720]}
+            sizes="(max-width: 767px) 100vw, 576px"
+            layout="responsive"
+            format="webp"
+            loading="lazy"
+            class="w-full rounded-lg border border-gray-200 bg-white"
+          />
+        </div>
+      </details>
+    </div>
+  </section>
+
   <CallToAction
-    title="Only 7 Spaces Available"
-    subtitle="Register interest now for the Manchester Python coding club. No payment is required and the start date and time are coming soon."
+    title="Join the Manchester Coding Club Interest List"
+    subtitle="Register to receive the confirmed date and time first. No payment is required to join the interest list."
     actions={[
       {
         variant: 'primary',
-        text: ctaLabels.codingCourseInterest,
+        text: 'Join the Interest List',
         href: interestFormUrl,
         icon: 'tabler:send',
       },
-      { text: 'Contact MathsTutorHelp', href: contactUrl },
+      { text: `WhatsApp me — ${contactDetails.phoneDisplay}`, href: whatsappUrl, icon: 'tabler:brand-whatsapp' },
+      { text: 'Ask a Question', href: contactUrl, icon: 'tabler:message-circle' },
     ]}
   />
 </Layout>

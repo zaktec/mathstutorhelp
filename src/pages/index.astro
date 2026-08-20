@@ -6,6 +6,7 @@ import TrustStrip from '~/components/widgets/TrustStrip.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Testimonials from '~/components/widgets/Testimonials.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
 import { getPermalink } from '~/utils/permalinks';
 import { bookingLinks, courseSchedule, ctaLabels, tuitionPrices } from '~/utils/siteDetails';
 
@@ -17,18 +18,17 @@ const metadata = {
 };
 
 const consultationBookingUrl = bookingLinks.freeConsultation;
-const groupClassInterestUrl = '/contact/?enquiry=group-maths';
+const tuitionEnquiryUrl = getPermalink('/contact');
+const groupClassInterestUrl = bookingLinks.groupClassForm;
 const gcseClassesUrl = getPermalink('/gcse-classes');
-const foundationClassUrl = getPermalink('/gcse-foundation-maths-classes-manchester');
-const higherClassUrl = getPermalink('/gcse-revision-class-higher-manchester');
 const mathsTuitionUrl = getPermalink('/maths-tuition');
 const onlineTuitionUrl = getPermalink('/online-tuition');
-const codingCourseUrl = getPermalink('/manchestersummercodingclub');
+const codingCourseUrl = getPermalink('/manchester-coding-club');
 const compactSection = { container: 'py-8 md:py-10 lg:py-12' };
 ---
 
 <Layout metadata={metadata}>
-  <HomeHero interestUrl={groupClassInterestUrl} />
+  <HomeHero interestUrl={tuitionEnquiryUrl} />
 
   <TrustStrip
     id="why-parents-choose"
@@ -77,10 +77,6 @@ const compactSection = { container: 'py-8 md:py-10 lg:py-12' };
         <div class="flex flex-col gap-3 sm:flex-row md:flex-col">
           <a class="btn-primary justify-center" href={groupClassInterestUrl}>Register for GCSE Classes</a>
           <a class="btn-secondary justify-center" href={gcseClassesUrl}>View Group Classes</a>
-          <div class="flex justify-center gap-4 text-sm font-semibold">
-            <a class="text-primary underline" href={foundationClassUrl}>Foundation</a>
-            <a class="text-primary underline" href={higherClassUrl}>Higher</a>
-          </div>
         </div>
       </div>
     </div>
@@ -167,13 +163,58 @@ const compactSection = { container: 'py-8 md:py-10 lg:py-12' };
               courseSchedule.venue.name
             }, with a maximum of {courseSchedule.coding.maximumStudents} students. The course costs {
               courseSchedule.coding.price
-            }; the start date and time are coming soon, and no payment is required to register interest.
+            }. Join the interest list to receive the date and time first; no payment is required to register interest.
           </p>
         </div>
         <a class="btn-secondary justify-center" href={codingCourseUrl}>View Manchester Coding Club</a>
       </div>
     </div>
   </section>
+
+  <FAQs
+    id="frequently-asked-questions"
+    tagline="Common Questions"
+    title="Maths Tuition FAQs"
+    subtitle="Quick answers about lessons, classes and getting started."
+    columns={2}
+    classes={compactSection}
+    items={[
+      {
+        title: 'Where are in-person lessons held?',
+        description:
+          'Small GCSE group classes are held at Levenshulme High School, Manchester, M19 1FS. Contact me to discuss the location of one-to-one tuition.',
+        icon: 'tabler:map-pin',
+      },
+      {
+        title: 'How much does maths tuition cost?',
+        description: `In-person one-to-one tuition is ${tuitionPrices.oneToOne.display}, live online tuition is ${tuitionPrices.online.display}, and GCSE group classes are ${tuitionPrices.smallGroup.display}. The advance group-class block rate is ${tuitionPrices.smallGroup.advanceBlock}.`,
+        icon: 'tabler:currency-pound',
+      },
+      {
+        title: 'Which levels and exam boards do you support?',
+        description:
+          'Support is available for KS3, GCSE, IGCSE, Functional Skills and A-Level Maths, including Edexcel, AQA and OCR courses.',
+        icon: 'tabler:books',
+      },
+      {
+        title: 'Are online maths lessons available?',
+        description:
+          'Yes. Live one-to-one online lessons provide structured, personalised support from home, alongside self-study and supported membership options.',
+        icon: 'tabler:device-laptop',
+      },
+      {
+        title: 'How many students are in a group class?',
+        description: `GCSE Foundation and Higher classes have a maximum of ${courseSchedule.gcse.maximumStudents} students so teaching can remain focused and supportive.`,
+        icon: 'tabler:users-group',
+      },
+      {
+        title: 'How do I get started?',
+        description:
+          'Send an enquiry with the student’s year group, current level and goals. I’ll help you choose the most suitable option before you commit.',
+        icon: 'tabler:message-circle',
+      },
+    ]}
+  />
 
   <CallToAction
     classes={compactSection}
